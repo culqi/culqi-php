@@ -204,7 +204,7 @@ Una vez obtengas la respuesta de Culqi en tu página web es necesario que la env
 
 ## Descrifrando la respuesta
 
-Para descifrar el JSON puedes utilizar la librería de Culqi.
+Una vez recibida la respuesta de Culqi, puedes descifrarla utilizando la librería de Culqi.
 
 ```php
 <?php
