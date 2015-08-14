@@ -18,9 +18,7 @@ Debe estar instalado el módulo en el servidor:
 > Puedes importar en tu clase.
 
 ```php
-import com.culqi.sdk.Culqi;
-import com.culqi.sdk.Pago;
-
+require 'culqi_src.php';
 ```
 
 > Para configurar la librería de Culqi debes hacer lo siguiente en tu clases.
@@ -51,6 +49,10 @@ servidorBase | URL de Culqi a la que te conectarás.
 ```php
 <?php
 require 'culqi_src.php';
+
+Culqi::$llaveSecreta = "llave_secreta";
+Culqi::$codigoComercio = "codigo_comercio";
+Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
 
@@ -132,7 +134,15 @@ Token | token | Token de la transacción. | AN
 
 `AN = Alfanumérico` 
 
-## Integrando el Boton de Pago
+## Integrando el Boton de Pago Web
+
+Para empezar, agrega el siguiente código en JavaScript a tu página web:
+
+`<script type="text/javascript" src="https://integ-pago.culqi.com/culqi.js"></script>`
+
+Usar una copia local no está soportado, y puede resultar en errores visibles por el usuario.
+
+Esta integración te permite crear un botón customizado y pasar un token de Culqi a un callback (Función `Culqi()`) en Javacript. Puedes usar cualquier elemento HTML o evento JavaScript para abrir el formulario de pagos, y es independiente del lenguaje de programación que uses en tu backend.
 
 > Puedes usar Culqi.js de la siguiente manera usando Jquery.
 
@@ -172,15 +182,6 @@ checkout.cerrar();
 
 </script>
 ```
-
-
-Para empezar, agrega el siguiente código en JavaScript a tu página web:
-
-`<script type="text/javascript" src="https://integ-pago.culqi.com/culqi.js"></script>`
-
-Usar una copia local no está soportado, y puede resultar en errores visibles por el usuario.
-
-Esta integración te permite crear un botón customizado y pasar un token de Culqi a un callback (Función `Culqi()`) en Javacript. Puedes usar cualquier elemento HTML o evento JavaScript para abrir el formulario de pagos, y es independiente del lenguaje de programación que uses en tu backend.
 
 ###Parametros para configurar el boton de pago
 
@@ -263,7 +264,7 @@ País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar
 
 `AN = Alfanumérico` 
 
-## Consulta una venta
+# Consulta una venta
 
 ```php
 <?php
@@ -325,7 +326,7 @@ Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
 Código de Respuesta | codigo_respuesta | El código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | El mensaje de respuesta. | AN
 
-## Anula una venta
+# Anula una venta
 
 ```php
 <?php
