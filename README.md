@@ -1,25 +1,20 @@
-# Culqi-PHP
+# Usando el Botón de Pago Web y PHP
 
 ![Status](https://travis-ci.org/culqi/Culqi-PHP.svg)
 
-### Usando el Botón de Pago y PHP
+## Requerimientos
 
-## Importando la libreria
+PHP 5.3.3 o posterior y [Mcrypt](http://php.net/manual/es/book.mcrypt.php)
 
-### PHP
+## Instalación
 
-Debe estar instalado el módulo en el servidor:
-
-[Mcrypt](http://php.net/manual/es/book.mcrypt.php)
-
-
-## Configurando la libreria
-
-> Puedes importar en tu clase.
+> Puedes importar la [última versión.]()
 
 ```php
 require 'culqi_src.php';
 ```
+
+## Configuración
 
 > Para configurar la librería de Culqi debes hacer lo siguiente en tu clases.
 
@@ -44,7 +39,39 @@ servidorBase | URL de Culqi a la que te conectarás.
  | `Entorno de Producción: la URL es: https://pago.culqi.com`
 
 
-## Creando una venta
+## Uso
+
+###Creando una venta
+
+Para crear una nueva venta deberás configurar la información de la misma con los siguientes parámetros.
+
+### Obligatorios
+
+Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
+--------- | --------- | ------- | ----------- | -----------
+Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
+Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
+Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
+Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
+País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
+Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
+Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
+Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
+
+`AN = Alfanumérico` 
+`N = Numérico` 
+
+### Opcionales
+
+Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
+--------- | --------- | ------- | ----------- | -----------
+Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
+
+`N = Numérico` 
+
+
+<aside class="notice">
+Para cambiar el tiempo de la vigencia, tienes que contactarte con Culqi.</aside>
 
 ```php
 <?php
@@ -83,37 +110,6 @@ echo $e->getMessage()."\n";
 ```
 
 > El parámetro PARAM_INFO_VENTA de la información de respuesta debe de ser usada para configurar el botón de pago de Culqi, explicado a continuación.
-
-
-Para crear una nueva venta deberás configurar la información de la misma con los siguientes parámetros.
-
-### Obligatorios
-
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
-Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
-Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
-Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
-País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
-Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
-Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
-Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
-
-`AN = Alfanumérico` 
-`N = Numérico` 
-
-### Opcionales
-
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
-
-`N = Numérico` 
-
-
-<aside class="notice">
-Para cambiar el tiempo de la vigencia, tienes que contactarte con Culqi.</aside>
 
 <aside class="success">
 La respuesta que obtendrás será una cadena de texto cifrada.</aside>
