@@ -8,7 +8,7 @@ PHP 5.3.3 o posterior, [Mcrypt](http://php.net/manual/es/book.mcrypt.php) y [CUR
 
 ## Instalación
 
-> Puedes importar la [última versión](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php) de la linbrería de PHP desarrollada por Culqi.
+> Puedes importar la [última versión](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php) de la librería de PHP desarrollada por Culqi.
 
 ```php
 require 'culqi.php';
@@ -16,7 +16,7 @@ require 'culqi.php';
 
 ## Configuración
 
-> Para empezar debes de configurar la librería de Culqi:
+> Para empezar debes de configurar la librería de Culqi en tu proyecto:
 
 ```php
 <?php
@@ -26,7 +26,7 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 ?>
 ```
 
-> Asegurate de reemplazar llave_secreta y codigo_comercio por la llave secreta y el código de comercio que estás integrando.
+> Asegurate de reemplazar los valores "llave_secreta" y "codigo_comercio" por el valor llave secreta y el código de comercio que estás integrando, y que puedes obtener de Culqi.
 
 Estos son los parámetros de configuración:
 
@@ -63,8 +63,8 @@ Pago::PARAM_NUM_PEDIDO => "tlvh20150727-1",
 //Moneda de la venta ("PEN" O "USD")
 Pago::PARAM_MONEDA => "PEN",
 
-//Monto de la venta
-Pago::PARAM_MONTO => "123",
+//Monto de la venta (ejem: 10.25, va sin el punto decimal)
+Pago::PARAM_MONTO => "1025",
 
 //Monto de la venta
 Pago::PARAM_DESCRIPCION => "123",
@@ -96,7 +96,7 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-> El parámetro PARAM_INFO_VENTA de la información de respuesta debe de ser usada para configurar el botón de pago de Culqi, explicado a continuación.
+> El parámetro PARAM_INFO_VENTA contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el botón de pago de Culqi, explicado a continuación.
 
 ### Parámetros obligatorios
 
@@ -121,7 +121,7 @@ Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
 
 `N = Numérico` 
-`El tiempo de la vigencia es por defecto 10 minutos, para poder cambiarlo contáctate con Culqi.` 
+`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi.` 
 
 
 La respuesta que obtendrás será una cadena cifrada que contiene un JSON.
@@ -215,7 +215,7 @@ Es de suma importancia que envíes la respuesta a tus servidores para descrifrar
 
 ## Enviando la respuesta tu servidor
 
-Una vez obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para descifrarla y poder mostrar al usuario el resultado de la transacción.
+Una vez que obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para decifrarla y poder mostrar al usuario el resultado de la transacción.
 
 ```javascript
 $.ajax({
@@ -276,10 +276,10 @@ echo "Código Autorización" . respuesta["codigo_autorizacion"];
 //Marca de la tarjeta
 echo "Marca" . respuesta["marca"];
 
-//Emisor de la tarjeta
+//Emisor de la tarjeta (referencial)
 echo "Emisor" . respuesta["emisor"];
 
-//País de la tarjeta
+//País de la tarjeta (referencial)
 echo "País Tarjeta" . respuesta["pais_tarjeta"];
 
 }
