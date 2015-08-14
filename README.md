@@ -43,35 +43,7 @@ servidorBase | URL de Culqi a la que te conectarás.
 
 ###Creando una venta
 
-Para crear una nueva venta deberás configurar la información de la misma con los siguientes parámetros.
-
-### Obligatorios
-
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
-Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
-Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
-Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
-País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
-Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
-Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
-Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
-
-`AN = Alfanumérico` 
-`N = Numérico` 
-
-### Opcionales
-
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
-
-`N = Numérico` 
-
-
-<aside class="notice">
-Para cambiar el tiempo de la vigencia, tienes que contactarte con Culqi.</aside>
+Para crear una nueva venta deberás configurar la información de la misma.
 
 ```php
 <?php
@@ -111,12 +83,44 @@ echo $e->getMessage()."\n";
 
 > El parámetro PARAM_INFO_VENTA de la información de respuesta debe de ser usada para configurar el botón de pago de Culqi, explicado a continuación.
 
-<aside class="success">
-La respuesta que obtendrás será una cadena de texto cifrada.</aside>
+### Parámetros obligatorios
 
-Esta respuesta tiene los siguientes parámetros:
+Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
+--------- | --------- | ------- | ----------- | -----------
+Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
+Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
+Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
+Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
+País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
+Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
+Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
+Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
 
-### Respuesta
+`AN = Alfanumérico` 
+`N = Numérico` 
+
+### Parámetros opcionales
+
+Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
+--------- | --------- | ------- | ----------- | -----------
+Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
+
+`N = Numérico` 
+`El tiempo de la vigencia es por defecto 10 minutos, para poder cambiarlo contáctate con Culqi.` 
+
+
+La respuesta que obtendrás será una cadena cifrada que contiene un JSON.
+
+```json
+{"info_venta":"dkladkldlakdmdaaldklakd",
+ "codigo_comercio":"testc101",
+ "nro_pedido":"testc101",
+ "codigo_respuesta":"OK",
+ "mensaje_respuesta":"Venta Creada",
+ "token":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
+```
+
+### Parámetros de la respuesta
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
@@ -126,7 +130,6 @@ Número de Pedido | nro_pedido | Número de orden de la venta. | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta. | AN
 Token | token | Token de la transacción. | AN
-
 
 `AN = Alfanumérico` 
 
@@ -201,6 +204,8 @@ Una vez obtengas la respuesta de Culqi en tu página web es necesario que la env
 
 ## Descrifrando la respuesta
 
+Para descifrar el JSON puedes utilizar la librería de Culqi.
+
 ```php
 <?php
 Culqi.llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
@@ -242,8 +247,7 @@ echo "País Tarjeta" . respuesta["pais_tarjeta"];
 }
 ?>
 ```
-
-Para descifrar el JSON puedes utilizar la librería de Culqi y obtendrás un JSON que contendrá los siguientes parámetros:
+Obtendrás un JSON que contendrá los siguientes parámetros:
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | ------- | ----------- | -----------
@@ -261,6 +265,8 @@ País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar
 `AN = Alfanumérico` 
 
 # Consulta una venta
+
+Para consultar una venta debes de enviar el token de la transacción usando la librería de Culqi.
 
 ```php
 <?php
@@ -301,9 +307,6 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-
-Para consultar una venta debes de enviar el token de la transacción usando la librería de Culqi.
-
 ### Parametros de envio
 
 Nombre | Parámetro| Descripción | Tipo 
@@ -323,6 +326,8 @@ Código de Respuesta | codigo_respuesta | El código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | El mensaje de respuesta. | AN
 
 # Anula una venta
+
+Para anular una venta debes de enviar el token de la transacción usando la librería de Culqi.
 
 ```php
 <?php
@@ -360,8 +365,6 @@ echo $e->getMessage()."\n";
 ?>
 
 ```
-
-Para anular una venta debes de enviar el token de la transacción usando la librería de Culqi.
 
 ### Parametros de envio
 
