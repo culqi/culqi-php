@@ -8,7 +8,7 @@ PHP 5.3.3 o posterior, [Mcrypt](http://php.net/manual/es/book.mcrypt.php) y [CUR
 
 ## Instalación
 
-> Puedes importar la [última versión.]()
+> Puedes importar la [última versión.](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php)
 
 ```php
 require 'culqi.php';
