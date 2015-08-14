@@ -57,18 +57,33 @@ try {
 
 $data = Pago::crearDatospago(array(
 
+//Numero de pedido de la venta
 Pago::PARAM_NUM_PEDIDO => "tlvh20150727-1",
+
+//Moneda de la venta ("PEN" O "USD")
 Pago::PARAM_MONEDA => "PEN",
+
+//Monto de la venta
 Pago::PARAM_MONTO => "123",
+
+//Monto de la venta
 Pago::PARAM_DESCRIPCION => "123",
+
+//Monto de la venta
 Pago::PARAM_COD_PAIS => "123",
+
+//Monto de la venta
 Pago::PARAM_CIUDAD => "123",
+
+//Dirección del cliente
 Pago::PARAM_DIRECCION => "123",
+
+//Número de teléfono del cliente
 Pago::PARAM_NUM_TEL => "123",
-Pago::PARAM_VIGENCIA => "123",
 
 ));
 
+//Respuesta de la creación de la venta. Cadena cifrada.
 $informacionVenta = $data[Pago::PARAM_INFO_VENTA];
 
 echo "Información de la venta: $informacionVenta";
