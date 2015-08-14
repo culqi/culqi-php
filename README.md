@@ -182,7 +182,7 @@ checkout.cerrar();
 </script>
 ```
 
-###Parametros para configurar el boton de pago
+###Parámetros para configurar el botón de pago
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
@@ -307,14 +307,14 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-### Parametros de envio
+### Parámetros de envio
 
 Nombre | Parámetro| Descripción | Tipo 
 --------- | ----------- | ----------- | -----------
 Token | token | El código de la transacción que quieres consultar. | AN
 
 
-### Parametros de respuesta
+### Parámetros de respuesta
 
 Nombre | Parámetro| Descripción | Tipo 
 --------- | --------- | ----------- | -----------
@@ -366,14 +366,14 @@ echo $e->getMessage()."\n";
 
 ```
 
-### Parametros de envio
+### Parámetros de envio
 
 Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
 token | AN | El código de la transacción que quieres anular.
 
 
-### Parametros de la respuesta
+### Parámetros de la respuesta
 
 Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
