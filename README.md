@@ -11,7 +11,7 @@ PHP 5.3.3 o posterior, [Mcrypt](http://php.net/manual/es/book.mcrypt.php) y [CUR
 > Puedes importar la [última versión.]()
 
 ```php
-require 'culqi_src.php';
+require 'culqi.php';
 ```
 
 ## Configuración
@@ -201,6 +201,29 @@ Es de suma importancia que envíes la respuesta a tus servidores para descrifrar
 ## Enviando la respuesta tu servidor
 
 Una vez obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para descifrarla y poder mostrar al usuario el resultado de la transacción.
+
+```javascript
+$.ajax({
+            url: "/respuesta",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(
+                    {
+                        'respuesta' : checkout.respuesta
+                    }),
+            success: function(data){
+                var obj = JSON.parse(data);
+                var codigo_respuesta_venta = obj["codigo_respuesta"];
+                if (codigo_respuesta_venta == "OK") {
+                    checkout.cerrar();
+                } else {
+                    checkout.cerrar();
+                }
+            },
+            error:function( ){
+            }
+        });
+```
 
 ## Descrifrando la respuesta
 
