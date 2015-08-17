@@ -14,6 +14,12 @@
 ```php
 require 'culqi.php';
 ```
+## Comercio de prueba
+
+Puedes usar esta información de un comercio de pruebaspara probar la integración a Culqi.
+
+Código de comercio de pruebas: xdemo
+Llave del comercio de pruebas: Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=
 
 ## Configuración
 
