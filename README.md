@@ -97,7 +97,7 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-> El parámetro PARAM_INFO_VENTA contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el botón de pago de Culqi, explicado a continuación.
+> El parámetro PARAM_INFO_VENTA contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el botón de pago WEB en la página del comercio. , explicado a continuación.
 
 ### Parámetros obligatorios
 
