@@ -18,7 +18,7 @@ require 'culqi.php';
 
 ## Configuración
 
-> Para empezar debes de configurar la librería en tu proyecto con las variables de inicialización:
+Para empezar debes de configurar la librería en tu proyecto con las variables de inicialización:
 
 ```php
 <?php
@@ -28,14 +28,14 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 ?>
 ```
 
-> Asegurate de reemplazar los valores "llave_secreta" y "codigo_comercio" por los que obtuviste de Culqi. El valor de la variable "servidorBase", no la cambies, pues esta apuntando al Entorno de integración de Culqi.
+> Asegurate de reemplazar los valores "llave_secreta" y "codigo_comercio" por los que obtuviste de Culqi. El valor de la variable "servidorBase", esta apuntando por defecto al Entorno de integración de Culqi.
 
 Estos son los parámetros de configuración:
 
 Parámetro | Descripción
 --------- | -----------
 llaveSecreta | Llave secreta del comercio
-codigoComercio | Código del comercio.
+codigoComercio | Código del comercio asignado por Culqi.
 servidorBase | URL de Culqi a la que te conectarás. 
  | `Entorno de Integración la URL es: https://integ-pago.culqi.com` 
  | `Entorno de Producción: la URL es: https://pago.culqi.com`
