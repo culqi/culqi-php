@@ -148,7 +148,7 @@ Token | token | Token de la transacción. | AN
 
 `AN = Alfanumérico` 
 
-## Integrando el Boton de Pago Web
+## Integrando el Botón de Pago Web
 
 Para empezar, agrega el siguiente código en JavaScript a tu página web:
 
