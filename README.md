@@ -1,7 +1,5 @@
 # Usando el Botón de Pago Web y PHP
 
-![Status](https://travis-ci.org/culqi/Culqi-PHP.svg)
-
 ## Requerimientos
 
 * PHP 5.3.3 o posterior.
