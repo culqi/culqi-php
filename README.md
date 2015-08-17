@@ -346,7 +346,7 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-### Parámetros de envio
+### Parámetros de envío
 
 Nombre | Parámetro| Descripción | Tipo 
 --------- | ----------- | ----------- | -----------
@@ -405,7 +405,7 @@ echo $e->getMessage()."\n";
 
 ```
 
-### Parámetros de envio
+### Parámetros de envío
 
 Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
