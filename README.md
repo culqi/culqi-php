@@ -18,8 +18,9 @@ require 'culqi.php';
 
 Puedes usar esta información de un comercio de pruebaspara probar la integración a Culqi.
 
-Código de comercio: *xdemo*
-Llave del comercio: *Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=*
+Código de comercio: **xdemo**
+
+Llave del comercio: **Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=**
 
 ## Configuración
 
