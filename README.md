@@ -266,7 +266,7 @@ echo "Código Respuesta" . $respuesta["codigo_respuesta"];
 echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta"];
 
 //ID de la Transacción
-echo "ID Transacción" . respuesta["id_transaccion"];
+echo "ID Transacción" . $respuesta["id_transaccion"];
 
 //Código de referencia
 echo "Código Referencia" . $respuesta["codigo_referencia"];
