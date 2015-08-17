@@ -49,7 +49,7 @@ Para crear una nueva venta deberás configurar la información de la misma.
 
 ```php
 <?php
-require 'culqi_src.php';
+require 'culqi.php';
 
 Culqi::$llaveSecreta = "llave_secreta";
 Culqi::$codigoComercio = "codigo_comercio";
@@ -68,20 +68,20 @@ Pago::PARAM_MONEDA => "PEN",
 //Monto de la venta (ejem: 10.25, va sin el punto decimal)
 Pago::PARAM_MONTO => "1025",
 
-//Monto de la venta
+//Descripción de la venta
 Pago::PARAM_DESCRIPCION => "123",
 
-//Monto de la venta
-Pago::PARAM_COD_PAIS => "123",
+//Código del país del cliente Ej. PE, US
+Pago::PARAM_COD_PAIS => "PE",
 
-//Monto de la venta
-Pago::PARAM_CIUDAD => "123",
+//Ciudad del cliente
+Pago::PARAM_CIUDAD => "Lima",
 
 //Dirección del cliente
-Pago::PARAM_DIRECCION => "123",
+Pago::PARAM_DIRECCION => "Avenida Lima 2132, Miradores",
 
 //Número de teléfono del cliente
-Pago::PARAM_NUM_TEL => "123",
+Pago::PARAM_NUM_TEL => "992765900",
 
 ));
 
@@ -310,7 +310,7 @@ Para consultar una venta debes de enviar el token de la transacción usando la l
 
 ```php
 <?php
-require 'culqi_src.php';
+require 'culqi.php';
 
 Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
 Culqi::$codigoComercio = "testc101";
@@ -371,7 +371,7 @@ Para anular una venta debes de enviar el token de la transacción usando la libr
 
 ```php
 <?php
-require 'culqi_src.php';
+require 'culqi.php';
 
 Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
 Culqi::$codigoComercio = "testc101";
