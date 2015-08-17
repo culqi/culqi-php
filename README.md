@@ -252,28 +252,28 @@ Culqi.llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
 Culqi.codigoComercio = "testc101";
 
 //Retorna el JSON Descifrado
-return Culqi.decifrar(respuestaCifrada.getRespuesta());
+$respuesta = Culqi.decifrar(respuestaCifrada.getRespuesta());
 
 //Codigo del comercio
-echo "Código Comercio" . respuesta["codigo_comercio"];
+echo "Código Comercio" . $respuesta["codigo_comercio"];
 
 //Número de pedido
-echo "Número de pedido" . respuesta["nro_pedido"];
+echo "Número de pedido" . $respuesta["nro_pedido"];
 
 //Código de respuesta
-echo "Código Respuesta" . respuesta["codigo_respuesta"];
+echo "Código Respuesta" . $respuesta["codigo_respuesta"];
 
 //Mensaje de respuesta
-echo "Mensaje Respuesta" . respuesta["mensaje_respuesta"];
+echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta"];
 
 //ID de la Transacción
 echo "ID Transacción" . respuesta["id_transaccion"];
 
 //Código de referencia
-echo "Código Referencia" . respuesta["codigo_referencia"];
+echo "Código Referencia" . $respuesta["codigo_referencia"];
 
 //Código de autorización
-echo "Código Autorización" . respuesta["codigo_autorizacion"];
+echo "Código Autorización" . $respuesta["codigo_autorizacion"];
 
 //Marca de la tarjeta
 echo "Marca" . respuesta["marca"];
