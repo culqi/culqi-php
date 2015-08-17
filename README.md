@@ -46,6 +46,33 @@ servidorBase | URL de Culqi a la que te conectarás.
 
 Para crear una nueva venta deberás configurar la información de la misma.
 
+### Parámetros obligatorios
+
+Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
+--------- | --------- | ------- | ----------- | -----------
+Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
+Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
+Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
+Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
+País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
+Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
+Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
+Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
+
+`AN = Alfanumérico` 
+`N = Numérico` 
+
+### Parámetros opcionales
+
+Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
+--------- | --------- | ------- | ----------- | -----------
+Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
+
+`N = Numérico` 
+`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi.` 
+
+Ejemplo de código para crear la venta:
+
 ```php
 <?php
 require 'culqi.php';
@@ -86,8 +113,13 @@ Pago::PARAM_NUM_TEL => "992765900",
 
 //Respuesta de la creación de la venta. Cadena cifrada.
 $informacionVenta = $data[Pago::PARAM_INFO_VENTA];
-
 echo "Información de la venta: $informacionVenta";
+
+echo "Codigo de Comercio: " . $respuesta["codigo_comercio"];
+echo "Número de pedido: " . $respuesta["nro_pedido"];
+echo "Código de respuesta: " . $respuesta["codigo_respuesta"];
+echo "Mensaje de respuesta: " . $respuesta["mensaje_respuestaa"];
+echo "Token de la transacción: " . $respuesta["token"];
 
 } catch (InvalidParamsException $e) {
 
@@ -98,31 +130,6 @@ echo $e->getMessage()."\n";
 ```
 
 > El parámetro PARAM_INFO_VENTA contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el botón de pago WEB en la página del comercio. , explicado a continuación.
-
-### Parámetros obligatorios
-
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
-Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
-Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
-Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
-País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
-Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
-Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
-Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
-
-`AN = Alfanumérico` 
-`N = Numérico` 
-
-### Parámetros opcionales
-
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
-
-`N = Numérico` 
-`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi.` 
 
 
 La respuesta que obtendrás será una cadena cifrada que contiene un JSON.
@@ -151,7 +158,7 @@ Token | token | Token de la transacción. | AN
 
 ## Integrando el Botón de Pago Web
 
-Para empezar, agrega el siguiente código en JavaScript a tu página web:
+Para empezar, agrega el siguiente código en JavaScript en la página web donde tendrás el Botón de Pago Web:
 
 `<script type="text/javascript" src="https://integ-pago.culqi.com/culqi.js"></script>`
 
@@ -203,16 +210,16 @@ checkout.cerrar();
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
 Código de Comercio | codigo_comercio | Código de comercio en Culqi. | AN
-Información Venta | informacion_venta | Información de venta cifrada.  | AN
+Información Venta | informacion_venta | Información de la venta cifrada.  | AN
 
 Es muy importante que entiendas que el atributo `codigo_comercio` se encarga de identificar a tu comercio en la comunicación con los servidores de Culqi.
 
-Y el atributo `informacion_venta` se encarga de enviar la información de la venta al checkout.
+Y el atributo `informacion_venta` se encarga de enviar la información de la venta al módulo de pago de Culqi.
 
-Al procesar la transacción, el checkout te enviará como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` Esta contiene un JSON Cifrado. 
+Al procesar la transacción, el módulo de pago de Culqi te enviará como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que esta arriba. Esta contiene un JSON Cifrado y se imprime en el log del navegador web. 
 
 <aside class="error">
-Es de suma importancia que envíes la respuesta a tus servidores para descrifrarlo usando la librería de Culqi.</aside>
+Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php".</aside>
 
 ## Enviando la respuesta tu servidor
 
@@ -277,10 +284,10 @@ echo "Código Autorización" . $respuesta["codigo_autorizacion"];
 //Marca de la tarjeta
 echo "Marca" . respuesta["marca"];
 
-//Emisor de la tarjeta (referencial)
+//Emisor de la tarjeta (dato referencial)
 echo "Emisor" . respuesta["emisor"];
 
-//País de la tarjeta (referencial)
+//País de la tarjeta (dato referencial)
 echo "País Tarjeta" . respuesta["pais_tarjeta"];
 
 }
