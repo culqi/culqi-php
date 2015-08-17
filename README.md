@@ -4,11 +4,13 @@
 
 ## Requerimientos
 
-PHP 5.3.3 o posterior, [Mcrypt](http://php.net/manual/es/book.mcrypt.php) y [CURL](http://php.net/manual/es/book.curl.php)
+* PHP 5.3.3 o posterior.
+* [Mcrypt](http://php.net/manual/es/book.mcrypt.php)
+* [CURL](http://php.net/manual/es/book.curl.php)
 
 ## Instalación
 
-> Puedes importar la [última versión](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php) de la librería de PHP desarrollada por Culqi.
+> Puedes descargar la [última versión](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php) de la librería de PHP e importarla a tu proyecto:
 
 ```php
 require 'culqi.php';
@@ -16,7 +18,7 @@ require 'culqi.php';
 
 ## Configuración
 
-> Para empezar debes de configurar la librería de Culqi en tu proyecto:
+> Para empezar debes de configurar la librería en tu proyecto con las variables de inicialización:
 
 ```php
 <?php
@@ -26,7 +28,7 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 ?>
 ```
 
-> Asegurate de reemplazar los valores "llave_secreta" y "codigo_comercio" por el valor llave secreta y el código de comercio que estás integrando, y que puedes obtener de Culqi.
+> Asegurate de reemplazar los valores "llave_secreta" y "codigo_comercio" por los que obtuviste de Culqi. El valor de la variable "servidorBase", no la cambies, pues esta apuntando al Entorno de integración de Culqi.
 
 Estos son los parámetros de configuración:
 
