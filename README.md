@@ -34,6 +34,20 @@ Para facilitarle la implementación a nuestro Entorno de Integración, hemos cre
   * Código de comercio: **xdemo**
   * Llave del comercio: **Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=**
 
+Te brindamos algunas tarjetas de diferentes marcas que podrás utilizar una vez que te integres mediante del Botón de Pago Web:
+
+Marca | Número de tarjeta | Fecha de expiración | CVV
+-------------- | -------------- | -------------- | --------------
+Visa | 4111 1111 1111 1111 | 09/2020 | 123
+Visa | 4444 3333 2222 1111 | 09/2019 | 123
+MasterCard | 5111 1111 1111 1111 | 06/2020 | 472
+Amex | 3712 121212 1212 | 11/2017 | 284
+Diners | 3600 121212 1210 | 04/2018 | 964
+
+<aside class="notice">
+Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía email a soporte@culqi.com.
+</aside>
+
 ## Configuración
 
 Para empezar debes de configurar la librería en tu proyecto e iniciar las variables con los datos del "Comercio Demo":
@@ -59,15 +73,15 @@ servidorBase | URL de Culqi a la que te conectarás.
  | `Entorno de Producción: la URL es: https://pago.culqi.com`
 
 
-## Uso
+## Operación de Autorización
 
-###Creando una venta
+### Creando una venta
 
 Este paso es para pre-registrar y validar los datos de la venta del Comercio en la Pasarela de Pagos de Culqi, antes de solicitar los datos de la tarjeta al cliente. Si la respuesta es satisfactoria se debe proseguir con el siguiente paso, caso contrario, ustede debe revisar el código y mensaje de la respuesta que se le brinde.
 
 Para crear una nueva venta deberá configurar la información de la misma, mediante los valores que establezca en los parámetros obligatorios.
 
-### Parámetros obligatorios
+#### Parámetros de envío obligatorios
 
 Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
@@ -83,7 +97,7 @@ Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caractere
 `AN = Alfanumérico` 
 `N = Numérico` 
 
-### Parámetros opcionales
+#### Parámetros de envío opcionales
 
 Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
@@ -161,7 +175,7 @@ La respuesta que obtendrá será una cadena cifrada que contiene un JSON.
  "token":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
 ```
 
-### Parámetros de la respuesta
+#### Parámetros de respuesta
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
@@ -178,7 +192,7 @@ Token | token | Token de la transacción. | AN
 
 > Es importante que almacenes estos datos, ya que el parámetro "Token" lo usarás para otras operaciones.
 
-## Procesando una Venta con el Botón de Pago Web
+### Procesando una Venta
 
 Para empezar, agrega el siguiente código en JavaScript en la página web donde tendrás el Botón de Pago Web:
 
@@ -227,7 +241,7 @@ checkout.cerrar();
 </script>
 ```
 
-###Parámetros para configurar el botón de pago
+#### Parámetros de envío
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
@@ -241,7 +255,7 @@ En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cli
 <aside class="error">
 Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php", ya que la llave no debe ser usada en el navegador web por tu seguridad como comercio.</aside>
 
-## Enviando la respuesta tu servidor
+#### Enviando la respuesta a tu servidor
 
 Una vez que obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para decifrarla y poder mostrar al usuario el resultado de la transacción. A continuación un ejemplo utilizando Ajax y que invoca a una entrada llamada "/respuesta":
 
@@ -269,7 +283,7 @@ $.ajax({
         });
 ```
 
-## Descrifrando la respuesta
+#### Decrifrando la respuesta
 
 Una vez recibida la respuesta de Culqi, puedes descifrarla utilizando la librería de Culqi.
 
@@ -333,7 +347,7 @@ País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar
 
 > Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
 
-# Consulta de una venta
+## Operación de Consulta de una venta
 
 Para consultar una venta debes de enviar el token de la transacción (que debes haber guardado) usando la librería de Culqi.
 
@@ -394,7 +408,7 @@ Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
 Código de Respuesta | codigo_respuesta | El código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | El mensaje de respuesta. | AN
 
-# Anulación de una venta
+## Operación de Anulación de una venta
 
 Para anular una venta debes de enviar el token de la transacción usando la librería de Culqi.
 
@@ -442,7 +456,7 @@ Parámetro | Tipo | Descripción
 token | AN | El código de la transacción que quieres anular.
 
 
-### Parámetros de la respuesta
+### Parámetros de respuesta
 
 Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
