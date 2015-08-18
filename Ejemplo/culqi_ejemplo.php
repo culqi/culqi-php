@@ -19,7 +19,7 @@
             Pago::PARAM_MONTO => "1025",
                                            
             //Descripción de la venta
-            Pago::PARAM_DESCRIPCION => "123",
+            Pago::PARAM_DESCRIPCION => "Venta de prueba.",
                                            
             //Código del país del cliente Ej. PE, US
             Pago::PARAM_COD_PAIS => "PE",
