@@ -212,7 +212,7 @@ Esta integración te permite crear un botón customizado y pasar un token de Cul
 <script>
 
 //El código del comercio
-checkout.codigo_comercio = "PARAM_COD_COMERCIO";
+checkout.codigo_comercio = "xdemo";
 
 //La información de la venta
 checkout.informacion_venta = "PARAM_INFO_VENTA";
@@ -285,7 +285,7 @@ $.ajax({
 
 #### Decrifrando la respuesta
 
-Una vez recibida la respuesta de Culqi, puedes descifrarla utilizando la librería de Culqi.
+Una vez recibida la respuesta, puedes decifrarla utilizando la librería PHP.
 
 ```php
 <?php
@@ -317,13 +317,13 @@ echo "Código Referencia" . $respuesta["codigo_referencia"];
 echo "Código Autorización" . $respuesta["codigo_autorizacion"];
 
 //Marca de la tarjeta
-echo "Marca" . respuesta["marca"];
+echo "Marca" . $respuesta["marca"];
 
 //Emisor de la tarjeta (dato referencial)
-echo "Emisor" . respuesta["emisor"];
+echo "Emisor" . $respuesta["emisor"];
 
 //País de la tarjeta (dato referencial)
-echo "País Tarjeta" . respuesta["pais_tarjeta"];
+echo "País Tarjeta" . $respuesta["pais_tarjeta"];
 
 }
 ?>
@@ -361,6 +361,7 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
 
+// TOKEN de la venta
 $data = Pago::consultar("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 
 //Codigo del comercio
@@ -422,6 +423,7 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
 
+// TOKEN de la venta
 $data = Pago::anular("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 
 //Codigo del comercio
