@@ -1,8 +1,8 @@
 <?php
     require 'culqi.php';
     
-    Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk";
-    Culqi::$codigoComercio = "testc101";
+    Culqi::$llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
+    Culqi::$codigoComercio = "xdemo";
     Culqi::$servidorBase = 'https://integ-pago.culqi.com';
     
     try {
@@ -38,7 +38,7 @@
         //Respuesta de la creación de la venta. Cadena cifrada.
         $informacionVenta = $data[Pago::PARAM_INFO_VENTA];
         
-        echo "<script src=\"https://integ-pago.culqi.com/culqi.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script><button id=\"btn_pago\">Pagar</button><script>checkout.codigo_comercio = \"testc101\";checkout.informacion_venta = \"$informacionVenta\";$('#btn_pago').on('click', function(e) {checkout.abrir();e.preventDefault();});function culqi (checkout) {console.log(checkout.respuesta);checkout.cerrar();};</script>";
+        echo "<script src=\"https://integ-pago.culqi.com/culqi.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script><button id=\"btn_pago\">Pagar</button><script>checkout.codigo_comercio = \"xdemo\";checkout.informacion_venta = \"$informacionVenta\";$('#btn_pago').on('click', function(e) {checkout.abrir();e.preventDefault();});function culqi (checkout) {console.log(checkout.respuesta);checkout.cerrar();};</script>";
 
 
     } catch (InvalidParamsException $e) {
