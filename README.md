@@ -4,12 +4,12 @@
 Este documento tiene como intención ser una Guía rápida para que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
 
 Para realizar una operación de autorización, se debe realizar 2 pasos: 
-   - Crear un Venta, la cual validará los datos del comercio y de la compra.
-   - Procesar la Venta, que solicitará los datos de la tarjeta y la procesará.
+   - Crear un Venta --> se validará los datos del comercio y de la compra.
+   - Procesar la Venta --> se solicitará los datos de la tarjeta y se procesará con la marca correspondiente.
 
-Adicionalmente, se podrán realizar las siguientes operaciones:
-   - Consultar una Venta, obtendrás el estado de la venta y sus datos.
-   - Anular una Venta, se procesará la anulacion siempre y cuando este autorizada.
+Adicionalmente, se podrá realizar las siguientes operaciones:
+   - Consultar una Venta --> obtendrás el estado de la venta y sus datos.
+   - Anular una Venta --> se procesará la anulación siempre y cuando la venta esté autorizada.
 
 ## Requerimientos
 
