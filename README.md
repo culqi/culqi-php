@@ -1,4 +1,15 @@
-# Usando el Botón de Pago Web en una aplicación PHP
+# Integrando el Botón de Pago Web en una aplicación PHP
+
+## Introducción
+Este documento tiene como intención ser una Guía rápida para que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
+
+Para realizar una operación de autorización, se debe realizar 2 pasos: 
+   - Crear un Venta, la cual validará los datos del comercio y de la compra.
+   - Procesar la Venta, que solicitará los datos de la tarjeta y la procesará.
+
+Adicionalmente, se podrán realizar las siguientes operaciones:
+   - Consultar una Venta, obtendrás el estado de la venta y sus datos.
+   - Anular una Venta, se procesará la anulacion siempre y cuando este autorizada.
 
 ## Requerimientos
 
@@ -167,7 +178,7 @@ Token | token | Token de la transacción. | AN
 
 > Es importante que almacenes estos datos, ya que el parámetro "Token" lo usarás para otras operaciones.
 
-## Integrando el Botón de Pago Web
+## Procesando una Venta con el Botón de Pago Web
 
 Para empezar, agrega el siguiente código en JavaScript en la página web donde tendrás el Botón de Pago Web:
 
@@ -322,7 +333,7 @@ País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar
 
 > Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
 
-# Consulta una venta
+# Consulta de una venta
 
 Para consultar una venta debes de enviar el token de la transacción (que debes haber guardado) usando la librería de Culqi.
 
@@ -383,7 +394,7 @@ Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
 Código de Respuesta | codigo_respuesta | El código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | El mensaje de respuesta. | AN
 
-# Anula una venta
+# Anulación de una venta
 
 Para anular una venta debes de enviar el token de la transacción usando la librería de Culqi.
 
