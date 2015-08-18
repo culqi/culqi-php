@@ -3,7 +3,7 @@
     
     Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk";
     Culqi::$codigoComercio = "testc101";
-    Culqi::$servidorBase = 'https://devpago.culqi.com';
+    Culqi::$servidorBase = 'https://integ-pago.culqi.com';
     
     try {
         
