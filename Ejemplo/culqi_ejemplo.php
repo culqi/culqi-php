@@ -10,7 +10,7 @@
         $data = Pago::crearDatospago(array(
                                            
             //Numero de pedido de la venta
-            Pago::PARAM_NUM_PEDIDO => "0001",
+            Pago::PARAM_NUM_PEDIDO => rand(5, 10000),
                                            
             //Moneda de la venta ("PEN" O "USD")
             Pago::PARAM_MONEDA => "PEN",
