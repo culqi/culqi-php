@@ -1,6 +1,8 @@
-# Usando el Botón de Pago Web y PHP
+# Usando el Botón de Pago Web en una aplicación PHP
 
 ## Requerimientos
+
+Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Botón de Pago Web de Culqi, debes instalar lo siguiente:
 
 * PHP 5.3.3 o posterior.
 * [Mcrypt](http://php.net/manual/es/book.mcrypt.php)
@@ -9,32 +11,31 @@
 
 ## Instalación
 
-> Puedes descargar la [última versión](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php) de la librería de PHP e importarla a tu proyecto:
+> Culqi ha desarrollado una libreria en PHP para simplificar la implementación del Botón de Pago Web en tu aplicación o proyecto. Puedes descargar la [última versión](https://github.com/culqi/Culqi-PHP/releases/download/v1.0/culqi.php) de la librería de PHP e importarla a tu proyecto:
 
 ```php
 require 'culqi.php';
 ```
 ## Comercio de prueba
 
-Puedes usar esta información de un comercio de pruebaspara probar la integración a Culqi.
+Para facilitarle la implementación a nuestro Entorno de Integración, hemos creado un comercio de prueba denominado "Comercio Demo", el cual considera el logotipo de Culqi, asi como los siguientes datos que deberás utilizar en los próximos pasos.
 
-Código de comercio: **xdemo**
-
-Llave del comercio: **Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=**
+  * Código de comercio: **xdemo**
+  * Llave del comercio: **Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=**
 
 ## Configuración
 
-Para empezar debes de configurar la librería en tu proyecto con las variables de inicialización:
+Para empezar debes de configurar la librería en tu proyecto e iniciar las variables con los datos del "Comercio Demo":
 
 ```php
 <?php
-Culqi::$llaveSecreta = "llave_secreta";
-Culqi::$codigoComercio = "codigo_comercio";
+Culqi::$llaveSecreta = "xdemo";
+Culqi::$codigoComercio = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 ?>
 ```
 
-> Asegurate de reemplazar los valores "llave_secreta" y "codigo_comercio" por los que obtuviste de Culqi. El valor de la variable "servidorBase", esta apuntando por defecto al Entorno de integración de Culqi.
+> Los valores de las variables "llave_secreta" y "codigo_comercio" son los provistos para el "Comercio Demo". Cuando obtengas los valores de esas variables de tu comercio que debes solicitar a Culqi, solo reemplázalos. El valor de la variable "servidorBase", esta apuntando por defecto al Entorno de Integración de Culqi.
 
 Estos son los parámetros de configuración:
 
@@ -51,7 +52,9 @@ servidorBase | URL de Culqi a la que te conectarás.
 
 ###Creando una venta
 
-Para crear una nueva venta deberás configurar la información de la misma.
+Este paso es para pre-registrar y validar los datos de la venta del Comercio en la Pasarela de Pagos de Culqi, antes de solicitar los datos de la tarjeta al cliente. Si la respuesta es satisfactoria se debe proseguir con el siguiente paso, caso contrario, ustede debe revisar el código y mensaje de la respuesta que se le brinde.
+
+Para crear una nueva venta deberá configurar la información de la misma, mediante los valores que establezca en los parámetros obligatorios.
 
 ### Parámetros obligatorios
 
@@ -59,7 +62,7 @@ Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
 Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. | AN | 100 caracteres
 Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
-Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025. | N | 7 caracteres
+Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025 | N | 7 caracteres
 Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
 País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
 Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
@@ -76,7 +79,7 @@ Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
 
 `N = Numérico` 
-`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi.` 
+`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi para su habilitación.` 
 
 Ejemplo de código para crear la venta:
 
@@ -84,15 +87,15 @@ Ejemplo de código para crear la venta:
 <?php
 require 'culqi.php';
 
-Culqi::$llaveSecreta = "llave_secreta";
-Culqi::$codigoComercio = "codigo_comercio";
+Culqi::$llaveSecreta = "xdemo";
+Culqi::$codigoComercio = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
 
 $data = Pago::crearDatospago(array(
 
-//Numero de pedido de la venta
+//Numero de pedido de la venta, y debe ser único (de no ser así, recibirá como respuesta un error)
 Pago::PARAM_NUM_PEDIDO => "tlvh20150727-1",
 
 //Moneda de la venta ("PEN" O "USD")
@@ -102,7 +105,7 @@ Pago::PARAM_MONEDA => "PEN",
 Pago::PARAM_MONTO => "1025",
 
 //Descripción de la venta
-Pago::PARAM_DESCRIPCION => "123",
+Pago::PARAM_DESCRIPCION => "Un protector de smartphone y una memoria microSD de 32 GB.",
 
 //Código del país del cliente Ej. PE, US
 Pago::PARAM_COD_PAIS => "PE",
@@ -111,7 +114,7 @@ Pago::PARAM_COD_PAIS => "PE",
 Pago::PARAM_CIUDAD => "Lima",
 
 //Dirección del cliente
-Pago::PARAM_DIRECCION => "Avenida Lima 2132, Miradores",
+Pago::PARAM_DIRECCION => "Avenida Javier Prado 2132, San Isidro",
 
 //Número de teléfono del cliente
 Pago::PARAM_NUM_TEL => "992765900",
@@ -122,11 +125,11 @@ Pago::PARAM_NUM_TEL => "992765900",
 $informacionVenta = $data[Pago::PARAM_INFO_VENTA];
 echo "Información de la venta: $informacionVenta";
 
-echo "Codigo de Comercio: " . $respuesta["codigo_comercio"];
-echo "Número de pedido: " . $respuesta["nro_pedido"];
-echo "Código de respuesta: " . $respuesta["codigo_respuesta"];
-echo "Mensaje de respuesta: " . $respuesta["mensaje_respuestaa"];
-echo "Token de la transacción: " . $respuesta["token"];
+echo "Codigo de Comercio: " . $data["codigo_comercio"];
+echo "Número de pedido: " . $data["nro_pedido"];
+echo "Código de respuesta: " . $data["codigo_respuesta"];
+echo "Mensaje de respuesta: " . $data["mensaje_respuestaa"];
+echo "Token de la transacción: " . $data["token"];
 
 } catch (InvalidParamsException $e) {
 
@@ -136,10 +139,7 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-> El parámetro PARAM_INFO_VENTA contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el botón de pago WEB en la página del comercio. , explicado a continuación.
-
-
-La respuesta que obtendrás será una cadena cifrada que contiene un JSON.
+La respuesta que obtendrá será una cadena cifrada que contiene un JSON.
 
 ```json
 {"info_venta":"dkladkldlakdmdaaldklakd",
@@ -162,6 +162,10 @@ Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta. | AN
 Token | token | Token de la transacción. | AN
 
 `AN = Alfanumérico` 
+
+> El parámetro "PARAM_INFO_VENTA" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
+
+> Es importante que almacenes estos datos, ya que el parámetro "Token" lo usarás para otras operaciones.
 
 ## Integrando el Botón de Pago Web
 
@@ -219,18 +223,16 @@ Nombre | Parámetro | Descripción | Tipo
 Código de Comercio | codigo_comercio | Código de comercio en Culqi. | AN
 Información Venta | informacion_venta | Información de la venta cifrada.  | AN
 
-Es muy importante que entiendas que el atributo `codigo_comercio` se encarga de identificar a tu comercio en la comunicación con los servidores de Culqi.
+Es muy importante que entiendas que la variable `codigo_comercio` se encarga de identificar a tu comercio en la comunicación con los servidores de Culqi, y la variable `informacion_venta` se encarga de enviar la información de la venta.
 
-Y el atributo `informacion_venta` se encarga de enviar la información de la venta al módulo de pago de Culqi.
-
-Al procesar la transacción, el módulo de pago de Culqi te enviará como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que esta arriba. Esta contiene un JSON Cifrado y se imprime en el log del navegador web. 
+En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cliente ingrese los datos de la tarjeta y se procese la venta, obtendrás como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que se mostró previamente. Este contiene un JSON cifrado y se imprime en el log del navegador web. 
 
 <aside class="error">
-Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php".</aside>
+Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php", ya que la llave no debe ser usada en el navegador web por tu seguridad como comercio.</aside>
 
 ## Enviando la respuesta tu servidor
 
-Una vez que obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para decifrarla y poder mostrar al usuario el resultado de la transacción.
+Una vez que obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para decifrarla y poder mostrar al usuario el resultado de la transacción. A continuación un ejemplo utilizando Ajax y que invoca a una entrada llamada "/respuesta":
 
 ```javascript
 $.ajax({
@@ -247,6 +249,7 @@ $.ajax({
                 if (codigo_respuesta_venta == "OK") {
                     checkout.cerrar();
                 } else {
+                    // Brindale un mensaje amigable al cliente (no uses el mensaje de Culqi) e invitalo a reintentarlo
                     checkout.cerrar();
                 }
             },
@@ -261,8 +264,8 @@ Una vez recibida la respuesta de Culqi, puedes descifrarla utilizando la librer�
 
 ```php
 <?php
-Culqi.llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
-Culqi.codigoComercio = "testc101";
+Culqi.llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
+Culqi.codigoComercio = "xdemo";
 
 //Retorna el JSON Descifrado
 $respuesta = Culqi.decifrar(respuestaCifrada.getRespuesta());
@@ -312,21 +315,23 @@ ID Transacción | id_transaccion | ID de la transacción. | AN
 Código Referencia | codigo_referencia | Código de referencia de la transacción. | AN
 Código Autorización | codigo_autorizacion | Código de autorización de la transacción. | AN
 Marca | marca | Marca de la tarjeta usada para realizar el pago. | AN
-Emisor | emisor | Banco emisor de la tarjeta usada para realizar el pago. | AN
-País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar el pago. | AN
+Emisor | emisor | Banco emisor de la tarjeta usada para realizar el pago. Es referencial. | AN
+País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar el pago. Es referencial. | AN
 
 `AN = Alfanumérico` 
 
+> Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
+
 # Consulta una venta
 
-Para consultar una venta debes de enviar el token de la transacción usando la librería de Culqi.
+Para consultar una venta debes de enviar el token de la transacción (que debes haber guardado) usando la librería de Culqi.
 
 ```php
 <?php
 require 'culqi.php';
 
-Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
-Culqi::$codigoComercio = "testc101";
+Culqi::$llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
+Culqi::$codigoComercio = "xdemo";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
@@ -386,8 +391,8 @@ Para anular una venta debes de enviar el token de la transacción usando la libr
 <?php
 require 'culqi.php';
 
-Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
-Culqi::$codigoComercio = "testc101";
+Culqi::$llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
+Culqi::$codigoComercio = "xdemo";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
