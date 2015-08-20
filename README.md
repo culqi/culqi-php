@@ -181,7 +181,7 @@ Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
 Informacion de Venta | PARAM_INFO_VENTA | La información de la venta que se usa para configurar el botón de pago de Culqi. | AN
 Código de Comercio | codigo_comercio | Código del comercio en Culqi. | AN
-Número de Pedido | nro_pedido | Número de orden de la venta. | AN
+Número de Pedido | nro_pedido | Número de orden de la venta. ***Debe ser único por cada venta.*** | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta. | AN
 Token | token | Token de la transacción. | AN
