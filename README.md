@@ -31,8 +31,8 @@ require 'culqi.php';
 
 Para facilitarle la implementación a nuestro Entorno de Integración, hemos creado un comercio de prueba denominado "Comercio Demo", el cual considera el logotipo de Culqi, asi como los siguientes datos que deberás utilizar en los próximos pasos.
 
-  * Código de comercio: **xdemo**
-  * Llave del comercio: **Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=**
+  * Código de comercio: **demo**
+  * Llave del comercio: **JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=**
 
 Te brindamos algunas tarjetas de diferentes marcas que podrás utilizar una vez que te integres mediante del Botón de Pago Web:
 
@@ -54,8 +54,8 @@ Para empezar debes de configurar la librería en tu proyecto e iniciar las varia
 
 ```php
 <?php
-Culqi::$llaveSecreta = "xdemo";
-Culqi::$codigoComercio = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
+Culqi::$llaveSecreta = "demo";
+Culqi::$codigoComercio = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 ?>
 ```
@@ -112,8 +112,8 @@ Ejemplo de código para crear la venta:
 <?php
 require 'culqi.php';
 
-Culqi::$llaveSecreta = "xdemo";
-Culqi::$codigoComercio = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
+Culqi::$llaveSecreta = "demo";
+Culqi::$codigoComercio = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
@@ -212,7 +212,7 @@ Esta integración te permite crear un botón customizado y pasar un token de Cul
 <script>
 
 //El código del comercio
-checkout.codigo_comercio = "xdemo";
+checkout.codigo_comercio = "demo";
 
 //La información de la venta
 checkout.informacion_venta = "PARAM_INFO_VENTA";
@@ -289,8 +289,8 @@ Una vez recibida la respuesta, puedes decifrarla utilizando la librería PHP.
 
 ```php
 <?php
-Culqi.llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
-Culqi.codigoComercio = "xdemo";
+Culqi.llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
+Culqi.codigoComercio = "demo";
 
 //Retorna el JSON Descifrado
 $respuesta = Culqi.decifrar(respuestaCifrada.getRespuesta());
@@ -355,8 +355,8 @@ Para consultar una venta debes de enviar el token de la transacción (que debes 
 <?php
 require 'culqi.php';
 
-Culqi::$llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
-Culqi::$codigoComercio = "xdemo";
+Culqi::$llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
+Culqi::$codigoComercio = "demo";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
@@ -417,8 +417,8 @@ Para anular una venta debes de enviar el token de la transacción usando la libr
 <?php
 require 'culqi.php';
 
-Culqi::$llaveSecreta = "Aq+yGWgYrDK9qWi30yj6+LicpKXxuVqZEGKsu9U4pwE=";
-Culqi::$codigoComercio = "xdemo";
+Culqi::$llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
+Culqi::$codigoComercio = "demo";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
