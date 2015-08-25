@@ -38,6 +38,21 @@
         //Respuesta de la creación de la venta. Cadena cifrada.
         $informacionVenta = $data[Pago::PARAM_INFO_VENTA];
         
+        //Código de comercio - Verificar que sea el mismo del comercio que está integrando
+        echo "Codigo de Comercio: " . $data["codigo_comercio"];
+        
+        //Número de pedido - verficiar que sea el que se envío
+        echo "Número de pedido: " . $data["nro_pedido"];
+    
+        //Código de la respuesta de Culqi - Si fue autoriza, se espera un OK
+        echo "Código de respuesta: " . $data["codigo_respuesta"];
+        
+        //Mensaje de la respuesta de Culqi
+        echo "Mensaje de respuesta: " . $data["mensaje_respuesta"];
+        
+        //Token de la venta, guardarlo para poder realizar opercaiones de Consulta y anulación.
+        echo "Token de la transacción: " . $data["token"];
+
         echo "<script src=\"https://integ-pago.culqi.com/culqi.js\"></script><script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script><button id=\"btn_pago\">Pagar</button><script>checkout.codigo_comercio = \"demo\";checkout.informacion_venta = \"$informacionVenta\";$('#btn_pago').on('click', function(e) {checkout.abrir();e.preventDefault();});function culqi (checkout) {console.log(checkout.respuesta);checkout.cerrar();};</script>";
 
 
