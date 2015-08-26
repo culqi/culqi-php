@@ -228,6 +228,7 @@ e.preventDefault();
 });
 
 //Esta función es llamada al terminar el proceso de pago.
+//Debe de ser usada siempre, para poder obtener la respuesta.
 function culqi (checkout) {
 
 //Aquí recibes la respuesta del formulario de pago.
