@@ -16,7 +16,7 @@
             Pago::PARAM_MONEDA => "PEN",
                                            
             //Monto de la venta (ejem: 10.25, va sin el punto decimal)
-            Pago::PARAM_MONTO => "1025",
+            Pago::PARAM_MONTO => "100",
                                            
             //Descripción de la venta
             Pago::PARAM_DESCRIPCION => "Venta de prueba.",
