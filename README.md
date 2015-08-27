@@ -311,8 +311,11 @@ echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta"];
 //ID de la Transacción
 echo "ID Transacción" . $respuesta["id_transaccion"];
 
+//Token de la transacción
+echo "Código Referencia" . $respuesta["token"];
+
 //Código de referencia
-echo "Código Referencia" . $respuesta["codigo_referencia"];
+echo "Código Referencia" . $respuesta["referencia_transaccion"];
 
 //Código de autorización
 echo "Código Autorización" . $respuesta["codigo_autorizacion"];
@@ -321,10 +324,19 @@ echo "Código Autorización" . $respuesta["codigo_autorizacion"];
 echo "Marca" . $respuesta["marca"];
 
 //Emisor de la tarjeta (dato referencial)
-echo "Emisor" . $respuesta["emisor"];
+echo "Emisor" . $respuesta["nombre_emisor"];
 
 //País de la tarjeta (dato referencial)
-echo "País Tarjeta" . $respuesta["pais_tarjeta"];
+echo "País Tarjeta" . $respuesta["pais_emisor"];
+
+//IIN de la tarjeta
+echo "IIN Tarjeta" . $respuesta["iin_tarjeta"];
+
+//Nombres del tarjetahabiente
+echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
+
+//Apellidos del tarjetahabiente
+echo "Nombre del Tarjeta habiente" . $respuesta["nombre_tarjeta_habiente"];
 
 }
 ?>
@@ -338,12 +350,14 @@ Número de Pedido | nro_pedido | Número de orden de la venta. | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta. | AN
 ID Transacción | id_transaccion | ID de la transacción. | AN
-Código Referencia | codigo_referencia | Código de referencia de la transacción. | AN
+Código Referencia | referencia_transaccion | Código de referencia de la transacción. | AN
 Código Autorización | codigo_autorizacion | Código de autorización de la transacción. | AN
 Marca | marca | Marca de la tarjeta usada para realizar el pago. | AN
 Emisor | emisor | Banco emisor de la tarjeta usada para realizar el pago. Es referencial. | AN
 País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar el pago. Es referencial. | AN
-
+IIN Tarjeta | iin_tarjeta | IIN de la tarjeta usada para realizar el pago. | N
+Nombre Tarjeta Habiente | nombre_tarjeta_habiente | Nombre que se usó para realizar el pago. | A
+Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó para realizar el pago. | A
 `AN = Alfanumérico` 
 
 > Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
@@ -382,6 +396,12 @@ echo "Código de Respuesta" . $data['codigo_respuesta'];
 
 //Mensaje de respuesta
 echo "Mensaje de Respuesta" . $data['mensaje_respuesta'];
+
+//Nombres del tarjetahabiente
+echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
+
+//Apellidos del tarjetahabiente
+echo "Nombre del Tarjeta habiente" . $respuesta["nombre_tarjeta_habiente"];
 
 
 } catch (InvalidParamsException $e) {
@@ -442,6 +462,11 @@ echo "Código de Respuesta" . $data['codigo_respuesta'];
 //Mensaje de respuesta
 echo "Mensaje de Respuesta" . $data['mensaje_respuesta'];
 
+//Nombres del tarjetahabiente
+echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
+
+//Apellidos del tarjetahabiente
+echo "Nombre del Tarjeta habiente" . $respuesta["nombre_tarjeta_habiente"];
 
 } catch (InvalidParamsException $e) {
 
