@@ -89,7 +89,7 @@ Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. ***Debe se
 Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
 Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025 | N | 7 caracteres
 Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
-Correo Electrónico | "correo_electronico | Dirección del correo electrónico del cliente. | AN | 120 caracteres
+Correo Electrónico | correo_electronico | Dirección del correo electrónico del cliente. | AN | 120 caracteres
 País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
 Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
 Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
