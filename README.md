@@ -102,6 +102,8 @@ Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caractere
 
 Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
+Nombres | nombres | Nombres del cliente. | A | 30 caracteres
+Apellidos | apellidos | Apellidos del cliente. | A | 30 caracteres
 Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
 
 `N = Numérico` 
