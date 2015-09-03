@@ -296,8 +296,8 @@ Una vez recibida la respuesta, puedes decifrarla utilizando la librería PHP.
 
 ```php
 <?php
-Culqi.llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
-Culqi.codigoComercio = "demo";
+Culqi::$codigoComercio = "demo";
+Culqi::$llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
 
 //Retorna el JSON Descifrado
 $respuesta = Culqi.decifrar(respuestaCifrada.getRespuesta());
