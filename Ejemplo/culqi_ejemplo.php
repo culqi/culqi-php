@@ -32,6 +32,9 @@
                                            
             //Número de teléfono del cliente
             Pago::PARAM_NUM_TEL => "992765900",
+
+            //Número de teléfono del cliente
+            "correo_electronico" => "wmuro@me.com",
                                            
         ));
         
