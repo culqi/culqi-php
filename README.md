@@ -94,6 +94,7 @@ País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 c
 Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
 Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
 Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 20 caracteres
+ID Usuario | id_usuario_comercio | Identificador del usuario. | N | 20 caracteres
 
 `AN = Alfanumérico` 
 `N = Numérico` 
@@ -150,6 +151,10 @@ Pago::PARAM_NUM_TEL => "992765900",
 //Correo electrónico del cliente
 "correo_electronico" => "wmuro@me.com",
 
+//Identificador de usuario del cliente
+"id_usuario_comercio" => "ID002",
+
+
 ));
 
 //Respuesta de la creación de la venta. Cadena cifrada.
@@ -158,15 +163,17 @@ echo "Información de la venta: $informacionVenta";
 
 echo "Codigo de Comercio: " . $data["codigo_comercio"];
 echo "Número de pedido: " . $data["nro_pedido"];
+echo "Tipo de respuesta: " . $data["tipo_respuesta"];
 echo "Código de respuesta: " . $data["codigo_respuesta"];
-echo "Mensaje de respuesta: " . $data["mensaje_respuestaa"];
-echo "Token de la transacción: " . $data["token"];
+echo "Mensaje de respuesta: " . $data["mensaje_respuesta"];
+echo "Mensaje de respuesta recomendado al usuario: " . $data["mensaje_respuesta_usuario"];
+echo "Ticket de la venta: " . $data["ticket"];
 
 } catch (InvalidParamsException $e) {
 
 echo $e->getMessage()."\n";
 
-}
+}tok
 ?>
 ```
 
@@ -176,9 +183,11 @@ La respuesta que obtendrá será una cadena cifrada que contiene un JSON.
 {"info_venta":"dkladkldlakdmdaaldklakd",
  "codigo_comercio":"testc101",
  "nro_pedido":"testc101",
- "codigo_respuesta":"OK",
- "mensaje_respuesta":"Venta Creada",
- "token":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
+ "tipo_respuesta":"validacion_exitosa",
+ "codigo_respuesta":"100",
+ "mensaje_respuesta":"Transacción creada exitosamente.",
+ "mensaje_respuesta_usuario":"Transacción creada exitosamente.",
+ "ticket":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
 ```
 
 #### Parámetros de respuesta
@@ -188,15 +197,17 @@ Nombre | Parámetro | Descripción | Tipo
 Informacion de Venta | PARAM_INFO_VENTA | La información de la venta que se usa para configurar el botón de pago de Culqi. | AN
 Código de Comercio | codigo_comercio | Código del comercio en Culqi. | AN
 Número de Pedido | nro_pedido | Número de orden de la venta. | AN
+Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
-Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta. | AN
-Token | token | Token de la transacción. | AN
+Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
+Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
+Ticket | ticket | Ticket de la transacción. | AN
 
 `AN = Alfanumérico` 
 
 > El parámetro "PARAM_INFO_VENTA" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
 
-> Es importante que almacenes estos datos, ya que el parámetro "Token" lo usarás para otras operaciones.
+> Es importante que almacenes estos datos, ya que el parámetro "Ticket" lo usarás para otras operaciones.
 
 ### Procesando una Venta
 
@@ -206,7 +217,7 @@ Para empezar, agrega el siguiente código en JavaScript en la página web donde 
 
 Usar una copia local no está soportado, y puede resultar en errores visibles por el usuario.
 
-Esta integración te permite crear un botón customizado y pasar un token de Culqi a un callback (Función `Culqi()`) en Javacript. Puedes usar cualquier elemento HTML o evento JavaScript para abrir el formulario de pagos, y es independiente del lenguaje de programación que uses en tu backend.
+Esta integración te permite crear un botón customizado y pasar la respuesta de venta de Culqi a un callback (Función `Culqi()`) en Javacript. Puedes usar cualquier elemento HTML o evento JavaScript para abrir el formulario de pagos, y es independiente del lenguaje de programación que uses en tu backend.
 
 > Puedes usar Culqi.js de la siguiente manera usando Jquery.
 
@@ -277,11 +288,11 @@ $.ajax({
                     }),
             success: function(data){
                 var obj = JSON.parse(data);
-                var codigo_respuesta_venta = obj["codigo_respuesta"];
-                if (codigo_respuesta_venta == "OK") {
+                var tipo_respuesta_venta = obj["tipo_respuesta"];
+                if (tipo_respuesta_venta == "venta_exitosa") {
                     checkout.cerrar();
                 } else {
-                    // Brindale un mensaje amigable al cliente (no uses el mensaje de Culqi) e invitalo a reintentarlo
+                    // Brindale un mensaje amigable al cliente (Puedes usar el mensaje que Culqi recomienda o usar uno tuyo) e invitalo a reintentar la compra.
                     checkout.cerrar();
                 }
             },
@@ -308,17 +319,23 @@ echo "Código Comercio" . $respuesta["codigo_comercio"];
 //Número de pedido
 echo "Número de pedido" . $respuesta["nro_pedido"];
 
+//Tipo de respuesta
+echo "Mensaje Respuesta" . $respuesta["tipo_respuesta"];
+
 //Código de respuesta
 echo "Código Respuesta" . $respuesta["codigo_respuesta"];
 
 //Mensaje de respuesta
 echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta"];
 
+//Mensaje de respuesta al usuario
+echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta_usuario"];
+
 //ID de la Transacción
 echo "ID Transacción" . $respuesta["id_transaccion"];
 
-//Token de la transacción
-echo "Código Referencia" . $respuesta["token"];
+//Ticket de la venta
+echo "Código Referencia" . $respuesta["ticket"];
 
 //Código de referencia
 echo "Código Referencia" . $respuesta["referencia_transaccion"];
@@ -335,14 +352,14 @@ echo "Emisor" . $respuesta["nombre_emisor"];
 //País de la tarjeta (dato referencial)
 echo "País Tarjeta" . $respuesta["pais_emisor"];
 
-//IIN de la tarjeta
-echo "IIN Tarjeta" . $respuesta["iin_tarjeta"];
+//Número de la tarjeta enmascarado
+echo "Número Tarjeta" . $respuesta["numero_tarjeta"];
 
 //Nombres del tarjetahabiente
-echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
+echo "Apellido del Tarjetahabiente" . $respuesta["apellido_tarjeta_habiente"];
 
 //Apellidos del tarjetahabiente
-echo "Nombre del Tarjeta habiente" . $respuesta["nombre_tarjeta_habiente"];
+echo "Nombre del Tarjetahabiente" . $respuesta["nombre_tarjeta_habiente"];
 
 }
 ?>
@@ -353,8 +370,10 @@ Nombre | Parámetro | Descripción | Tipo
 --------- | ------- | ----------- | -----------
 Código de Comercio | codigo_comercio | Código del comercio en Culqi. | AN
 Número de Pedido | nro_pedido | Número de orden de la venta. | AN
+Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
-Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta. | AN
+Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
+Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
 ID Transacción | id_transaccion | ID de la transacción. | AN
 Código Referencia | referencia_transaccion | Código de referencia de la transacción. | AN
 Código Autorización | codigo_autorizacion | Código de autorización de la transacción. | AN
@@ -370,7 +389,7 @@ Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó par
 
 ## Operación de Consulta de una venta
 
-Para consultar una venta debes de enviar el token de la transacción (que debes haber guardado) usando la librería de Culqi.
+Para consultar una venta debes de enviar el ticket de la transacción (que debes haber guardado) usando la librería de Culqi.
 
 ```php
 <?php
@@ -382,7 +401,7 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
 
-// TOKEN de la venta
+// Ticket de la venta
 $data = Pago::consultar("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 
 //Codigo del comercio
@@ -391,17 +410,23 @@ echo "Código Comercio" . $data['codigo_comercio'];
 //Número de Pedido
 echo "Número de pedido" . $data['nro_pedido'];
 
-//Token de la transacción
-echo "Token" + $data['token'];
+//Ticket de la venta
+echo "Ticket" + $data['ticket'];
 
 //Estado de la transacción
 echo "Estado de la transacción" . $data['estado_transaccion'];
 
+//Tipo de respuesta
+echo "Mensaje Respuesta" . $respuesta["tipo_respuesta"];
+
 //Código de respuesta
-echo "Código de Respuesta" . $data['codigo_respuesta'];
+echo "Código Respuesta" . $respuesta["codigo_respuesta"];
 
 //Mensaje de respuesta
-echo "Mensaje de Respuesta" . $data['mensaje_respuesta'];
+echo "Mensaje Respuesta al desarrollador" . $respuesta["mensaje_respuesta"];
+
+//Mensaje de respuesta al usuario
+echo "Mensaje Respuesta al usuario" . $respuesta["mensaje_respuesta_usuario"];
 
 //Nombres del tarjetahabiente
 echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
@@ -422,7 +447,7 @@ echo $e->getMessage()."\n";
 
 Nombre | Parámetro| Descripción | Tipo 
 --------- | ----------- | ----------- | -----------
-Token | token | El código de la transacción que quieres consultar. | AN
+Ticket | ticket | El código de la transacción que quieres consultar. | AN
 
 
 ### Parámetros de respuesta
@@ -431,14 +456,16 @@ Nombre | Parámetro| Descripción | Tipo
 --------- | --------- | ----------- | -----------
 Código de Comercio | codigo_comercio | El código del comercio en Culqi. | AN
 Número de Pedido | nro_pedido | El número de orden de tu venta. | AN
-Token | token | El código de la transacción. | AN
+Ticket | Ticket | El código de la transacción. | AN
 Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
-Código de Respuesta | codigo_respuesta | El código de la respuesta. | AN
-Mensaje de Respuesta | mensaje_respuesta | El mensaje de respuesta. | AN
+Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
+Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
+Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
+Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
 
 ## Operación de Anulación de una venta
 
-Para anular una venta debes de enviar el token de la transacción usando la librería de Culqi.
+Para anular una venta debes de enviar el ticket de la transacción usando la librería de Culqi.
 
 ```php
 <?php
@@ -450,7 +477,7 @@ Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 try {
 
-// TOKEN de la venta
+// Ticket de la venta
 $data = Pago::anular("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 
 //Codigo del comercio
@@ -459,14 +486,20 @@ echo "Código Comercio" . $data['codigo_comercio'];
 //Número de Pedido
 echo "Número de pedido" . $data['nro_pedido'];
 
-//Token de la transacción
-echo "Token" + $data['token'];
+//Ticket de la transacción
+echo "Ticket" + $data['ticket'];
+
+//Tipo de respuesta
+echo "Mensaje Respuesta" . $respuesta["tipo_respuesta"];
 
 //Código de respuesta
-echo "Código de Respuesta" . $data['codigo_respuesta'];
+echo "Código Respuesta" . $respuesta["codigo_respuesta"];
 
 //Mensaje de respuesta
-echo "Mensaje de Respuesta" . $data['mensaje_respuesta'];
+echo "Mensaje Respuesta al desarrollador" . $respuesta["mensaje_respuesta"];
+
+//Mensaje de respuesta al usuario
+echo "Mensaje Respuesta al usuario" . $respuesta["mensaje_respuesta_usuario"];
 
 //Nombres del tarjetahabiente
 echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
@@ -487,7 +520,7 @@ echo $e->getMessage()."\n";
 
 Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
-token | AN | El código de la transacción que quieres anular.
+ticket | AN | El código de la transacción que quieres anular.
 
 
 ### Parámetros de respuesta
@@ -496,7 +529,8 @@ Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
 codigo_comercio | AN | El código del comercio en Culqi.
 nro_pedido | AN | El número de orden de tu venta.
-token | AN | El código de la transacción.
-codigo_respuesta | AN | El código de la respuesta.
-mensaje_respuesta | AN | El mensaje de respuesta.
-
+ticket | AN | El código de la transacción.
+Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
+Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
+Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
+Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
