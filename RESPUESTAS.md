@@ -2,7 +2,7 @@
 # Respuestas
 
 ##Validación de una venta
-Al validar una venta puedes recibir las siguientes respuestas.:
+Al validar una venta puedes recibir las siguientes respuestas:
 
 Tipo | Código | Mensaje | Mensaje Usuario
 --------- | --------- | ------- | -----------
@@ -38,6 +38,25 @@ Tipo | Código | Mensaje | Mensaje Usuario
 || 030 | El número de tarjeta es inválido. | 
 || 031 | Ocurrió un error en el procesamiento. | 
 |validacion_exitosa| 100 | Venta creada exitosamente. | 
-|venta_exitosa| 101 | Venta autorizada exitosamente. | 
+
+##Pago de una venta
+Al pagar una venta puedes recibir las siguientes respuestas:
+
+Tipo | Código | Mensaje | Mensaje Usuario
+--------- | --------- | ------- | -----------
+|venta_exitosa| 101 | Venta realizada exitosamente. | 
+
+
+##Consulta de una venta
+Al consultar una venta puedes recibir las siguientes respuestas:
+
+Tipo | Código | Mensaje | Mensaje Usuario
+--------- | --------- | ------- | -----------
 |consulta_exitosa| 102 | Venta consultada exitosamente. | 
+
+##Anulación de una venta
+Al anular una venta puedes recibir las siguientes respuestas:
+
+Tipo | Código | Mensaje | Mensaje Usuario
+--------- | --------- | ------- | -----------
 |anulacion_exitosa| 103 | Venta anulada exitosamente. | 
