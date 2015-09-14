@@ -6,7 +6,7 @@ Al validar una venta puedes recibir las siguientes respuestas:
 
 Tipo | Código | Mensaje | Mensaje Usuario
 --------- | --------- | ------- | -----------
-|| 001 | El código de comercio es inválido.
+|parametro_invalido| 001 | El código de comercio es inválido.
 |error_procesamiento| 002 | El comercio no fue encontrado.
 |error_procesamiento| 003 | El comercio no existe.
 |error_procesamiento| 004 | El comercio no tiene una llave activa.
