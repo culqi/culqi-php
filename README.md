@@ -95,6 +95,8 @@ Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
 Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
 Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 5 min - 15 max
 ID Usuario | id_usuario_comercio | Identificador del usuario. | N | 20 caracteres
+Nombres | nombres | Nombres del cliente. | A | 30 caracteres
+Apellidos | apellidos | Apellidos del cliente. | A | 30 caracteres
 
 `AN = Alfanumérico` 
 `N = Numérico` 
@@ -103,8 +105,6 @@ ID Usuario | id_usuario_comercio | Identificador del usuario. | N | 20 caractere
 
 Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
-Nombres | nombres | Nombres del cliente. | A | 30 caracteres
-Apellidos | apellidos | Apellidos del cliente. | A | 30 caracteres
 Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
 
 `N = Numérico` 
