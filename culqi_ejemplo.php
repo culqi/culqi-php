@@ -38,6 +38,10 @@
             
             //Id de usuario del cliente
             "id_usuario_comercio" => "1234567",
+            
+            "nombres" => "",
+            
+            "apellidos" => "",
                                            
         ));
         
