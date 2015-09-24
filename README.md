@@ -154,6 +154,12 @@ Pago::PARAM_NUM_TEL => "992765900",
 //Identificador de usuario del cliente
 "id_usuario_comercio" => "ID002",
 
+//Nombres
+"nombres" => "William",
+
+//Nombres
+"apellidos" => "Muro",
+
 
 ));
 
