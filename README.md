@@ -285,7 +285,7 @@ Una vez que obtengas la respuesta de Culqi en tu página web es necesario que la
 
 ```javascript
 $.ajax({
-            url: "/respuesta",
+            url: "/respuesta.php",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(
@@ -317,7 +317,7 @@ Culqi::$codigoComercio = "demo";
 Culqi::$llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
 
 //Retorna el JSON Descifrado
-$respuesta = json_decode(Culqi::decifrar(respuestaCifrada.getRespuesta()));
+$respuesta = json_decode(Culqi::decifrar($respuestaCliente));
 
 //Codigo del comercio
 echo "Código Comercio" . $respuesta["codigo_comercio"];
