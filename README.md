@@ -83,20 +83,21 @@ Para crear una nueva venta deberá configurar la información de la misma, media
 
 #### Parámetros de envío obligatorios
 
-Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
---------- | --------- | ------- | ----------- | -----------
-Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. ***Debe ser único por cada venta.*** | AN | 100 caracteres
-Moneda | PARAM_MONEDA | Código de la Moneda de la venta. Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres
-Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025 | N | 7 caracteres
-Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 120 caracteres
-Correo Electrónico | correo_electronico | Dirección del correo electrónico del cliente. | AN | 120 caracteres
-País | PARAM_COD_PAIS | Código del País del cliente. Ej. Perú : PE | A | 2 caracteres
-Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 30 caracteres
-Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 80 caracteres
-Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 5 min - 15 max
-ID Usuario | id_usuario_comercio | Identificador del usuario. | N | 20 caracteres
-Nombres | nombres | Nombres del cliente. | A | 30 caracteres
-Apellidos | apellidos | Apellidos del cliente. | A | 30 caracteres
+Nombre | Parámetro | Descripción | Tipo | Tamaño Mínimo| Tamaño Máximo
+--------- | --------- | ------- | ----------- | ----------- | -----------
+Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. ***Debe ser único por cada venta.*** | AN | 1 caracteres | 33 caracteres
+Moneda | PARAM_MONEDA | Código [ISO-4217](https://es.wikipedia.org/wiki/ISO_4217) de la Moneda de la venta . Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres | 3 caracteres
+Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025 | N | 3 caracteres | 9 caracteres
+Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 5 caracteres | 80 caracteres
+Correo Electrónico | correo_electronico | Dirección del correo electrónico del cliente. | AN | 5 caracteres | 50 caracteres
+País | PARAM_COD_PAIS | Código [ISO-3166-1 Alfa 2](https://es.wikipedia.org/wiki/ISO_3166-1) del País del cliente. Ej. Perú : PE | A | 2 caracteres | 2 caracteres
+Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 2 caracteres | 30 caracteres
+Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 5 caracteres | 100 caracteres
+Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 5 caracteres  | 15 caracteres
+ID Usuario | id_usuario_comercio | Identificador del usuario. | N | 2 caracteres | 15 caracteres
+Nombres | nombres | Nombres del cliente. | A | 2 caracteres | 50 caracteres
+Apellidos | apellidos | Apellidos del cliente. | A | 2 caracteres | 50 caracteres
+
 
 `AN = Alfanumérico` 
 `N = Numérico` 
@@ -157,7 +158,7 @@ Pago::PARAM_NUM_TEL => "992765900",
 //Nombres
 "nombres" => "William",
 
-//Nombres
+//Apellidos
 "apellidos" => "Muro",
 
 
@@ -169,10 +170,8 @@ echo "Información de la venta: $informacionVenta";
 
 echo "Codigo de Comercio: " . $data["codigo_comercio"];
 echo "Número de pedido: " . $data["nro_pedido"];
-echo "Tipo de respuesta: " . $data["tipo_respuesta"];
 echo "Código de respuesta: " . $data["codigo_respuesta"];
 echo "Mensaje de respuesta: " . $data["mensaje_respuesta"];
-echo "Mensaje de respuesta recomendado al usuario: " . $data["mensaje_respuesta_usuario"];
 echo "Ticket de la venta: " . $data["ticket"];
 
 } catch (InvalidParamsException $e) {
@@ -183,16 +182,14 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-La respuesta que obtendrá será una cadena cifrada que contiene un JSON.
+La respuesta que obtendrás, si la creación fue exitosa, será una cadena cifrada que contiene un JSON.
 
 ```json
 {"info_venta":"dkladkldlakdmdaaldklakd",
  "codigo_comercio":"testc101",
  "nro_pedido":"testc101",
- "tipo_respuesta":"validacion_exitosa",
- "codigo_respuesta":"100",
- "mensaje_respuesta":"Transacción creada exitosamente.",
- "mensaje_respuesta_usuario":"Transacción creada exitosamente.",
+ "codigo_respuesta":"REG0000",
+ "mensaje_respuesta":"Venta creada exitosamente.",
  "ticket":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
 ```
 
@@ -200,18 +197,16 @@ La respuesta que obtendrá será una cadena cifrada que contiene un JSON.
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
-Informacion de Venta | PARAM_INFO_VENTA | La información de la venta que se usa para configurar el botón de pago de Culqi. | AN
+Informacion de Venta | informacion_venta | La información de la venta que se usa para configurar el botón de pago de Culqi. | AN
 Código de Comercio | codigo_comercio | Código del comercio en Culqi. | AN
-Número de Pedido | nro_pedido | Número de orden de la venta. | AN
-Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
+Número de Pedido | numero_pedido | Número de orden de la venta. | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
-Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
 Ticket | ticket | Ticket de la transacción. | AN
 
 `AN = Alfanumérico` 
 
-> El parámetro "PARAM_INFO_VENTA" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
+> El parámetro "informacion_venta" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
 
 > Es importante que almacenes estos datos, ya que el parámetro "Ticket" lo usarás para otras operaciones.
 
@@ -237,8 +232,8 @@ Esta integración te permite crear un botón customizado y pasar la respuesta de
 //El código del comercio
 checkout.codigo_comercio = "demo";
 
-//La información de la venta
-checkout.informacion_venta = "PARAM_INFO_VENTA";
+//La información de la venta: "informacion_venta" es el contenido del parámetro que recibiste en la creación.
+checkout.informacion_venta = informacion_venta;
 
 
 $('#btn_pago').on('click', function(e) {
@@ -323,19 +318,16 @@ $respuesta = json_decode(Culqi::decifrar($respuestaCliente));
 echo "Código Comercio" . $respuesta["codigo_comercio"];
 
 //Número de pedido
-echo "Número de pedido" . $respuesta["nro_pedido"];
-
-//Tipo de respuesta
-echo "Mensaje Respuesta" . $respuesta["tipo_respuesta"];
+echo "Número de pedido" . $respuesta["numero_pedido"];
 
 //Código de respuesta
-echo "Código Respuesta" . $respuesta["codigo_respuesta"];
+echo "Ticket" . $respuesta["codigo_respuesta"];
 
 //Mensaje de respuesta
 echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta"];
 
 //Mensaje de respuesta al usuario
-echo "Mensaje Respuesta" . $respuesta["mensaje_respuesta_usuario"];
+echo "Mensaje Respuesta Usuario" . $respuesta["mensaje_respuesta_usuario"];
 
 //ID de la Transacción
 echo "ID Transacción" . $respuesta["id_transaccion"];
@@ -376,8 +368,7 @@ Nombre | Parámetro | Descripción | Tipo
 --------- | ------- | ----------- | -----------
 Código de Comercio | codigo_comercio | Código del comercio en Culqi. | AN
 Número de Pedido | nro_pedido | Número de orden de la venta. | AN
-Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
-Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
+Código de Respuesta | codigo_respuesta | Código de la respuesta. "AUT000" si la transacción fué exitosa.  | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
 ID Transacción | id_transaccion | ID de la transacción. | AN
@@ -417,22 +408,16 @@ echo "Código Comercio" . $data['codigo_comercio'];
 echo "Número de pedido" . $data['nro_pedido'];
 
 //Ticket de la venta
-echo "Ticket" + $data['ticket'];
+echo "Ticket" . $data['ticket'];
 
 //Estado de la transacción
 echo "Estado de la transacción" . $data['estado_transaccion'];
-
-//Tipo de respuesta
-echo "Mensaje Respuesta" . $respuesta["tipo_respuesta"];
 
 //Código de respuesta
 echo "Código Respuesta" . $respuesta["codigo_respuesta"];
 
 //Mensaje de respuesta
 echo "Mensaje Respuesta al desarrollador" . $respuesta["mensaje_respuesta"];
-
-//Mensaje de respuesta al usuario
-echo "Mensaje Respuesta al usuario" . $respuesta["mensaje_respuesta_usuario"];
 
 //Nombres del tarjetahabiente
 echo "Apellido del Tarjeta habiente" . $respuesta["apellido_tarjeta_habiente"];
@@ -461,10 +446,9 @@ Ticket | ticket | El código de la transacción que quieres consultar. | AN
 Nombre | Parámetro| Descripción | Tipo 
 --------- | --------- | ----------- | -----------
 Código de Comercio | codigo_comercio | El código del comercio en Culqi. | AN
-Número de Pedido | nro_pedido | El número de orden de tu venta. | AN
+Número de Pedido | numero_pedido | El número de orden de tu venta. | AN
 Ticket | Ticket | El código de la transacción. | AN
 Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
-Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
@@ -490,13 +474,10 @@ $data = Pago::anular("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 echo "Código Comercio" . $data['codigo_comercio'];
 
 //Número de Pedido
-echo "Número de pedido" . $data['nro_pedido'];
+echo "Número de pedido" . $data['numero_pedido'];
 
 //Ticket de la transacción
-echo "Ticket" + $data['ticket'];
-
-//Tipo de respuesta
-echo "Mensaje Respuesta" . $respuesta["tipo_respuesta"];
+echo "Ticket" . $data['ticket'];
 
 //Código de respuesta
 echo "Código Respuesta" . $respuesta["codigo_respuesta"];
@@ -531,12 +512,11 @@ ticket | AN | El código de la transacción que quieres anular.
 
 ### Parámetros de respuesta
 
-Parámetro | Tipo | Descripción
---------- | ----------- | -----------
-codigo_comercio | AN | El código del comercio en Culqi.
-nro_pedido | AN | El número de orden de tu venta.
-ticket | AN | El código de la transacción.
-Tipo de Respuesta | tipo_respuesta | Tipo de respuesta: "validacion_exitosa", "error_procesamiento", "parametro_invalido" | AN
-Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
+Nombre | Parámetro | Tipo | Descripción
+--------- | --------- | ----------- | -----------
+Código de comercio | codigo_comercio| El código del comercio en Culqi. | AN 
+Número de pedido | numero_pedido| El número de pedido de tu venta. | AN 
+Ticket | ticket| El código de la transacción. | AN 
+Código de Respuesta | codigo_respuesta | Código de la respuesta. "ANU0000" si la anulación fue exitosa. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
