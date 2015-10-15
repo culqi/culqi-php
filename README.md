@@ -131,7 +131,7 @@ Pago::PARAM_NUM_PEDIDO => "tlvh20150727-1",
 //Moneda de la venta ("PEN" O "USD")
 Pago::PARAM_MONEDA => "PEN",
 
-//Monto de la venta (ejem: 10.25, va sin el punto decimal)
+//Monto de la venta (ejem: 10.25, no se incluye el punto decimal)
 Pago::PARAM_MONTO => "1025",
 
 //Descripción de la venta
