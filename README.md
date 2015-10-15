@@ -1,6 +1,6 @@
 # Integrando el Botón de Pago Web en una aplicación PHP
 
-## Introducción
+##1. Introducción
 Este documento tiene como intención ser una Guía rápida para que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
 
 Para realizar una operación de autorización, se debe realizar 2 pasos: 
@@ -11,7 +11,7 @@ Adicionalmente, se podrá realizar las siguientes operaciones:
    - Consultar una Venta --> obtendrás el estado de la venta y sus datos.
    - Anular una Venta --> se procesará la anulación siempre y cuando la venta esté autorizada.
 
-## Requerimientos
+##2. Requerimientos
 
 Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Botón de Pago Web de Culqi, debes instalar lo siguiente:
 
@@ -20,14 +20,14 @@ Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Bot
 * [CURL](http://php.net/manual/es/book.curl.php)
 * [Ctype](http://php.net/manual/es/book.ctype.php)
 
-## Instalación
+##3. Instalación
 
 > Culqi ha desarrollado una libreria en PHP para simplificar la implementación del Botón de Pago Web en tu aplicación o proyecto. Puedes descargar la última versión de la librería de PHP e importarla a tu proyecto:
 
 ```php
 require 'culqi.php';
 ```
-## Comercio de prueba
+##4. Comercio de prueba
 
 Para facilitarle la implementación a nuestro Entorno de Integración, hemos creado un comercio de prueba denominado "Comercio Demo", el cual considera el logotipo de Culqi, asi como los siguientes datos que deberás utilizar en los próximos pasos.
 
@@ -48,7 +48,7 @@ Diners | 3600 121212 1210 | 04/2018 | 964
 Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía email a soporte@culqi.com.
 </aside>
 
-## Configuración
+##5. Configuración
 
 Para empezar debes de configurar la librería en tu proyecto e iniciar las variables con los datos del "Comercio Demo":
 
@@ -73,15 +73,15 @@ servidorBase | URL de Culqi a la que te conectarás.
  | `Entorno de Producción: la URL es: https://pago.culqi.com`
 
 
-## Operación de Autorización
+##6. Operación de Autorización
 
-### Creando una venta
+###6.1 Creando una venta
 
 Este paso es para pre-registrar y validar los datos de la venta del Comercio en la Pasarela de Pagos de Culqi, antes de solicitar los datos de la tarjeta al cliente. Si la respuesta es satisfactoria se debe proseguir con el siguiente paso, caso contrario, ustede debe revisar el código y mensaje de la respuesta que se le brinde.
 
 Para crear una nueva venta deberá configurar la información de la misma, mediante los valores que establezca en los parámetros obligatorios.
 
-#### Parámetros de envío obligatorios
+####a. Parámetros de envío obligatorios
 
 Nombre | Parámetro | Descripción | Tipo | Tamaño Mínimo| Tamaño Máximo
 --------- | --------- | ------- | ----------- | ----------- | -----------
@@ -102,7 +102,7 @@ Apellidos | apellidos | Apellidos del cliente. | A | 2 caracteres | 50 caractere
 `AN = Alfanumérico` 
 `N = Numérico` 
 
-#### Parámetros de envío opcionales
+####b. Parámetros de envío opcionales
 
 Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
@@ -193,7 +193,7 @@ La respuesta que obtendrás, si la creación fue exitosa, será una cadena cifra
  "ticket":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
 ```
 
-#### Parámetros de respuesta
+####c. Parámetros de respuesta
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
@@ -219,7 +219,7 @@ Ticket | ticket | Ticket de la transacción. | AN
 
 > Es importante que almacenes estos datos, ya que el parámetro "Ticket" lo usarás para otras operaciones.
 
-### Procesando una Venta
+###6.2 Procesando una Venta
 
 Para empezar, agrega el siguiente código en JavaScript en la página web donde tendrás el Botón de Pago Web:
 
@@ -269,7 +269,7 @@ checkout.cerrar();
 </script>
 ```
 
-#### Parámetros de envío
+####a. Parámetros de envío
 
 Nombre | Parámetro | Descripción | Tipo
 --------- | --------- | ------- | -----------
@@ -283,7 +283,7 @@ En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cli
 <aside class="error">
 Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php", ya que la llave no debe ser usada en el navegador web por tu seguridad como comercio.</aside>
 
-#### Enviando la respuesta a tu servidor
+####b. Enviando la respuesta a tu servidor
 
 Una vez que obtengas la respuesta de Culqi en tu página web es necesario que la envíes a tu servidor para decifrarla y poder mostrar al usuario el resultado de la transacción. A continuación un ejemplo utilizando Ajax y que invoca a una entrada llamada "/respuesta":
 
@@ -311,7 +311,7 @@ $.ajax({
         });
 ```
 
-#### Decrifrando la respuesta
+####c. Descrifrando la respuesta
 
 Una vez recibida la respuesta, puedes decifrarla utilizando la librería PHP.
 
@@ -411,7 +411,7 @@ Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó par
 
 > Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
 
-## Operación de Consulta de una venta
+##7. Operación de Consulta de una venta
 
 Para consultar una venta debes de enviar el ticket de la transacción (que debes haber guardado) usando la librería de Culqi.
 
@@ -461,14 +461,14 @@ echo $e->getMessage()."\n";
 ?>
 ```
 
-### Parámetros de envío
+###a. Parámetros de envío
 
 Nombre | Parámetro| Descripción | Tipo 
 --------- | ----------- | ----------- | -----------
 Ticket | ticket | El código de la transacción que quieres consultar. | AN
 
 
-### Parámetros de respuesta
+###b. Parámetros de respuesta
 
 Nombre | Parámetro| Descripción | Tipo 
 --------- | --------- | ----------- | -----------
@@ -478,7 +478,7 @@ Ticket | Ticket | El código de la transacción. | AN
 Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
 
 
-## Operación de Anulación de una venta
+##8. Operación de Anulación de una venta
 
 Para anular una venta debes de enviar el ticket de la transacción usando la librería de Culqi.
 
@@ -528,14 +528,14 @@ echo $e->getMessage()."\n";
 
 ```
 
-### Parámetros de envío
+###a. Parámetros de envío
 
 Parámetro | Tipo | Descripción
 --------- | ----------- | -----------
 ticket | AN | El código de la transacción que quieres anular.
 
 
-### Parámetros de respuesta
+###b. Parámetros de respuesta
 
 Nombre | Parámetro | Tipo | Descripción
 --------- | --------- | ----------- | -----------
