@@ -169,7 +169,7 @@ $informacionVenta = $data[Pago::PARAM_INFO_VENTA];
 echo "Información de la venta: $informacionVenta";
 
 echo "Codigo de Comercio: " . $data["codigo_comercio"];
-echo "Número de pedido: " . $data["nro_pedido"];
+echo "Número de pedido: " . $data["numero_pedido"];
 echo "Código de respuesta: " . $data["codigo_respuesta"];
 echo "Mensaje de respuesta: " . $data["mensaje_respuesta"];
 echo "Ticket de la venta: " . $data["ticket"];
@@ -187,7 +187,7 @@ La respuesta que obtendrás, si la creación fue exitosa, será una cadena cifra
 ```json
 {"info_venta":"dkladkldlakdmdaaldklakd",
  "codigo_comercio":"testc101",
- "nro_pedido":"testc101",
+ "numero_pedido":"testc101",
  "codigo_respuesta":"venta_registrada",
  "mensaje_respuesta":"Venta creada exitosamente.",
  "ticket":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
@@ -376,8 +376,8 @@ Obtendrás un JSON que contendrá los siguientes parámetros:
 Nombre | Parámetro | Descripción | Tipo
 --------- | ------- | ----------- | -----------
 Código de Comercio | codigo_comercio | Código del comercio en Culqi. | AN
-Número de Pedido | nro_pedido | Número de orden de la venta. | AN
-Código de Respuesta | codigo_respuesta | Código de la respuesta. "AUT000" si la transacción fué exitosa.  | AN
+Número de Pedido | numero_pedido | Número de orden de la venta. | AN
+Código de Respuesta | codigo_respuesta | Código de la respuesta.  | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
 ID Transacción | id_transaccion | ID de la transacción. | AN
@@ -385,8 +385,8 @@ Código Referencia | referencia_transaccion | Código de referencia de la transa
 Código Autorización | codigo_autorizacion | Código de autorización de la transacción. | AN
 Marca | marca | Marca de la tarjeta usada para realizar el pago. | AN
 Emisor | emisor | Banco emisor de la tarjeta usada para realizar el pago. Es referencial. | AN
-País Tarjeta | pais_tarjeta | País de origen de la tarjeta usada para realizar el pago. Es referencial. | AN
-IIN Tarjeta | iin_tarjeta | IIN de la tarjeta usada para realizar el pago. | N
+País Tarjeta | pais_emisor | País de origen de la tarjeta usada para realizar el pago. Es referencial. | AN
+Numero Tarjeta | numero_tarjeta | Número de la tarjeta enmascarada usada para realizar el pago. | N
 Nombre Tarjeta Habiente | nombre_tarjeta_habiente | Nombre que se usó para realizar el pago. | A
 Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó para realizar el pago. | A
 `AN = Alfanumérico` 
@@ -432,7 +432,7 @@ $data = Pago::consultar("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 echo "Código Comercio" . $data['codigo_comercio'];
 
 //Número de Pedido
-echo "Número de pedido" . $data['nro_pedido'];
+echo "Número de pedido" . $data['numero_pedido'];
 
 //Ticket de la venta
 echo "Ticket" . $data['ticket'];
