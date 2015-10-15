@@ -11,6 +11,7 @@ Adicionalmente, se podrá realizar las siguientes operaciones:
    - Consultar una Venta --> obtendrás el estado de la venta y sus datos.
    - Anular una Venta --> se procesará la anulación siempre y cuando la venta esté autorizada.
 
+
 ##2. Requerimientos
 
 Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Botón de Pago Web de Culqi, debes instalar lo siguiente:
@@ -20,6 +21,7 @@ Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Bot
 * [CURL](http://php.net/manual/es/book.curl.php)
 * [Ctype](http://php.net/manual/es/book.ctype.php)
 
+
 ##3. Instalación
 
 > Culqi ha desarrollado una libreria en PHP para simplificar la implementación del Botón de Pago Web en tu aplicación o proyecto. Puedes descargar la última versión de la librería de PHP e importarla a tu proyecto:
@@ -27,6 +29,7 @@ Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Bot
 ```php
 require 'culqi.php';
 ```
+
 ##4. Comercio de prueba
 
 Para facilitarle la implementación a nuestro Entorno de Integración, hemos creado un comercio de prueba denominado "Comercio Demo", el cual considera el logotipo de Culqi, asi como los siguientes datos que deberás utilizar en los próximos pasos.
@@ -47,6 +50,7 @@ Diners | 3600 121212 1210 | 04/2018 | 964
 <aside class="notice">
 Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía email a soporte@culqi.com.
 </aside>
+
 
 ##5. Configuración
 
@@ -417,6 +421,7 @@ El parámetro "codigo_respuesta" puede tener los siguientes valores:
 | tarjeta_vencida |	La tarjeta está vencida |
 
 > Los parámetros "mensaje_respuesta" y "mensaje_respuesta_usuario" pueden tener diferentes contenidos, con el mismo parámetro de "codigo_respuesta".
+
 
 ##7. Operación de Consulta de una venta
 
