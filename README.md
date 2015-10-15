@@ -188,7 +188,7 @@ La respuesta que obtendrás, si la creación fue exitosa, será una cadena cifra
 {"info_venta":"dkladkldlakdmdaaldklakd",
  "codigo_comercio":"testc101",
  "nro_pedido":"testc101",
- "codigo_respuesta":"REG0000",
+ "codigo_respuesta":"venta_registrada",
  "mensaje_respuesta":"Venta creada exitosamente.",
  "ticket":"PqHLeGVGBniY7i4XN1N94QIx4MyHHYZhztE"}
 ```
@@ -298,8 +298,8 @@ $.ajax({
                     }),
             success: function(data){
                 var obj = JSON.parse(data);
-                var tipo_respuesta_venta = obj["tipo_respuesta"];
-                if (tipo_respuesta_venta == "venta_exitosa") {
+                var tipo_respuesta_venta = obj["codigo_respuesta"];
+                if (tipo_respuesta_venta == "venta_registrada") {
                     checkout.cerrar();
                 } else {
                     // Brindale un mensaje amigable al cliente (Puedes usar el mensaje que Culqi recomienda o usar uno tuyo) e invitalo a reintentar la compra.
