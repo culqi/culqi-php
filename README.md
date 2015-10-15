@@ -1,7 +1,7 @@
 # Integrando el Botón de Pago Web en una aplicación PHP
 
 ##1. Introducción
-Este documento tiene como intención ser una Guía rápida para que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
+Este documento tiene como intención ser una Guía rápida parvea que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
 
 Para realizar una operación de autorización, se debe realizar 2 pasos: 
    - Crear un Venta --> se validará los datos del comercio y de la compra.
@@ -206,14 +206,16 @@ Ticket | ticket | Ticket de la transacción. | AN
 
 `AN = Alfanumérico` 
 
-| Código Respuesta |	Descripción |
-| ---------------- | ------------ |
+> El parámetro "codigo_respuesta" puede tener los siguientes valores:
+
+| Código Respuesta |	Descripción Genérica |
+| ---------------- | -------------------- |
 | venta_registrada | 	Se han validado y registrado exitosamente los datos de la venta
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta
 | parametro_invalido |	Los valores de los parámetros utilizados son erróneos o no tienen validez
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción
 
-
+> El parámetro "mensaje_respuesta" puede tener diferentes contenidos, con el mismo parámetro de "codigo_respuesta".
 
 > El parámetro "informacion_venta" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
 
@@ -391,10 +393,10 @@ Nombre Tarjeta Habiente | nombre_tarjeta_habiente | Nombre que se usó para real
 Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó para realizar el pago. | A
 `AN = Alfanumérico` 
 
->El parámetro "codigo_respuesta" puede tener los siguientes valores:
+> El parámetro "codigo_respuesta" puede tener los siguientes valores:
 
-| Código Respuesta |	Descripción |
-| ---------------- | ------------ |
+| Código Respuesta |	Descripción Genérica |
+| ---------------- | -------------------- |
 | venta_exitosa |	Se ha realizado una venta de manera exitosa |
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta |
 | parametro_invalido |	Los valores de los parametros utilizados son erróneos o no tienen validez |
@@ -408,6 +410,7 @@ Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó par
 | tarjeta_robada |	La tarjeta ha sido reportada como robada |
 | tarjeta_vencida |	La tarjeta está vencida |
 
+> Los parámetros "mensaje_respuesta" y "mensaje_respuesta_usuario" pueden tener diferentes contenidos, con el mismo parámetro de "codigo_respuesta".
 
 > Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
 
@@ -544,13 +547,13 @@ Número de pedido | numero_pedido| El número de pedido de tu venta. | AN
 Ticket | ticket| El código de la transacción. | AN 
 Código de Respuesta | codigo_respuesta | Código de la respuesta. "ANU0000" si la anulación fue exitosa. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
-Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta que se recomienda mostrar al usuario. | AN
 
->El parámetro "codigo_respuesta" puede tener los siguientes valores:
+> El parámetro "codigo_respuesta" puede tener los siguientes valores:
 
-| Código Respuesta |	Descripción |
-| ---------------- | ------------ |
+| Código Respuesta |	Descripción Genérica |
+| ---------------- | -------------------- |
 | devolucion_exitosa |	Se ha realizado la anulación/devolución de manera exitosa |
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta |
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción |
 
+> El parámetro "mensaje_respuesta" puede tener diferentes contenidos, con el mismo parámetro de "codigo_respuesta".
