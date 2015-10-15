@@ -16,9 +16,9 @@ Adicionalmente, se podrá realizar las siguientes operaciones:
 Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Botón de Pago Web de Culqi, debes instalar lo siguiente:
 
 * PHP 5.3.3 o posterior.
-* [Mcrypt](http://php.net/manual/es/book.mcrypt.php){:target="_blank"}
-* [CURL](http://php.net/manual/es/book.curl.php){:target="_blank"}
-* [Ctype](http://php.net/manual/es/book.ctype.php){:target="_blank"}
+* [Mcrypt](http://php.net/manual/es/book.mcrypt.php)
+* [CURL](http://php.net/manual/es/book.curl.php)
+* [Ctype](http://php.net/manual/es/book.ctype.php)
 
 ## Instalación
 
@@ -86,11 +86,11 @@ Para crear una nueva venta deberá configurar la información de la misma, media
 Nombre | Parámetro | Descripción | Tipo | Tamaño Mínimo| Tamaño Máximo
 --------- | --------- | ------- | ----------- | ----------- | -----------
 Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. ***Debe ser único por cada venta.*** | AN | 1 caracteres | 33 caracteres
-Moneda | PARAM_MONEDA | Código [ISO-4217](https://es.wikipedia.org/wiki/ISO_4217){:target="_blank"} de la Moneda de la venta . Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres | 3 caracteres
+Moneda | PARAM_MONEDA | Código [ISO-4217](https://es.wikipedia.org/wiki/ISO_4217) de la Moneda de la venta . Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres | 3 caracteres
 Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025 | N | 3 caracteres | 9 caracteres
 Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 5 caracteres | 80 caracteres
 Correo Electrónico | correo_electronico | Dirección del correo electrónico del cliente. | AN | 5 caracteres | 50 caracteres
-País | PARAM_COD_PAIS | Código [ISO-3166-1 Alfa 2](https://es.wikipedia.org/wiki/ISO_3166-1){:target="_blank"} del País del cliente. Ej. Perú : PE | A | 2 caracteres | 2 caracteres
+País | PARAM_COD_PAIS | Código [ISO-3166-1 Alfa 2](https://es.wikipedia.org/wiki/ISO_3166-1) del País del cliente. Ej. Perú : PE | A | 2 caracteres | 2 caracteres
 Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 2 caracteres | 30 caracteres
 Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 5 caracteres | 100 caracteres
 Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 5 caracteres  | 15 caracteres
