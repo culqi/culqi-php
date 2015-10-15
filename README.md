@@ -206,7 +206,13 @@ Ticket | ticket | Ticket de la transacción. | AN
 
 `AN = Alfanumérico` 
 
-> El parámetro "codigo_respuesta" puede tener los siguientes valores:
+> El parámetro "informacion_venta" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
+
+> Es importante que almacenes estos datos, ya que el parámetro "Ticket" lo usarás para otras operaciones.
+
+####d. Códigos de respuesta
+
+El parámetro "codigo_respuesta" puede tener los siguientes valores:
 
 | Código Respuesta |	Descripción Genérica |
 | ---------------- | -------------------- |
@@ -216,10 +222,6 @@ Ticket | ticket | Ticket de la transacción. | AN
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción
 
 > El parámetro "mensaje_respuesta" puede tener diferentes contenidos, con el mismo parámetro de "codigo_respuesta".
-
-> El parámetro "informacion_venta" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
-
-> Es importante que almacenes estos datos, ya que el parámetro "Ticket" lo usarás para otras operaciones.
 
 ###6.2 Procesando una Venta
 
@@ -393,7 +395,11 @@ Nombre Tarjeta Habiente | nombre_tarjeta_habiente | Nombre que se usó para real
 Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó para realizar el pago. | A
 `AN = Alfanumérico` 
 
-> El parámetro "codigo_respuesta" puede tener los siguientes valores:
+> Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
+
+####d. Códigos de respuesta
+
+El parámetro "codigo_respuesta" puede tener los siguientes valores:
 
 | Código Respuesta |	Descripción Genérica |
 | ---------------- | -------------------- |
@@ -411,8 +417,6 @@ Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó par
 | tarjeta_vencida |	La tarjeta está vencida |
 
 > Los parámetros "mensaje_respuesta" y "mensaje_respuesta_usuario" pueden tener diferentes contenidos, con el mismo parámetro de "codigo_respuesta".
-
-> Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
 
 ##7. Operación de Consulta de una venta
 
@@ -545,10 +549,12 @@ Nombre | Parámetro | Tipo | Descripción
 Código de comercio | codigo_comercio| El código del comercio en Culqi. | AN 
 Número de pedido | numero_pedido| El número de pedido de tu venta. | AN 
 Ticket | ticket| El código de la transacción. | AN 
-Código de Respuesta | codigo_respuesta | Código de la respuesta. "ANU0000" si la anulación fue exitosa. | AN
+Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 
-> El parámetro "codigo_respuesta" puede tener los siguientes valores:
+####c. Códigos de respuesta
+
+El parámetro "codigo_respuesta" puede tener los siguientes valores:
 
 | Código Respuesta |	Descripción Genérica |
 | ---------------- | -------------------- |
