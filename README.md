@@ -16,9 +16,9 @@ Adicionalmente, se podrá realizar las siguientes operaciones:
 Para que la aplicación o proyecto que estes desarrollando pueda utilizar el Botón de Pago Web de Culqi, debes instalar lo siguiente:
 
 * PHP 5.3.3 o posterior.
-* [Mcrypt](http://php.net/manual/es/book.mcrypt.php)
-* [CURL](http://php.net/manual/es/book.curl.php)
-* [Ctype](http://php.net/manual/es/book.ctype.php)
+* [Mcrypt](http://php.net/manual/es/book.mcrypt.php){:target="_blank"}
+* [CURL](http://php.net/manual/es/book.curl.php){:target="_blank"}
+* [Ctype](http://php.net/manual/es/book.ctype.php){:target="_blank"}
 
 ## Instalación
 
@@ -86,11 +86,11 @@ Para crear una nueva venta deberá configurar la información de la misma, media
 Nombre | Parámetro | Descripción | Tipo | Tamaño Mínimo| Tamaño Máximo
 --------- | --------- | ------- | ----------- | ----------- | -----------
 Número de Pedido | PARAM_NUM_PEDIDO | Número de pedido de la venta. ***Debe ser único por cada venta.*** | AN | 1 caracteres | 33 caracteres
-Moneda | PARAM_MONEDA | Código [ISO-4217](https://es.wikipedia.org/wiki/ISO_4217) de la Moneda de la venta . Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres | 3 caracteres
+Moneda | PARAM_MONEDA | Código [ISO-4217](https://es.wikipedia.org/wiki/ISO_4217){:target="_blank"} de la Moneda de la venta . Ej: Nuevos Soles: PEN , Dólares: USD | N | 3 caracteres | 3 caracteres
 Monto | PARAM_MONTO | Monto de la venta, sin punto decimal Ej: 100.25 sería 10025 | N | 3 caracteres | 9 caracteres
 Descripción | PARAM_DESCRIPCION | Breve descripción del producto o servicio brindado. | AN | 5 caracteres | 80 caracteres
 Correo Electrónico | correo_electronico | Dirección del correo electrónico del cliente. | AN | 5 caracteres | 50 caracteres
-País | PARAM_COD_PAIS | Código [ISO-3166-1 Alfa 2](https://es.wikipedia.org/wiki/ISO_3166-1) del País del cliente. Ej. Perú : PE | A | 2 caracteres | 2 caracteres
+País | PARAM_COD_PAIS | Código [ISO-3166-1 Alfa 2](https://es.wikipedia.org/wiki/ISO_3166-1){:target="_blank"} del País del cliente. Ej. Perú : PE | A | 2 caracteres | 2 caracteres
 Ciudad | PARAM_CIUDAD | Ciudad del cliente. | A | 2 caracteres | 30 caracteres
 Dirección | PARAM_DIRECCION | Dirección del cliente. | AN | 5 caracteres | 100 caracteres
 Teléfono | PARAM_NUM_TEL | Número de teléfono del cliente. | N | 5 caracteres  | 15 caracteres
@@ -208,9 +208,9 @@ Ticket | ticket | Ticket de la transacción. | AN
 
 | Código Respuesta |	Descripción |
 | ---------------- | ------------ |
-| venta_registrada | 	Se han validado y registrado los datos de una venta de manera exitosa
+| venta_registrada | 	Se han validado y registrado exitosamente los datos de la venta
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta
-| parametro_invalido |	Los valores de los parametros utilizados son erróneos o no tienen validez
+| parametro_invalido |	Los valores de los parámetros utilizados son erróneos o no tienen validez
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción
 
 
@@ -395,14 +395,14 @@ Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó par
 
 | Código Respuesta |	Descripción |
 | ---------------- | ------------ |
+| venta_exitosa |	Se ha realizado una venta de manera exitosa |
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta |
 | parametro_invalido |	Los valores de los parametros utilizados son erróneos o no tienen validez |
-| venta_exitosa |	Se ha realizado una venta de manera exitosa |
 | expiracion_invalida |	La fecha de vencimiento de la tarjeta es inválida |
 | cvv_invalido |	El código de seguridad (CVV) de la tarjeta es inválido |
-| operacion_denegada |	La operacion ha sido denegada por el banco que emitió la tarjeta |
+| operacion_denegada |	La operación ha sido denegada por el banco que emitió la tarjeta |
 | fondos_insuficientes |	La tarjeta no dispone de fondos suficientes para realizar la compra |
-| contactar_emisor |	La operacion ha sido denegada por el banco que emitió la tarjeta. Se sugiere que el cliente se comunique con el banco |
+| contactar_emisor |	La operación ha sido denegada por el banco que emitió la tarjeta. Se sugiere que el cliente se comunique con el banco |
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción |
 | tarjeta_perdida |	La tarjeta ha sido reportada como perdida |
 | tarjeta_robada |	La tarjeta ha sido reportada como robada |
@@ -550,7 +550,7 @@ Mensaje de Respuesta Usuario | mensaje_respuesta_usuario | Mensaje de respuesta 
 
 | Código Respuesta |	Descripción |
 | ---------------- | ------------ |
+| devolucion_exitosa |	Se ha realizado la anulación/devolución de manera exitosa |
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta |
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción |
-| devolucion_exitosa |	Se ha realizado la devolución de una venta de manera exitosa |
 
