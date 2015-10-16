@@ -440,7 +440,7 @@ try {
 // Ticket de la venta
 $data = Pago::consultar("0MXpbwlGjRU9Sr0IwIOqHh1aVJICjGh9KIq");
 
-//Codigo del comercio
+//Código del comercio
 echo "Código Comercio" . $data['codigo_comercio'];
 
 //Número de Pedido
