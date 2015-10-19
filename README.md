@@ -6,32 +6,23 @@
 4. [Comercio de Prueba](#)
 5. [Configuración](#)
 6. [Operación de Autorización](#)
-7. Item 1
-  1. A corollary to the above item.
-  2. Yet another point to consider.
-2. Item 2
-  * A corollary that does not need to be ordered.
-    * This is indented four spaces, because it's two spaces further than the item above.
-    * You might want to consider making a new list.
-3. Item 3
-    6.1 [Creando una Venta](#)
-        *a. [Parámetros de envío obligatorios](#)
-        *b. [Parámetros de envío opcionales](#)
-        *c. [Parámetros de respuesta](#)     
-        *d. [Códigos de respuesta](#)
-    6.2 [Procesando una Venta](#)
-        a. [Parámetros de envío](#)
-        b. [Enviando la respuesta a tu servidor](#)
-        c. [Decrifrando la respuesta](#)
-        d. [Códigos de respuesta](#)
+  1. [Creando una Venta](#)
+    a. [Parámetros de envío obligatorios](#)
+    b. [Parámetros de envío opcionales](#)
+    c. [Parámetros de respuesta](#)     
+    d. [Códigos de respuesta](#)
+  2. [Procesando una Venta](#)
+    a. [Parámetros de envío](#)
+    b. [Enviando la respuesta a tu servidor](#)
+    c. [Decrifrando la respuesta](#)
+    d. [Códigos de respuesta](#)
 7. [Operación de Consulta de una venta](#)
-    a. [Parámetros de envío obligatorios](#)
-    b. [Parámetros de respuesta](#)
-
+  1. [Parámetros de envío obligatorios](#)
+  2. [Parámetros de respuesta](#)
 8. [Operación de Anulación de una venta](#)
-    a. [Parámetros de envío obligatorios](#)
-    b. [Parámetros de respuesta](#)
-    c. [Códigos de respuesta](#)
+  1. [Parámetros de envío obligatorios](#)
+  2. [Parámetros de respuesta](#)
+  3. [Códigos de respuesta](#)
 
 ##1. Introducción
 Este documento tiene como intención ser una Guía rápida parvea que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
