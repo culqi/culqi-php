@@ -9,7 +9,7 @@
     6.1 [Creando una Venta](#)
         a. [Parámetros de envío obligatorios](#)
         b. [Parámetros de envío opcionales](#)
-        c. [Parámetros de respuesta](#)
+        c. [Parámetros de respuesta](#)     
         d. [Códigos de respuesta](#)
     6.2 [Procesando una Venta](#)
         a. [Parámetros de envío](#)
