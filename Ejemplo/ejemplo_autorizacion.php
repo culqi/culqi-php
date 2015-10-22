@@ -78,10 +78,10 @@
                                 console.log(data);
 									var obj = JSON.parse(data);
 									var respuesta_venta = obj[\"codigo_respuesta\"];
-									if (respuesta_venta == \"AUT0000\") {
-                                        alert(\"Venta Exitosa\");
+									if (respuesta_venta == \"venta_exitosa\") {
+
 									} else {
-										alert(\"Tarjeta Denegada\");
+									
 									}
 								},
 								error:function( ){
