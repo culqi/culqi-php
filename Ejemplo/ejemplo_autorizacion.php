@@ -57,7 +57,7 @@
 		echo utf8_decode("Mensaje de respuesta: " . $data["mensaje_respuesta"] ."<br/>"."<br/>");
 		echo utf8_decode("Ticket de la venta: " . $data["ticket"] ."<br/>"."<br/>");
 		
-		   echo utf8_decode("<script src=\"https://devpago.culqi.com/culqi.js\"></script>
+		   echo utf8_decode("<script src=\"https://integ-pago.culqi.com/api/v1/culqi.js\"></script>
 		       <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>
 			   <button id=\"btn_pago\">Pagar</button>
 			   <script>checkout.codigo_comercio = \"testc101\";
