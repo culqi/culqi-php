@@ -1,9 +1,10 @@
 <?php
     require 'culqi.php';
     
-    Culqi::$llaveSecreta = "zzmxZlgIJtKKy0F71DMsZPWnPVzow4S90abBScLDIrk=";
-    Culqi::$codigoComercio = "testc101";
+     Culqi::$codigoComercio = "demo";
+    Culqi::$llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
     Culqi::$servidorBase = 'https://integ-pago.culqi.com';
+    
     
     try {
         
@@ -60,7 +61,7 @@
 		   echo utf8_decode("<script src=\"https://integ-pago.culqi.com/api/v1/culqi.js\"></script>
 		       <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>
 			   <button id=\"btn_pago\">Pagar</button>
-			   <script>checkout.codigo_comercio = \"testc101\";
+			   <script>checkout.codigo_comercio = \"demo\";
 			            checkout.informacion_venta = \"$informacionVenta\";
 						$('#btn_pago').on('click', function(e) {checkout.abrir();e.preventDefault();});
 						function culqi (checkout) {
