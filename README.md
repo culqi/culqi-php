@@ -523,14 +523,12 @@ El parámetro "estado_transaccion" puede tener los siguientes valores:
 
 | Estado | Descripción Genérica |
 | ---------------- | -------------------- |
-| En Proceso |	 |
+| En Proceso | |
 | Abandonada | |
 | Denegada | |
 | Exitosa | |
 | Depositada | |
 | Devuelta | |
-
-Devuelta
 
 ##8. Operación de Anulación de una venta
 
