@@ -513,6 +513,23 @@ Número de Pedido | numero_pedido | El número de orden de tu venta. | AN
 Ticket | Ticket | El código de la transacción. | AN
 Estado de Transacción | estado_transaccion | El estado de la transacción. | AN
 
+El parámetro "estado_transaccion" puede tener los siguientes valores:
+
+| Código Respuesta |	Descripción Genérica |
+| ---------------- | -------------------- |
+| devolucion_exitosa |	Se ha realizado la anulación/devolución de manera exitosa |
+| comercio_invalido |	El comercio no está en condiciones de iniciar una venta |
+| error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción |
+
+| En Proceso |	Descripción Genérica |
+| ---------------- | -------------------- |
+| Abandonada | |
+| Denegada | |
+| Exitosa | |
+| Depositada | |
+| Devuelta | |
+
+Devuelta
 
 ##8. Operación de Anulación de una venta
 
