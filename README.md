@@ -255,7 +255,7 @@ El parámetro "codigo_respuesta" puede tener los siguientes valores:
 
 Para empezar, agrega el siguiente código en JavaScript en la página web donde tendrás el Botón de Pago Web:
 
-`<script type="text/javascript" src="https://integ-pago.culqi.com/culqi.js"></script>`
+`<script type="text/javascript" src="https://integ-pago.culqi.com/api/v1/culqi.js"></script>`
 
 Usar una copia local no está soportado, y puede resultar en errores visibles por el usuario.
 
