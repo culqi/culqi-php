@@ -521,8 +521,9 @@ El parámetro "estado_transaccion" puede tener los siguientes valores:
 | comercio_invalido |	El comercio no está en condiciones de iniciar una venta |
 | error_procesamiento |	Ha ocurrido un error mientras CULQI procesaba la transacción |
 
-| En Proceso |	Descripción Genérica |
+| Estado | Descripción Genérica |
 | ---------------- | -------------------- |
+| En Proceso |	 |
 | Abandonada | |
 | Denegada | |
 | Exitosa | |
