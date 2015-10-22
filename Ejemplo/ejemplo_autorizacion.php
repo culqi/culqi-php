@@ -67,7 +67,7 @@
 						function culqi (checkout) {
 						
 						 $.ajax({
-								url: \"/culqi_ejemplo_descifrado.php\",
+								url: \"/ejemplo_descifrado.php\",
 								type: \"POST\",
 								contentType: \"application/json\",
 								data: JSON.stringify(
