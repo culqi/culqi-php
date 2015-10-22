@@ -206,7 +206,7 @@ echo "Ticket de la venta: " . $data["ticket"];
 
 echo $e->getMessage()."\n";
 
-}tok
+}
 ?>
 ```
 
