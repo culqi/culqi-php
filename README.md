@@ -525,7 +525,6 @@ El parámetro "estado_transaccion" puede tener los siguientes valores:
 | ---------------- | -------------------- |
 | Creada | El cliente esta realizando la compra. |
 | Abandonada | El cliente ha cerrado el formulario de pago. |
-| Expirada | El cliente interrumpió la compra (ejem: cerrando el navegador web). |
 | Denegada | La venta ha sido rechazada. |
 | Exitosa | La venta ha sido exitosa. |
 | Depositada | La venta esta en proceso de liquidación y pago. |
