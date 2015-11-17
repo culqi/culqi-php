@@ -68,7 +68,7 @@ Marca | Número de tarjeta | Fecha de expiración | CVV
 Visa | 4111 1111 1111 1111 | 09/2020 | 123
 Visa | 4444 3333 2222 1111 | 09/2019 | 123
 MasterCard | 5111 1111 1111 1118 | 06/2020 | 472
-Amex | 3712 121212 12122 | 11/2017 | 284
+Amex | 3712 121212 12122 | 11/2017 | 2841
 Diners | 3600 121212 1210 | 04/2018 | 964
 
 <aside class="notice">
