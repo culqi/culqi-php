@@ -291,6 +291,7 @@ e.preventDefault();
 function culqi (checkout) {
 
 //Aquí recibes la respuesta del formulario de pago.
+//Si el usuario cierra el formulario de pago: checkout.respuesta tendrá en valor "checkout_cerrado"
 console.log(checkout.respuesta);
 
 // Cierra el formulario de pago de Culqi.
