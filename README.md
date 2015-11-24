@@ -1,4 +1,4 @@
-# Integrando el Botón de Pago Web en una aplicación PHP
+# Integrando Culqi con librería PHP
 
 1. [Introducción](#1-introducción)
 2. [Requerimientos](#2-requerimientos)
@@ -25,7 +25,7 @@
   3. [Códigos de respuesta](#c-códigos-de-respuesta)
 
 ##1. Introducción
-Este documento tiene como intención ser una Guía rápida parvea que el desarrollador pueda integrar rápidamente el Botón de Pago Web de Culqi.
+Este documento tiene como intención ser una Guía rápida parvea que el desarrollador pueda integrar rápidamente el Formulario de Pago Web de Culqi.
 
 Para realizar una operación de autorización, se debe realizar 2 pasos: 
    - Crear un Venta --> se validará los datos del comercio y de la compra.
