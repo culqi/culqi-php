@@ -311,9 +311,17 @@ Información Venta | informacion_venta | Información de la venta cifrada.  | AN
 
 Es muy importante que entiendas que la variable `codigo_comercio` se encarga de identificar a tu comercio en la comunicación con los servidores de Culqi, y la variable `informacion_venta` se encarga de enviar la información de la venta.
 
-En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cliente ingrese los datos de la tarjeta y se procese la venta, obtendrás como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que se mostró previamente. Este contiene un JSON cifrado y se imprime en el log del navegador web. 
+En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cliente ingrese los datos de la tarjeta y se procese la venta, obtendrás como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que se mostró previamente. 
 
-<aside class="error">
+La variable `checkout.respuesta` puede retornar los siguientes códigos:
+
+| Código Respuesta |	Descripción Genérica |
+| ---------------- | -------------------- |
+| checkout_cerrado |	Cuando el usuario ha cerrado el formulario de pago.  |
+| venta_expirada |	Cuando la venta ha expirado, luego de sus 10 minutos. |
+| error |	Ha ocurrido un error mientras CULQI procesaba la transacción. |
+
+
 Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php", ya que la llave no debe ser usada en el navegador web por tu seguridad como comercio.</aside>
 
 ####b. Enviando la respuesta a tu servidor
