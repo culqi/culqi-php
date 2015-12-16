@@ -320,7 +320,7 @@ La variable `checkout.respuesta` puede retornar los siguientes códigos:
 | checkout_cerrado |	Cuando el usuario ha cerrado el formulario de pago.  |
 | venta_expirada |	Cuando la venta ha expirado, luego de sus 10 minutos. |
 | error |	Ha ocurrido un error mientras CULQI procesaba la transacción. |
-
+| parametro_invalido |	La información enviada para cargar el formulario de pago, puede ser inválida. |
 
 Es de suma importancia que envíes el contenido de la variable "checkout.respuesta" a tus servidores para decrifrarlo usando la librería "culqi.php", ya que la llave no debe ser usada en el navegador web por tu seguridad como comercio.</aside>
 
