@@ -81,7 +81,7 @@ Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía e
 Para empezar debes de configurar la librería en tu proyecto e iniciar las variables con los datos del "Comercio Demo":
 
 ```php
-<?php$
+<?php
 Culqi::$codigoComercio = "demo";
 Culqi::$llaveSecreta = "JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=";
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
