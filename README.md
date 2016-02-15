@@ -340,8 +340,14 @@ $.ajax({
             success: function(data){
                 var obj = JSON.parse(data);
                 var tipo_respuesta_venta = obj["codigo_respuesta"];
-                if (tipo_respuesta_venta == "venta_registrada") {
-                    checkout.cerrar();
+                if (tipo_respuesta_venta == "venta_exitosa") {
+
+                } else if (tipo_respuesta_venta == "venta_expirada") {
+
+                } else if (tipo_respuesta_venta == "error") {
+
+                } else if (tipo_respuesta_venta == "parametro_invalido") {
+
                 } else {
                     // Brindale un mensaje amigable al cliente (Puedes usar el mensaje que Culqi recomienda o usar uno tuyo) e invitalo a reintentar la compra.
                     checkout.cerrar();
