@@ -78,9 +78,15 @@
                                 console.log(data);
 									var obj = JSON.parse(data);
 									var respuesta_venta = obj[\"codigo_respuesta\"];
-									if (respuesta_venta == \"venta_exitosa\") {
+								if (tipo_respuesta_venta == "venta_exitosa") {
 
-									} else {
+                						} else  if (tipo_respuesta_venta == "venta_expirada") {
+
+                						} else  if (tipo_respuesta_venta == "error") {
+
+                						} else  if (tipo_respuesta_venta == "parametro_invalido") {
+
+                						} else {
 									
 									}
 								},
