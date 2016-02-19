@@ -35,6 +35,8 @@ Adicionalmente, se podrá realizar las siguientes operaciones:
    - Consultar una Venta --> obtendrás el estado de la venta y sus datos.
    - Anular una Venta --> se procesará la anulación siempre y cuando la venta esté autorizada.
 
+#### Flujo de pago
+![flujo](https://integ.culqi.com/mapa.png)
 
 ##2. Requerimientos
 
