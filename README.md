@@ -74,7 +74,7 @@ Amex | 3712 121212 12122 | 11/2017 | 2841
 Diners | 3600 121212 1210 | 04/2018 | 964
 
 <aside class="notice">
-Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía email a soporte@culqi.com.
+Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía email a integracion@culqi.com.
 </aside>
 
 
