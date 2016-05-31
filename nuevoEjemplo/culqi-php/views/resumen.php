@@ -42,7 +42,7 @@
         <script>
         // Código del comercio
         checkout.codigo_comercio = '<?= Culqi::$codigoComercio ?>';
-        // La informacion_venta es el contenido del parámetro que recibiste en la creación.
+        // La informacion_venta es el contenido del parámetro que recibiste en la creación de la venta.
         checkout.informacion_venta = '<?= CulqiValidar::$informacionVenta ?>';
         // Activa el botón de pago, al darle click mostrará el formulario de pago
         document.getElementById('btn_pago').addEventListener('click', function (e) {

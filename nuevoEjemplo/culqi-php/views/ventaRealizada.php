@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Resumen de Compras</title>
+        <title>Venta Realizada</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato:400,300,700'>
     </head>
