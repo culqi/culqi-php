@@ -4,6 +4,8 @@ class CulqiValidar
 {
     /**
      * Es la key de informacion_venta que Culqi enviará luego de crear la venta
+     *
+     * @var string
      */
     public static $informacionVenta;
 
@@ -118,7 +120,7 @@ class CulqiValidar
      *
      * @param string $codPais
      */
-    public static function validarCodidoDePais($codPais)
+    public static function validarCodigoDePais($codPais)
     {
         if (preg_match("/^[a-zA-Z][a-zA-Z]/", $codPais)) {
 
@@ -281,7 +283,7 @@ class CulqiValidar
         // Será 1 si está validado y 0 si no lo está
         self::validarApellidos($datosDeCliente['apellidos']);
         self::validarCiudad($datosDeCliente['ciudad']);
-        self::validarCodidoDePais($datosDeCliente['cod_pais']);
+        self::validarCodigoDePais($datosDeCliente['cod_pais']);
         self::validarCorreo($datosDeCliente['correo_electronico']);
         self::validarDireccion($datosDeCliente['direccion']);
         self::validarNombres($datosDeCliente['nombres']);
@@ -306,7 +308,6 @@ class CulqiValidar
                 $clienteValidado = false;
 
             }
-
         }
 
         // Si no está validado, se devolverá la misma vista
@@ -322,7 +323,6 @@ class CulqiValidar
                     array_push($camposNoValidados, $clave);
 
                 }
-
             }
 
             $alerta .= implode(', ', $camposNoValidados);
@@ -333,7 +333,6 @@ class CulqiValidar
 
             exit;
         }
-
     }
 
     /**
@@ -425,6 +424,8 @@ class CulqiValidar
 
     /**
      * Devuelve los datos enviados por método POST
+     *
+     * @return string
      */
     public static function postData()
     {

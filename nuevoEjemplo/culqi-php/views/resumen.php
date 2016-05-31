@@ -51,8 +51,6 @@
         });
         // Esta función es llamada al terminar el proceso de pago.
         // Debe de ser usada siempre, para poder obtener la respuesta.
-        // HOLA PAPU, QUE MIRAS
-        var ventaRealizada;
         function culqi(checkout)
         {
             // Aquí recibes la respuesta del formulario de pago.
@@ -60,17 +58,13 @@
             console.log(checkout.respuesta);
             // Cierra el formulario de pago de Culqi.
             checkout.cerrar();
-            // Envia la respuesta que recibiste del formulario de Culqi a tu servidor para descifrarlo
-            // Recibe los datos descifrados de tu servidor y los manda nuevamente a tu servidor
-            // Tu servidor crea la Vista de Venta Realizada y la muestra
-            function mostrarVenta()
-            {
-                post('/mostrarVentaRealizada.php', ventaRealizada.respuesta());
-            }
-
-            // Muestra que la venta ha sido confirmada
-            ventaRealizada = new PostData('/descifrarRespuesta.php', checkout.respuesta, mostrarVenta);
-            
+            // Envía la respuesta cifrada que recibiste del formulario de Culqi a tu
+            // servidor para descifrarlo, tu servidor lo descifra con la librería
+            // de culqi y con esos datos muestra la vista de venta realizada
+            var json = JSON.stringify({
+                informacionDeVentaCifrada: checkout.respuesta
+            });
+            post('/mostrarVentaRealizada.php', json);
         };
         </script>
     </body>

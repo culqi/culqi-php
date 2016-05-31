@@ -9,12 +9,12 @@
 
     <body>
         <div class="contacto-info">
-            <h3><?= $datosDeVentaConfirmada['mensaje_respuesta_usuario'] ?></h3>
-            <p><b>Número de pedido:</b> <?= $datosDeVentaConfirmada['numero_pedido'] ?></p>
-            <p><b>Número de tarjeta:</b> <?= $datosDeVentaConfirmada['numero_tarjeta'] ?></p>
-            <p><b>Marca de la tarjeta:</b> <?= $datosDeVentaConfirmada['marca'] ?></p>
-            <p><b>Nombres:</b> <?= $datosDeVentaConfirmada['nombre_tarjeta_habiente'] ?></p>
-            <p><b>Apellidos:</b> <?= $datosDeVentaConfirmada['apellido_tarjeta_habiente'] ?></p>
+            <h3><?= $datosDeVentaRealizada->mensaje_respuesta_usuario ?></h3>
+            <p><b>Número de pedido:</b> <?= $datosDeVentaRealizada->numero_pedido ?></p>
+            <p><b>Número de tarjeta:</b> <?= $datosDeVentaRealizada->numero_tarjeta ?></p>
+            <p><b>Marca de la tarjeta:</b> <?= $datosDeVentaRealizada->marca ?></p>
+            <p><b>Nombres:</b> <?= $datosDeVentaRealizada->nombre_tarjeta_habiente ?></p>
+            <p><b>Apellidos:</b> <?= $datosDeVentaRealizada->apellido_tarjeta_habiente ?></p>
             <p><b>Fecha:</b> <?= $fecha ?></p>
         </div>
 

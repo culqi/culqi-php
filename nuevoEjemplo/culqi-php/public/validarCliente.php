@@ -1,17 +1,15 @@
 <?php
-/*
- * Implementamos la librería de Culqi
- */
+// Implementamos la librería de Culqi
 require 'culqi.php';
-
-/*
- * Implementamos la librería de validación de Culqi
- */
+// Implementamos la librería de validación de Culqi
 require 'culqiValidar.php';
 
-/*
- * Se recupera los datos del cliente desde el formulario
- */
+// Llenamos los datos del comercio para conectarse a Culqi 
+Culqi::$codigoComercio = 'demo';
+Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
+Culqi::$servidorBase = 'https://integ-pago.culqi.com';
+
+//Se recupera los datos del cliente desde el formulario
 $datosDeCliente = array(
     //Apellidos del cliente
     'apellidos'          => $_POST['apellidos'],
@@ -29,9 +27,7 @@ $datosDeCliente = array(
     'num_tel'            => $_POST['num_tel']
 );
 
-/*
- * Se guarda la información de la venta para enviarla a Culqi
- */
+// Se guarda la información de la venta para enviarla a Culqi
 $datosDeVenta = array(
     //Identificador de usuario del cliente
     'id_usuario_comercio' => 'ID002',
@@ -45,20 +41,9 @@ $datosDeVenta = array(
     'numero_pedido' => CulqiValidar::codigoAleatorio()
 );
 
-/*
- * Validamos si los datos del cliente y de la venta cumplen con las restricciones
- */
+// Validamos si los datos del cliente y de la venta cumplen con las restricciones
 CulqiValidar::validarDatosDeCliente($datosDeCliente);
 CulqiValidar::validarDatosDeVenta($datosDeVenta);
 
-/*
- * Llenamos los datos del comercio para conectarse a Culqi 
- */
-Culqi::$codigoComercio = 'demo';
-Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
-Culqi::$servidorBase = 'https://integ-pago.culqi.com';
-
-/*
- * Enviamos los datos de la venta al Servidor de Culqi
- */
+// Enviamos los datos de la venta al Servidor de Culqi
 CulqiValidar::crearVenta($datosDeCliente, $datosDeVenta);

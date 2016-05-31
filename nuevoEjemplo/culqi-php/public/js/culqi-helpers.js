@@ -3,7 +3,7 @@
  *
  * @param string url
  * @param string data
- * @param function success
+ * @param function success (optional)
  * @return object
  */
 function PostData(url, data, success)
@@ -12,7 +12,6 @@ function PostData(url, data, success)
     this.respuesta = function () {
         return xhttp.responseText;
     };
-
     // Si success no está definido, se le da un valor de undefined
     success = success || undefined;
     // Se crea una petición que será enviada a la url
@@ -31,7 +30,7 @@ function PostData(url, data, success)
 }
 
 /**
- * Redirige con una petición POST enviando información a la url
+ * Envía una petición POST con información y redirige a la url
  *
  * @param string url
  * @param string json
@@ -60,4 +59,3 @@ function post(url, json)
 
     form.submit();
 }
-
