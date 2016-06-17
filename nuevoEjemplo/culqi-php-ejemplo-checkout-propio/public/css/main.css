@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+body {
+    font-family: "Lato";
+}
+
+button {
+    clear: both;
+    display: block;
+    padding: 7px 20px;
+}
+
+a {
+    color: #2080FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.resumen {
+    width: 50%;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    font-weight: 300;
+    margin: 15px 0;
+}
+
+.resumen:after {
+    content: " ";
+    clear: both;
+    display: table;
+}
+
+.resumen .title {
+    background: #EEE;
+    border-radius: 3px 3px 0 0;
+    padding: 15px;
+}
+
+.resumen .float-left {
+    float: left;
+    width: 75%;
+    padding: 15px;
+}
+
+.resumen .float-right {
+    float: left;
+    width: 25%;
+    padding: 15px;
+    text-align: right;
+
+}
+
+.resumen .total {
+    border-top: 1px solid #DDD;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+a.seguir-comprando {
+    background: #5CB85C;
+    border-radius: 4px;
+    padding: 7px 24px;
+    color: #FFF;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+a.seguir-comprano:hover {
+    background: #4CA84C;
+    color: #FFF;
+    text-decoration: none;
+}
