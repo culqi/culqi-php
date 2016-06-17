@@ -13,12 +13,21 @@ button {
     padding: 7px 20px;
 }
 
+a {
+    color: #2080FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .resumen {
     width: 50%;
     border: 1px solid #DDD;
     border-radius: 4px;
     font-weight: 300;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .resumen:after {

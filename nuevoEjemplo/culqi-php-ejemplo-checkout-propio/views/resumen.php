@@ -32,19 +32,42 @@
             </div>
         </div>
 
+        <form id="formulario-culqi">
+            <span>Nombre</span>
+            <input type="text" size="50" id="nombre" value="Ricardo"><br>
+
+            <span>Apellido</span>
+            <input type="text" size="50" id="apellido" value="Huamani"><br>
+
+            <span>Correo electrónico</span>
+            <input type="text" size="50" id="email" value="drihupp@gmail.com"><br>
+
+            <span>Número de tarjeta</span>
+            <input type="text" size="20" id="numero_tarjeta" value="4111111111111111"><br>
+
+            <span>Fecha de vencimiento (MM/AAAA)</span>
+            <input type="text" size="2" id="exp_mes" value="09">
+            <input type="text" size="4" id="exp_anio" value="2020"><br>
+
+            <span>CVV</span>
+            <input type="text" size="4" id="cvv" value="123"><br>
+        </form>
+
         <!-- Botón de pago de Culqi -->
         <button id="btn_pago">Pagar</button>
 
-        <script src="https://integ-pago.culqi.com/api/v1/culqi.js"></script>
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="https://integ-pago.culqi.com/api/v2/culqi.js"></script>
         <script src="/js/culqi-helpers.js"></script>
 
         <!-- Aquí configuramos el botón de pago de Culqi. -->
         <script>
         // Código del comercio
-        checkout.codigo_comercio = '<?= Culqi::$codigoComercio ?>';
+        CulqiJS.codigo_comercio = '<?= Culqi::$codigoComercio ?>';
         // La informacion_venta es el contenido del parámetro que recibiste en la creación de la venta.
-        checkout.informacion_venta = '<?= CulqiValidar::$informacionVenta ?>';
+        CulqiJS.informacion_venta = '<?= CulqiValidar::$informacionVenta ?>';
         // Activa el botón de pago, al darle click mostrará el formulario de pago
+        /*
         document.getElementById('btn_pago').addEventListener('click', function (e) {
             checkout.abrir();
             e.preventDefault();
@@ -65,6 +88,37 @@
                 informacionDeVentaCifrada: checkout.respuesta
             });
             post('/mostrarVentaRealizada.php', json);
+        };
+        */
+        $('#btn_pago').on('click', function(e) {
+        // Realizas el pago usando Culqi.
+            CulqiJS.pagarVenta({
+                numero: document.getElementById("numero_tarjeta").value,
+                exp_m: document.getElementById("exp_mes").value,
+                exp_a: document.getElementById("exp_anio").value,
+                cvc: document.getElementById("cvv").value,
+                nombre: document.getElementById("nombre").value,
+                apellido: document.getElementById("apellido").value,
+                correo: document.getElementById("email").value
+            });
+
+            e.preventDefault();
+        });
+
+        function culqi (checkout) {
+            //Aquí recibes la respuesta del formulario de pago.
+            //checkout.respuesta tendrá el valor: "error", "parametro_invalido"
+            //Y si ha expirado, "venta_expirada"
+            console.log(CulqiJS.respuesta);
+            // Envía la respuesta cifrada que recibiste del formulario de Culqi a tu
+            // servidor para descifrarlo, tu servidor lo descifra con la librería
+            // de culqi y con esos datos muestra la vista de venta realizada
+            
+            var json = JSON.stringify({
+                informacionDeVentaCifrada: CulqiJS.respuesta
+            });
+            post('/mostrarVentaRealizada.php', json);
+            
         };
         </script>
     </body>

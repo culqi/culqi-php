@@ -9,35 +9,35 @@ Culqi::$codigoComercio = 'demo';
 Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
-//Se recupera los datos del cliente desde el formulario
+// Se recupera los datos del cliente desde el formulario
 $datosDeCliente = array(
-    //Apellidos del cliente
+    // Apellidos del cliente
     'apellidos'          => $_POST['apellidos'],
-    //Ciudad del cliente
+    // Ciudad del cliente
     'ciudad'             => $_POST['ciudad'],
-    //Código de país del cliente
+    // Código de país del cliente
     'cod_pais'           => $_POST['cod_pais'],
-    //Correo electrónico del cliente
+    // Correo electrónico del cliente
     'correo_electronico' => $_POST['correo_electronico'],
-    //Dirección del cliente
+    // Dirección del cliente
     'direccion'          => $_POST['direccion'],
-    //Nombre o nobres del  cliente
+    // Nombre o nobres del  cliente
     'nombres'            => $_POST['nombres'],
-    //Número de teléfono del cliente
+    // Número de teléfono del cliente
     'num_tel'            => $_POST['num_tel']
 );
 
 // Se guarda la información de la venta para enviarla a Culqi
 $datosDeVenta = array(
-    //Identificador de usuario del cliente
+    // Identificador de usuario del cliente
     'id_usuario_comercio' => 'ID002',
-    //Descripción de la venta
+    // Descripción de la venta
     'descripcion' => 'Un protector de smartphone y una memoria microSD de 32 GB.',
-    //Moneda de la venta ("PEN" O "USD")
+    // Moneda de la venta ("PEN" O "USD")
     'moneda' => 'PEN',
-    //Monto de la venta (ejem: 10.25, no se incluye el punto decimal)
+    // Monto de la venta (ejem: 10.25, no se incluye el punto decimal)
     'monto' => '1025',
-    //Número de pedido de la venta, y debe ser único (de no ser así, recibirá como respuesta un error)
+    // Número de pedido de la venta, y debe ser único (de no ser así, recibirá como respuesta un error)
     'numero_pedido' => CulqiValidar::codigoAleatorio()
 );
 
