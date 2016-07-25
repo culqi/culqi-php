@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Resumen de Compras</title>
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato:400,300,700'>
     </head>
 
@@ -36,7 +36,7 @@
         <button id="btn_pago">Pagar</button>
 
         <script src="https://integ-pago.culqi.com/api/v1/culqi.js"></script>
-        <script src="/js/culqi-helpers.js"></script>
+        <script src="js/culqi-helpers.js"></script>
 
         <!-- Aquí configuramos el botón de pago de Culqi. -->
         <script>
@@ -64,7 +64,7 @@
             var json = JSON.stringify({
                 informacionDeVentaCifrada: checkout.respuesta
             });
-            post('/mostrarVentaRealizada.php', json);
+            post('/nuevoEjemplo/culqi-php/public/mostrarVentaRealizada.php', json);
         };
         </script>
     </body>
