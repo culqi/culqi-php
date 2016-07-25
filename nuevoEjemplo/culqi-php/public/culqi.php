@@ -220,10 +220,10 @@ class Pago {
             throw new InvalidParamsException("[Error] Debe existir un monto");
         } else if (is_numeric($params[Pago::PARAM_MONTO])) {
             if (!ctype_digit($params[Pago::PARAM_MONTO])) {
-                throw new InvalidParamsException("[Error] El monto debe ser un nÃºmero entero, no flotante.");
+                throw new InvalidParamsException("[Error] El monto debe ser un número entero, no flotante.");
             }
         } else {
-            throw new InvalidParamsException("[Error] El monto debe ser un nÃºmero entero.");
+            throw new InvalidParamsException("[Error] El monto debe ser un número entero.");
         }
     }
 
