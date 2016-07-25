@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Resumen de Compras</title>
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato:400,300,700'>
     </head>
 
@@ -58,7 +58,7 @@
 
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
         <script src="https://integ-pago.culqi.com/api/v2/culqi.js"></script>
-        <script src="/js/culqi-helpers.js"></script>
+        <script src="js/culqi-helpers.js"></script>
 
         <!-- Aquí configuramos el botón de pago de Culqi. -->
         <script>
@@ -113,12 +113,12 @@
             // Envía la respuesta cifrada que recibiste del formulario de Culqi a tu
             // servidor para descifrarlo, tu servidor lo descifra con la librería
             // de culqi y con esos datos muestra la vista de venta realizada
-            
+
             var json = JSON.stringify({
                 informacionDeVentaCifrada: CulqiJS.respuesta
             });
-            post('/mostrarVentaRealizada.php', json);
-            
+            post('/nuevoEjemplo/culqi-php-ejemplo-checkout-propio/public/mostrarVentaRealizada.php', json);
+
         };
         </script>
     </body>
