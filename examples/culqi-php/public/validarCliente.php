@@ -4,9 +4,9 @@ require 'culqi.php';
 // Implementamos la librería de validación de Culqi
 require 'culqiValidar.php';
 
-// Llenamos los datos del comercio para conectarse a Culqi 
-Culqi::$codigoComercio = 'demo';
-Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
+// Llenamos los datos del comercio para conectarse a Culqi
+Culqi::$codigoComercio = '0mIOVBG1vu83';
+Culqi::$llaveSecreta = 'KkHjkqJw5uBK77LS1ttNkOFz7Kruvy40LD8ii+g5laE=';
 Culqi::$servidorBase = 'https://integ-pago.culqi.com';
 
 //Se recupera los datos del cliente desde el formulario
@@ -27,6 +27,7 @@ $datosDeCliente = array(
     'num_tel'            => $_POST['num_tel']
 );
 
+
 // Se guarda la información de la venta para enviarla a Culqi
 $datosDeVenta = array(
     //Identificador de usuario del cliente
@@ -36,7 +37,7 @@ $datosDeVenta = array(
     //Moneda de la venta ("PEN" O "USD")
     'moneda' => 'PEN',
     //Monto de la venta (ejem: 10.25, no se incluye el punto decimal)
-    'monto' => '1025',
+    'monto' => '5025',
     //Número de pedido de la venta, y debe ser único (de no ser así, recibirá como respuesta un error)
     'numero_pedido' => CulqiValidar::codigoAleatorio()
 );

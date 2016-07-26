@@ -4,7 +4,7 @@ require 'culqi.php';
 // Implementamos la librería de validación de Culqi
 require 'culqiValidar.php';
 
-Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
+Culqi::$llaveSecreta = 'KkHjkqJw5uBK77LS1ttNkOFz7Kruvy40LD8ii+g5laE=';
 
 try {
     // Se recibe la respuesta (información de la venta) cifrada a través de una petición POST
