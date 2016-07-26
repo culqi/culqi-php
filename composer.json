@@ -1,6 +1,6 @@
 {
   "name": "culqi/culqi-php",
-  "description": "Librería PHP oficial para la integración de Culqi",
+  "description": "Librería PHP oficial para la integración de Culqi, pasarela de pagos.",
   "keywords": ["culqi", "peru", "php", "payments","pagos","api"],
   "homepage": "https://culqi.com",
   "type": "library",
