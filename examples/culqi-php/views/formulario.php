@@ -18,7 +18,7 @@
             Tel&eacute;fono:<br>
             <input type="text" value="555666777" name="num_tel"><br><br>
             Correo electr&oacute;nico:<br>
-            <input type="email" value="ricardo@correo.com" name="correo_electronico"><br><br>
+            <input type="email" value="brayan2259@gmail.com" name="correo_electronico"><br><br>
             Direcci&oacute;n:<br>
             <input type="text" value="av tusilagos" name="direccion"><br><br>
             Pa&iacute;s:<br>

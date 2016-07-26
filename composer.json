@@ -1,0 +1,27 @@
+{
+  "name": "culqi/culqi-php",
+  "description": "Librería PHP oficial para la integración de Culqi",
+  "keywords": ["culqi", "peru", "php", "payments","pagos","api"],
+  "homepage": "https://culqi.com",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Culqi",
+      "homepage": "https://github.com/culqi"
+    }
+  ],
+
+  "require": {
+    "php": ">=5.3.3",
+    "ext-mcrypt": "*",
+    "ext-curl": "*",
+    "ext-ctype": "*"
+  },
+
+  "extra": {
+  "branch-alias": {
+      "dev-master": "1.1.0-dev"
+  }
+  }
+}
