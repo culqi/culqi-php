@@ -1,3 +1,11 @@
+
+# Culqi PHP
+
+[![Latest Stable Version](https://poser.pugx.org/culqi/culqi-php/v/stable)](https://packagist.org/packages/culqi/culqi-php)
+[![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
+[![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
+
+
 # Integrando Culqi con librería PHP
 
 1. [Introducción](#1-introducción)
@@ -27,7 +35,7 @@
 ##1. Introducción
 Este documento tiene como intención ser una Guía rápida parvea que el desarrollador pueda integrar rápidamente el Formulario de Pago Web de Culqi.
 
-Para realizar una operación de autorización, se debe realizar 2 pasos: 
+Para realizar una operación de autorización, se debe realizar 2 pasos:
    - Crear un Venta --> se validará los datos del comercio y de la compra.
    - Procesar la Venta --> se solicitará los datos de la tarjeta y se procesará con la marca correspondiente.
 
@@ -98,8 +106,8 @@ Parámetro | Descripción
 --------- | -----------
 llaveSecreta | Llave secreta del comercio
 codigoComercio | Código del comercio asignado por Culqi.
-servidorBase | URL de Culqi a la que te conectarás. 
- | `Entorno de Integración la URL es: https://integ-pago.culqi.com` 
+servidorBase | URL de Culqi a la que te conectarás.
+ | `Entorno de Integración la URL es: https://integ-pago.culqi.com`
  | `Entorno de Producción: la URL es: https://pago.culqi.com`
 
 
@@ -129,8 +137,8 @@ Nombres | nombres | Nombres del cliente. | A | 2 caracteres | 50 caracteres
 Apellidos | apellidos | Apellidos del cliente. | A | 2 caracteres | 50 caracteres
 
 
-`AN = Alfanumérico` 
-`N = Numérico` 
+`AN = Alfanumérico`
+`N = Numérico`
 
 ####b. Parámetros de envío opcionales
 
@@ -138,8 +146,8 @@ Nombre | Parámetro | Descripción | Tipo | Tamaño Máximo
 --------- | --------- | ------- | ----------- | -----------
 Vigencia | PARAM_VIGENCIA | Cantidad de minutos en los que el cliente puede realizar el pago. | N | 2 caracteres
 
-`N = Numérico` 
-`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi para su habilitación.` 
+`N = Numérico`
+`El tiempo de la vigencia es por defecto 10 minutos. Si va a usar este campo con otro valor, contáctese con Culqi para su habilitación.`
 
 Ejemplo de código para crear la venta:
 
@@ -234,7 +242,7 @@ Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 Ticket | ticket | Ticket de la transacción. | AN
 
-`AN = Alfanumérico` 
+`AN = Alfanumérico`
 
 > El parámetro "informacion_venta" contenido en la respuesta del servidor de Culqi, debe de ser usado para configurar el Botón de Pago Web en la página del comercio como siguiente paso, ya que asi se inicia la solicitud de los datos de la tarjeta al cliente.
 
@@ -313,7 +321,7 @@ Información Venta | informacion_venta | Información de la venta cifrada.  | AN
 
 Es muy importante que entiendas que la variable `codigo_comercio` se encarga de identificar a tu comercio en la comunicación con los servidores de Culqi, y la variable `informacion_venta` se encarga de enviar la información de la venta.
 
-En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cliente ingrese los datos de la tarjeta y se procese la venta, obtendrás como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que se mostró previamente. 
+En este punto, debes visualizar el formulario de pago de Culqi. Luego que el cliente ingrese los datos de la tarjeta y se procese la venta, obtendrás como respuesta una cadena de texto, que puedes leer usando la variable `checkout.respuesta` que lo encuentras en el ejemplo de Javascript que se mostró previamente.
 
 La variable `checkout.respuesta` puede retornar los siguientes códigos:
 
@@ -438,7 +446,7 @@ País Tarjeta | pais_emisor | País de origen de la tarjeta usada para realizar 
 Numero Tarjeta | numero_tarjeta | Número de la tarjeta enmascarada usada para realizar el pago. | N
 Nombre Tarjeta Habiente | nombre_tarjeta_habiente | Nombre que se usó para realizar el pago. | A
 Apellido Tarjeta Habiente | apellido_tarjeta_habiente | Apellido que se usó para realizar el pago. | A
-`AN = Alfanumérico` 
+`AN = Alfanumérico`
 
 > Almacena estos datos por cada petición que realices, y considera que los reintentos esta relacionado al mismo número de pedido, por ello usamos el parámetro de código de referencia.
 
@@ -516,14 +524,14 @@ echo $e->getMessage()."\n";
 
 ###a. Parámetros de envío
 
-Nombre | Parámetro| Descripción | Tipo 
+Nombre | Parámetro| Descripción | Tipo
 --------- | ----------- | ----------- | -----------
 Ticket | ticket | El código de la transacción que quieres consultar. | AN
 
 
 ###b. Parámetros de respuesta
 
-Nombre | Parámetro| Descripción | Tipo 
+Nombre | Parámetro| Descripción | Tipo
 --------- | --------- | ----------- | -----------
 Código de Comercio | codigo_comercio | El código del comercio en Culqi. | AN
 Número de Pedido | numero_pedido | El número de orden de tu venta. | AN
@@ -608,9 +616,9 @@ ticket | AN | El código de la transacción que quieres anular.
 
 Nombre | Parámetro | Tipo | Descripción
 --------- | --------- | ----------- | -----------
-Código de comercio | codigo_comercio| El código del comercio en Culqi. | AN 
-Número de pedido | numero_pedido| El número de pedido de tu venta. | AN 
-Ticket | ticket| El código de la transacción. | AN 
+Código de comercio | codigo_comercio| El código del comercio en Culqi. | AN
+Número de pedido | numero_pedido| El número de pedido de tu venta. | AN
+Ticket | ticket| El código de la transacción. | AN
 Código de Respuesta | codigo_respuesta | Código de la respuesta. | AN
 Mensaje de Respuesta | mensaje_respuesta | Mensaje de respuesta al desarrollador. | AN
 

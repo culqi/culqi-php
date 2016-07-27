@@ -117,7 +117,7 @@
             var json = JSON.stringify({
                 informacionDeVentaCifrada: CulqiJS.respuesta
             });
-            post('/nuevoEjemplo/culqi-php-ejemplo-checkout-propio/public/mostrarVentaRealizada.php', json);
+            post('/examples/culqi-php-checkout-propio/public/mostrarVentaRealizada.php', json);
 
         };
         </script>
