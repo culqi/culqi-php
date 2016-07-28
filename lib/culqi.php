@@ -5,9 +5,9 @@
  * ver. 1.2.0
  *
  * @copyright  Copyright (c) 2015-2016 Culqi
- * @license    http://opensource.org/licenses/LGPL-3.0  Open Software License (LGPL 3.0)
+ * @license    https://opensource.org/licenses/MIT  Open Software License (MIT)
  * http://www.culqi.com
- * http://developers.payu.com
+ * http://beta.culqi.com/desarrolladores/
  */
 
 define("CULQI_SDK_VERSION", "1.2.0");
