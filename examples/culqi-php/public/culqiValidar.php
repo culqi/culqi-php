@@ -52,10 +52,10 @@ class CulqiValidar
     );
 
     /**
-     * Genera un código aleatorio de 15 caracteres para usar 
+     * Genera un código aleatorio de 15 caracteres para usar
      * como numero_pedido en el demo o modo de integración
      *
-     * @return string 
+     * @return string
      */
     public static function codigoAleatorio()
     {
@@ -337,7 +337,7 @@ class CulqiValidar
 
     /**
      * Entregará un mensaje de alerta en la vista de formulario alertando que
-     * los parámetros internos del comercio o de la venta misma no están 
+     * los parámetros internos del comercio o de la venta misma no están
      * validados, sin especificar qué parámetros no fueron validados
      *
      * @param array $datosDeVenta
@@ -388,7 +388,7 @@ class CulqiValidar
     }
 
     /**
-     * Registra la transacción en los servidores de Culqi, muestra los 
+     * Registra la transacción en los servidores de Culqi, muestra los
      * datos del pedido y devuelve la vista del resumen de compras
      *
      * @param array $datosDeCliente

@@ -1,20 +1,17 @@
 <?php
 
 /**
- * Culqi PHP
- * ver. 1.2.0
+ * CULQI PHP SDK
  *
- * @copyright  Copyright (c) 2015-2016 Culqi
- * @license    https://opensource.org/licenses/MIT  Open Software License (MIT)
- * http://www.culqi.com
- * http://beta.culqi.com/desarrolladores/
+ * @version 1.2.0
+ * @package Culqi
+ * @copyright Copyright (c) 2015-2016 Culqi
+ * @license MIT
+ * @license https://opensource.org/licenses/MIT MIT License
+ * @link http://beta.culqi.com/desarrolladores/ Culqi Developers
  */
 
-define("CULQI_SDK_VERSION", "1.2.0");
-
-
-require_once('Culqi/UrlAESCipher.php');
-
-include_once('Culqi/Culqi.php');
-
-require_once('Culqi/Pago.php');
+ include_once dirname(__FILE__).'/config.php';
+ include_once dirname(__FILE__).'/Culqi/UrlAESCipher.php';
+ include_once dirname(__FILE__).'/Culqi/Culqi.php';
+ include_once dirname(__FILE__).'/Culqi/Pago.php';

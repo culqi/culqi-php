@@ -1,10 +1,9 @@
 <?php
 // Implementamos la librería de Culqi
-require 'culqi.php';
+require_once dirname(__FILE__) . '/../../../lib/culqi.php';
 // Implementamos la librería de validación de Culqi
 require 'culqiValidar.php';
 
-Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
 
 try {
     // Se recibe la respuesta (información de la venta) cifrada a través de una petición POST
@@ -28,7 +27,7 @@ try {
         default:
             $respuestaCifrada = true;
             // Se descifra la llave
-            $datosDeVentaRealizada = Culqi::decifrar($datosDeVentaRealizada, true);
+            $datosDeVentaRealizada = Culqi::descifrar($datosDeVentaRealizada, true);
             // Se convierte en objeto los datos de la venta
             $datosDeVentaRealizada = json_decode($datosDeVentaRealizada);
             break;
