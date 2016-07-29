@@ -1,13 +1,10 @@
 <?php
 // Implementamos la librería de Culqi
-require 'culqi.php';
+require_once dirname(__FILE__) . '/../../../lib/culqi.php';
 // Implementamos la librería de validación de Culqi
 require 'culqiValidar.php';
 
-// Llenamos los datos del comercio para conectarse a Culqi 
-Culqi::$codigoComercio = 'demo';
-Culqi::$llaveSecreta = 'JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=';
-Culqi::$servidorBase = 'https://integ-pago.culqi.com';
+
 
 // Se recupera los datos del cliente desde el formulario
 $datosDeCliente = array(
