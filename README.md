@@ -5,14 +5,17 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-Esta es la libería PHP oficial que hace uso del [Culqi API](http://culqi.api-docs.io/) , pagos simples en tu sitio web.
+Libería PHP oficial de CULQI, pagos simples en tu sitio web, que hace uso del [Culqi API](http://culqi.api-docs.io/).
 
-*Nota*: Esta librería trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
+**Nota**: Esta librería trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
 
 
 ## Requisitos
 
 * PHP 5.3 o superiores.
+* Credenciales de comercio Culqi (1).
+
+(1) Debes registrarte [aquí](https://integ-panel.culqi.com/#/registro). Luego, crear un comercio y estando en el panel, acceder a Desarrollo > [***API Keys***](https://integ-panel.culqi.com/#/panel/comercio/desarrollo/llaves).
 
 
 ## Instalación
@@ -67,7 +70,7 @@ $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)
 Antes de crear un Cargo, Plan o un Suscriptor es necesario crear un `token` de tarjeta. Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo
-debe ser usada para *desarrollo*. Lo recomendable es generar los 'tokens' con *CULQI.JS* cuando pases a producción, *debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi*, para no poner en riesgo información sensible.
+debe ser usada para **desarrollo**. Lo recomendable es generar los 'tokens' con **CULQI.JS** cuando pases a producción, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo información sensible.
 
 
 ### Crear un cargo (Cargos)
@@ -122,7 +125,8 @@ print_r($suscriptor);
 ```
 
 ## Documentación
-La documentación completa se encuentra en [http://beta.culqi.com/documentacion/](http://beta.culqi.com/documentacion/)
+¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [http://beta.culqi.com/documentacion/](http://beta.culqi.com/documentacion/)
+
 
 
 ## Testeo
