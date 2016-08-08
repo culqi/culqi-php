@@ -14,9 +14,114 @@ Esta es la libería PHP oficial que hace uso del [Culqi API](http://culqi.api-do
 
 * PHP 5.3 o superiores.
 
+
 ## Instalación
+
+### Vía Composer
+```json
+{
+  "require": {
+    "culqi/culqi-php": "dev-develop"
+  }
+}
+```
+
+
+### Manualmente
+
+Clonarse el repositorio o bajarse el código fuente
+
+```bash
+$ git clone git@github.com:culqi/culqi-php.git
+```
+
+Ahora, incluir en la cabecera a `culqi-php` y también la dependencia `Request`
+
+```php
+<?php
+// Cargamos Culqi PHP y librería Request
+require_once '/path/to/culqi-php/lib/culqi.php';
+require_once '/path/to/rmccue/requests/Requests.php';
+Requests::register_autoloader();
+```
+
+## Modo de uso
+
+En algunos ejemplos, inicialmente hay que configurar las credenciales `COD_COMERCIO`.
+
+```php
+// Configurar credenciales
+$COD_COMERCIO = "X1QjlYMBBSV8";
+$SECRET_API_KEY = "123";
+
+$culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+.
+.
+.
+```
+
+### Crear un token (Usarlo SOLO en DESARROLLO)
+Antes de crear un Cargo, Plan o un Suscriptor es necesario crear un `token` de tarjeta. Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo
+debe ser usada para *desarrollo*. Lo recomendable es generar los 'tokens' con *CULQI.JS* cuando pases a producción, *debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi*, para no poner en riesgo información sensible.
+
+
+### Crear un cargo (Cargos)
+Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
+deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
+
+
+```php
+
+// Creamos Cargo a una tarjeta
+$cargo = $culqi->Cargos->create(
+    array(
+        "moneda"=> "PEN",
+        "monto"=> "19900",
+        "codigo_comercio"=> $COD_COMERCIO,
+        "descripcion"=> "Venta de prueba",
+        "numero_pedido"=> "11213340",
+        "cod_pais"=> "PE",
+        "direccion"=> "Avenida Lima 1232",
+        "ciudad"=> "Lima",
+        "telefono"=> "12313123",
+        "nombres"=> "Jon",
+        "apellidos"=> "Doe",
+        "correo_electronico"=> "jon@gmail.com",
+        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8",
+        "id_usuario_comercio"=> "jon@gmail.com"
+    )
+);
+print_r($cargo);
+
+```
+
+### Crear un suscriptor a un plan (Suscripciones)
+```php
+// Creando Suscriptor a un plan
+$suscriptor = $culqi->Suscripciones->create(
+    array(
+        "codigo_comercio" => $COD_COMERCIO,
+        "codigo_pais"=> "PE",
+        "direccion"=> "Avenida Lima 123213",
+        "ciudad"=> "Lima",
+        "telefono"=> "1234567789",
+        "nombre"=> "Brayan",
+        "correo_electronico"=> "brayan2259@gmail.com",
+        "apellido"=> "Cruces",
+        "usuario"=> "jose@gmail.com",
+        "plan_id"=> "PP02",
+        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8"
+    )
+);
+print_r($suscriptor);
+```
+
+## Documentación
+La documentación completa se encuentra en [http://beta.culqi.com/documentacion/](http://beta.culqi.com/documentacion/)
 
 
 ## Testeo
 
 ## Licencia
+
+MIT.

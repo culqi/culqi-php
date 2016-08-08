@@ -1,64 +1,28 @@
 <?php
+namespace Culqi;
 
-
-/**
- * Class Culqi
- *
- * Controla algunos metodos principales.
- *
- * @version 1.2.0
- * @package Culqi
- * @copyright Copyright (c) 2015-2016 Culqi
- * @license MIT
- * @license https://opensource.org/licenses/MIT MIT License
- * @link http://beta.culqi.com/desarrolladores/ Culqi Developers
- */
 class Culqi {
 
+    public $api_key;
 
-    public static $llaveSecreta = CQ_SECRET_KEY;
-    public static $codigoComercio = CQ_COD_COMERCIO;
-    public static $servidorBase;
-    public static $apiVersion = '1.0.0';
-    public static $sdkVersion = '1.2.0';
-
-
-    /**
-     * Obtiene servidor base dependiendo el entorno
-     * @return string URL para los requests.
-     */
-    public static function getApiBase()
+    // Constructor
+    public function __construct($options)
     {
-        if (CQ_ENTORNO == 'integracion') {
-          self::$servidorBase = "https://integ-pago.culqi.com";
+        $this->api_key = $options["api_key"];
+        if (!$this->api_key) {
+            throw new InvalidApiKey();
         }
 
-        if (CQ_ENTORNO == 'produccion') {
-          self::$servidorBase = "https://pago.culqi.com";
-        }
+        $this->Cargos = new Cargos($this);
+        $this->Suscripciones = new Suscripciones($this);
+        $this->Devoluciones = new Devoluciones($this);
+        $this->Planes = new Planes($this);
 
-        return self::$servidorBase;
     }
 
-    /**
-     * Cifra mediante la llave secreta
-     * @param  string $txt Cadena a cifrar
-     * @return string      Cadena cifrada
-     */
-    public static function cifrar($txt) {
-        $aes = new UrlAESCipher();
-        $aes->setBase64Key(Culqi::$llaveSecreta);
-        return $aes->urlBase64Encrypt($txt);
+    // To-do: setAPIKey
+    public function setApiKey()
+    {
     }
 
-    /**
-     * Descifra mediante la llave secreta
-     * @param  string $txt Cadena cifrada
-     * @return string      Cadena descifrada
-     */
-    public static function descifrar($txt) {
-        $aes = new UrlAESCipher();
-        $aes->setBase64Key(Culqi::$llaveSecreta);
-        return $aes->urlBase64Decrypt($txt);
-    }
 }
