@@ -1,14 +1,14 @@
 {
   "name": "culqi/culqi-php",
-  "description": "Librería PHP oficial para la integración de Culqi, pasarela de pagos.",
+  "description": "Cliente Culqi API para PHP",
   "keywords": ["culqi", "peru", "php", "payments","pagos","api"],
   "homepage": "https://culqi.com",
   "type": "library",
   "license": "MIT",
   "authors": [
     {
-      "name": "Culqi",
-      "homepage": "https://github.com/culqi"
+      "name": "Culqi and contributors",
+      "homepage": "https://github.com/culqi/culqi-php/contributors"
     }
   ],
 
@@ -21,7 +21,6 @@
 
   "extra": {
   "branch-alias": {
-      "dev-master": "1.1.1-dev"
    }
   }
 }
