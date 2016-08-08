@@ -26,6 +26,11 @@ Esta es la libería PHP oficial que hace uso del [Culqi API](http://culqi.api-do
 }
 ```
 
+Y cargar todo usando el autoloader de Composer
+
+```php
+require 'vendor/autoload.php';
+```
 
 ### Manualmente
 
@@ -47,7 +52,7 @@ Requests::register_autoloader();
 
 ## Modo de uso
 
-En algunos ejemplos, inicialmente hay que configurar las credenciales `COD_COMERCIO`.
+En todos ejemplos, inicialmente hay que configurar las credenciales `COD_COMERCIO`.
 
 ```php
 // Configurar credenciales
