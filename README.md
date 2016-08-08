@@ -17,6 +17,7 @@ Libería PHP oficial de CULQI, pagos simples en tu sitio web, que hace uso del [
 
 (1) Debes registrarte [aquí](https://integ-panel.culqi.com/#/registro). Luego, crear un comercio y estando en el panel, acceder a Desarrollo > [***API Keys***](https://integ-panel.culqi.com/#/panel/comercio/desarrollo/llaves).
 
+![alt tag](http://i.imgur.com/NhE6mS9.png)
 
 ## Instalación
 
