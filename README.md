@@ -66,14 +66,14 @@ require 'culqi.php';
 
 ##4. Comercio de prueba
 
-Para facilitarle la implementación a nuestro Entorno de Integración, necesitas crear un nuevo comercio registrandote en Culqi [aquí](https://integ-panel.culqi.com/#/registro), una vez registrado activa tu comercio y obten tus credenciales como se muestra en la imagen y reemplaza las variables de abajo por las tuyas.
+Para facilitarle la implementación a nuestro entorno de integración, necesitas crear un nuevo comercio registrándote en Culqi [aquí](https://integ-panel.culqi.com/#/registro), una vez registrado activa tu comercio y obtén tus credenciales como se muestra en la imagen y reemplaza las variables de abajo por las tuyas.
 
 ![credenciales comercio](https://4.bp.blogspot.com/-k4kl4Iuzqr4/V7HZfIpj2_I/AAAAAAAANOc/lNvR8c8uwssTLr2fJ-OHGv1AP8O41Lm_wCLcB/s320/Selecci%25C3%25B3n_090.png)
 
   * Código de comercio: **demo**
   * Llave del comercio: **JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=**
 
-Te brindamos algunas tarjetas de diferentes marcas que podrás utilizar una vez que te integres mediante del Botón de Pago Web, el nombre y apellido para estas pruebas son aleatorios.
+Te brindamos algunas tarjetas de diferentes marcas que podrás utilizar una vez que te integres mediante del botón de pago web. El nombre y apellido para estas pruebas son aleatorios.
 
 Marca | Número de tarjeta | Fecha de expiración | CVV
 -------------- | -------------- | -------------- | --------------
