@@ -33,7 +33,7 @@
   3. [Códigos de respuesta](#c-códigos-de-respuesta)
 
 ##1. Introducción
-Este documento tiene como intención ser una Guía rápida parvea que el desarrollador pueda integrar rápidamente el Formulario de Pago Web de Culqi.
+Este documento tiene como intención ser una guía rápida para que el desarrollador pueda integrar rápidamente el Formulario de Pago Web de Culqi.
 
 Para realizar una operación de autorización, se debe realizar 2 pasos:
    - Crear un Venta --> se validará los datos del comercio y de la compra.
@@ -66,12 +66,14 @@ require 'culqi.php';
 
 ##4. Comercio de prueba
 
-Para facilitarle la implementación a nuestro Entorno de Integración, hemos creado un comercio de prueba denominado "Comercio Demo", el cual considera el logotipo de Culqi, asi como los siguientes datos que deberás utilizar en los próximos pasos.
+Para facilitarle la implementación a nuestro Entorno de Integración, necesitas crear un nuevo comercio registrandote en Culqi [aquí](https://integ-panel.culqi.com/#/registro), una vez registrado activa tu comercio y obten tus credenciales como se muestra en la imagen.
+
+[URL=http://s1082.photobucket.com/user/stefunwork/media/Seleccioacuten_090.png.html][IMG]http://i1082.photobucket.com/albums/j365/stefunwork/Seleccioacuten_090.png[/IMG][/URL]
 
   * Código de comercio: **demo**
   * Llave del comercio: **JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=**
 
-Te brindamos algunas tarjetas de diferentes marcas que podrás utilizar una vez que te integres mediante del Botón de Pago Web:
+Te brindamos algunas tarjetas de diferentes marcas que podrás utilizar una vez que te integres mediante del Botón de Pago Web, el nombre y apellido para estas pruebas son aleatorios.
 
 Marca | Número de tarjeta | Fecha de expiración | CVV
 -------------- | -------------- | -------------- | --------------
@@ -88,7 +90,7 @@ Si necesitas alguna ayuda u orientación, puedes comunicarte con nosotros vía e
 
 ##5. Configuración
 
-Para empezar debes de configurar la librería en tu proyecto e iniciar las variables con los datos del "Comercio Demo":
+Para empezar debes de configurar la librería en tu proyecto e iniciar las variables con los datos 
 
 ```php
 <?php
