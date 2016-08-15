@@ -68,7 +68,7 @@ require 'culqi.php';
 
 Para facilitarle la implementación a nuestro Entorno de Integración, necesitas crear un nuevo comercio registrandote en Culqi [aquí](https://integ-panel.culqi.com/#/registro), una vez registrado activa tu comercio y obten tus credenciales como se muestra en la imagen.
 
-[URL=http://s1082.photobucket.com/user/stefunwork/media/Seleccioacuten_090.png.html][IMG]http://i1082.photobucket.com/albums/j365/stefunwork/Seleccioacuten_090.png[/IMG][/URL]
+![credenciales comercio](http://s1082.photobucket.com/user/stefunwork/media/Seleccioacuten_090.png.html)
 
   * Código de comercio: **demo**
   * Llave del comercio: **JlhLlpOB5s1aS6upiioJkmdQ0OYZ6HLS2+/o4iYO2MQ=**
