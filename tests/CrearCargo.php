@@ -1,12 +1,12 @@
 <?php
 namespace Culqi;
 
-use PHPUnit\Framework\TestCase;
+
 
 /**
  *  Clase CrearCargos (Test)
  */
-class CrearCargos extends TestCase
+class CrearCargos extends PHPUnit_Framework_TestCase
 {
 
       protected function setUp() {

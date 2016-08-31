@@ -13,14 +13,15 @@
   ],
 
   "require": {
-    "php": ">=5.3.3",
-    "rmccue/requests": ">=1.0"
+    "php": ">=5.3.3"
   },
   "require-dev": {
-      "phpunit/PHPUnit": "4.5.*"
+      "phpunit/phpunit": "*"
   },
   "autoload": {
-    "classmap": ["lib/Culqi/"]
+    "psr-0": {
+           "Culqi": "lib/Culqi/"
+       }
   },
 
   "extra": {
