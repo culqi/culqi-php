@@ -2,7 +2,7 @@
 namespace Culqi\Error;
 
 /**
- * Culqi Library Exceptions
+ * Culqi Exceptions
  */
 
 /**

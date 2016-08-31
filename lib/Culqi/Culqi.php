@@ -1,7 +1,8 @@
 <?php
 namespace Culqi;
 
-class Culqi {
+class Culqi
+{
 
     public $api_key;
 
@@ -24,5 +25,13 @@ class Culqi {
     public function setApiKey()
     {
     }
+
+    // To-do: getEnv
+    public function getEnv()
+    {
+    }
+
+
+
 
 }

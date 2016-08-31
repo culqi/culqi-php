@@ -3,21 +3,32 @@ namespace Culqi;
 
 use Culqi\Error as Errors;
 
-class Client {
 
+class Client
+{
+    /**
+    * La versión de API usada
+    */
+    const API_VERSION = "v1.2";
+
+    /**
+     * La URL Base por defecto
+     */
     const BASE_URL = "https://integ-pago.culqi.com/api/v1";
 
 
     public function request($method, $url, $api_key, $data = NULL, $headers= array("Content-Type" => "application/json", "Accept" => "application/json") ) {
         try {
             $options = array(
-                'auth' => array($api_key, '')
+                'auth' => new AuthBearer($api_key)
             );
             if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
                 $response = \Requests::get(Client::BASE_URL . $url . $url_params, $headers, $options);
             } else if($method == "POST") {
                 $response = \Requests::post(Client::BASE_URL . $url, $headers, json_encode($data), $options);
+
+
             } else if($method == "PATCH") {
                 $response = \Requests::patch(Client::BASE_URL . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {

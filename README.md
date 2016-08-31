@@ -56,17 +56,15 @@ Requests::register_autoloader();
 
 ## Modo de uso
 
-En todos ejemplos, inicialmente hay que configurar las credenciales `COD_COMERCIO`.
+En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KEY `.
 
 ```php
-// Configurar credenciales
-$COD_COMERCIO = "X1QjlYMBBSV8";
-$SECRET_API_KEY = "123";
+// Configurar credencial (API Key)
+$SECRET_API_KEY = "Ad12344hyhfgX";
 
+// Autenticación
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
-.
-.
-.
+
 ```
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)
@@ -85,8 +83,7 @@ deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 $cargo = $culqi->Cargos->create(
     array(
         "moneda"=> "PEN",
-        "monto"=> "19900",
-        "codigo_comercio"=> $COD_COMERCIO,
+        "monto"=> "19900",    
         "descripcion"=> "Venta de prueba",
         "numero_pedido"=> "11213340",
         "cod_pais"=> "PE",

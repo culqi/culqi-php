@@ -13,11 +13,10 @@
  * @link http://beta.culqi.com/desarrolladores/ Culqi Developers
  */
 
- //include_once dirname(__FILE__).'/config.php';
 
  // Errors
  include_once(dirname(__FILE__). '/Culqi/Error/Errors.php');
-
+ include_once(dirname(__FILE__). '/Culqi/AuthBearer.php');
  include_once dirname(__FILE__).'/Culqi/Client.php';
  include_once dirname(__FILE__).'/Culqi/Resource.php';
 

@@ -1,4 +1,8 @@
 
+### 1.2.0 31-08-2016
+* Conexión con la API v1.2.
+* Reescritura completa de la biblioteca.
+* Ya no usa cURL, gracias a la dependencia "Request".
 
 ### 1.1.1 26-07-2016
 * Desofuscación de la librería.
