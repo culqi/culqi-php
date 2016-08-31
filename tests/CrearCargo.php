@@ -1,12 +1,11 @@
-<?php
-namespace Culqi;
+<?php require_once dirname(__FILE__).'/TestAutoload.php';
 
-
+use PHPUnit\Framework\TestCase;
 
 /**
  *  Clase CrearCargos (Test)
  */
-class CrearCargos extends PHPUnit_Framework_TestCase
+class CrearCargos extends TestCase
 {
 
       protected function setUp() {
@@ -14,9 +13,21 @@ class CrearCargos extends PHPUnit_Framework_TestCase
         $this->PUBLIC_API_KEY = getenv("INTEG_COD_COMERCIO");
         $this->API_KEY = getenv("INTEG_API_KEY");
 
-        $this->culqi = new Culqi\Culqi(array("api_key" => $this->API_KEY));
-        $this->conexion = new Culqi\Client();
+        $this->culqi = new Culqi(array("api_key" => $this->API_KEY));
+        $this->conexion = new Client();
       }
+
+      public function testCanBeNegated()
+   {
+       // Arrange
+       $a = new Money(1);
+
+       // Act
+       $b = $a->negate();
+
+       // Assert
+       $this->assertEquals(-1, $b->getAmount());
+   }
 
       /**
        * Creación de un token con los datos de una tarjeta de prueba
