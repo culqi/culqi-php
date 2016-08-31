@@ -13,6 +13,8 @@
  * @link http://beta.culqi.com/desarrolladores/ Culqi Developers
  */
 
+ // Dependencia Requests
+ include_once(dirname(__FILE__). '/Culqi/requests/library/Requests.php');
 
  // Errors
  include_once(dirname(__FILE__). '/Culqi/Error/Errors.php');
