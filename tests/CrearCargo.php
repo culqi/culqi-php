@@ -1,11 +1,9 @@
 <?php require_once dirname(__FILE__).'/TestAutoload.php';
 
-use PHPUnit\Framework\TestCase;
 
 /**
  *  Clase CrearCargos (Test)
  */
-class CrearCargos extends TestCase
 {
 
       protected function setUp() {
@@ -17,17 +15,6 @@ class CrearCargos extends TestCase
         $this->conexion = new Client();
       }
 
-      public function testCanBeNegated()
-   {
-       // Arrange
-       $a = new Money(1);
-
-       // Act
-       $b = $a->negate();
-
-       // Assert
-       $this->assertEquals(-1, $b->getAmount());
-   }
 
       /**
        * Creación de un token con los datos de una tarjeta de prueba
@@ -78,16 +65,6 @@ class CrearCargos extends TestCase
      }
 
 
-    //  public function testGetCargo(){
-    //      $token = $this->createToken();
-    //      $charge = $this->culqi->Charges->create(array(
-    //          "amount" => 1000,
-    //          "email" => "test-php@example.org",
-    //          "token" => $token
-    //      ));
-    //      $response = $this->culqi->Cargos->get($charge->uid);
-    //      $this->assertEquals($response->uid, $charge->uid);
-    //  }
 
 
 

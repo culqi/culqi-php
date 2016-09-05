@@ -2,7 +2,7 @@
 namespace Culqi;
 
 
-class AuthBearer implements Requests_Auth
+class AuthBearer implements \Requests_Auth
 {
 	protected $password;
 

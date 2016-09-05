@@ -13,9 +13,6 @@
  * @link http://beta.culqi.com/desarrolladores/ Culqi Developers
  */
 
- // Dependencia Requests
- include_once(dirname(__FILE__). '/Culqi/requests/library/Requests.php');
-
  // Errors
  include_once(dirname(__FILE__). '/Culqi/Error/Errors.php');
  include_once(dirname(__FILE__). '/Culqi/AuthBearer.php');
@@ -23,7 +20,7 @@
  include_once dirname(__FILE__).'/Culqi/Resource.php';
 
  // Culqi API
- //include_once dirname(__FILE__).'/Culqi/Tokens.php';
+ include_once dirname(__FILE__).'/Culqi/Tokens.php';
  include_once dirname(__FILE__).'/Culqi/Cargos.php';
  include_once dirname(__FILE__).'/Culqi/Devoluciones.php';
  include_once dirname(__FILE__).'/Culqi/Suscripciones.php';
