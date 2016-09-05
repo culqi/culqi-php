@@ -20,11 +20,8 @@
       "phpunit/phpunit": "4.4.*"
   },
   "autoload": {
-    "psr-0": {
-           "Culqi\\": "lib/Culqi/"
-       }
+    "classmap": ["lib/Culqi/"]
   },
-
   "extra": {
   "branch-alias": {
       "dev-develop": "1.2.0-dev"
