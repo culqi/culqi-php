@@ -1,9 +1,9 @@
 <?php require_once dirname(__FILE__).'/TestAutoload.php';
 
-
 /**
  *  Clase CrearCargos (Test)
  */
+class CrearCargos extends PHPUnit_Framework_TestCase
 {
 
       protected function setUp() {
@@ -65,6 +65,16 @@
      }
 
 
+     public function testGetCargo(){
+         $token = $this->createToken();
+         $charge = $this->culqi->Charges->create(array(
+             "amount" => 1000,
+             "email" => "test-php@example.org",
+             "token" => $token
+         ));
+         $response = $this->culqi->Cargos->get($charge->uid);
+         $this->assertEquals($response->uid, $charge->uid);
+     }
 
 
 
