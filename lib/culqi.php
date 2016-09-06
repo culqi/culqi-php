@@ -3,9 +3,9 @@
 /**
  * CULQI PHP SDK
  *
- * Init, cargamos todos los arhivos necesarios
+ * Init, cargamos todos los archivos necesarios
  *
- * @version 1.2.0
+ * @version 1.2.1
  * @package Culqi
  * @copyright Copyright (c) 2015-2016 Culqi
  * @license MIT

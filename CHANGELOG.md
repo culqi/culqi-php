@@ -1,8 +1,12 @@
 
+### 1.2.1 05-09-2016
+* Añadidos ejemplos de "Crear Cargo" y "Crear Suscripción".
+* Correcciones menores en el composer.json.
+
 ### 1.2.0 31-08-2016
 * Conexión con la API v1.2.
 * Reescritura completa de la biblioteca.
-* Ya no usa cURL, gracias a la dependencia "Request".
+* Ya no usa cURL, gracias a la dependencia "Requests".
 
 ### 1.1.1 26-07-2016
 * Desofuscación de la librería.
