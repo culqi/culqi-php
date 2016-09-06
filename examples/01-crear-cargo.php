@@ -5,11 +5,11 @@
  */
 
 try {
-      // Usando Composer
-      require 'vendor/autoload.php';
+      // Usando Composer (o puedes incluir las dependencias manualmente)
+      require '../vendor/autoload.php';
 
       // Configurar credencial (API Key)
-      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
+      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk=";
       // Autenticación
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
@@ -18,27 +18,27 @@ try {
       // Creando Cargo a una tarjeta
       $cargo = $culqi->Cargos->create(
           array(
+            "token"=> "vJk6e1LIoZLdDwEXTE6KMQlaJvqswSwU"
             "moneda"=> "PEN",
             "monto"=> 19900,
-            "usuario"=> "71701956",
             "descripcion"=> "Venta de prueba",
             "pedido"=> $pedidoId,
             "codigo_pais"=> "PE",
             "direccion"=> "Avenida Lima 1232",
             "ciudad"=> "Lima",
+            "usuario"=> "71701956",
             "telefono"=> 3333339,
             "nombres"=> "Brayan",
             "apellidos"=> "Cruces",
-            "correo_electronico"=> "brayan.cruces@culqi.com",
-            "token"=> "vJk6e1LIoZLdDwEXTE6KMQlaJvqswSwU"
+            "correo_electronico"=> "brayan.cruces@culqi.com"
           )
       );
 
       // Respuesta
-      var_dump($cargo);
+      print_r($cargo);
 
 } catch (CulqiException $e) {
 
-      echo "Llamado al API error: " . htmlspecialchars($e->getMessage());
+      echo "API error: " . htmlspecialchars($e->getMessage());
 
 }

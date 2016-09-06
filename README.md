@@ -5,9 +5,9 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-Libería PHP oficial de CULQI, pagos simples en tu sitio web, que hace uso del [Culqi API](http://culqi.api-docs.io/).
+Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
-**Nota**: Esta librería trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
+**Nota**: Esta biblioteca trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
 
 
 ## Requisitos
@@ -30,7 +30,7 @@ Libería PHP oficial de CULQI, pagos simples en tu sitio web, que hace uso del [
 }
 ```
 
-Y cargar todo usando el autoloader de Composer
+Y cargar todo usando el autoloader de Composer.
 
 ```php
 require 'vendor/autoload.php';
@@ -44,14 +44,14 @@ Clonarse el repositorio o bajarse el código fuente
 $ git clone git@github.com:culqi/culqi-php.git
 ```
 
-Ahora, incluir en la cabecera a `culqi-php` y también la dependencia `Request`
+Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests`](https://github.com/rmccue/requests). Hacer el llamado correctamente a la carpeta y archivo dependiendo de tu estructura.
 
 ```php
 <?php
-// Cargamos Culqi PHP y librería Request
-require_once '/path/to/culqi-php/lib/culqi.php';
-require_once '/path/to/rmccue/requests/Requests.php';
+// Cargamos Requests y Culqi PHP
+require 'vendor/rmccue/requests/library/Requests.php';
 Requests::register_autoloader();
+require 'vendor/culqi/culqi-php/lib/culqi.php';
 ```
 
 ## Modo de uso
@@ -59,8 +59,8 @@ Requests::register_autoloader();
 En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KEY `.
 
 ```php
-// Configurar credencial (API Key)
-$SECRET_API_KEY = "Ad12344hyhfgX";
+// Configurar tu API Key
+$SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
 
 // Autenticación
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
@@ -82,21 +82,23 @@ deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 // Creamos Cargo a una tarjeta
 $cargo = $culqi->Cargos->create(
     array(
+        "token"=> "vVhhnxxbNpFG8cfEAwhtTfK4g8sf7oOi",        
         "moneda"=> "PEN",
-        "monto"=> "19900",    
+        "monto"=> 19900,      
         "descripcion"=> "Venta de prueba",
-        "numero_pedido"=> "11213340",
-        "cod_pais"=> "PE",
-        "direccion"=> "Avenida Lima 1232",
+        "pedido"=> "PED3351",       
+        "codigo_pais"=> "PE",
         "ciudad"=> "Lima",
-        "telefono"=> "12313123",
-        "nombres"=> "Jon",
-        "apellidos"=> "Doe",
-        "correo_electronico"=> "jon@gmail.com",
-        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8",
-        "id_usuario_comercio"=> "jon@gmail.com"
+        "usuario"=> "71701956",
+        "direccion"=> "Avenida Lima 1232",      
+        "telefono"=> 12313123,
+        "nombres"=> "Will",
+        "apellidos"=> "Muro",
+        "correo_electronico"=> "wmuro@me.com"
     )
 );
+
+//Respuesta
 print_r($cargo);
 
 ```
@@ -106,19 +108,20 @@ print_r($cargo);
 // Creando Suscriptor a un plan
 $suscriptor = $culqi->Suscripciones->create(
     array(
-        "codigo_comercio" => $COD_COMERCIO,
+        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8",
         "codigo_pais"=> "PE",
         "direccion"=> "Avenida Lima 123213",
         "ciudad"=> "Lima",
+        "usuario"=> "71701956",
         "telefono"=> "1234567789",
         "nombre"=> "Brayan",
-        "correo_electronico"=> "brayan2259@gmail.com",
         "apellido"=> "Cruces",
-        "usuario"=> "jose@gmail.com",
-        "plan_id"=> "PP02",
-        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8"
+        "correo_electronico"=> "brayan.cruces@culqi.com",
+        "plan_id"=> "plan-basico"    
     )
 );
+
+//Respuesta
 print_r($suscriptor);
 ```
 
@@ -127,8 +130,11 @@ print_r($suscriptor);
 
 
 
-## Testeo
+## Tests
 
+```bash
+$ phpunit tests
+```
 ## Licencia
 
 MIT.
