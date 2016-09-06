@@ -44,7 +44,7 @@ Clonarse el repositorio o bajarse el código fuente
 $ git clone git@github.com:culqi/culqi-php.git
 ```
 
-Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests`](https://github.com/rmccue/requests). Hacer el llamado correctamente a la carpeta y archivo dependiendo de tu estructura.
+Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests`](https://github.com/rmccue/requests). Debes hacer el llamado correctamente a la carpeta y/o archivo dependiendo de tu estructura.
 
 ```php
 <?php
