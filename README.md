@@ -7,6 +7,10 @@
 
 Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
+# Importante
+
+Hemos descontinuado el soporte a la versión del api 1.1 para centrarnos en la nueva versión. Esto hará que sea más fácil para nosotros ofrecer un mejor servicio y hacer que la instalación e integración de nuevos usuarios sea más simple.
+
 **Nota**: Esta biblioteca trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
 
 
