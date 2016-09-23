@@ -24,15 +24,15 @@ class Client
             );
             if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
-                $response = \Requests::get(Client::BASE_URL . $url . $url_params, $headers, $options);
+                $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
             } else if($method == "POST") {
-                $response = \Requests::post(Client::BASE_URL . $url, $headers, json_encode($data), $options);
+                $response = \Requests::post(Culqi::$api_base . $url, $headers, json_encode($data), $options);
 
 
             } else if($method == "PATCH") {
-                $response = \Requests::patch(Client::BASE_URL . $url, $headers, json_encode($data), $options);
+                $response = \Requests::patch(Culqi::$api_base . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
-                $response = \Requests::delete(Client::BASE_URL . $url, $headers, $options);
+                $response = \Requests::delete(Culqi::$api_base . $url, $headers, $options);
             }
         } catch (\Exception $e) {
             throw new Errors\UnableToConnect();

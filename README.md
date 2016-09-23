@@ -26,7 +26,7 @@ Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 ```json
 {
   "require": {
-    "culqi/culqi-php": "dev-master"
+    "culqi/culqi-php": "1.2.*"
   }
 }
 ```
@@ -57,14 +57,15 @@ require 'vendor/culqi/culqi-php/lib/culqi.php';
 
 ## Modo de uso
 
-En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KEY `.
+En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KEY ` y el entorno en el que nos encontramos (Integración o [Producción](https://developers.culqi.com/produccion/).).
 
 ```php
-// Configurar tu API Key
+// Configurar tu API Key y autenticación
 $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
-
-// Autenticación
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+
+// Entorno: Integración (pruebas)
+$culqi->setEnv("INTEG");
 
 ```
 
@@ -130,7 +131,6 @@ print_r($suscriptor);
 ¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [http://beta.culqi.com/documentacion/](http://beta.culqi.com/documentacion/)
 
 
-
 ## Tests
 
 ```bash
@@ -138,4 +138,4 @@ $ phpunit tests
 ```
 ## Licencia
 
-MIT.
+Licencia MIT. Revisar el LICENSE.md.

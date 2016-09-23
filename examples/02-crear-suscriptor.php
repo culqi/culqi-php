@@ -8,10 +8,12 @@ try {
       // Usando Composer
       require '../vendor/autoload.php';
 
-      // Configurar credencial (API Key)
-      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
-      // Autenticación
+      // Configurar tu API Key y autenticación
+      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk=";
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+
+      // Entorno: Integración (pruebas)
+      $culqi->setEnv("INTEG");
 
       // Creando Cargo a una tarjeta
       $suscriptor = $culqi->Suscripciones->create(
@@ -32,8 +34,8 @@ try {
       // Respuesta
       var_dump($suscriptor);
 
-} catch (CulqiException $e) {
+} catch (Exception $e) {
 
-      echo "API error: " . htmlspecialchars($e->getMessage());
+      echo $e->getMessage();
 
 }

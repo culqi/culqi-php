@@ -5,6 +5,8 @@ class Culqi
 {
 
     public $api_key;
+    public static $api_base = "https://integ-pago.culqi.com/api/v1";
+
 
     // Constructor
     public function __construct($options)
@@ -26,11 +28,26 @@ class Culqi
     {
     }
 
+    // setEnv
+    public function setEnv($entorno)
+    {
+        if ($entorno == 'INTEG') {
+            self::$api_base = "https://integ-pago.culqi.com/api/v1";
+        }
+        elseif ($entorno == 'PRODUC') {
+            self::$api_base = "https://pago.culqi.com/api/v1";
+        }
+        else {
+             self::$api_base = "https://integ-pago.culqi.com/api/v1";
+        }
+
+    }
+
     // To-do: getEnv
     public function getEnv()
     {
+        //this->api_base;
     }
-
 
 
 

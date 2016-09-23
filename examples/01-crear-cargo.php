@@ -8,10 +8,12 @@ try {
       // Usando Composer (o puedes incluir las dependencias manualmente)
       require '../vendor/autoload.php';
 
-      // Configurar credencial (API Key)
+      // Configurar tu API Key y autenticación
       $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk=";
-      // Autenticación
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+
+      // Entorno: Integración (pruebas)
+      $culqi->setEnv("INTEG");
 
       $pedidoId = time();
 
@@ -37,8 +39,8 @@ try {
       // Respuesta
       print_r($cargo);
 
-} catch (CulqiException $e) {
+} catch (Exception $e) {
 
-      echo "API error: " . htmlspecialchars($e->getMessage());
+      echo $e->getMessage();
 
 }
