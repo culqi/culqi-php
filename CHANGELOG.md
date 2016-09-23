@@ -1,4 +1,8 @@
 
+### 1.2.2 23-09-2016
+* Cambios en los ejemplos.
+* Nuevo método: setEnv() para definir entorno.
+
 ### 1.2.1 05-09-2016
 * Añadidos ejemplos de "Crear Cargo" y "Crear Suscripción".
 * Correcciones menores en el composer.json.
