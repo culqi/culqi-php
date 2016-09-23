@@ -1,4 +1,3 @@
-
 # Culqi PHP
 
 [![Latest Stable Version](https://poser.pugx.org/culqi/culqi-php/v/stable)](https://packagist.org/packages/culqi/culqi-php)
@@ -7,9 +6,7 @@
 
 Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
-# Importante
-
-Hemos descontinuado el soporte a la versión del api 1.1 para centrarnos en la nueva versión. Esto hará que sea más fácil para nosotros ofrecer un mejor servicio y hacer que la instalación e integración de nuevos usuarios sea más simple.
+> **Importante**: Hemos descontinuado el soporte a la versión 1.0 de Culqi API para centrarnos en la nueva versión. Si estabas trabajando con la anterior versión de esta biblioteca puedes entrar al branch [1.1.1](https://github.com/culqi/culqi-php/tree/1.1.1).
 
 **Nota**: Esta biblioteca trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
 
@@ -29,7 +26,7 @@ Hemos descontinuado el soporte a la versión del api 1.1 para centrarnos en la n
 ```json
 {
   "require": {
-    "culqi/culqi-php": "dev-develop"
+    "culqi/culqi-php": "dev-master"
   }
 }
 ```
