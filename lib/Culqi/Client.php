@@ -23,8 +23,7 @@ class Client
                 'auth' => new AuthBearer($api_key),
                 'timeout' => 120,
               );
-            
-            if($method == "GET") {
+           if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
                 $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
             } else if($method == "POST") {
