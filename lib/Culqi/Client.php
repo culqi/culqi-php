@@ -20,8 +20,10 @@ class Client
     public function request($method, $url, $api_key, $data = NULL, $headers= array("Content-Type" => "application/json", "Accept" => "application/json") ) {
         try {
             $options = array(
-                'auth' => new AuthBearer($api_key)
-            );
+ -                'auth' => new AuthBearer($api_key),
+ + +              'timeout' => 120,
+              );
+            
             if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
                 $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
