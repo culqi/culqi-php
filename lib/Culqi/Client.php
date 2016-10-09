@@ -20,8 +20,8 @@ class Client
     public function request($method, $url, $api_key, $data = NULL, $headers= array("Content-Type" => "application/json", "Accept" => "application/json") ) {
         try {
             $options = array(
- -                'auth' => new AuthBearer($api_key),
- + +              'timeout' => 120,
+                'auth' => new AuthBearer($api_key),
+                'timeout' => 120,
               );
             
             if($method == "GET") {
