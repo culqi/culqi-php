@@ -28,8 +28,6 @@ class Client
                 $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
             } else if($method == "POST") {
                 $response = \Requests::post(Culqi::$api_base . $url, $headers, json_encode($data), $options);
-
-
             } else if($method == "PATCH") {
                 $response = \Requests::patch(Culqi::$api_base . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
