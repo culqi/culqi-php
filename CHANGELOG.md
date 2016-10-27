@@ -1,3 +1,5 @@
+### 1.2.3 08-10-2016
+* Cambio en el timeout de la conexión a 120 segundos.
 
 ### 1.2.2 23-09-2016
 * Cambios en los ejemplos.

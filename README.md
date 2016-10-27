@@ -128,7 +128,7 @@ print_r($suscriptor);
 ```
 
 ## Documentación
-¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [http://beta.culqi.com/documentacion/](http://beta.culqi.com/documentacion/)
+¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [https://developers.culqi.com](https://developers.culqi.com)
 
 
 ## Tests

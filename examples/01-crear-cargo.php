@@ -20,7 +20,7 @@ try {
       // Creando Cargo a una tarjeta
       $cargo = $culqi->Cargos->create(
           array(
-            "token"=> "vJk6e1LIoZLdDwEXTE6KMQlaJvqswSwU"
+            "token"=> "vJk6e1LIoZLdDwEXTE6KMQlaJvqswSwU",
             "moneda"=> "PEN",
             "monto"=> 19900,
             "descripcion"=> "Venta de prueba",
