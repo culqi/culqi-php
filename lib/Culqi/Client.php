@@ -21,17 +21,19 @@ class Client
         try {
             $options = array(
                 'auth' => new AuthBearer($api_key),
-                'timeout' => 120,
-              );
-           if($method == "GET") {
+                'timeout' => 120
+            );
+            if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
                 $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
             } else if($method == "POST") {
                 $response = \Requests::post(Culqi::$api_base . $url, $headers, json_encode($data), $options);
+
+
             } else if($method == "PATCH") {
                 $response = \Requests::patch(Culqi::$api_base . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
-                $response = \Requests::delete(Culqi::$api_base . $url, $headers, $options);
+                $response = \Requests::delete(Culqi::$api_base, $options);
             }
         } catch (\Exception $e) {
             throw new Errors\UnableToConnect();
