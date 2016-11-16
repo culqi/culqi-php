@@ -9,7 +9,7 @@ try {
       require '../vendor/autoload.php';
 
       // Configurar tu API Key y autenticación
-      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk=";
+      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
       // Entorno: Integración (pruebas)
@@ -20,7 +20,7 @@ try {
       // Creando Cargo a una tarjeta
       $cargo = $culqi->Cargos->create(
           array(
-            "token"=> "vJk6e1LIoZLdDwEXTE6KMQlaJvqswSwU",
+            "token"=> "{AQUI TOKEN OBTENIDO DE CULQI.JS}",
             "moneda"=> "PEN",
             "monto"=> 19900,
             "descripcion"=> "Venta de prueba",
@@ -32,7 +32,7 @@ try {
             "telefono"=> 3333339,
             "nombres"=> "Brayan",
             "apellidos"=> "Cruces",
-            "correo_electronico"=> "brayan.cruces@culqi.com"
+            "correo_electronico"=> "micorreo@gmail.com"
           )
       );
 

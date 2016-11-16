@@ -1,3 +1,7 @@
+### 1.2.5 16-11-2016
+* Cambios en Client.php
+* Cambios en /examples/
+
 ### 1.2.4 03-11-2016
 * Ejemplo de Planes añadido.
 
