@@ -47,14 +47,8 @@ class Client
         if ($response->status_code == 400) {
             $code = 0;
             $message = "";
-            try {
-                $error = (array) json_decode($response->body)->errors[0];
-                $code = key($error);
-                $message = current($error);
-            } catch (\Exception $e) {
-                throw new Errors\UnhandledError($response->body, $response->status_code);
-            }
-            throw new Errors\InputValidationError($message, $code);
+
+            throw new Errors\UnhandledError($response->body, $response->status_code);            
         }
         if ($response->status_code == 401) {
             throw new Errors\AuthenticationError();

@@ -9,7 +9,7 @@ try {
       require '../vendor/autoload.php';
 
       // Configurar tu API Key y autenticación
-      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk=";
+      $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
       // Entorno: Integración (pruebas)
