@@ -37,9 +37,8 @@ class Culqi
         elseif ($entorno == 'PRODUC') {
             self::$api_base = "https://pago.culqi.com/api/v1";
         }
-        else {
-             self::$api_base = "https://integ-pago.culqi.com/api/v1";
-        }
+      
+        self::$api_base = "https://integ-pago.culqi.com/api/v1";    
 
     }
 
