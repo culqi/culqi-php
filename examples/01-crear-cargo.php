@@ -12,27 +12,26 @@ try {
       $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
-      // Entorno: Integración (pruebas)
-      $culqi->setEnv("INTEG");
-
       $pedidoId = time();
 
       // Creando Cargo a una tarjeta
       $cargo = $culqi->Cargos->create(
           array(
-            "token"=> "{AQUI TOKEN OBTENIDO DE CULQI.JS}",
-            "moneda"=> "PEN",
-            "monto"=> 19900,
-            "descripcion"=> "Venta de prueba",
-            "pedido"=> $pedidoId,
-            "codigo_pais"=> "PE",
-            "direccion"=> "Avenida Lima 1232",
-            "ciudad"=> "Lima",
-            "usuario"=> "71701956",
-            "telefono"=> 3333339,
-            "nombres"=> "Brayan",
-            "apellidos"=> "Cruces",
-            "correo_electronico"=> "micorreo@gmail.com"
+              "address" => "Avenida Lima 1232",
+              "amount" => 1000,
+              "city" => "LIMA",
+              "country" => "PERU",
+              "currency" => "PEN",
+              "cvv" => "123",
+              "description" => "Venta de prueba",
+              "installments" => 0,
+              "last_name" => "Cruces",
+              "mail" => "micorreo@gmail.com",
+              "metadata" => "",
+              "name" => "Brayan",
+              "order_number" => "10",
+              "phone" => 3333339,
+              "token" => "{AQUI TOKEN OBTENIDO DE CULQI.JS}"
           )
       );
 

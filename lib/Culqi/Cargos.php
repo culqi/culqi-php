@@ -3,7 +3,7 @@ namespace Culqi;
 
 class Cargos extends Resource {
 
-    const URL_CARGOS = "/cargos/";
+    const URL_CARGOS = "/charges/";
 
     public function create($options = NULL)
     {

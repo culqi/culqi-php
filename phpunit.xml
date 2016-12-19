@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" bootstrap="vendor/autoload.php">
+<phpunit colors="true" bootstrap="tests/TestAutoload.php">
     <testsuites>
         <testsuite name="Culqi PHP Tests">
             <directory>tests/</directory>

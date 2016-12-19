@@ -12,22 +12,18 @@ try {
       $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
-      // Entorno: Integración (pruebas)
-      $culqi->setEnv("INTEG");
-
       // Creando Cargo a una tarjeta
       $suscriptor = $culqi->Suscripciones->create(
         array(
-          "token"=> "{AQUI TOKEN OBTENIDO DE CULQI.JS}",
-          "codigo_pais"=> "PE",
-          "direccion"=> "Avenida Lima 123213",
-          "ciudad"=> "Lima",
-          "usuario"=> "jose@gmail.com",
-          "telefono"=> "1234567789",
-          "nombre"=> "Brayan",
-          "apellido"=> "Cruces",
-          "correo_electronico"=> "micorreo@gmail.com",
-          "plan_id"=> "plan-basico"
+            "address" => "Avenida Lima 123213",
+            "city" => "LIMA",
+            "country" => "PERU",
+            "email" => "jose@gmail.com",
+            "last_name" => "Cruces",
+            "name" => "Brayan",
+            "phone" => 1234567789,
+            "plan_alias" => "plan-basico",
+            "token" => "{AQUI TOKEN OBTENIDO DE CULQI.JS}"
         )
       );
 

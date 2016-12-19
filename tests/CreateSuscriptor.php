@@ -1,6 +1,6 @@
 <?php
 // Cargamos Culqi y librerías
-require_once "test/culqi.php";
+/*require_once "test/culqi.php";
 //require_once 'test/rmccue/Requests.php';
 Requests::register_autoloader();
 
@@ -51,4 +51,4 @@ $cargo = $culqiConnect->Cargos->create(
 
 
 // Respuesta
-var_dump($cargo);
+var_dump($cargo);*/

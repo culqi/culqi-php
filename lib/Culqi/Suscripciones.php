@@ -4,7 +4,7 @@ namespace Culqi;
 
 class Suscripciones extends Resource {
 
-    const URL_SUSCRIPCIONES = "/suscripciones/";
+    const URL_SUSCRIPCIONES = "/subcriptions/";
 
     public function create($options = NULL)
     {

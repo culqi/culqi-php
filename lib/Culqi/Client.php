@@ -9,12 +9,12 @@ class Client
     /**
     * La versión de API usada
     */
-    const API_VERSION = "v1.2";
+    const API_VERSION = "v2.0";
 
     /**
      * La URL Base por defecto
      */
-    const BASE_URL = "https://integ-pago.culqi.com/api/v1";
+    const BASE_URL = "http://192.168.0.110:8000/v2"; //https://api.culqi.com/api/v2
 
 
     public function request($method, $url, $api_key, $data = NULL, $headers= array("Content-Type" => "application/json", "Accept" => "application/json") ) {
@@ -48,7 +48,7 @@ class Client
             $code = 0;
             $message = "";
 
-            throw new Errors\UnhandledError($response->body, $response->status_code);            
+            throw new Errors\UnhandledError($response->body, $response->status_code);
         }
         if ($response->status_code == 401) {
             throw new Errors\AuthenticationError();

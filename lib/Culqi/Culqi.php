@@ -5,8 +5,7 @@ class Culqi
 {
 
     public $api_key;
-    public static $api_base = "https://integ-pago.culqi.com/api/v1";
-
+    public static $api_base = "http://192.168.0.110:8000/v2"; //https://api.culqi.com/api/v2  
 
     // Constructor
     public function __construct($options)
@@ -22,32 +21,5 @@ class Culqi
         $this->Planes = new Planes($this);
 
     }
-
-    // To-do: setAPIKey
-    public function setApiKey()
-    {
-    }
-
-    // setEnv
-    public function setEnv($entorno)
-    {
-        if ($entorno == 'INTEG') {
-            self::$api_base = "https://integ-pago.culqi.com/api/v1";
-        }
-        elseif ($entorno == 'PRODUC') {
-            self::$api_base = "https://pago.culqi.com/api/v1";
-        }
-      
-        self::$api_base = "https://integ-pago.culqi.com/api/v1";    
-
-    }
-
-    // To-do: getEnv
-    public function getEnv()
-    {
-        //this->api_base;
-    }
-
-
 
 }

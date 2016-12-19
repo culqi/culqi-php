@@ -9,6 +9,9 @@ class Tokens extends Resource
      *
      * @return Token
      */
+
+    const URL_TOKENS = "/tokens/";
+
     public static function retrieve($id, $opts = null)
     {
         return self::_retrieve($id, $opts);

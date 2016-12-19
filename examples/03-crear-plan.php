@@ -12,21 +12,18 @@ try {
       $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
       $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
-      // Entorno: Integración (pruebas)
-      $culqi->setEnv("INTEG");
-
       // Creando Cargo a una tarjeta
       $plan = $culqi->Planes->create(
           array(
-            "moneda"=> "PEN",
-            "monto"=> 1000,
-            "id"=> "plan-12345",
-            "periodo"=> "dias",
-            "nombre"=> "Plan de prueba",
-            "intervalo"=> 2,
-            "gracia"=> 5,
-            "gracia_medida"=> "dias",
-            "ciclos"=> 12
+              "alias" => "string",
+              "amount" => 1000,
+              "currency" => "PEN",
+              "ft_interval" => "dias",
+              "ft_interval_count" => 2,
+              "interval" => "dias",
+              "interval_count" => 2,
+              "limit" => 0,
+              "name" => "Plan de prueba"
           )
       );
 

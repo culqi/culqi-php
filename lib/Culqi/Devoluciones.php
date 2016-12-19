@@ -3,7 +3,7 @@ namespace Culqi;
 
 class Devoluciones extends Resource {
 
-    const URL_REFUND = "/cargos/devoluciones/";
+    const URL_REFUND = "/refunds/";
 
     public function create($options = NULL)
     {
