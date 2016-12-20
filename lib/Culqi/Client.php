@@ -4,8 +4,7 @@ namespace Culqi;
 use Culqi\Error as Errors;
 
 
-class Client
-{
+class Client {
     /**
     * La versión de API usada
     */
@@ -14,8 +13,7 @@ class Client
     /**
      * La URL Base por defecto
      */
-    const BASE_URL = "https://api.culqi.com/api/v2";
-
+    const BASE_URL = "http://192.168.0.110:8000/v2";
 
     public function request($method, $url, $api_key, $data = NULL, $headers= array("Content-Type" => "application/json", "Accept" => "application/json") ) {
         try {
@@ -25,15 +23,13 @@ class Client
             );
             if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
-                $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
+                $response = \Requests::get(self::BASE_URL. $url . $url_params, $headers, $options);
             } else if($method == "POST") {
-                $response = \Requests::post(Culqi::$api_base . $url, $headers, json_encode($data), $options);
-
-
+                $response = \Requests::post(self::BASE_URL . $url, $headers, json_encode($data), $options);
             } else if($method == "PATCH") {
-                $response = \Requests::patch(Culqi::$api_base . $url, $headers, json_encode($data), $options);
+                $response = \Requests::patch(self::BASE_URL . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
-                $response = \Requests::delete(Culqi::$api_base, $options);
+                $response = \Requests::delete(self::BASE_URL, $options);
             }
         } catch (\Exception $e) {
             throw new Errors\UnableToConnect();

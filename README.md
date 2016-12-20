@@ -63,10 +63,6 @@ En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KE
 // Configurar tu API Key y autenticación
 $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
-
-// Entorno: Integración (pruebas)
-$culqi->setEnv("INTEG");
-
 ```
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)
@@ -126,6 +122,13 @@ $suscriptor = $culqi->Suscripciones->create(
 //Respuesta
 print_r($suscriptor);
 ```
+## Probar ejemplos
+```bash
+$ git clone https://github.com/culqi/culqi-php.git
+$ composer installs
+$ cd culqi-php/examples
+$ php -S localhost:8000
+```
 
 ## Documentación
 ¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [https://developers.culqi.com](https://developers.culqi.com)
@@ -135,7 +138,7 @@ print_r($suscriptor);
 
 ```bash
 $ composer install
-$ phpunit tests/* 
+$ phpunit tests/*
 ```
 ## Licencia
 

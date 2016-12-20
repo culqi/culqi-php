@@ -15,6 +15,6 @@ class AuthBearer implements \Requests_Auth
 	}
 
 	public function before_request(&$url, &$headers, &$data, &$type, &$options) {
-		$headers['Authorization: Bearer'] = $this->password;
+		$headers['Authorization'] = 'Code '.$this->password;
 	}
 }

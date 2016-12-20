@@ -9,21 +9,21 @@ try {
   require '../vendor/autoload.php';
 
   // Configurar tu API Key y autenticación
-  $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
+  $SECRET_API_KEY = "gjkf2ehJxmuXnjwanj3AIbCSrncDMEvk29sHR/n8ZwM=";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
   $plan = $culqi->Planes->create(
       array(
-          "alias" => "string",
+          "alias" => "plan-test25",
           "amount" => 1000,
           "currency" => "PEN",
-          "ft_interval" => "dias",
+          "ft_interval" => "day",
           "ft_interval_count" => 2,
-          "interval" => "dias",
+          "interval" => "day",
           "interval_count" => 2,
           "limit" => 0,
-          "name" => "Plan de prueba"
+          "name" => "Plan de Prueba 25"
       )
   );
 

@@ -9,7 +9,7 @@ try {
   require '../vendor/autoload.php';
 
   // Configurar tu API Key y autenticación
-  $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
+  $SECRET_API_KEY = "gjkf2ehJxmuXnjwanj3AIbCSrncDMEvk29sHR/n8ZwM=";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   $pedidoId = time();
@@ -20,18 +20,18 @@ try {
           "address" => "Avenida Lima 1232",
           "amount" => 1000,
           "city" => "LIMA",
-          "country" => "PERU",
+          "country" => "PE",
           "currency" => "PEN",
           "cvv" => "123",
           "description" => "Venta de prueba",
           "installments" => 0,
-          "last_name" => "Cruces",
-          "mail" => "micorreo@gmail.com",
+          "last_name" => "Muro",
+          "email" => "wmuro@me.com",
           "metadata" => "",
-          "name" => "Brayan",
+          "name" => "William",
           "order_number" => "10",
           "phone" => 3333339,
-          "token" => "{AQUI TOKEN OBTENIDO DE CULQI.JS}"
+          "token" => "aousSaEKzV7yvsUEun43RKRVLkfhwjiq"
       )
   );
   // Respuesta
