@@ -134,7 +134,8 @@ print_r($suscriptor);
 ## Tests
 
 ```bash
-$ phpunit tests
+$ composer install
+$ phpunit tests/* 
 ```
 ## Licencia
 

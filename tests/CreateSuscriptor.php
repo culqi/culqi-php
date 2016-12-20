@@ -1,54 +1,36 @@
 <?php
-// Cargamos Culqi y librerías
-/*require_once "test/culqi.php";
-//require_once 'test/rmccue/Requests.php';
-Requests::register_autoloader();
 
-// Credenciales
-$COD_COMERCIO = "X1QjlYMBBSV8";
-$SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk=";
+require_once('TestAutoLoad.php');
 
+use Culqi\Culqi;
+use Culqi\Client;
+use PHPUnit\Framework\TestCase;
 
-// HTTP basic authentication (aun no usado)
-$culqiConnect = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+class CrearSuscriptor extends TestCase {
 
-// // Creando Suscriptor a un plan
-// $suscriptor = $culqiConnect->Suscripciones->create(
-//     array(
-//         "codigo_comercio" => $COD_COMERCIO,
-//         "codigo_pais"=> "PE",
-//         "direccion"=> "Avenida Lima 123213",
-//         "ciudad"=> "Lima",
-//         "telefono"=> "1234567789",
-//         "nombre"=> "Brayan",
-//         "correo_electronico"=> "brayan2259@gmail.com",
-//         "apellido"=> "Cruces",
-//         "usuario"=> "jose@gmail.com",
-//         "plan_id"=> "PP02",
-//         "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8"
-//     )
-// );
+  protected function setUp() {
+    $this->PUBLIC_API_KEY = "COD_COMERCIO";
+    $this->API_KEY = "API_KEY";
 
-// Creando Cargo a una tarjeta
-$cargo = $culqiConnect->Cargos->create(
-    array(
-      "moneda"=> "PEN",
-      "monto"=> 19900,
-      "usuario"=> "71701956",
-      "codigo_comercio"=> $COD_COMERCIO,
-      "descripcion"=> "Venta de prueba",
-      "pedido"=> "112233898",
-      "codigo_pais"=> "PE",
-      "direccion"=> "Avenida Lima 1232",
-      "ciudad"=> "Lima",
-      "telefono"=> 12313123,
-      "nombres"=> "Jon",
-      "apellidos"=> "Doe",
-      "correo_electronico"=> "jon@gmail.com",
-      "token"=> "zdb4zOK2UbuYMUibmOzHDkTK8QCfBvrp"
-    )
-);
+    $this->culqi = new Culqi(array("api_key" => $this->API_KEY));
+    $this->conexion = new Client();
+  }
 
+  public function testsCrearSuscriptor() {
+    $suscriptor = $this->$culqi->Suscripciones->create(
+      array(
+          "address" => "Avenida Lima 123213",
+          "city" => "LIMA",
+          "country" => "PERU",
+          "email" => "jose@gmail.com",
+          "last_name" => "Cruces",
+          "name" => "Brayan",
+          "phone" => 1234567789,
+          "plan_alias" => "plan-basico",
+          "token" => "{AQUI TOKEN OBTENIDO DE CULQI.JS}"
+      )
+    );
+    $this->assertNotNull($suscriptor);
+  }
 
-// Respuesta
-var_dump($cargo);*/
+}

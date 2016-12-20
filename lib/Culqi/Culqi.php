@@ -5,7 +5,7 @@ class Culqi
 {
 
     public $api_key;
-    public static $api_base = "http://192.168.0.110:8000/v2"; //https://api.culqi.com/api/v2  
+    public static $api_base = "https://api.culqi.com/api/v2";
 
     // Constructor
     public function __construct($options)
