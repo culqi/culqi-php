@@ -5,25 +5,25 @@ try {
   require '../vendor/autoload.php';
 
   // Codigo de Comercio
-  $COD_COMERCIO = "live_SZVtOA5x9n8c";
+  $COD_COMERCIO = "live_ewm1DV7CsseD";
   $culqi = new Culqi\Culqi(array('api_key' => $COD_COMERCIO));
 
   // Creando Cargo a una tarjeta
   $token = $culqi->Tokens->create(
       array(
-        "card_number" => 4111111111111111,
-        "currency" => "PEN",
+        "card_number" => "4111111111111111",
+        "currency_code" => "PEN",
         "cvv" => "123",
-        "expiration_month" => 10,
+        "expiration_month" => 9,
         "expiration_year" => 2020,
         "fingerprint" => "q352454534",
         "last_name" => "Muro",
         "email" => "wmuro@me.com",
-        "name" => "William"
+        "first_name" => "William"
       )
   );
   // Respuesta
-  print_r("Toke:  ".$token->value);
+  print_r("Token:  ".$token->value);
 
 } catch (Exception $e) {
   echo $e->getMessage();

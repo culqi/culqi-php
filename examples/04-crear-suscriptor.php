@@ -9,21 +9,21 @@ try {
   require '../vendor/autoload.php';
 
   // Configurar tu API Key y autenticación
-  $SECRET_API_KEY = "gjkf2ehJxmuXnjwanj3AIbCSrncDMEvk29sHR/n8ZwM=";
+  $SECRET_API_KEY = "Mde0GIf0MsixrvyhRDDzj9IM7UXtv9ndnYHf2UZwEyE=";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
   $suscriptor = $culqi->Suscripciones->create(
     array(
         "address" => "Avenida Lima 123213",
-        "city" => "LIMA",
-        "country" => "PE",
+        "address_city" => "LIMA",
+        "country_code" => "PE",
         "email" => "wmuro@me.com",
         "last_name" => "Muro",
-        "name" => "William",
-        "phone" => 1234567789,
-        "plan_alias" => "plan-test25",
-        "token" => "aousSaEKzV7yvsUEun43RKRVLkfhwjiq"
+        "first_name" => "William",
+        "phone_number" => 1234567789,
+        "plan_alias" => "plan-test35",
+        "token" => "e58wm3Q3DhBOOZ8ytRHQxqRnsy4fH43w"
     )
   );
 
