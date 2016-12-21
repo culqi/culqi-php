@@ -125,7 +125,7 @@ print_r($suscriptor);
 ## Probar ejemplos
 ```bash
 $ git clone https://github.com/culqi/culqi-php.git
-$ composer installs
+$ composer install
 $ cd culqi-php/examples
 $ php -S localhost:8000
 ```
