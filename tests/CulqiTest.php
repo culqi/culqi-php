@@ -63,7 +63,7 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
       "installments" => 0,
       "last_name" => "Muro",
       "metadata" => "",
-      "order_id" => time(),
+      "order_id" => uniqid(),
       "phone_number" => 3333339,
       "product_description" => "Venta de prueba",
       "token_id" => $this->createToken()
@@ -79,13 +79,13 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
 
   public function testCreatePlan(){
     $newPlan = array(
-        "alias" => "plan-culqi".time(),
+        "alias" => "plan-culqi".uniqid(),
         "amount" => 1000,
         "currency_code" => "PEN",
         "interval" => "month",
         "interval_count" => 1,
         "limit" => 12,
-        "name" => "Plan de Prueba ".time(),
+        "name" => "Plan de Prueba ".uniqid(),
         "trial_days" => 15
     );
     $response = $this->conexion->request(
