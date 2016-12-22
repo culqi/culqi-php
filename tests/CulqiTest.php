@@ -4,12 +4,11 @@ require_once('TestAutoLoad.php');
 
 use Culqi\Culqi;
 use Culqi\Client;
-use PHPUnit\Framework\TestCase;
 
 /**
  *  Clase CrearCargos (Test)
  */
-class CulqiTest extends TestCase {
+class CulqiTest extends PHPUnit_Framework_TestCase {
 
   protected function setUp() {
     $this->PUBLIC_API_KEY = "pk_test_vzMuTHoueOMlgUPj";
