@@ -5,7 +5,7 @@ class Culqi
 {
 
     public $api_key;
-    
+
     /**
     * La versión de API usada
     */
@@ -14,7 +14,7 @@ class Culqi
     /**
      * La URL Base por defecto
      */
-    const BASE_URL = "http://192.168.0.110:8000/v2";
+    const BASE_URL = "https://api.culqi.com/v2";
 
     // Constructor
     public function __construct($options)

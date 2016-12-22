@@ -9,7 +9,7 @@ try {
   require '../vendor/autoload.php';
 
   // Configurar tu API Key y autenticación
-  $SECRET_API_KEY = "Mde0GIf0MsixrvyhRDDzj9IM7UXtv9ndnYHf2UZwEyE=";
+  $SECRET_API_KEY = "sk_test_UTCQSGcXW8bCyU59";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
@@ -23,7 +23,7 @@ try {
         "first_name" => "William",
         "phone_number" => 1234567789,
         "plan_alias" => "plan-test35",
-        "token" => "e58wm3Q3DhBOOZ8ytRHQxqRnsy4fH43w"
+        "token_id" => "e58wm3Q3DhBOOZ8ytRHQxqRnsy4fH43w"
     )
   );
 

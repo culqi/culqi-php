@@ -5,7 +5,7 @@ try {
   require '../vendor/autoload.php';
 
   // Codigo de Comercio
-  $COD_COMERCIO = "live_ewm1DV7CsseD";
+  $COD_COMERCIO = "pk_test_vzMuTHoueOMlgUPj";
   $culqi = new Culqi\Culqi(array('api_key' => $COD_COMERCIO));
 
   // Creando Cargo a una tarjeta
@@ -23,7 +23,7 @@ try {
       )
   );
   // Respuesta
-  print_r("Token:  ".$token->value);
+  print_r("Token:  ".$token->id);
 
 } catch (Exception $e) {
   echo $e->getMessage();

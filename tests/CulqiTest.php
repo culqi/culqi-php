@@ -12,8 +12,8 @@ use PHPUnit\Framework\TestCase;
 class CulqiTest extends TestCase {
 
   protected function setUp() {
-    $this->PUBLIC_API_KEY = "live_SZVtOA5x9n8c";
-    $this->API_KEY = "gjkf2ehJxmuXnjwanj3AIbCSrncDMEvk29sHR/n8ZwM=";
+    $this->PUBLIC_API_KEY = "pk_test_vzMuTHoueOMlgUPj";
+    $this->API_KEY = "sk_test_UTCQSGcXW8bCyU59";
 
     $this->culqi = new Culqi(array("api_key" => $this->API_KEY));
     $this->conexion = new Client();
@@ -23,24 +23,24 @@ class CulqiTest extends TestCase {
    * Creación de un token con los datos de una tarjeta de prueba
    */
   protected function createToken() {
-      $testToken = array(
-        "card_number" => 4111111111111111,
-        "currency" => "PEN",
-        "cvv" => "123",
-        "expiration_month" => 10,
-        "expiration_year" => 2020,
-        "fingerprint" => "q352454534",
-        "last_name" => "Muro",
-        "email" => "wmuro@me.com",
-        "name" => "William"
-      );
-      $response = $this->conexion->request(
-      "POST",
-      "/tokens/",
-      $this->PUBLIC_API_KEY, $testToken
+    $newToken = array(
+      "card_number" => "4111111111111111",
+      "currency_code" => "PEN",
+      "cvv" => "123",
+      "expiration_month" => 9,
+      "expiration_year" => 2020,
+      "fingerprint" => "q352454534",
+      "last_name" => "Muro",
+      "email" => "wmuro@me.com",
+      "first_name" => "William"
     );
-    // Recibimos el Token (id)
-    return $response->value;
+    $response = $this->conexion->request(
+    "POST",
+    "/tokens/",
+    $this->PUBLIC_API_KEY, $newToken
+    );
+    // return Token (id)
+    return $response->id;
   }
 
    /**
@@ -50,5 +50,79 @@ class CulqiTest extends TestCase {
    $token = $this->createToken();
    $this->assertNotNull($token);
   }
+
+  public function testCreateCharge(){
+    $charge = array(
+      "address" => "Avenida Lima 1232",
+      "address_city" => "LIMA",
+      "amount" => 1000,
+      "country_code" => "PE",
+      "currency_code" => "PEN",
+      "cvv" => "123",
+      "email" => "wmuro@me.com",
+      "first_name" => "William",
+      "installments" => 0,
+      "last_name" => "Muro",
+      "metadata" => "",
+      "order_id" => time(),
+      "phone_number" => 3333339,
+      "product_description" => "Venta de prueba",
+      "token_id" => $this->createToken()
+    );
+    $response = $this->conexion->request(
+    "POST",
+    "/charges/",
+    $this->API_KEY, $charge
+    );
+    // valid is not null Charge (id)
+    $this->assertNotNull($response->id);
+  }
+
+  public function createPlan(){
+    $newPlan = array(
+        "alias" => "plan-culqi-test-2",
+        "amount" => 1000,
+        "currency_code" => "PEN",
+        "interval" => "month",
+        "interval_count" => 1,
+        "limit" => 12,
+        "name" => "Plan de Prueba test test",
+        "trial_days" => 15
+    );
+    $response = $this->conexion->request(
+    "POST",
+    "/plans/",
+    $this->API_KEY, $newPlan
+    );
+    // valid is not null Plan (id)
+    return $response->alias;
+
+  }
+
+  /*public function testCreatePlan() {
+   $plan = $this->createPlan();
+   $this->assertNotNull($plan);
+  }*/
+
+  /*public function testCreateSubscription(){
+    $suscriptor = array(
+        "address" => "Avenida Lima 123213",
+        "address_city" => "LIMA",
+        "country_code" => "PE",
+        "email" => "wmuro@me.com",
+        "last_name" => "Muro",
+        "first_name" => "William",
+        "phone_number" => 1234567789,
+        "plan_alias" => $this->createPlan(),
+        "token_id" => $this->createToken()
+    );
+    $response = $this->conexion->request(
+    "POST",
+    "/plans/",
+    $this->API_KEY, $suscriptor
+    );
+    // valid is not null Subscription (id)
+    $this->assertNotNull($response->id);
+  }*/
 
 }
