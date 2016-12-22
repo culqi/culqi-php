@@ -22,8 +22,8 @@ try {
         "last_name" => "Muro",
         "first_name" => "William",
         "phone_number" => 1234567789,
-        "plan_alias" => "plan-test35",
-        "token_id" => "e58wm3Q3DhBOOZ8ytRHQxqRnsy4fH43w"
+        "plan_alias" => "plan-test-CULQI101",
+        "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
     )
   );
 

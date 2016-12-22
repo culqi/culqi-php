@@ -15,13 +15,13 @@ try {
   // Creando Cargo a una tarjeta
   $plan = $culqi->Planes->create(
       array(
-          "alias" => "plan-test-CULQI100",
+          "alias" => "plan-test-CULQI101",
           "amount" => 1000,
           "currency_code" => "PEN",
           "interval" => "day",
           "interval_count" => 2,
           "limit" => 10,
-          "name" => "Plan de Prueba CULQI100",
+          "name" => "Plan de Prueba CULQI101",
           "trial_days" => 50
       )
   );
