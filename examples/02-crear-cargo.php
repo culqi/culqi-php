@@ -12,8 +12,6 @@ try {
   $SECRET_API_KEY = "sk_test_UTCQSGcXW8bCyU59";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
-  $pedidoId = time();
-
   // Creando Cargo a una tarjeta
   $cargo = $culqi->Cargos->create(
       array(
@@ -31,7 +29,7 @@ try {
           "order_id" => time(),
           "phone_number" => 3333339,
           "product_description" => "Venta de prueba",
-          "token_id" => "tkn_test_PCXEDL5zkywHvRy0"
+          "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
       )
   );
   // Respuesta

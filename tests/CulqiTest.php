@@ -78,15 +78,15 @@ class CulqiTest extends TestCase {
     $this->assertNotNull($response->id);
   }
 
-  public function createPlan(){
+  public function testCreatePlan(){
     $newPlan = array(
-        "alias" => "plan-culqi-test-2",
+        "alias" => "plan-culqi".time(),
         "amount" => 1000,
         "currency_code" => "PEN",
         "interval" => "month",
         "interval_count" => 1,
         "limit" => 12,
-        "name" => "Plan de Prueba test test",
+        "name" => "Plan de Prueba ".time(),
         "trial_days" => 15
     );
     $response = $this->conexion->request(
@@ -94,17 +94,11 @@ class CulqiTest extends TestCase {
     "/plans/",
     $this->API_KEY, $newPlan
     );
-    // valid is not null Plan (id)
-    return $response->alias;
-
+    // valid is not null Plan (alias)
+    $this->assertNotNull($response->alias);
   }
 
-  /*public function testCreatePlan() {
-   $plan = $this->createPlan();
-   $this->assertNotNull($plan);
-  }*/
-
-  /*public function testCreateSubscription(){
+  public function testCreateSubscription(){
     $suscriptor = array(
         "address" => "Avenida Lima 123213",
         "address_city" => "LIMA",
@@ -113,16 +107,16 @@ class CulqiTest extends TestCase {
         "last_name" => "Muro",
         "first_name" => "William",
         "phone_number" => 1234567789,
-        "plan_alias" => $this->createPlan(),
+        "plan_alias" => "plan-test-CULQI101",
         "token_id" => $this->createToken()
     );
     $response = $this->conexion->request(
     "POST",
-    "/plans/",
+    "/subscriptions/",
     $this->API_KEY, $suscriptor
     );
     // valid is not null Subscription (id)
     $this->assertNotNull($response->id);
-  }*/
+  }
 
 }
