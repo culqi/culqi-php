@@ -1,6 +1,6 @@
 <?php
 /**
- * Ejemplo 2 (02-crear-suscriptor.php)
+ * Ejemplo 4 (04-crear-suscriptor.php)
  * Como añadir un suscriptor a un plan específico usando Culqi PHP.
  */
 

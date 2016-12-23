@@ -1,6 +1,6 @@
 <?php
 /**
- * Ejemplo 1 (01-crear-cargo.php)
+ * Ejemplo 2 (02-crear-cargo.php)
  * Como crear un cargo a una tarjeta usando Culqi PHP.
  */
 

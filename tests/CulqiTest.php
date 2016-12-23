@@ -46,11 +46,10 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     * Verificar creación de Token
    */
   public function testVerifyToken() {
-   $token = $this->createToken();
-   $this->assertNotNull($token);
+   $this->assertNotNull($this->createToken());
   }
 
-  public function testCreateCharge(){
+  public function createCharge() {
     $charge = array(
       "address" => "Avenida Lima 1232",
       "address_city" => "LIMA",
@@ -73,11 +72,15 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     "/charges/",
     $this->API_KEY, $charge
     );
-    // valid is not null Charge (id)
-    $this->assertNotNull($response->id);
+    return $response->id;
   }
 
-  public function testCreatePlan(){
+  public function testCreateCharge() {
+    // valid is not null Charge (id)
+    $this->assertNotNull($this->createCharge());
+  }
+
+  public function testCreatePlan() {
     $newPlan = array(
         "alias" => "plan-culqi".uniqid(),
         "amount" => 1000,
@@ -97,7 +100,7 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertNotNull($response->alias);
   }
 
-  public function testCreateSubscription(){
+  public function testCreateSubscription() {
     $suscriptor = array(
         "address" => "Avenida Lima 123213",
         "address_city" => "LIMA",
@@ -113,6 +116,21 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     "POST",
     "/subscriptions/",
     $this->API_KEY, $suscriptor
+    );
+    // valid is not null Subscription (id)
+    $this->assertNotNull($response->id);
+  }
+
+  public function testCreateRefund() {
+    $refund = array(
+      "amount" => 500,
+      "charge_id" => $this->createCharge(),
+      "reason" => "bought an incorrect product"
+    );
+    $response = $this->conexion->request(
+    "POST",
+    "/refunds/",
+    $this->API_KEY, $refund
     );
     // valid is not null Subscription (id)
     $this->assertNotNull($response->id);
