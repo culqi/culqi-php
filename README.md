@@ -6,9 +6,8 @@
 
 Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
-> **Importante**: Hemos descontinuado el soporte a la versión 1.0 de Culqi API para centrarnos en la nueva versión. Si estabas trabajando con la anterior versión de esta biblioteca puedes entrar al branch [1.1.1](https://github.com/culqi/culqi-php/tree/1.1.1).
 
-**Nota**: Esta biblioteca trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
+**Nota**: Esta biblioteca trabaja con la [v2.0](https://culqi.github.io/api-docs/) (BETA) de Culqi API.
 
 
 ## Requisitos
@@ -66,6 +65,7 @@ $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 ```
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)
+
 Antes de crear un Cargo, Plan o un Suscriptor es necesario crear un `token` de tarjeta. Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo
 debe ser usada para **desarrollo**. Lo recomendable es generar los 'tokens' con **CULQI.JS** cuando pases a producción, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo información sensible.
 
@@ -78,23 +78,25 @@ deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 ```php
 
 // Creamos Cargo a una tarjeta
-$cargo = $culqi->Cargos->create(
-    array(
-        "token"=> "vVhhnxxbNpFG8cfEAwhtTfK4g8sf7oOi",        
-        "moneda"=> "PEN",
-        "monto"=> 19900,      
-        "descripcion"=> "Venta de prueba",
-        "pedido"=> "PED3351",       
-        "codigo_pais"=> "PE",
-        "ciudad"=> "Lima",
-        "usuario"=> "71701956",
-        "direccion"=> "Avenida Lima 1232",      
-        "telefono"=> 12313123,
-        "nombres"=> "Will",
-        "apellidos"=> "Muro",
-        "correo_electronico"=> "wmuro@me.com"
-    )
-);
+  $cargo = $culqi->Cargos->create(
+      array(
+          "address" => "Avenida Lima 1232",
+          "address_city" => "LIMA",
+          "amount" => 1000,
+          "country_code" => "PE",
+          "currency_code" => "PEN",
+          "cvv" => "123",
+          "email" => "wmuro@me.com",
+          "first_name" => "William",
+          "installments" => 0,
+          "last_name" => "Muro",
+          "metadata" => "",
+          "order_id" => time(),
+          "phone_number" => 3333339,
+          "product_description" => "Venta de prueba",
+          "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
+      )
+  );
 
 //Respuesta
 print_r($cargo);
@@ -104,20 +106,19 @@ print_r($cargo);
 ### Crear un suscriptor a un plan (Suscripciones)
 ```php
 // Creando Suscriptor a un plan
-$suscriptor = $culqi->Suscripciones->create(
+  $suscriptor = $culqi->Suscripciones->create(
     array(
-        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8",
-        "codigo_pais"=> "PE",
-        "direccion"=> "Avenida Lima 123213",
-        "ciudad"=> "Lima",
-        "usuario"=> "71701956",
-        "telefono"=> "1234567789",
-        "nombre"=> "Brayan",
-        "apellido"=> "Cruces",
-        "correo_electronico"=> "brayan.cruces@culqi.com",
-        "plan_id"=> "plan-basico"    
+        "address" => "Avenida Lima 123213",
+        "address_city" => "LIMA",
+        "country_code" => "PE",
+        "email" => "wmuro@me.com",
+        "last_name" => "Muro",
+        "first_name" => "William",
+        "phone_number" => 1234567789,
+        "plan_alias" => "plan-test-CULQI101",
+        "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
     )
-);
+  );
 
 //Respuesta
 print_r($suscriptor);
