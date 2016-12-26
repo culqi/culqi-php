@@ -25,7 +25,7 @@ Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 ```json
 {
   "require": {
-    "culqi/culqi-php": "1.2.*"
+    "culqi/culqi-php": "1.3.*"
   }
 }
 ```

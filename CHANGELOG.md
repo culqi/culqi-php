@@ -1,4 +1,4 @@
-### 1.2.6 19-12-2016
+### 1.3.0 19-12-2016
 * Se utiliza API v2.0
 * Cambios en Cargos.php
 * Cambios en Client.php
