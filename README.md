@@ -49,9 +49,9 @@ Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests
 ```php
 <?php
 // Cargamos Requests y Culqi PHP
-require 'vendor/rmccue/requests/library/Requests.php';
+include_once dirname(__FILE__).'/libraries/Requests/library/Requests.php';
 Requests::register_autoloader();
-require 'vendor/culqi/culqi-php/lib/culqi.php';
+include_once dirname(__FILE__).'/libraries/culqi-php/lib/culqi.php';
 ```
 
 ## Modo de uso
@@ -85,7 +85,6 @@ deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
           "amount" => 1000,
           "country_code" => "PE",
           "currency_code" => "PEN",
-          "cvv" => "123",
           "email" => "wmuro@me.com",
           "first_name" => "William",
           "installments" => 0,

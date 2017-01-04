@@ -20,7 +20,6 @@ try {
           "amount" => 1000,
           "country_code" => "PE",
           "currency_code" => "PEN",
-          "cvv" => "123",
           "email" => "wmuro@me.com",
           "first_name" => "William",
           "installments" => 0,
