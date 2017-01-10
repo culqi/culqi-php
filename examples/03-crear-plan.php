@@ -13,7 +13,7 @@ try {
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
-  $plan = $culqi->Planes->create(
+  $plan = $culqi->Plans->create(
       array(
           "alias" => "plan-test-CULQI101",
           "amount" => 1000,

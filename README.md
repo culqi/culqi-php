@@ -41,7 +41,7 @@ require 'vendor/autoload.php';
 Clonarse el repositorio o bajarse el código fuente
 
 ```bash
-$ git clone git@github.com:culqi/culqi-php.git
+git clone git@github.com:culqi/culqi-php.git
 ```
 
 Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests`](https://github.com/rmccue/requests). Debes hacer el llamado correctamente a la carpeta y/o archivo dependiendo de tu estructura.
@@ -78,7 +78,7 @@ deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 ```php
 
 // Creamos Cargo a una tarjeta
-  $cargo = $culqi->Cargos->create(
+  $cargo = $culqi->Charges->create(
       array(
           "address" => "Avenida Lima 1232",
           "address_city" => "LIMA",
@@ -90,7 +90,6 @@ deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
           "installments" => 0,
           "last_name" => "Muro",
           "metadata" => "",
-          "order_id" => time(),
           "phone_number" => 3333339,
           "product_description" => "Venta de prueba",
           "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
@@ -105,7 +104,7 @@ print_r($cargo);
 ### Crear un suscriptor a un plan (Suscripciones)
 ```php
 // Creando Suscriptor a un plan
-  $suscriptor = $culqi->Suscripciones->create(
+  $suscriptor = $culqi->Subscriptions->create(
     array(
         "address" => "Avenida Lima 123213",
         "address_city" => "LIMA",
@@ -124,10 +123,10 @@ print_r($suscriptor);
 ```
 ## Probar ejemplos
 ```bash
-$ git clone https://github.com/culqi/culqi-php.git
-$ composer install
-$ cd culqi-php/examples
-$ php -S localhost:8000
+git clone https://github.com/culqi/culqi-php.git
+composer install
+cd culqi-php/examples
+php -S localhost:8000
 ```
 
 ## Documentación
@@ -137,8 +136,8 @@ $ php -S localhost:8000
 ## Tests
 
 ```bash
-$ composer install
-$ phpunit tests/*
+composer install
+phpunit tests/*
 ```
 ## Licencia
 
