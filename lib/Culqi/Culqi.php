@@ -25,10 +25,12 @@ class Culqi
         }
 
         $this->Tokens = new Tokens($this);
-        $this->Cargos = new Cargos($this);
-        $this->Suscripciones = new Suscripciones($this);
-        $this->Devoluciones = new Devoluciones($this);
-        $this->Planes = new Planes($this);
+        $this->Charges = new Charges($this);
+        $this->Subscriptions = new Subscriptions($this);
+        $this->Refunds = new Refunds($this);
+        $this->Plans = new Plans($this);
+        $this->Balances = new Balances($this);
+        $this->Iins = new Iins($this);
 
     }
 

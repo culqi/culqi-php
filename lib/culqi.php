@@ -13,16 +13,17 @@
  * @link http://beta.culqi.com/desarrolladores/ Culqi Developers
  */
 
- // Errors
- include_once dirname(__FILE__). '/Culqi/Error/Errors.php';
- include_once dirname(__FILE__). '/Culqi/AuthBearer.php';
- include_once dirname(__FILE__).'/Culqi/Client.php';
- include_once dirname(__FILE__).'/Culqi/Resource.php';
+// Errors
+include_once dirname(__FILE__).'/Culqi/Error/Errors.php';
+include_once dirname(__FILE__).'/Culqi/AuthBearer.php';
+include_once dirname(__FILE__).'/Culqi/Client.php';
+include_once dirname(__FILE__).'/Culqi/Resource.php';
 
- // Culqi API
- include_once dirname(__FILE__).'/Culqi/Tokens.php';
- include_once dirname(__FILE__).'/Culqi/Cargos.php';
- include_once dirname(__FILE__).'/Culqi/Devoluciones.php';
- include_once dirname(__FILE__).'/Culqi/Suscripciones.php';
- include_once dirname(__FILE__).'/Culqi/Planes.php';
- include_once dirname(__FILE__).'/Culqi/Culqi.php';
+// Culqi API
+include_once dirname(__FILE__).'/Culqi/Tokens.php';
+include_once dirname(__FILE__).'/Culqi/Charges.php';
+include_once dirname(__FILE__).'/Culqi/Refunds.php';
+include_once dirname(__FILE__).'/Culqi/Subscriptions.php';
+include_once dirname(__FILE__).'/Culqi/Plans.php';
+include_once dirname(__FILE__).'/Culqi/Iins.php';
+include_once dirname(__FILE__).'/Culqi/Culqi.php';

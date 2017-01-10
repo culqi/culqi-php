@@ -13,7 +13,7 @@ try {
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
-  $suscriptor = $culqi->Suscripciones->create(
+  $subscription = $culqi->Subscriptions->create(
     array(
         "address" => "Avenida Lima 123213",
         "address_city" => "LIMA",
@@ -28,7 +28,7 @@ try {
   );
 
   // Respuesta
-  print_r($suscriptor);
+  print_r($subscription);
 
 } catch (Exception $e) {
   echo $e->getMessage();

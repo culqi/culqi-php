@@ -13,7 +13,7 @@ try {
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
-  $refund = $culqi->Devoluciones->create(
+  $refund = $culqi->Refunds->create(
       array(
         "amount" => 500,
         "charge_id" => "chr_test_X9DoC7tiHucR2CQr",
