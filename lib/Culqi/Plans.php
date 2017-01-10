@@ -17,8 +17,4 @@ class Plans extends Resource {
         return $this->request("GET", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
-    public function delete($id) {
-       return $this->request("DELETE", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
-    }
-
 }
