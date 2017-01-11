@@ -137,7 +137,7 @@ php -S localhost:8000
 
 ```bash
 composer install
-phpunit tests/*
+phpunit --verbose --tap tests/*
 ```
 ## Licencia
 
