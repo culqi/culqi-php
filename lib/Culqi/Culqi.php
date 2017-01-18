@@ -1,12 +1,13 @@
 <?php
+
 namespace Culqi;
+
 
 class Culqi
 {
 
     public $api_key;
     public static $api_base = "https://integ-pago.culqi.com/api/v1";
-
 
     // Constructor
     public function __construct($options)
@@ -16,6 +17,7 @@ class Culqi
             throw new InvalidApiKey();
         }
 
+        $this->Tokens = new Tokens($this);
         $this->Cargos = new Cargos($this);
         $this->Suscripciones = new Suscripciones($this);
         $this->Devoluciones = new Devoluciones($this);
