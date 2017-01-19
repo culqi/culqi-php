@@ -17,19 +17,20 @@ class Client
     const BASE_URL = "https://integ-pago.culqi.com/api/v1";
 
 
-    public function request($method, $url, $api_key, $data = NULL, $headers= array("Content-Type" => "application/json", "Accept" => "application/json") ) {
+    public function request($method, $url, $api_key, $data = NULL) {
         try {
+
+            $headers= array("Authorization" => "Bearer ".$api_key, "Content-Type" => "application/json", "Accept" => "application/json");
+
             $options = array(
-                'auth' => new AuthBearer($api_key),
                 'timeout' => 120
             );
+
             if($method == "GET") {
                 $url_params = is_array($data) ? '?' . http_build_query($data) : '';
                 $response = \Requests::get(Culqi::$api_base . $url . $url_params, $headers, $options);
             } else if($method == "POST") {
-                $response = \Requests::post(Culqi::$api_base . $url, $headers, json_encode($data), $options);
-
-
+                $response = \Requests::post(Culqi::$api_base . $url, $headers, json_encode($data));
             } else if($method == "PATCH") {
                 $response = \Requests::patch(Culqi::$api_base . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
@@ -47,8 +48,7 @@ class Client
         if ($response->status_code == 400) {
             $code = 0;
             $message = "";
-
-            throw new Errors\UnhandledError($response->body, $response->status_code);            
+            throw new Errors\UnhandledError($response->body, $response->status_code);
         }
         if ($response->status_code == 401) {
             throw new Errors\AuthenticationError();
