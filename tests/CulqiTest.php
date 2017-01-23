@@ -107,4 +107,14 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('suscripcion', $suscripcion->objeto);
   }
 
+  public function testCreateRefund() {
+    $refund = $this->culqi->Devoluciones->create($this->createCharge()->id,
+          array(
+            "numero_pedido"=> $this->createCharge()->pedido,
+            "monto"=> "500"
+          )
+        );
+    $this->assertNotNull("Devolución exitosa", $refund->mensaje_respuesta_usuario);
+  }
+
 }

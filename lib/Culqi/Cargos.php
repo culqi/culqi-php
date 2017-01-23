@@ -20,5 +20,6 @@ class Cargos extends Resource {
         return $this->request("GET", self::URL_CARGOS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
+    
 
 }
