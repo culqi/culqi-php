@@ -10,15 +10,15 @@ class Subscriptions extends Resource {
         return $this->request("POST", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options);
     }
 
-    public function getList($options) {
+    public function getList($options = NULL) {
         return $this->request("GET", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options);
     }
 
-    public function get($id) {
-        return $this->request("GET", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options);
+    public function get($id = NULL) {
+        return $this->request("GET", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key, $options);
     }
 
-    public function delete($id) {
+    public function delete($id = NULL) {
        return $this->request("DELETE", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
