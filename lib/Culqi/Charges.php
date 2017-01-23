@@ -13,7 +13,7 @@ class Charges extends Resource {
         return $this->request("GET", self::URL_CHARGES, $api_key = $this->culqi->api_key, $options);
     }
 
-    public function get($id) {
+    public function get($id = NULL) {
         return $this->request("GET", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key);
     }
 

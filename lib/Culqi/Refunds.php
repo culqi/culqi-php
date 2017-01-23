@@ -13,7 +13,7 @@ class Refunds extends Resource {
         return $this->request("GET", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options);
     }
 
-    public function get($id) {
+    public function get($id = NULL) {
         return $this->request("GET", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
