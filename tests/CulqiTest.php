@@ -32,14 +32,11 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $token = $this->culqi_token->Tokens->create(
         array(
           "card_number" => "4111111111111111",
-          "currency_code" => "PEN",
           "cvv" => "123",
+          "email" => "wmuro@me.com",
           "expiration_month" => 9,
           "expiration_year" => 2020,
-          "fingerprint" => "q352454534",
-          "last_name" => "Muro",
-          "email" => "wmuro@me.com",
-          "first_name" => "William"
+          "fingerprint" => "q352454534"
         )
     );
     return $token;
@@ -59,21 +56,24 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
 
   public function createCharge() {
     $charge = $this->culqi->Charges->create(
-        array(
+      array(
+        "amount" => 1000,
+        "antifraud_details" => array(
           "address" => "Avenida Lima 1232",
           "address_city" => "LIMA",
-          "amount" => 1000,
           "country_code" => "PE",
-          "currency_code" => "PEN",
           "email" => "wmuro@me.com",
           "first_name" => "William",
-          "installments" => 0,
           "last_name" => "Muro",
-          "metadata" => "",
-          "phone_number" => 3333339,
-          "product_description" => "Venta de prueba",
-          "token_id" => $this->createToken()->id
-        )
+          "phone_number" => 3333339
+        ),
+        "capture": true,
+        "currency_code" => "PEN",
+        "description" => "Venta de prueba",
+        "installments" => 0,
+        "metadata" => "",
+        "source_id" => $this->createToken()->id
+      )
     );
     return $charge;
   }
@@ -117,15 +117,8 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
   public function testCreateSubscription() {
     $subscription = $this->culqi->Subscriptions->create(
       array(
-        "address" => "Avenida Lima 123213",
-        "address_city" => "LIMA",
-        "country_code" => "PE",
-        "email" => "wmuro@me.com",
-        "last_name" => "Muro",
-        "first_name" => "William",
-        "phone_number" => 1234567789,
-        "plan_alias" => $this->createPlan()->alias,
-        "token_id" => $this->createToken()->id
+          "card_id"=> "{card_id}",
+          "plan_id" => $this->createPlan()->id
       )
     );
     // Verificacion del campo object no tenga el valor 'error'

@@ -15,19 +15,22 @@ try {
   // Creando Cargo a una tarjeta
   $charge = $culqi->Charges->create(
       array(
+        "amount" => 1000,
+        "antifraud_details" => array(
           "address" => "Avenida Lima 1232",
           "address_city" => "LIMA",
-          "amount" => 1000,
           "country_code" => "PE",
-          "currency_code" => "PEN",
           "email" => "wmuro@me.com",
           "first_name" => "William",
-          "installments" => 0,
           "last_name" => "Muro",
-          "metadata" => "",
-          "phone_number" => 3333339,
-          "product_description" => "Venta de prueba",
-          "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
+          "phone_number" => 3333339
+        ),
+        "capture": true,
+        "currency_code" => "PEN",
+        "description" => "Venta de prueba",
+        "installments" => 0,
+        "metadata" => "",
+        "source_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
       )
   );
   // Respuesta

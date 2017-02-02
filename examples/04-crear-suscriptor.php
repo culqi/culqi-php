@@ -1,4 +1,4 @@
-<?php
+|<?php
 /**
  * Ejemplo 4 (04-crear-suscriptor.php)
  * Como añadir un suscriptor a un plan específico usando Culqi PHP.
@@ -15,15 +15,8 @@ try {
   // Creando Cargo a una tarjeta
   $subscription = $culqi->Subscriptions->create(
     array(
-        "address" => "Avenida Lima 123213",
-        "address_city" => "LIMA",
-        "country_code" => "PE",
-        "email" => "wmuro@me.com",
-        "last_name" => "Muro",
-        "first_name" => "William",
-        "phone_number" => 1234567789,
-        "plan_alias" => "plan-test-CULQI101",
-        "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
+        "card_id"=> "{card_id}",
+        "plan_id" => "{plan_id}"
     )
   );
 
