@@ -19,6 +19,10 @@ include_once dirname(__FILE__).'/Culqi/Client.php';
 include_once dirname(__FILE__).'/Culqi/Resource.php';
 
 // Culqi API
+include_once dirname(__FILE__).'/Culqi/Transfers.php';
+include_once dirname(__FILE__).'/Culqi/Cards.php';
+include_once dirname(__FILE__).'/Culqi/Events.php';
+include_once dirname(__FILE__).'/Culqi/Customers.php';
 include_once dirname(__FILE__).'/Culqi/Tokens.php';
 include_once dirname(__FILE__).'/Culqi/Charges.php';
 include_once dirname(__FILE__).'/Culqi/Refunds.php';
