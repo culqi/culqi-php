@@ -18,7 +18,7 @@ class Charges extends Resource {
     }
 
     public function getCapture($alias = NULL) {
-        return $this->request("GET", self::URL_CHARGES . $alias . "/capture/", $api_key = $this->culqi->api_key);
+        return $this->request("POST", self::URL_CHARGES . $alias . "/capture/", $api_key = $this->culqi->api_key);
     }
 
 }
