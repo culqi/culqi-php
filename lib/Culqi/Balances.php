@@ -9,8 +9,8 @@ class Balances extends Resource {
         return $this->request("GET", self::URL_BALANCES, $api_key = $this->culqi->api_key, $options);
     }
 
-    public function get($id = NULL) {
-        return $this->request("GET", self::URL_BALANCES . $id . "/", $api_key = $this->culqi->api_key);
+    public function get($alias = NULL) {
+        return $this->request("GET", self::URL_BALANCES . $alias . "/", $api_key = $this->culqi->api_key);
     }
 
 }

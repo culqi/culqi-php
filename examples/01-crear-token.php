@@ -12,14 +12,11 @@ try {
   $token = $culqi->Tokens->create(
       array(
         "card_number" => "4111111111111111",
-        "currency_code" => "PEN",
         "cvv" => "123",
+        "email" => "wmuro@me.com",
         "expiration_month" => 9,
         "expiration_year" => 2020,
-        "fingerprint" => "q352454534",
-        "last_name" => "Muro",
-        "email" => "wmuro@me.com",
-        "first_name" => "William"
+        "fingerprint" => "q352454534"
       )
   );
   // Respuesta
