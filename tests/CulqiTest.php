@@ -90,7 +90,7 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $plan = $this->culqi->Plans->create(
       array(
         "alias" => "plan-culqi".uniqid(),
-        "amount" => 1000,
+        "amount" => 10000,
         "currency_code" => "PEN",
         "interval" => "months",
         "interval_count" => 1,
@@ -107,11 +107,44 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('plan', $this->createPlan()->object);
   }
 
-  /*
+  public function createCustomer(){
+    $customer = $this->culqi->Customers->create(
+      array(
+        "address" => "av lima 123",
+        "address_city" => "lima",
+        "country_code" => "PE",
+        "email" => "www@".uniqid()."me.com",
+        "first_name" => "Will",
+        "last_name" => "Muro",
+        "metadata" => array("test"=>"test"),
+        "phone_number" => 899898999
+      )
+    );
+    return $customer;
+  }
+
+  public function testCreateCustomer(){
+    $this->assertEquals('customer', $this->createCustomer()->object);
+  }
+
+  public function createCard(){
+    $card = $this->culqi->Cards->create(
+      array(
+        "customer_id" => $this->createCustomer()->id,
+        "token_id" => $this->createToken()->id
+      )
+    );
+    return $card;
+  }
+
+  public function testCreateCard(){
+    $this->assertEquals('card', $this->createCard()->object);
+  }
+
   public function testCreateSubscription() {
     $subscription = $this->culqi->Subscriptions->create(
       array(
-          "card_id"=> "{card_id}",
+          "card_id" => $this->createCard()->id,
           "plan_id" => $this->createPlan()->id
       )
     );
@@ -119,17 +152,16 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('subscription',$subscription->object);
   }
 
-  public function testCreateRefund() {
+  /*public function testCreateRefund() {
     $refund = $this->culqi->Refunds->create(
       array(
-      "amount" => 500,
-      "charge_id" => $this->createCharge()->id,
-      "reason" => "bought an incorrect product"
+        "amount" => 500,
+        "charge_id" => $this->createCharge()->id,
+        "reason" => "bought an incorrect product"
       )
     );
     // Verificacion del campo object no tenga el valor 'error'
     $this->assertEquals('refund',$refund->object);
-  }
-  */
+  }*/
 
 }

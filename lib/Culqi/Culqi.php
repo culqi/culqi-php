@@ -1,6 +1,8 @@
 <?php
 namespace Culqi;
 
+use Culqi\Error as Errors;
+
 class Culqi
 {
 
@@ -21,7 +23,7 @@ class Culqi
     {
         $this->api_key = $options["api_key"];
         if (!$this->api_key) {
-          throw new InvalidApiKey();
+          throw new Errors\InvalidApiKey();
         }
 
         $this->Tokens = new Tokens($this);

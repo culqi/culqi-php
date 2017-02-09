@@ -1,6 +1,6 @@
 <?php
 /**
- * Ejemplo 3 (03-crear-plan.php)
+ * Ejemplo 3
  * Como crear un plan usando Culqi PHP.
  */
 
@@ -9,24 +9,25 @@ try {
   require '../vendor/autoload.php';
 
   // Configurar tu API Key y autenticación
-  $SECRET_API_KEY = "sk_test_UTCQSGcXW8bCyU59";
+  $SECRET_API_KEY = "{llave}";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
   $plan = $culqi->Plans->create(
       array(
-          "alias" => "plan-test-CULQI101",
-          "amount" => 1000,
-          "currency_code" => "PEN",
-          "interval" => "day",
-          "interval_count" => 2,
-          "limit" => 10,
-          "name" => "Plan de Prueba CULQI101",
-          "trial_days" => 50
+        "alias" => "plan-culqi".uniqid(),
+        "amount" => 10000,
+        "currency_code" => "PEN",
+        "interval" => "months",
+        "interval_count" => 1,
+        "limit" => 12,
+        "name" => "Plan de Prueba ".uniqid(),
+        "trial_days" => 15
       )
   );
   // Respuesta
-  print_r($plan);
+  echo json_encode($plan);
+
 } catch (Exception $e) {
-  echo $e->getMessage();
+  echo json_encode($e->getMessage());
 }

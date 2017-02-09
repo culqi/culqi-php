@@ -1,6 +1,6 @@
 |<?php
 /**
- * Ejemplo 4 (04-crear-suscriptor.php)
+ * Ejemplo 4
  * Como añadir un suscriptor a un plan específico usando Culqi PHP.
  */
 
@@ -9,7 +9,7 @@ try {
   require '../vendor/autoload.php';
 
   // Configurar tu API Key y autenticación
-  $SECRET_API_KEY = "sk_test_UTCQSGcXW8bCyU59";
+  $SECRET_API_KEY = "{llave}";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
 
   // Creando Cargo a una tarjeta
@@ -21,8 +21,8 @@ try {
   );
 
   // Respuesta
-  print_r($subscription);
+  echo json_encode($subscription);
 
 } catch (Exception $e) {
-  echo $e->getMessage();
+  echo json_encode($e->getMessage());
 }
