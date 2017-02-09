@@ -1,4 +1,4 @@
 <?php
 
 require_once(__DIR__.'/../vendor/autoload.php');
-require_once(__DIR__.'/../lib/Culqi/Culqi.php');
+require_once(__DIR__.'/../lib/culqi.php');
