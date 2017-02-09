@@ -20,7 +20,7 @@
       "phpunit/phpunit": "4.4.*"
   },
   "autoload": {
-    "classmap": ["lib/Culqi/"]
+    "classmap": ["lib/culqi.php"]
   },
   "extra": {
   "branch-alias": {
