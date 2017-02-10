@@ -1,16 +1,32 @@
 <?php
+
 namespace Culqi;
 
+/**
+ * Class Transfers
+ *
+ * @package Culqi
+ */
 class Transfers extends Resource {
 
     const URL_TRANSFERS = "/transfers/";
 
+    /**
+     * @param array|null $options
+     *
+     * @return all Transfers.
+     */
     public function getList($options = NULL) {
         return $this->request("GET", self::URL_TRANSFERS, $api_key = $this->culqi->api_key, $options);
     }
 
-    public function get($alias = NULL) {
-        return $this->request("GET", self::URL_TRANSFERS . $alias . "/", $api_key = $this->culqi->api_key);
+    /**
+     * @param string|null $id
+     *
+     * @return get a Transfers.
+     */
+    public function get($id = NULL) {
+        return $this->request("GET", self::URL_TRANSFERS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
 }
