@@ -74,52 +74,82 @@ debe ser usada para **desarrollo**. Lo recomendable es generar los 'tokens' con 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
 deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 
-
 ```php
-
 // Creamos Cargo a una tarjeta
-  $cargo = $culqi->Charges->create(
-      array(
-          "address" => "Avenida Lima 1232",
-          "address_city" => "LIMA",
-          "amount" => 1000,
-          "country_code" => "PE",
-          "currency_code" => "PEN",
-          "email" => "wmuro@me.com",
-          "first_name" => "William",
-          "installments" => 0,
-          "last_name" => "Muro",
-          "metadata" => "",
-          "phone_number" => 3333339,
-          "product_description" => "Venta de prueba",
-          "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
-      )
-  );
+$charge = $culqi->Charges->create(
+    array(
+      "amount" => 1000,
+      "capture" => true,
+      "currency_code" => "PEN",
+      "description" => "Venta de prueba",
+      "email" => "test@culqi.com",
+      "installments" => 0,
+      "source_id" => "{token_id o card_id}"
+    )
+);
 
 //Respuesta
-print_r($cargo);
+print_r($charge);
+```
+### Crear un Plan
+```php
+$plan = $culqi->Plans->create(
+  array(
+    "alias" => "plan-culqi".uniqid(),
+    "amount" => 10000,
+    "currency_code" => "PEN",
+    "interval" => "months",
+    "interval_count" => 1,
+    "limit" => 12,
+    "name" => "Plan de Prueba ".uniqid(),
+    "trial_days" => 15
+  )
+);
 
+//Respuesta
+print_r($plan);
 ```
 
-### Crear un suscriptor a un plan (Suscripciones)
+### Crear un Customer
+```php
+$customer = $culqi->Customers->create(
+  array(
+    "address" => "av lima 123",
+    "address_city" => "lima",
+    "country_code" => "PE",
+    "email" => "www@".uniqid()."me.com",
+    "first_name" => "Will",
+    "last_name" => "Muro",
+    "metadata" => array("test"=>"test"),
+    "phone_number" => 899898999
+  )
+);
+print_r($customer);
+```
+
+### Crear un Card
+```php
+$card = $culqi->Cards->create(
+  array(
+    "customer_id" => "{customer_id}",
+    "token_id" => "{token_id}"
+  )
+);
+print_r($card);
+```
+
+### Crear un Suscripción a un plan
 ```php
 // Creando Suscriptor a un plan
-  $suscriptor = $culqi->Subscriptions->create(
-    array(
-        "address" => "Avenida Lima 123213",
-        "address_city" => "LIMA",
-        "country_code" => "PE",
-        "email" => "wmuro@me.com",
-        "last_name" => "Muro",
-        "first_name" => "William",
-        "phone_number" => 1234567789,
-        "plan_alias" => "plan-test-CULQI101",
-        "token_id" => "tkn_test_YrZIHNzDCDV9Cvz2"
-    )
-  );
+$subscription = $culqi->Subscriptions->create(
+  array(
+    "card_id" => "{card_id}",
+    "plan_id" => "{plan_id}"
+  )
+);
 
 //Respuesta
-print_r($suscriptor);
+print_r($subscription);
 ```
 ## Probar ejemplos
 ```bash

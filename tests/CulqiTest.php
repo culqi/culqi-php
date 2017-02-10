@@ -3,7 +3,6 @@
 require_once('TestAutoLoad.php');
 
 use Culqi\Culqi;
-use Culqi\Client;
 
 /**
  *  Clase CrearCargos (Test)
@@ -107,7 +106,7 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('plan', $this->createPlan()->object);
   }
 
-  public function createCustomer(){
+  public function createCustomer() {
     $customer = $this->culqi->Customers->create(
       array(
         "address" => "av lima 123",
@@ -123,11 +122,11 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     return $customer;
   }
 
-  public function testCreateCustomer(){
+  public function testCreateCustomer() {
     $this->assertEquals('customer', $this->createCustomer()->object);
   }
 
-  public function createCard(){
+  public function createCard() {
     $card = $this->culqi->Cards->create(
       array(
         "customer_id" => $this->createCustomer()->id,
@@ -137,7 +136,7 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     return $card;
   }
 
-  public function testCreateCard(){
+  public function testCreateCard() {
     $this->assertEquals('card', $this->createCard()->object);
   }
 

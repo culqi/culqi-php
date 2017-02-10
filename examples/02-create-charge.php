@@ -16,7 +16,7 @@ try {
   $charge = $culqi->Charges->create(
       array(
         "amount" => 1000,
-        "capture": true,
+        "capture" => true,
         "currency_code" => "PEN",
         "description" => "Venta de prueba",
         "installments" => 0,
