@@ -15,7 +15,6 @@ try {
   // Creando Cargo a una tarjeta
   $plan = $culqi->Plans->create(
       array(
-        "alias" => "plan-culqi".uniqid(),
         "amount" => 10000,
         "currency_code" => "PEN",
         "interval" => "months",
