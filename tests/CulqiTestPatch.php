@@ -16,7 +16,7 @@ class CulqiTestPatch extends PHPUnit_Framework_TestCase
     protected $PUBLIC_API_KEY;
 
     protected function setUp() {
-        $this->API_KEY = "sk_test_UTCQSGcXW8bCyU59"; //getenv("API_KEY");
+        $this->API_KEY = getenv("API_KEY");
         $this->culqi = new Culqi(array("api_key" => $this->API_KEY ));
     }
 

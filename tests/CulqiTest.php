@@ -88,13 +88,12 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
   public function createPlan() {
     $plan = $this->culqi->Plans->create(
       array(
-        "alias" => "plan-culqi".uniqid(),
         "amount" => 10000,
         "currency_code" => "PEN",
         "interval" => "months",
         "interval_count" => 1,
         "limit" => 12,
-        "name" => "Plan de Prueba ".uniqid(),
+        "name" => "plan-culqi".uniqid(),
         "trial_days" => 15
       )
     );
