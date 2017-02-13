@@ -44,7 +44,17 @@ class Customers extends Resource {
      * @return get a Customer.
      */
     public function get($id = NULL) {
-        return $this->request("GET", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options);
+        return $this->request("GET", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
+    }
+
+    /**
+     * @param string|null $id
+     * @param array|null $options
+     *
+     * @return update Charge response.
+     */
+    public function update($id = NULL, $options = NULL) {
+        return $this->request("PATCH", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options);
     }
 
 }

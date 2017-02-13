@@ -38,4 +38,14 @@ class Plans extends Resource {
         return $this->request("GET", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
+    /**
+     * @param string|null $id
+     * @param array|null $options
+     *
+     * @return update Plan response.
+     */
+    public function update($id = NULL, $options = NULL) {
+        return $this->request("PATCH", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key, $options);
+    }
+
 }
