@@ -56,4 +56,14 @@ class Charges extends Resource {
         return $this->request("POST", self::URL_CHARGES . $id . "/capture/", $api_key = $this->culqi->api_key);
     }
 
+    /**
+     * @param string|null $id
+     * @param array|null $options
+     *
+     * @return update Charge response.
+     */
+    public function update($id = NULL, $options = NULL) {
+        return $this->request("PATCH", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key, $options);
+    }
+
 }
