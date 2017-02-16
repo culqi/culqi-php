@@ -1,3 +1,19 @@
+### 1.3.0 19-12-2016
+* Se utiliza API v2.0
+* Cambios en Cargos.php a Charges.php
+* Cambios en Client.php
+* Cambios en Culqi.php
+* Cambios en Devoluciones.php a Refunds.php
+* Cambios en Planes.php a Plan.php
+* Cambios en Suscripciones.php a Subscriptions.php
+* Se agrega Cards.php
+* Se agrega Events.php
+* Se agrega Iins.php
+* Se agrega Customers.php
+* Cambios en Tokens.php
+* Cambios en /examples/
+* Cambios en /tests/
+
 ### 1.2.5 16-11-2016
 * Cambios en Client.php
 * Cambios en /examples/

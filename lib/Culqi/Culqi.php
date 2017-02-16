@@ -1,56 +1,49 @@
 <?php
-
 namespace Culqi;
 
+use Culqi\Error as Errors;
 
+/**
+ * Class Culqi
+ *
+ * @package Culqi
+ */
 class Culqi
 {
-
     public $api_key;
-    public static $api_base = "https://integ-pago.culqi.com/api/v1";
-
-    // Constructor
+    /**
+    * La versión de API usada
+    */
+    const API_VERSION = "v2.0";
+    /**
+     * La URL Base por defecto
+     */
+    const BASE_URL = "https://api.culqi.com/v2";
+    /**
+     * Constructor.
+     *
+     * @param array|null $options
+     *
+     * @throws Error\InvalidApiKey
+     *
+     * @example array('api_key' => "{api_key}")
+     *
+     */
     public function __construct($options)
     {
         $this->api_key = $options["api_key"];
         if (!$this->api_key) {
-            throw new InvalidApiKey();
+          throw new Errors\InvalidApiKey();
         }
-
         $this->Tokens = new Tokens($this);
-        $this->Cargos = new Cargos($this);
-        $this->Suscripciones = new Suscripciones($this);
-        $this->Devoluciones = new Devoluciones($this);
-        $this->Planes = new Planes($this);
-
+        $this->Charges = new Charges($this);
+        $this->Subscriptions = new Subscriptions($this);
+        $this->Refunds = new Refunds($this);
+        $this->Plans = new Plans($this);
+        $this->Transfer = new Transfers($this);
+        $this->Iins = new Iins($this);
+        $this->Cards = new Cards($this);
+        $this->Events = new Events($this);
+        $this->Customers = new Customers($this);
     }
-
-    // To-do: setAPIKey
-    public function setApiKey()
-    {
-    }
-
-    // setEnv
-    public function setEnv($entorno)
-    {
-        if ($entorno == 'INTEG') {
-            self::$api_base = "https://integ-pago.culqi.com/api/v1";
-        }
-        elseif ($entorno == 'PRODUC') {
-            self::$api_base = "https://pago.culqi.com/api/v1";
-        }
-        else {
-             self::$api_base = "https://integ-pago.culqi.com/api/v1";
-        }
-
-    }
-
-    // To-do: getEnv
-    public function getEnv()
-    {
-        //this->api_base;
-    }
-
-
-
 }
