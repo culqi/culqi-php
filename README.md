@@ -7,7 +7,7 @@
 Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
 
-**Nota**: Esta biblioteca trabaja con la [v2.0](https://culqi.github.io/api-docs/) (BETA) de Culqi API.
+Esta biblioteca trabaja con la [v2.0](https://culqi.com/api/) de Culqi API.
 
 
 ## Requisitos
@@ -56,12 +56,12 @@ include_once dirname(__FILE__).'/libraries/culqi-php/lib/culqi.php';
 
 ## Modo de uso
 
-En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KEY ` y el entorno en el que nos encontramos (Integración o [Producción](https://developers.culqi.com/produccion/).).
+En todos ejemplos, inicialmente hay que configurar la credencial `$API_KEY `
 
 ```php
 // Configurar tu API Key y autenticación
-$SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
-$culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+$API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
+$culqi = new Culqi\Culqi(array('api_key' => $API_KEY));
 ```
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)
@@ -98,7 +98,7 @@ $plan = $culqi->Plans->create(
     "alias" => "plan-culqi".uniqid(),
     "amount" => 10000,
     "currency_code" => "PEN",
-    "interval" => "months",
+    "interval" => "dias",
     "interval_count" => 1,
     "limit" => 12,
     "name" => "Plan de Prueba ".uniqid(),
@@ -156,7 +156,7 @@ print_r($subscription);
 git clone https://github.com/culqi/culqi-php.git
 composer install
 cd culqi-php/examples
-php -S localhost:8000
+php -S 0.0.0.0:8000
 ```
 
 ## Documentación
