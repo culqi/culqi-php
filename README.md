@@ -6,9 +6,8 @@
 
 Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
-> **Importante**: Hemos descontinuado el soporte a la versión 1.0 de Culqi API para centrarnos en la nueva versión. Si estabas trabajando con la anterior versión de esta biblioteca puedes entrar al branch [1.1.1](https://github.com/culqi/culqi-php/tree/1.1.1).
 
-**Nota**: Esta biblioteca trabaja con la [v1.2](https://culqi.api-docs.io/v1.2) de Culqi API.
+**Nota**: Esta biblioteca trabaja con la [v2.0](https://culqi.github.io/api-docs/) (BETA) de Culqi API.
 
 
 ## Requisitos
@@ -26,7 +25,7 @@ Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 ```json
 {
   "require": {
-    "culqi/culqi-php": "1.2.*"
+    "culqi/culqi-php": "1.3.*"
   }
 }
 ```
@@ -42,7 +41,7 @@ require 'vendor/autoload.php';
 Clonarse el repositorio o bajarse el código fuente
 
 ```bash
-$ git clone git@github.com:culqi/culqi-php.git
+git clone git@github.com:culqi/culqi-php.git
 ```
 
 Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests`](https://github.com/rmccue/requests). Debes hacer el llamado correctamente a la carpeta y/o archivo dependiendo de tu estructura.
@@ -50,9 +49,9 @@ Ahora, incluir en la cabecera a `culqi-php` y también la dependencia [`Requests
 ```php
 <?php
 // Cargamos Requests y Culqi PHP
-require 'vendor/rmccue/requests/library/Requests.php';
+include_once dirname(__FILE__).'/libraries/Requests/library/Requests.php';
 Requests::register_autoloader();
-require 'vendor/culqi/culqi-php/lib/culqi.php';
+include_once dirname(__FILE__).'/libraries/culqi-php/lib/culqi.php';
 ```
 
 ## Modo de uso
@@ -63,13 +62,10 @@ En todos ejemplos, inicialmente hay que configurar la credencial `$SECRET_API_KE
 // Configurar tu API Key y autenticación
 $SECRET_API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
-
-// Entorno: Integración (pruebas)
-$culqi->setEnv("INTEG");
-
 ```
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)
+
 Antes de crear un Cargo, Plan o un Suscriptor es necesario crear un `token` de tarjeta. Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo
 debe ser usada para **desarrollo**. Lo recomendable es generar los 'tokens' con **CULQI.JS** cuando pases a producción, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo información sensible.
 
@@ -78,53 +74,89 @@ debe ser usada para **desarrollo**. Lo recomendable es generar los 'tokens' con 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
 deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 
-
 ```php
-
 // Creamos Cargo a una tarjeta
-$cargo = $culqi->Cargos->create(
+$charge = $culqi->Charges->create(
     array(
-        "token"=> "vVhhnxxbNpFG8cfEAwhtTfK4g8sf7oOi",        
-        "moneda"=> "PEN",
-        "monto"=> 19900,      
-        "descripcion"=> "Venta de prueba",
-        "pedido"=> "PED3351",       
-        "codigo_pais"=> "PE",
-        "ciudad"=> "Lima",
-        "usuario"=> "71701956",
-        "direccion"=> "Avenida Lima 1232",      
-        "telefono"=> 12313123,
-        "nombres"=> "Will",
-        "apellidos"=> "Muro",
-        "correo_electronico"=> "wmuro@me.com"
+      "amount" => 1000,
+      "capture" => true,
+      "currency_code" => "PEN",
+      "description" => "Venta de prueba",
+      "email" => "test@culqi.com",
+      "installments" => 0,
+      "source_id" => "{token_id o card_id}"
     )
 );
 
 //Respuesta
-print_r($cargo);
+print_r($charge);
+```
+### Crear un Plan
+```php
+$plan = $culqi->Plans->create(
+  array(
+    "alias" => "plan-culqi".uniqid(),
+    "amount" => 10000,
+    "currency_code" => "PEN",
+    "interval" => "months",
+    "interval_count" => 1,
+    "limit" => 12,
+    "name" => "Plan de Prueba ".uniqid(),
+    "trial_days" => 15
+  )
+);
 
+//Respuesta
+print_r($plan);
 ```
 
-### Crear un suscriptor a un plan (Suscripciones)
+### Crear un Customer
+```php
+$customer = $culqi->Customers->create(
+  array(
+    "address" => "av lima 123",
+    "address_city" => "lima",
+    "country_code" => "PE",
+    "email" => "www@".uniqid()."me.com",
+    "first_name" => "Will",
+    "last_name" => "Muro",
+    "metadata" => array("test"=>"test"),
+    "phone_number" => 899898999
+  )
+);
+print_r($customer);
+```
+
+### Crear un Card
+```php
+$card = $culqi->Cards->create(
+  array(
+    "customer_id" => "{customer_id}",
+    "token_id" => "{token_id}"
+  )
+);
+print_r($card);
+```
+
+### Crear un Suscripción a un plan
 ```php
 // Creando Suscriptor a un plan
-$suscriptor = $culqi->Suscripciones->create(
-    array(
-        "token"=> "wNjBRhnEKFtBEEiRiNdTCVj7ogiNJ1Q8",
-        "codigo_pais"=> "PE",
-        "direccion"=> "Avenida Lima 123213",
-        "ciudad"=> "Lima",
-        "usuario"=> "71701956",
-        "telefono"=> "1234567789",
-        "nombre"=> "Brayan",
-        "apellido"=> "Cruces",
-        "correo_electronico"=> "brayan.cruces@culqi.com",
-        "plan_id"=> "plan-basico"    
-    )
+$subscription = $culqi->Subscriptions->create(
+  array(
+    "card_id" => "{card_id}",
+    "plan_id" => "{plan_id}"
+  )
 );
 
 //Respuesta
-print_r($suscriptor);
+print_r($subscription);
+```
+## Probar ejemplos
+```bash
+git clone https://github.com/culqi/culqi-php.git
+composer install
+cd culqi-php/examples
+php -S localhost:8000
 ```
 
 ## Documentación
@@ -134,7 +166,8 @@ print_r($suscriptor);
 ## Tests
 
 ```bash
-$ phpunit tests
+composer install
+phpunit --verbose --tap tests/*
 ```
 ## Licencia
 
