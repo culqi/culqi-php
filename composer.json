@@ -21,10 +21,5 @@
   },
   "autoload": {
     "classmap": ["lib/Culqi/Culqi.php"]
-  },
-  "extra": {
-  "branch-alias": {
-      "dev-develop": "1.3.0-dev"
-   }
   }
 }
