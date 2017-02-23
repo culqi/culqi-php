@@ -16,7 +16,7 @@ class Plans extends Resource {
      *
      * @return all Plans.
      */
-    public function getList($options) {
+    public function all($options) {
         return $this->request("GET", self::URL_PLANS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -36,6 +36,15 @@ class Plans extends Resource {
      */
     public function get($id) {
         return $this->request("GET", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
+    }
+
+    /**
+     * @param string|null $id
+     *
+     * @return delete a Plan.
+     */
+    public function delete($id) {
+        return $this->request("DELETE", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
     /**

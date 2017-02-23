@@ -16,7 +16,7 @@ class Customers extends Resource {
      *
      * @return all Customers.
      */
-    public function getList($options = NULL) {
+    public function all($options = NULL) {
         return $this->request("GET", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options);
     }
 

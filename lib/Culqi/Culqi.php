@@ -40,7 +40,7 @@ class Culqi
         $this->Subscriptions = new Subscriptions($this);
         $this->Refunds = new Refunds($this);
         $this->Plans = new Plans($this);
-        $this->Transfer = new Transfers($this);
+        $this->Transfers = new Transfers($this);
         $this->Iins = new Iins($this);
         $this->Cards = new Cards($this);
         $this->Events = new Events($this);

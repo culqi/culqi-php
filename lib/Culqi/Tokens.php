@@ -16,7 +16,7 @@ class Tokens extends Resource {
      *
      * @return all Tokens.
      */
-    public function getList($options = NULL) {
+    public function all($options = NULL) {
         return $this->request("GET", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -36,6 +36,16 @@ class Tokens extends Resource {
      */
     public function get($id = NULL) {
         return $this->request("GET", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key);
+    }
+
+    /**
+     * @param string|null $id
+     * @param array|null $options
+     *
+     * @return update Token response.
+     */
+    public function update($id = NULL, $options = NULL) {
+        return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options);
     }
 
 }
