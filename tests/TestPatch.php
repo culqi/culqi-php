@@ -7,7 +7,7 @@ use Culqi\Culqi;
 /**
  *  Test Patch
  */
-class CulqiTestPatch extends PHPUnit_Framework_TestCase
+class TestPatch extends PHPUnit_Framework_TestCase
 {
     protected $API_KEY;
 

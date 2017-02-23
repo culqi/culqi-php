@@ -7,7 +7,7 @@ use Culqi\Culqi;
 /**
  *  Test Create
  */
-class CulqiTest extends PHPUnit_Framework_TestCase {
+class Test extends PHPUnit_Framework_TestCase {
 
   protected $API_KEY;
   protected $PUBLIC_API_KEY;
@@ -73,16 +73,10 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('charge', $this->createCharge()->object);
   }
 
-  /*
   public function testFindCharge() {
-    echo $this->createCharge()->id;
-    $charge = $this->culqi->Charges->get("chr_test_uF3t2j3w3VEUCK7e");
+    $charge = $this->culqi->Charges->get($this->createCharge()->id);
     $this->assertEquals('charge', $charge->object);
   }
-  public function testListCharge() {
-    $charge = $this->culqi->Charges->getList(array("min_amount" => 1000, "max_amount" => 1000000));
-    $this->assertNotNull($charge);
-  }*/
 
   public function createPlan() {
     $plan = $this->culqi->Plans->create(
@@ -102,6 +96,11 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
   public function testCreatePlan() {
     // Verificacion del campo object no tenga el valor 'error'
     $this->assertEquals('plan', $this->createPlan()->object);
+  }
+
+  public function testFindPlan() {
+    $plan = $this->culqi->Plans->get($this->createPlan()->id);
+    $this->assertEquals('plan', $plan->object);
   }
 
   public function createCustomer() {
@@ -124,6 +123,11 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('customer', $this->createCustomer()->object);
   }
 
+  public function testFindCustomer() {
+    $customer = $this->culqi->Customers->get($this->createCustomer()->id);
+    $this->assertEquals('customer', $customer->object);
+  }
+
   public function createCard() {
     $card = $this->culqi->Cards->create(
       array(
@@ -138,26 +142,48 @@ class CulqiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('card', $this->createCard()->object);
   }
 
-  public function testCreateSubscription() {
-    $subscription = $this->culqi->Subscriptions->create(
-      array(
-          "card_id" => $this->createCard()->id,
-          "plan_id" => $this->createPlan()->id
-      )
-    );
-    // Verificacion del campo object no tenga el valor 'error'
-    $this->assertEquals('subscription',$subscription->object);
+  public function testFindCard() {
+    $card = $this->culqi->Cards->get($this->createCard()->id);
+    $this->assertEquals('card', $card->object);
   }
 
-  /*public function testCreateRefund() {
+  public function createSubscription() {
+      $subscription = $this->culqi->Subscriptions->create(
+          array(
+              "card_id" => $this->createCard()->id,
+              "plan_id" => $this->createPlan()->id
+          )
+      );
+      return $subscription;
+  }
+
+  public function testCreateSubscription() {
+    $this->assertEquals('subscription',$this->createSubscription()->object);
+  }
+
+  public function testFindSubscription() {
+    $subscription = $this->culqi->Subscriptions->get($this->createSubscription()->id);
+    $this->assertEquals('subscription', $subscription->object);
+  }
+
+  public function createRefund() {
     $refund = $this->culqi->Refunds->create(
       array(
         "amount" => 500,
         "charge_id" => $this->createCharge()->id,
-        "reason" => "bought an incorrect product"
+        "reason" => "solicitud_comprador"
       )
     );
-    // Verificacion del campo object no tenga el valor 'error'
+    return $refund;
+  }
+
+  public function testCreateRefund() {
+    $this->assertEquals('refund',$this->createRefund()->object);
+  }
+
+  public function testFindRefund() {
+    $refund = $this->culqi->Refunds->get($this->createRefund()->id);
     $this->assertEquals('refund',$refund->object);
-  }*/
+  }
+
 }

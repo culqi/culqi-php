@@ -1,3 +1,9 @@
+### 1.3.1 16-02-2016
+* Se corrige el metodo DELETE
+* Se cambia el nombre del metodo "getList" por "all"
+* Se corrige Transfers
+* Se agrega el metodo update a Tokens
+
 ### 1.3.0 16-02-2016
 * Se utiliza API v2.0
 * Cambios en Cargos.php a Charges.php

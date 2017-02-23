@@ -9,8 +9,8 @@ try {
   require '../vendor/autoload.php';
 
   // Codigo de Comercio
-  $COD_COMERCIO = "{Código de comercio}";
-  $culqi = new Culqi\Culqi(array('api_key' => $COD_COMERCIO));
+  $PUBLIC_KEY = "{PUBLIC KEY}";
+  $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
 
   // Creando Cargo a una tarjeta
   $token = $culqi->Tokens->create(

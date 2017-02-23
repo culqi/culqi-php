@@ -60,8 +60,8 @@ En todos ejemplos, inicialmente hay que configurar la credencial `$API_KEY `
 
 ```php
 // Configurar tu API Key y autenticación
-$API_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
-$culqi = new Culqi\Culqi(array('api_key' => $API_KEY));
+$SECRET_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
+$culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 ```
 
 ### Crear un token (Usarlo SOLO en DESARROLLO)

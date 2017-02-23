@@ -16,7 +16,7 @@ class Iins extends Resource {
      *
      * @return all Iins.
      */
-    public function getList($options = NULL) {
+    public function all($options = NULL) {
         return $this->request("GET", self::URL_IINS, $api_key = $this->culqi->api_key, $options);
     }
 
