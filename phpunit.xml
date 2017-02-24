@@ -3,6 +3,7 @@
     <testsuites>
         <testsuite name="Culqi PHP Tests">
             <directory suffix="Test.php">tests</directory>
+            <file>Test.php</file>
         </testsuite>
     </testsuites>
     <php>
