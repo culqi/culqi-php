@@ -1,3 +1,6 @@
+### 1.3.2 24-02-2016
+* Se cambia el metodo getCapture de Cargo por capture
+
 ### 1.3.1 16-02-2016
 * Se corrige el metodo DELETE
 * Se cambia el nombre del metodo "getList" por "all"
