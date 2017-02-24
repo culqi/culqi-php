@@ -151,6 +151,7 @@ $subscription = $culqi->Subscriptions->create(
 //Respuesta
 print_r($subscription);
 ```
+
 ## Probar ejemplos
 ```bash
 git clone https://github.com/culqi/culqi-php.git
@@ -160,7 +161,7 @@ php -S 0.0.0.0:8000
 ```
 
 ## Documentación
-¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [https://developers.culqi.com](https://developers.culqi.com)
+¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [https://culqi.com/docs/](https://culqi.com/docs/)
 
 
 ## Tests
