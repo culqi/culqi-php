@@ -43,7 +43,7 @@ class Charges extends Resource {
      *
      * @return get a capture of Charge.
      */
-    public function getCapture($id = NULL) {
+    public function capture($id = NULL) {
         return $this->request("POST", self::URL_CHARGES . $id . "/capture/", $api_key = $this->culqi->api_key);
     }
 

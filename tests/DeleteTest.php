@@ -35,7 +35,6 @@ class DeleteTest extends PHPUnit_Framework_TestCase
 
     public function testDeletePlan() {
         $planDeleted = $this->culqi->Plans->delete($this->createPlan()->id);
-        echo $planDeleted->deleted;
         $this->assertTrue($planDeleted->deleted);
     }
 
