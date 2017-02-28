@@ -20,6 +20,7 @@ try {
         "currency_code" => "PEN",
         "description" => "Venta de prueba",
         "installments" => 0,
+        "email" => "test@culqi.com",
         "metadata" => array("test"=>"test"),
         "source_id" => "{token_id}"
       )
