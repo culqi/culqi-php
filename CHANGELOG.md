@@ -1,13 +1,14 @@
-### 1.3.2 24-02-2016
+### 1.3.2 15-03-2017
 * Se cambia el metodo getCapture de Cargo por capture
+* Corección en el composer.json. 
 
-### 1.3.1 16-02-2016
+### 1.3.1 16-02-2017
 * Se corrige el metodo DELETE
 * Se cambia el nombre del metodo "getList" por "all"
 * Se corrige Transfers
 * Se agrega el metodo update a Tokens
 
-### 1.3.0 16-02-2016
+### 1.3.0 16-02-2017
 * Se utiliza API v2.0
 * Cambios en Cargos.php a Charges.php
 * Cambios en Client.php
