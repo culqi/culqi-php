@@ -20,6 +20,6 @@
       "phpunit/phpunit": "4.4.*"
   },
   "autoload": {
-    "classmap": ["lib/Culqi/Culqi.php"]
+    "classmap": ["lib/culqi.php"]
   }
 }
