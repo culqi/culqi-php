@@ -85,12 +85,12 @@ $charge = $culqi->Charges->create(
       "email" => "test@culqi.com",
       "installments" => 0,
       "antifraud_details" => array(
-          "address" => $datos_direccion,
-          "address_city" => $datos_ciudad,
-          "country_code" => $order->billing_country,
-          "first_name" => $datos_nombre,
-          "last_name" => $datos_apellido,
-          "phone_number" => $datos_telefono,
+          "address" => "Av. Lima 123",
+          "address_city" => "LIMA",
+          "country_code" => "PE",
+          "first_name" => "Will",
+          "last_name" => "Muro",
+          "phone_number" => "9889678986",
       ),
       "source_id" => "{token_id o card_id}"
     )
