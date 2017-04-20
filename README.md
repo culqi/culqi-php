@@ -84,6 +84,14 @@ $charge = $culqi->Charges->create(
       "description" => "Venta de prueba",
       "email" => "test@culqi.com",
       "installments" => 0,
+      "antifraud_details" => array(
+          "address" => $datos_direccion,
+          "address_city" => $datos_ciudad,
+          "country_code" => $order->billing_country,
+          "first_name" => $datos_nombre,
+          "last_name" => $datos_apellido,
+          "phone_number" => $datos_telefono,
+      ),
       "source_id" => "{token_id o card_id}"
     )
 );
