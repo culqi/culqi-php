@@ -25,7 +25,7 @@ Esta biblioteca trabaja con la [v2.0](https://culqi.com/api/) de Culqi API.
 ```json
 {
   "require": {
-    "culqi/culqi-php": "1.3.*"
+    "culqi/culqi-php": "1.3.3"
   }
 }
 ```
@@ -84,6 +84,14 @@ $charge = $culqi->Charges->create(
       "description" => "Venta de prueba",
       "email" => "test@culqi.com",
       "installments" => 0,
+      "antifraud_details" => array(
+          "address" => "Av. Lima 123",
+          "address_city" => "LIMA",
+          "country_code" => "PE",
+          "first_name" => "Will",
+          "last_name" => "Muro",
+          "phone_number" => "9889678986",
+      ),
       "source_id" => "{token_id o card_id}"
     )
 );

@@ -1,3 +1,7 @@
+### 1.3.3 17-03-2017
+* Actualización de composer.json
+
+
 ### 1.3.2 15-03-2017
 * Se cambia el metodo getCapture de Cargo por capture
 * Corección en el composer.json. 
