@@ -1,6 +1,3 @@
-### 1.3.4 10-10-2018
-* Se agrega recurso de Orders
-
 ### 1.3.3 17-03-2017
 * Actualización de composer.json
 
