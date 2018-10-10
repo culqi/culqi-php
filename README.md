@@ -25,7 +25,7 @@ Esta biblioteca trabaja con la [v2.0](https://culqi.com/api/) de Culqi API.
 ```json
 {
   "require": {
-    "culqi/culqi-php": "1.3.3"
+    "culqi/culqi-php": "1.3.4"
   }
 }
 ```
