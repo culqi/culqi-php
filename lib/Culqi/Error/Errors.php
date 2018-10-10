@@ -17,7 +17,7 @@ class CulqiException extends \Exception {
 namespace Culqi\Error;
 
 class InputValidationError extends CulqiException {
-    protected $message = "Input validation error. Error en alguno de los campos";
+    protected $message = "Error de validacion en los campos";
 }
 /**
  * Authentication error
@@ -33,7 +33,7 @@ class AuthenticationError extends CulqiException {
 namespace Culqi\Error;
 
 class NotFound extends CulqiException {
-    protected $message = "Resource not found";
+    protected $message = "Recurso no encontrado";
 }
 /**
  * Method not allowed
