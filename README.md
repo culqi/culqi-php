@@ -25,7 +25,7 @@ Esta biblioteca trabaja con la [v2.0](https://culqi.com/api/) de Culqi API.
 ```json
 {
   "require": {
-    "culqi/culqi-php": "1.3.4"
+    "culqi/culqi-php": "1.3.3"
   }
 }
 ```
@@ -158,30 +158,6 @@ $subscription = $culqi->Subscriptions->create(
 
 //Respuesta
 print_r($subscription);
-```
-
-### Crear un Order 
-
-[Ver ejemplo completo](/examples/08-create-order.php)
-
-```php
-// Creando orden (con 1 dia de duracion)
-$order = $culqi->Orders->create(
-      array(
-        "amount" => 1000,
-        "currency_code" => "PEN",
-        "description" => 'Venta de prueba',        
-        "order_number" => 'pedido-9999',  
-        "client_details" => array( 
-            "first_name"=> "Brayan", 
-            "last_name" => "Cruces",
-            "email" => "micorreo@gmail.com", 
-            "phone_number" => "51945145222"
-         ),
-        "expiration_date" => time() + 24*60*60   // Orden con un dia de validez
-      )
-);
-print_r($order);
 ```
 
 ## Probar ejemplos

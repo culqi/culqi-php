@@ -28,5 +28,4 @@ include_once dirname(__FILE__).'/Culqi/Refunds.php';
 include_once dirname(__FILE__).'/Culqi/Subscriptions.php';
 include_once dirname(__FILE__).'/Culqi/Plans.php';
 include_once dirname(__FILE__).'/Culqi/Iins.php';
-include_once dirname(__FILE__).'/Culqi/Orders.php';
 include_once dirname(__FILE__).'/Culqi/Culqi.php';
