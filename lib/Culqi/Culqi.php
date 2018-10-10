@@ -44,6 +44,7 @@ class Culqi
         $this->Iins = new Iins($this);
         $this->Cards = new Cards($this);
         $this->Events = new Events($this);
-        $this->Customers = new Customers($this);
+        $this->Customers = new Customers($this); 
+        $this->Orders = new Orders($this);
     }
 }
