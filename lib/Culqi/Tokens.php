@@ -26,7 +26,7 @@ class Tokens extends Resource {
      * @return create Token response.
      */
     public function create($options = NULL) {
-        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options);
+        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true);
     }
 
     /**

@@ -1,3 +1,9 @@
+
+
+### 1.3.5 12-04-2019
+* Se actualiza la URL base para creación de tokens.
+
+
 ### 1.3.4 10-10-2018
 * Se agrega recurso de Orders
 

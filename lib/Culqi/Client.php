@@ -9,17 +9,22 @@ use Culqi\Error as Errors;
  * @package Culqi
  */
 class Client {
-    public function request($method, $url, $api_key, $data = NULL) {
+    public function request($method, $url, $api_key, $data = NULL, $secure_url = false) {
         try {
             $url_params = is_array($data) ? '?' . http_build_query($data) : '';
             $headers= array("Authorization" => "Bearer ".$api_key, "Content-Type" => "application/json", "Accept" => "application/json");
             $options = array(
                 'timeout' => 120
-            );
+            ); 
+            
+            // Check URL
+            if($secure_url) $base_url = Culqi::SECURE_BASE_URL;
+            else $base_url = Culqi::BASE_URL;
+
             if($method == "GET") {
                 $response = \Requests::get(Culqi::BASE_URL. $url . $url_params, $headers, $options);
             } else if($method == "POST") {
-                $response = \Requests::post(Culqi::BASE_URL . $url, $headers, json_encode($data), $options);
+                $response = \Requests::post($base_url . $url, $headers, json_encode($data), $options);
             } else if($method == "PATCH") {
                 $response = \Requests::patch(Culqi::BASE_URL . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
