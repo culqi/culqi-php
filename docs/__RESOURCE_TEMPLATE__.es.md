@@ -6,8 +6,8 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 
 #### Endpoints
 
-| HTTP Method | Endpoints                               | Documentation                                             |
-| ----------- | --------------------------------------- | --------------------------------------------------------- |
+| Método HTTP | Endpoints                                | Documentación                                              |
+| ----------- | ---------------------------------------- | ---------------------------------------------------------- |
 | `POST`      | `https://api.culqi.com/v2/:recursos`     | [View Details](https://www.culqi.com/api/#recursos#create) |
 | `GET`       | `https://api.culqi.com/v2/:recursos/:id` | [View Details](https://www.culqi.com/api/#recursos#detail) |
 | `GET`       | `https://api.culqi.com/v2/:recursos`     | [View Details](https://www.culqi.com/api/#recursos#list)   |
