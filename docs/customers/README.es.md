@@ -2,17 +2,20 @@
 
 # Clientes
 
+[Español](/docs/customers/README.es.md) |
+[English](/docs/customers/README.md)
+
 El recurso cliente te permite guardar la información de tus clientes para realizarles cargos recurrentes o posteriores. La API de Culqi permite crear, eliminar y actualizar los datos de tus clientes. Adicionalmente podrás consultar los datos de un cliente en particular o listar a todos tus clientes en base a los filtros que desees.
 
 #### Endpoints
 
 | Método HTTP | Endpoints                                | Documentación                                              |
 | ----------- | ---------------------------------------- | ---------------------------------------------------------- |
-| `POST`      | `https://api.culqi.com/v2/customers`     | [View Details](https://www.culqi.com/api/#clientes#create) |
-| `GET`       | `https://api.culqi.com/v2/customers/:id` | [View Details](https://www.culqi.com/api/#clientes#detail) |
-| `GET`       | `https://api.culqi.com/v2/customers`     | [View Details](https://www.culqi.com/api/#clientes#list)   |
-| `PATH`      | `https://api.culqi.com/v2/customers/:id` | [View Details](https://www.culqi.com/api/#clientes#update) |
-| `DELETE`    | `https://api.culqi.com/v2/customers/:id` | [View Details](https://www.culqi.com/api/#clientes#delete) |
+| `POST`      | `https://api.culqi.com/v2/customers`     | [Ver Detalles](https://www.culqi.com/api/#clientes#create) |
+| `GET`       | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#detail) |
+| `GET`       | `https://api.culqi.com/v2/customers`     | [Ver Detalles](https://www.culqi.com/api/#clientes#list)   |
+| `PATH`      | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#update) |
+| `DELETE`    | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#delete) |
 
 #### El Objeto Cliente
 
@@ -36,6 +39,10 @@ El recurso cliente te permite guardar la información de tus clientes para reali
 ```
 
 ## Crear un Cliente
+
+Crea un cliente enviando los datos de tu cliente y más datos relacionados al mismo a través de los valores de metadata.
+
+Devuelve los detalles de un cliente en particular. En la petición solo debes enviar el ID del cliente que Culqi te devolvió a la hora de crear uno.
 
 ```php
 try {
@@ -62,6 +69,8 @@ try {
 
 ## Consultar un Cliente
 
+Devuelve los detalles de un cliente en particular. En la petición solo debes enviar el ID del cliente que Culqi te devolvió a la hora de crear uno.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -76,6 +85,8 @@ try {
 
 ## Listar todos los Clientes
 
+Listar Clientes te permitirá obtener una serie de Customer existentes. De acuerdo a los filtros que uses, los clientes serán ordenados de acuerdo a su fecha de creación; siendo el primero el más reciente.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -89,6 +100,8 @@ try {
 ```
 
 ## Actualizar un Cliente
+
+Actualizar un cliente te permitirá modificar los valores enviados a la hora de crearlo. Cualquier parámetro que no sea proveído en la petición mantendrá el valor de la creación.
 
 ```php
 try {
@@ -107,6 +120,8 @@ try {
 ```
 
 ## Eliminar un Cliente
+
+Elimina de manera permanente a un cliente. Esta operación cancela cualquier cargo posterior o suscripción que esté relacionada con el Cliente.
 
 ```php
 try {
