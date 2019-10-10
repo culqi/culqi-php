@@ -1,3 +1,5 @@
+[:back:](/README.md)
+
 # Cards
 
 The card object can be used to create charges later to a card. Remenber what a Token expires after 5 minutes of being created, you can convert it into a Card to can apply charges later. One client can have multiple Cards associated.
@@ -41,14 +43,7 @@ The card object can be used to create charges later to a card. Remenber what a T
         "website": null,
         "phone_number": null
       },
-      "installments_allowed": [
-        2,
-        4,
-        6,
-        8,
-        10,
-        12
-      ]
+      "installments_allowed": [2, 4, 6, 8, 10, 12]
     },
     "client": {
       "ip": "190.235.231.153",
@@ -68,7 +63,7 @@ The card object can be used to create charges later to a card. Remenber what a T
 ```php
 try {
     $culqi = new \Culqi\Culqi(array('api_key' => "__SECRET_KEY__"));
-    
+
     $card = $culqi->Cards->create([
         "customer_id" => "cus_live_Lz6Yfsm7QqCPIECW",
         "token_id" => "tkn_live_vEcZSCOVz5PGDPdQ"
