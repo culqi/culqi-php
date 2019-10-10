@@ -2,6 +2,9 @@
 
 # Tarjetas
 
+[Español](/docs/cards/README.es.md) |
+[English](/docs/cards/README.md)
+
 El objeto Tarjeta se usa para crear cargos posteriores a una tarjeta. Recuerda que un Token por si solo vence a los 5 minutos de creado, pero si lo conviertes en una Tarjeta podrás realizar cargos posteriores. Podrás relacionar múltiples tarjeta al mismo Cliente.
 
 #### Endpoints
@@ -60,6 +63,8 @@ El objeto Tarjeta se usa para crear cargos posteriores a una tarjeta. Recuerda q
 
 ## Crear una Tarjeta
 
+A la hora de crear una Tarjeta tendrás que relacionar un token con un Cliente que has creado anteriormente para que este pueda ser utilizado para pagos posteriores y suscripciones.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -77,13 +82,15 @@ try {
 
 ## Consultar una Tarjeta
 
+Consultar el detalle de una tarjeta utilizando el ID devuelto en la petición para crear una Tarjeta, te permitirá obtener como respuesta todos los parámetros de esta. Si la petición es inválida te devolveremos un error.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->get("crd_live_RzjTyGUwZioJLpZt");
 
-     echo json_encode($card);
+    echo json_encode($card);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
@@ -91,19 +98,23 @@ try {
 
 ## Listar todas las Tarjetas
 
+Listar Tarjetas te permitirá obtener una serie de Tarjetas existentes. De acuerdo a los filtros que uses, las tarjetas serán ordenados de acuerdo a su fecha de creación; siendo el primero el más reciente.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $cards = $culqi->Cards->all();
 
-     echo json_encode($cards);
+    echo json_encode($cards);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
 ```
 
 ## Actualizar una Tarjeta
+
+Actualizar una Tarjeta te permitirá agregar o reemplazar información a los valores de la metadata que enviaste a la hora de crearla. Cualquier parámetro o valor no provisto será omitido en los valores de la metadata. Actualmente, también permite actualizar el ID del token asociado.
 
 ```php
 try {
@@ -116,7 +127,7 @@ try {
         ]
     ]);
 
-     echo json_encode($card);
+    echo json_encode($card);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
@@ -124,13 +135,15 @@ try {
 
 ## Eliminar una Tarjeta
 
+Eliminar una Tarjeta te permitirá limpiar la cantidad de tarjetas asociadas a un Customer por varios motivos: la tarjeta superó la cantidad de denegaciones esperadas o el cliente es fraudulento y no quieres realizar más cobros a ese cliente, prevenir que tus clientes no paguen una suscripción de la que se han retirado, entre otras cosas. La petición devuelva el objeto Card eliminado.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->delete("crd_live_RzjTyGUwZioJLpZt");
 
-     echo json_encode($card);
+    echo json_encode($card);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
