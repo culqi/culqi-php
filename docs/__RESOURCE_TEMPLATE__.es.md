@@ -8,11 +8,11 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 
 | Método HTTP | Endpoints                                | Documentación                                              |
 | ----------- | ---------------------------------------- | ---------------------------------------------------------- |
-| `POST`      | `https://api.culqi.com/v2/:recursos`     | [View Details](https://www.culqi.com/api/#recursos#create) |
-| `GET`       | `https://api.culqi.com/v2/:recursos/:id` | [View Details](https://www.culqi.com/api/#recursos#detail) |
-| `GET`       | `https://api.culqi.com/v2/:recursos`     | [View Details](https://www.culqi.com/api/#recursos#list)   |
-| `PATH`      | `https://api.culqi.com/v2/:recursos/:id` | [View Details](https://www.culqi.com/api/#recursos#update) |
-| `DELETE`    | `https://api.culqi.com/v2/:recursos/:id` | [View Details](https://www.culqi.com/api/#recursos#delete) |
+| `POST`      | `https://api.culqi.com/v2/:recursos`     | [Ver Detalles](https://www.culqi.com/api/#recursos#create) |
+| `GET`       | `https://api.culqi.com/v2/:recursos/:id` | [Ver Detalles](https://www.culqi.com/api/#recursos#detail) |
+| `GET`       | `https://api.culqi.com/v2/:recursos`     | [Ver Detalles](https://www.culqi.com/api/#recursos#list)   |
+| `PATH`      | `https://api.culqi.com/v2/:recursos/:id` | [Ver Detalles](https://www.culqi.com/api/#recursos#update) |
+| `DELETE`    | `https://api.culqi.com/v2/:recursos/:id` | [Ver Detalles](https://www.culqi.com/api/#recursos#delete) |
 
 #### El Objeto `Recurso`
 
