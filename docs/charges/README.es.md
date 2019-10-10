@@ -6,7 +6,7 @@ Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto
 
 #### Endpoints
 
-| HTTP Method | Endpoints                              | Documentation                                            |
+| Método HTTP | Endpoints                              | Documentaci´ón                                           |
 | ----------- | -------------------------------------- | -------------------------------------------------------- |
 | `POST`      | `https://api.culqi.com/v2/charges`     | [View Details](https://www.culqi.com/api/#cargos#create) |
 | `GET`       | `https://api.culqi.com/v2/charges/:id` | [View Details](https://www.culqi.com/api/#cargos#detail) |
@@ -50,14 +50,7 @@ Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto
         "website": null,
         "phone_number": null
       },
-      "installments_allowed": [
-        2,
-        4,
-        6,
-        8,
-        10,
-        12
-      ]
+      "installments_allowed": [2, 4, 6, 8, 10, 12]
     },
     "client": {
       "ip": "190.235.231.153",
@@ -123,7 +116,7 @@ try {
       ],
       'source_id' => "tkn_live_0CjjdWhFpEAZlxlz"
     ]);
-    
+
     echo json_encode($charge);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
