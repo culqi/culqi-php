@@ -26,9 +26,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
-    $card = $culqi->Cards->get("crd_live_RzjTyGUwZioJLpZt");
-
-     echo json_encode($card);
+    // Your code
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
@@ -40,9 +38,7 @@ try {
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
-    $card = $culqi->Cards->get("crd_live_RzjTyGUwZioJLpZt");
-
-     echo json_encode($card);
+    // Your code
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
