@@ -2,6 +2,9 @@
 
 # Cargos
 
+[Español](/docs/charges/README.es.md) |
+[English](/docs/charges/README.md)
+
 Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto cargo. Adicionalmente puedes consultar, devolver un cargo en particular o listar tu historial de cargos en base a los filtros que desees. Todos los cargos están identificados por un ID.
 
 #### Endpoints
@@ -100,6 +103,8 @@ Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto
 
 ## Crear un Cargo
 
+Para realizar un cobro a una tarjeta de débito o crédito es necesario crear un cargo usando un Token o una Tarjeta. Si utilizas tu llave secreta de integración no se realizarán cargos reales, a diferencia del entorno de producción donde enviamos tu petición a los bancos y marcas procesadoras.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -125,6 +130,8 @@ try {
 
 ## Consultar un Cargo
 
+Consultar el detalle de un cargo utilizando el ID devuelto en la petición de creación, esto te permitirá obtener como respuesta todos los parámetros del objeto cargo.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -139,6 +146,8 @@ try {
 
 ## Listar todos los Cargos
 
+Listar cargos te permitirá obtener una serie de cargos existentes, de acuerdo a los filtros que uses. Los cargos serán ordenados de acuerdo a su fecha de creación, siendo el primero el más reciente.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -152,6 +161,8 @@ try {
 ```
 
 ## Actualizar un Cargo
+
+Actualizar un cargo te permitirá agregar o reemplazar información a los valores de la metadata que enviaste a la hora de crear un cargo. Cualquier parámetro o valor no provisto será omitido en la el valores de la metadata.
 
 ```php
 try {
@@ -170,6 +181,8 @@ try {
 ```
 
 ## Capturar un Cargo
+
+Esta operación permite capturar una transacción que se encuentra en estado "Autorizada", es decir que aún no ha sido capturada. Esta operación es la segunda mitad del flujo de pagos en dos pasos (autorización y captura) que sucede cuando creas un cargo con el parámetro de captura falso. Una vez que captures un cargo, empezará el proceso de transferencia de esa transacción a tu cuenta bancaria. En el caso que no captures un cargo en un periodo de 4 días, el cargo vencerá y los fondos serán devueltos inmediatamente a la tarjeta de tu cliente y el estado del cargo cambiará a "Devuelta".
 
 ```php
 try {
