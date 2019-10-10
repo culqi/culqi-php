@@ -2,6 +2,9 @@
 
 # Events
 
+[Español](/docs/events/README.es.md) |
+[English](/docs/events/README.md)
+
 Los eventos son formas de hacerte saber cuando algo sucede en tu cuenta de Culqi. Cuando un evento ocurre, Culqi crea un objeto Evento. Por ejemplo, cuando un cargo es exitoso, Culqi crea el evento charge.succeeded. Adicionalmente, si realizas muchas peticiones al API podría llegar a causar multiples eventos. Por ejemplo, si creas una suscripción para un cliente, recibirás el evento customer.subscription.created y el evento charge.succeeded.
 
 Al igual que los otros recursos del API, puedes consultar un evento particular o listar una serie de eventos directamente desde el API. Adicionalmente, hemos construido un sistema automatizado que enviará eventos directamente a tu servidor: webhooks. Te reconedamos que revises nuestra guía de webhooks para que sepas como configurarlos.

@@ -2,6 +2,9 @@
 
 # Plans
 
+[Español](/docs/plans/README.es.md) |
+[English](/docs/plans/README.md)
+
 Un plan de suscripción contiene información acerca del tipo de cargo, frecuencia y monto que quieres cargarle a un Card de manera recurrente. Por ejemplo, podrías configurar un plan básico de S/ 50 mensuales y un plan Premium de S/ 75 mensuales.
 
 #### Endpoints

@@ -2,6 +2,9 @@
 
 # Subscripciones
 
+[Español](/docs/subscriptions/README.es.md) |
+[English](/docs/subscriptions/README.md)
+
 El crear suscripciones te permite realizar cargos recurrentes a la tarjeta de un cliente. Una suscripción relaciona al objeto Customer y al objeto Plan que has creado previamente.
 
 #### Endpoints
@@ -213,7 +216,7 @@ try {
 }
 ```
 
-## Listar todas los Subscripciones
+## Listar todas las Subscripciones
 
 Listar suscripciones te permitirá obtener una serie de suscripciones existentes. De acuerdo a los filtros que uses, las diferentes suscripciones serán ordenadas de acuerdo a su fecha de creación; siendo el primero el más reciente.
 

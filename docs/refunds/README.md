@@ -2,6 +2,9 @@
 
 # Refunds
 
+[Español](/docs/refunds/README.es.md) |
+[English](/docs/refunds/README.md)
+
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore consectetur laborum provident aperiam error non natus voluptatum minima quod, adipisci maiores pariatur alias rem, dolorum quasi placeat voluptatem.
 
 #### Endpoints
@@ -11,7 +14,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 | `POST`      | `https://api.culqi.com/v2/refunds`     | [View Details](https://www.culqi.com/api/#devoluciones#create) |
 | `GET`       | `https://api.culqi.com/v2/refunds/:id` | [View Details](https://www.culqi.com/api/#devoluciones#detail) |
 | `GET`       | `https://api.culqi.com/v2/refunds`     | [View Details](https://www.culqi.com/api/#devoluciones#list)   |
-| `PATCH`      | `https://api.culqi.com/v2/refunds/:id` | [View Details](https://www.culqi.com/api/#devoluciones#update) |
+| `PATCH`     | `https://api.culqi.com/v2/refunds/:id` | [View Details](https://www.culqi.com/api/#devoluciones#update) |
 
 #### The Refund Object
 
