@@ -62,7 +62,7 @@ The card object can be used to create charges later to a card. Remenber what a T
 
 ```php
 try {
-    $culqi = new \Culqi\Culqi(array('api_key' => "__SECRET_KEY__"));
+    $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->create([
         "customer_id" => "cus_live_Lz6Yfsm7QqCPIECW",
@@ -79,7 +79,7 @@ try {
 
 ```php
 try {
-    $culqi = new \Culqi\Culqi(array('api_key' => "__SECRET_KEY__"));
+    $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->get("crd_live_RzjTyGUwZioJLpZt");
 
@@ -93,7 +93,7 @@ try {
 
 ```php
 try {
-    $culqi = new \Culqi\Culqi(array('api_key' => "__SECRET_KEY__"));
+    $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->all();
 
@@ -107,7 +107,7 @@ try {
 
 ```php
 try {
-    $culqi = new \Culqi\Culqi(array('api_key' => "__SECRET_KEY__"));
+    $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->update("crd_live_RzjTyGUwZioJLpZt", [
         "tokend_id" => "tkn_live_vEcZSCOVz5PGDPdQ",
@@ -126,7 +126,7 @@ try {
 
 ```php
 try {
-    $culqi = new \Culqi\Culqi(array('api_key' => "__SECRET_KEY__"));
+    $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->delete("crd_live_RzjTyGUwZioJLpZt");
 
