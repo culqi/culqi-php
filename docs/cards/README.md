@@ -1,4 +1,4 @@
-[:back:](/README.md)
+[:back:](/docs/README.md)
 
 # Cards
 
