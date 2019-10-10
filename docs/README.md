@@ -5,6 +5,7 @@
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
 #### Languages
+
 [Español](/docs/README.es.md) |
 [English](/docs/README.md)
 
@@ -39,14 +40,14 @@ require_once('/path/to/culqi-php/lib/culqi.php');
 
 ## Documentation
 
-| API             | Documentation                                 |
-| --------------- | --------------------------------------------- |
-| `cards`         | [Cards Documentation](cards/)                 |
-| `charges`       | [Charges Documentation](charges/)             |
-| `customers`     | [Customers Documentation](customers/)         |
-| `events`        | [Events Documentation](events/)               |
-| `orders`        | [Orders Documentation](orders/)               |
-| `plans`         | [Plans Documentation](plans/)                 |
-| `refunds`       | [Refunds Documentation](refunds/)             |
-| `subscriptions` | [Subscriptions Documentation](subscriptions/) |
-| `tokens`        | [Tokens Documentation](tokens/)               |
+| API             | Documentation                                          |
+| --------------- | ------------------------------------------------------ |
+| `cards`         | [Cards Documentation](cards/README.md)                 |
+| `charges`       | [Charges Documentation](charges/README.md)             |
+| `customers`     | [Customers Documentation](customers/README.md)         |
+| `events`        | [Events Documentation](events/README.md)               |
+| `orders`        | [Orders Documentation](orders/README.md)               |
+| `plans`         | [Plans Documentation](plans/README.md)                 |
+| `refunds`       | [Refunds Documentation](refunds/README.md)             |
+| `subscriptions` | [Subscriptions Documentation](subscriptions/README.md) |
+| `tokens`        | [Tokens Documentation](tokens/README.md)               |

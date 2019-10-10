@@ -12,7 +12,7 @@ PHP 5.3 a versiones mas recientes.
 
 ## Composer
 
-Puedes instalar [Composer](http://getcomposer.org/). Ejecutando el siguiente comando:
+Puedes instalar [Composer](http://getcomposer.org/README.es.md). Ejecutando el siguiente comando:
 
 ```sh
 composer require culqi/culqi-php
@@ -34,14 +34,14 @@ require_once('/ruta/a/culqi-php/lib/culqi.php');
 
 ## Documentación
 
-| API             | Documentation                                     |
-| --------------- | ------------------------------------------------- |
-| `cards`         | [Documentación de Tarjetas](cards/)               |
-| `charges`       | [Documentación de Cargos](charges/)               |
-| `customers`     | [Documentación de Clientes](customers/)           |
-| `events`        | [Documentación de Eventos](events/)               |
-| `orders`        | [Documentación de Ordenes](orders/)               |
-| `plans`         | [Documentación de Planes](plans/)                 |
-| `refunds`       | [Documentación de Devoluciones](refunds/)         |
-| `subscriptions` | [Documentación de Subscripciones](subscriptions/) |
-| `tokens`        | [Documentación de Tokens](tokens/)                |
+| API             | Documentation                                                 |
+| --------------- | ------------------------------------------------------------- |
+| `cards`         | [Documentación de Tarjetas](cards/README.es.md)               |
+| `charges`       | [Documentación de Cargos](charges/README.es.md)               |
+| `customers`     | [Documentación de Clientes](customers/README.es.md)           |
+| `events`        | [Documentación de Eventos](events/README.es.md)               |
+| `orders`        | [Documentación de Ordenes](orders/README.es.md)               |
+| `plans`         | [Documentación de Planes](plans/README.es.md)                 |
+| `refunds`       | [Documentación de Devoluciones](refunds/README.es.md)         |
+| `subscriptions` | [Documentación de Subscripciones](subscriptions/README.es.md) |
+| `tokens`        | [Documentación de Tokens](tokens/README.es.md)                |
