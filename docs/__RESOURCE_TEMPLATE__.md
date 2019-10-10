@@ -1,4 +1,4 @@
-[:back:](docs/README.md)
+[:back:](/docs/README.md)
 
 # `Resource`s
 
