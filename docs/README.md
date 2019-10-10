@@ -4,8 +4,6 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-#### Languages
-
 [Español](/docs/README.es.md) |
 [English](/docs/README.md)
 
