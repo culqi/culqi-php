@@ -9,7 +9,7 @@ Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto
 
 #### Endpoints
 
-| Método HTTP | Endpoints                              | Documentaci´ón                                           |
+| Método HTTP | Endpoints                              | Documentación                                           |
 | ----------- | -------------------------------------- | -------------------------------------------------------- |
 | `POST`      | `https://api.culqi.com/v2/charges`     | [Ver Detalles](https://www.culqi.com/api/#cargos#create) |
 | `GET`       | `https://api.culqi.com/v2/charges/:id` | [Ver Detalles](https://www.culqi.com/api/#cargos#detail) |
