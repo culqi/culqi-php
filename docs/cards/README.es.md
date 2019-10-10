@@ -58,7 +58,7 @@ El objeto Tarjeta se usa para crear cargos posteriores a una tarjeta. Recuerda q
 }
 ```
 
-## Crear una tarjeta
+## Crear una Tarjeta
 
 ```php
 try {
@@ -75,7 +75,7 @@ try {
 }
 ```
 
-## Consultar una tarjeta
+## Consultar una Tarjeta
 
 ```php
 try {
@@ -89,21 +89,21 @@ try {
 }
 ```
 
-## Listar todas las tarjetas
+## Listar todas las Tarjetas
 
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
-    $card = $culqi->Cards->all();
+    $cards = $culqi->Cards->all();
 
-     echo json_encode($card);
+     echo json_encode($cards);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
 ```
 
-## Actualizar una tarjeta
+## Actualizar una Tarjeta
 
 ```php
 try {
@@ -122,7 +122,7 @@ try {
 }
 ```
 
-## Eliminar una tarjeta
+## Eliminar una Tarjeta
 
 ```php
 try {

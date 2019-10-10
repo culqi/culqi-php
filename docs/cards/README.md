@@ -95,9 +95,9 @@ try {
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
-    $card = $culqi->Cards->all();
+    $cards = $culqi->Cards->all();
 
-     echo json_encode($card);
+     echo json_encode($cards);
 } catch (\Exception $e) {
     echo json_encode($e->getMessage());
 }
