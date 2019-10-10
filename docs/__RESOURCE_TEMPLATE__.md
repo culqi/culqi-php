@@ -8,11 +8,11 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 
 | HTTP Method | Endpoints                                | Documentation                                              |
 | ----------- | ---------------------------------------- | ---------------------------------------------------------- |
-| `POST`      | `https://api.culqi.com/v2/:resource`     | [View Details](https://www.culqi.com/api/#resource#create) |
-| `GET`       | `https://api.culqi.com/v2/:resource/:id` | [View Details](https://www.culqi.com/api/#resource#detail) |
-| `GET`       | `https://api.culqi.com/v2/:resource`     | [View Details](https://www.culqi.com/api/#resource#list)   |
-| `PATH`      | `https://api.culqi.com/v2/:resource/:id` | [View Details](https://www.culqi.com/api/#resource#update) |
-| `DELETE`    | `https://api.culqi.com/v2/:resource/:id` | [View Details](https://www.culqi.com/api/#resource#delete) |
+| `POST`      | `https://api.culqi.com/v2/:resources`     | [View Details](https://www.culqi.com/api/#resources#create) |
+| `GET`       | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#detail) |
+| `GET`       | `https://api.culqi.com/v2/:resources`     | [View Details](https://www.culqi.com/api/#resources#list)   |
+| `PATH`      | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#update) |
+| `DELETE`    | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#delete) |
 
 #### The `Resource` Object
 
