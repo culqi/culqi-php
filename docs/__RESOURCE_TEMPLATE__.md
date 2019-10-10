@@ -6,12 +6,12 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 
 #### Endpoints
 
-| HTTP Method | Endpoints                                | Documentation                                              |
-| ----------- | ---------------------------------------- | ---------------------------------------------------------- |
+| HTTP Method | Endpoints                                 | Documentation                                               |
+| ----------- | ----------------------------------------- | ----------------------------------------------------------- |
 | `POST`      | `https://api.culqi.com/v2/:resources`     | [View Details](https://www.culqi.com/api/#resources#create) |
 | `GET`       | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#detail) |
 | `GET`       | `https://api.culqi.com/v2/:resources`     | [View Details](https://www.culqi.com/api/#resources#list)   |
-| `PATH`      | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#update) |
+| `PATCH`     | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#update) |
 | `DELETE`    | `https://api.culqi.com/v2/:resources/:id` | [View Details](https://www.culqi.com/api/#resources#delete) |
 
 #### The `Resource` Object
