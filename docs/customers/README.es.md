@@ -14,7 +14,7 @@ El recurso cliente te permite guardar la información de tus clientes para reali
 | `POST`      | `https://api.culqi.com/v2/customers`     | [Ver Detalles](https://www.culqi.com/api/#clientes#create) |
 | `GET`       | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#detail) |
 | `GET`       | `https://api.culqi.com/v2/customers`     | [Ver Detalles](https://www.culqi.com/api/#clientes#list)   |
-| `PATH`      | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#update) |
+| `PATCH`     | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#update) |
 | `DELETE`    | `https://api.culqi.com/v2/customers/:id` | [Ver Detalles](https://www.culqi.com/api/#clientes#delete) |
 
 #### El Objeto Cliente

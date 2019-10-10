@@ -11,7 +11,7 @@ Un plan de suscripción contiene información acerca del tipo de cargo, frecuenc
 | `POST`      | `https://api.culqi.com/v2/plans`     | [View Details](https://www.culqi.com/api/#planes#create) |
 | `GET`       | `https://api.culqi.com/v2/plans/:id` | [View Details](https://www.culqi.com/api/#planes#detail) |
 | `GET`       | `https://api.culqi.com/v2/plans`     | [View Details](https://www.culqi.com/api/#planes#list)   |
-| `PATH`      | `https://api.culqi.com/v2/plans/:id` | [View Details](https://www.culqi.com/api/#planes#update) |
+| `PATCH`     | `https://api.culqi.com/v2/plans/:id` | [View Details](https://www.culqi.com/api/#planes#update) |
 | `DELETE`    | `https://api.culqi.com/v2/plans/:id` | [View Details](https://www.culqi.com/api/#planes#delete) |
 
 #### El Objeto Plan

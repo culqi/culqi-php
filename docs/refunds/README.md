@@ -11,7 +11,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 | `POST`      | `https://api.culqi.com/v2/refunds`     | [View Details](https://www.culqi.com/api/#devoluciones#create) |
 | `GET`       | `https://api.culqi.com/v2/refunds/:id` | [View Details](https://www.culqi.com/api/#devoluciones#detail) |
 | `GET`       | `https://api.culqi.com/v2/refunds`     | [View Details](https://www.culqi.com/api/#devoluciones#list)   |
-| `PATH`      | `https://api.culqi.com/v2/refunds/:id` | [View Details](https://www.culqi.com/api/#devoluciones#update) |
+| `PATCH`      | `https://api.culqi.com/v2/refunds/:id` | [View Details](https://www.culqi.com/api/#devoluciones#update) |
 
 #### The Refund Object
 

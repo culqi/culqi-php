@@ -11,7 +11,7 @@ El crear suscripciones te permite realizar cargos recurrentes a la tarjeta de un
 | `POST`      | `https://api.culqi.com/v2/subscriptions`     | [ver Detalles](https://www.culqi.com/api/#subscripciones#create) |
 | `GET`       | `https://api.culqi.com/v2/subscriptions/:id` | [ver Detalles](https://www.culqi.com/api/#subscripciones#detail) |
 | `GET`       | `https://api.culqi.com/v2/subscriptions`     | [ver Detalles](https://www.culqi.com/api/#subscripciones#list)   |
-| `PATH`      | `https://api.culqi.com/v2/subscriptions/:id` | [ver Detalles](https://www.culqi.com/api/#subscripciones#update) |
+| `PATCH`     | `https://api.culqi.com/v2/subscriptions/:id` | [ver Detalles](https://www.culqi.com/api/#subscripciones#update) |
 | `DELETE`    | `https://api.culqi.com/v2/subscriptions/:id` | [ver Detalles](https://www.culqi.com/api/#subscripciones#delete) |
 
 #### El Objeto Subscripción

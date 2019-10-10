@@ -14,7 +14,7 @@ El objeto Tarjeta se usa para crear cargos posteriores a una tarjeta. Recuerda q
 | `POST`      | `https://api.culqi.com/v2/cards`     | [Ver Detalles](https://www.culqi.com/api/#tarjetas#create) |
 | `GET`       | `https://api.culqi.com/v2/cards/:id` | [Ver Detalles](https://www.culqi.com/api/#tarjetas#detail) |
 | `GET`       | `https://api.culqi.com/v2/cards`     | [Ver Detalles](https://www.culqi.com/api/#tarjetas#list)   |
-| `PATH`      | `https://api.culqi.com/v2/cards/:id` | [Ver Detalles](https://www.culqi.com/api/#tarjetas#update) |
+| `PATCH`     | `https://api.culqi.com/v2/cards/:id` | [Ver Detalles](https://www.culqi.com/api/#tarjetas#update) |
 | `DELETE`    | `https://api.culqi.com/v2/cards/:id` | [Ver Detalles](https://www.culqi.com/api/#tarjetas#delete) |
 
 #### El Objeto Tarjeta

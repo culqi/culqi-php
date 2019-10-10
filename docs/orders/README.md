@@ -11,7 +11,7 @@ El objeto Orden contiene información de una posible venta. Es usado para el mé
 | `POST`      | `https://api.culqi.com/v2/orders`     | [Ver Detalles](https://www.culqi.com/api/#ordenes#create) |
 | `GET`       | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#detail) |
 | `GET`       | `https://api.culqi.com/v2/orders`     | [Ver Detalles](https://www.culqi.com/api/#ordenes#list)   |
-| `PATH`      | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#update) |
+| `PATCH`     | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#update) |
 | `DELETE`    | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#delete) |
 
 #### The Order Object
@@ -72,6 +72,8 @@ try {
 ```
 
 ## Confirm an Order
+
+El uso de este método es opcional. Confirmar una orden permite que una orden se habilite para ser pagada, generandole un código de pago y pasando a estado "pendiente". Solo se puede usar este método cuando la orden se encuentra en estado "creada".
 
 ```php
 try {

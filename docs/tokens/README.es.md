@@ -13,7 +13,7 @@ Si no deseas hacer uso de los métodos de tokenización disponibles, también po
 | `POST`      | `https://api.culqi.com/v2/tokens`     | [Ver Detalles](https://www.culqi.com/api/#tokens#create) |
 | `GET`       | `https://api.culqi.com/v2/tokens/:id` | [Ver Detalles](https://www.culqi.com/api/#tokens#detail) |
 | `GET`       | `https://api.culqi.com/v2/tokens`     | [Ver Detalles](https://www.culqi.com/api/#tokens#list)   |
-| `PATH`      | `https://api.culqi.com/v2/tokens/:id` | [Ver Detalles](https://www.culqi.com/api/#tokens#update) |
+| `PATCH`     | `https://api.culqi.com/v2/tokens/:id` | [Ver Detalles](https://www.culqi.com/api/#tokens#update) |
 
 #### El Objeto Token
 

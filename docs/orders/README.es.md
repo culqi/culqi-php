@@ -12,7 +12,7 @@ El objeto Orden contiene información de una posible venta. Es usado para el mé
 | `POST`      | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#confirm) |
 | `GET`       | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#detail)  |
 | `GET`       | `https://api.culqi.com/v2/orders`     | [Ver Detalles](https://www.culqi.com/api/#ordenes#list)    |
-| `PATH`      | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#update)  |
+| `PATCH`     | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#update)  |
 | `DELETE`    | `https://api.culqi.com/v2/orders/:id` | [Ver Detalles](https://www.culqi.com/api/#ordenes#delete)  |
 
 #### El Objeto Orden
@@ -90,6 +90,8 @@ try {
 
 ## Consultar una Orden
 
+Consulta el detalle de una orden utilizando su ID. Como respuesta exitosa obtendrás un objeto Orden. Si la petición es inválida te devolveremos un error.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -104,6 +106,8 @@ try {
 
 ## Listar todos las Ordenes
 
+Listas órdenes permtie obtener el listado de órdenes de tu comercio. De acuerdo a los filtros que uses, las ordenes serán ordenados de acuerdo a su fecha de creación; siendo el primero el más reciente.
+
 ```php
 try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
@@ -117,6 +121,8 @@ try {
 ```
 
 ## Actualizar una Orden
+
+Con actualizar una orden se puede extender la validez de una orden, es decir, el tiempo de expiración. Además, te permitirá agregar o reemplazar información a los valores de la metadata que enviaste a la hora de crearla. Cualquier parámetro o valor no provisto será omitido en los valores de la metadata.
 
 ```php
 try {
@@ -136,6 +142,8 @@ try {
 ```
 
 ## Eliminar una Orden
+
+Eliminar una Orden te permitirá desactivar y dejar sin efecto una orden. Solo se puede aplicar para ordenes que se encuentren en estado 'pendiente' o 'creada'.
 
 ```php
 try {

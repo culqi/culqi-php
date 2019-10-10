@@ -11,7 +11,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 | `POST`      | `https://api.culqi.com/v2/subscriptions`     | [View Details](https://www.culqi.com/api/#subscripciones#create) |
 | `GET`       | `https://api.culqi.com/v2/subscriptions/:id` | [View Details](https://www.culqi.com/api/#subscripciones#detail) |
 | `GET`       | `https://api.culqi.com/v2/subscriptions`     | [View Details](https://www.culqi.com/api/#subscripciones#list)   |
-| `PATH`      | `https://api.culqi.com/v2/subscriptions/:id` | [View Details](https://www.culqi.com/api/#subscripciones#update) |
+| `PATCH`     | `https://api.culqi.com/v2/subscriptions/:id` | [View Details](https://www.culqi.com/api/#subscripciones#update) |
 | `DELETE`    | `https://api.culqi.com/v2/subscriptions/:id` | [View Details](https://www.culqi.com/api/#subscripciones#delete) |
 
 #### The Subscription Object

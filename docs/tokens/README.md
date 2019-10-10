@@ -11,7 +11,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore 
 | `POST`      | `https://api.culqi.com/v2/tokens`     | [View Details](https://www.culqi.com/api/#tokens#create) |
 | `GET`       | `https://api.culqi.com/v2/tokens/:id` | [View Details](https://www.culqi.com/api/#tokens#detail) |
 | `GET`       | `https://api.culqi.com/v2/tokens`     | [View Details](https://www.culqi.com/api/#tokens#list)   |
-| `PATH`      | `https://api.culqi.com/v2/tokens/:id` | [View Details](https://www.culqi.com/api/#tokens#update) |
+| `PATCH`     | `https://api.culqi.com/v2/tokens/:id` | [View Details](https://www.culqi.com/api/#tokens#update) |
 
 #### The Token Object
 

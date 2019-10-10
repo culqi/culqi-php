@@ -14,7 +14,7 @@ The card object can be used to create charges later to a card. Remenber what a T
 | `POST`      | `https://api.culqi.com/v2/cards`     | [View Details](https://www.culqi.com/api/#tarjetas#create) |
 | `GET`       | `https://api.culqi.com/v2/cards/:id` | [View Details](https://www.culqi.com/api/#tarjetas#detail) |
 | `GET`       | `https://api.culqi.com/v2/cards`     | [View Details](https://www.culqi.com/api/#tarjetas#list)   |
-| `PATH`      | `https://api.culqi.com/v2/cards/:id` | [View Details](https://www.culqi.com/api/#tarjetas#update) |
+| `PATCH`     | `https://api.culqi.com/v2/cards/:id` | [View Details](https://www.culqi.com/api/#tarjetas#update) |
 | `DELETE`    | `https://api.culqi.com/v2/cards/:id` | [View Details](https://www.culqi.com/api/#tarjetas#delete) |
 
 #### The Card Object

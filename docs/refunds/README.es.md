@@ -11,7 +11,7 @@ Una devolución te permite devolver un cargo que ha sido creado previamente y qu
 | `POST`      | `https://api.culqi.com/v2/refunds`     | [Ver Detalles](https://www.culqi.com/api/#devoluciones#create) |
 | `GET`       | `https://api.culqi.com/v2/refunds/:id` | [Ver Detalles](https://www.culqi.com/api/#devoluciones#detail) |
 | `GET`       | `https://api.culqi.com/v2/refunds`     | [Ver Detalles](https://www.culqi.com/api/#devoluciones#list)   |
-| `PATH`      | `https://api.culqi.com/v2/refunds/:id` | [Ver Detalles](https://www.culqi.com/api/#devoluciones#update) |
+| `PATCH`     | `https://api.culqi.com/v2/refunds/:id` | [Ver Detalles](https://www.culqi.com/api/#devoluciones#update) |
 
 #### El Objeto Devolucion
 
