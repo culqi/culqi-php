@@ -11,11 +11,11 @@ Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto
 
 | Método HTTP | Endpoints                              | Documentaci´ón                                           |
 | ----------- | -------------------------------------- | -------------------------------------------------------- |
-| `POST`      | `https://api.culqi.com/v2/charges`     | [View Details](https://www.culqi.com/api/#cargos#create) |
-| `GET`       | `https://api.culqi.com/v2/charges/:id` | [View Details](https://www.culqi.com/api/#cargos#detail) |
-| `GET`       | `https://api.culqi.com/v2/charges`     | [View Details](https://www.culqi.com/api/#cargos#list)   |
-| `PATH`      | `https://api.culqi.com/v2/charges/:id` | [View Details](https://www.culqi.com/api/#cargos#update) |
-| `DELETE`    | `https://api.culqi.com/v2/charges/:id` | [View Details](https://www.culqi.com/api/#cargos#delete) |
+| `POST`      | `https://api.culqi.com/v2/charges`     | [Ver Detalles](https://www.culqi.com/api/#cargos#create) |
+| `GET`       | `https://api.culqi.com/v2/charges/:id` | [Ver Detalles](https://www.culqi.com/api/#cargos#detail) |
+| `GET`       | `https://api.culqi.com/v2/charges`     | [Ver Detalles](https://www.culqi.com/api/#cargos#list)   |
+| `PATH`      | `https://api.culqi.com/v2/charges/:id` | [Ver Detalles](https://www.culqi.com/api/#cargos#update) |
+| `DELETE`    | `https://api.culqi.com/v2/charges/:id` | [Ver Detalles](https://www.culqi.com/api/#cargos#delete) |
 
 #### El Objeto Cargo
 
