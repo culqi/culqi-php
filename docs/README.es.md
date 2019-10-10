@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-La biblioteca Culqi para PHP un acceso facíl a la API de Culqi desde aplicaciones escritas en PHP. Esta biblioteca es solo compatible con la version 2 del API de Culqi.
+La biblioteca Culqi para PHP un acceso adecuado a la API de Culqi desde aplicaciones escritas en PHP. Esta biblioteca solo es compatible con la versión 2 del API de Culqi.
 
 ## Requerimientos
 
@@ -26,7 +26,7 @@ require_once('vendor/autoload.php');
 
 ## Instalación Manual
 
-Si no deseas usar Composer, puedes descargar el [latest release](https://github.com/culqi/culqi-php/releases). Luego, para usar la biblioteca, incluye el archivo `culqi.php`.
+Si no deseas usar Composer, puedes descargar el [último lanzamiento](https://github.com/culqi/culqi-php/releases). Luego, para usar la biblioteca, incluye el archivo `culqi.php`.
 
 ```php
 require_once('/ruta/a/culqi-php/lib/culqi.php');
