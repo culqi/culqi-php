@@ -42,6 +42,20 @@ El objeto Orden contiene información de una posible venta. Es usado para el mé
 }
 ```
 
+## Autenticación
+
+La API de Culq API usa `API keys` para autenticar las peticiones. Puedes ver y gestionar tus `API keys` en [el panel de Culqi](https://integ-panel.culqi.com/#/desarrollo/llaves).
+
+Las claves en modo desarrollo tienen el siguiente prefijo `***_test_` (ejemplo: `cus_test_abcABC@3C123456789`) y las claves en modo producción/en vivo tienen la siguente estructura `***_live_` (ejemplo: `tkn_live_abdABC@3C123456789`).
+
+## Errores
+
+Por medio de nuestra API, podrás ser notificado con toda la información en caso presentes un error al momento de hacer una petición a cualquier operación del API. La API de Culqi utiliza el estándar de Códigos de Estado HTTP (HTTP Status Codes) en todas sus respuestas para indicar si las solicitudes se pudieron procesar con éxito o fallaron. Leer más sobre los posibles [Errores](https://www.culqi.com/api/#/errores).
+
+## Manejo de errores
+
+Más adelante.
+
 ## Crear una Orden
 
 La creación de una orden permite que se genere un objeto orden con los detalles de la posible venta. Esta orden nace con un estado pendiente de pago. Además, al momento de la creación tu cliente recibe un correo con las instrucciones de como pagar la orden.

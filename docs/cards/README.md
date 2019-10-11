@@ -61,6 +61,20 @@ The card object can be used to create charges later to a card. Remenber what a T
 }
 ```
 
+## Authentication
+
+La API de Culq API usa `API keys` para autenticar las peticiones. Puedes ver y gestionar tus `API keys` en [el panel de Culqi](https://integ-panel.culqi.com/#/desarrollo/llaves).
+
+Las claves en modo desarrollo tienen el siguiente prefijo `***_test_` (ejemplo: `cus_test_abcABC@3C123456789`) y las claves en modo producción/en vivo tienen la siguente estructura `***_live_` (ejemplo: `tkn_live_abdABC@3C123456789`).
+
+## Errors
+
+Por medio de nuestra API, podrás ser notificado con toda la información en caso presentes un error al momento de hacer una petición a cualquier operación del API. La API de Culqi utiliza el estándar de Códigos de Estado HTTP (HTTP Status Codes) en todas sus respuestas para indicar si las solicitudes se pudieron procesar con éxito o fallaron. Leer más sobre los posibles [Errores](https://www.culqi.com/api/#/errores).
+
+## Handling Errors
+
+Más adelante.
+
 ## Create a Card
 
 A la hora de crear una Tarjeta tendrás que relacionar un token con un Cliente que has creado anteriormente para que este pueda ser utilizado para pagos posteriores y suscripciones.
@@ -70,8 +84,8 @@ try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->create([
-        "customer_id" => "cus_live_Lz6Yfsm7QqCPIECW",
-        "token_id" => "tkn_live_vEcZSCOVz5PGDPdQ"
+        'customer_id' => "cus_live_Lz6Yfsm7QqCPIECW",
+        'token_id' => "tkn_live_vEcZSCOVz5PGDPdQ"
     ]);
 
     echo json_encode($card);
@@ -121,8 +135,8 @@ try {
     $culqi = new \Culqi\Culqi(['api_key' => "__SECRET_KEY__"]);
 
     $card = $culqi->Cards->update("crd_live_RzjTyGUwZioJLpZt", [
-        "tokend_id" => "tkn_live_vEcZSCOVz5PGDPdQ",
-        "metadata" => [
+        'tokend_id' => "tkn_live_vEcZSCOVz5PGDPdQ",
+        'metadata' => [
             "dni" => "71701978"
         ]
     ]);
