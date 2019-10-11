@@ -4,8 +4,8 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-[Español](/docs/README.es.md) |
-[English](/docs/README.md)
+[Español](/lang/es/) |
+[English](/)
 
 La biblioteca Culqi para PHP un acceso adecuado a la API de Culqi desde aplicaciones escritas en PHP. Esta biblioteca solo es compatible con la versión 2 del API de Culqi.
 

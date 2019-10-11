@@ -2,8 +2,8 @@
 
 # Tarjetas
 
-[Español](/docs/cards/README.es.md) |
-[English](/docs/cards/README.md)
+[Español](resources/cards/lang/es/) |
+[English](resources/cards/)
 
 El objeto Tarjeta se usa para crear cargos posteriores a una tarjeta. Recuerda que un Token por si solo vence a los 5 minutos de creado, pero si lo conviertes en una Tarjeta podrás realizar cargos posteriores. Podrás relacionar múltiples tarjeta al mismo Cliente.
 

@@ -2,8 +2,8 @@
 
 # Cards
 
-[Español](/docs/cards/README.es.md) |
-[English](/docs/cards/README.md)
+[Español](resources/cards/lang/es) |
+[English](resources/cards/)
 
 The card object can be used to create charges later to a card. Remenber what a Token expires after 5 minutes of being created, you can convert it into a Card to can apply charges later. One client can have multiple Cards associated.
 

@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-[Español](/lang/es) |
+[Español](lang/es/) |
 [English](/)
 
 The Culqi PHP library provides convenient access to the Culqi API from
@@ -38,8 +38,8 @@ require_once('/path/to/culqi-php/lib/culqi.php');
 
 ## Documentation
 
-| API             | Documentation                                          |
-| --------------- | ------------------------------------------------------ |
+| API             | Documentation                                 |
+| --------------- | --------------------------------------------- |
 | `cards`         | [Cards Documentation](cards/)                 |
 | `charges`       | [Charges Documentation](charges/)             |
 | `customers`     | [Customers Documentation](customers/)         |
