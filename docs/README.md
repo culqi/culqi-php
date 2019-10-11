@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-[Español](lang/es/) |
+[Español](lang/es/README.md) |
 [English](README.md)
 
 The Culqi PHP library provides convenient access to the Culqi API from
