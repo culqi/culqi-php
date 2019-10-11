@@ -38,14 +38,14 @@ require_once('/path/to/culqi-php/lib/culqi.php');
 
 ## Documentation
 
-| API             | Documentation                                 |
-| --------------- | --------------------------------------------- |
-| `cards`         | [Cards Documentation](cards/)                 |
-| `charges`       | [Charges Documentation](charges/)             |
-| `customers`     | [Customers Documentation](customers/)         |
-| `events`        | [Events Documentation](events/)               |
-| `orders`        | [Orders Documentation](orders/)               |
-| `plans`         | [Plans Documentation](plans/)                 |
-| `refunds`       | [Refunds Documentation](refunds/)             |
-| `subscriptions` | [Subscriptions Documentation](subscriptions/) |
-| `tokens`        | [Tokens Documentation](tokens/)               |
+| API             | Documentation                                                    |
+| --------------- | ---------------------------------------------------------------- |
+| `cards`         | [Cards Documentation](resources/cards/README.md)                 |
+| `charges`       | [Charges Documentation](resources/charges/README.md)             |
+| `customers`     | [Customers Documentation](resources/customers/README.md)         |
+| `events`        | [Events Documentation](resources/events/README.md)               |
+| `orders`        | [Orders Documentation](resources/orders/README.md)               |
+| `plans`         | [Plans Documentation](resources/plans/README.md)                 |
+| `refunds`       | [Refunds Documentation](resources/refunds/README.md)             |
+| `subscriptions` | [Subscriptions Documentation](resources/subscriptions/README.md) |
+| `tokens`        | [Tokens Documentation](resources/tokens/README.md)               |
