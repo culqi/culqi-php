@@ -4,8 +4,8 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-[Español](/docs/README.es.md) |
-[English](/docs/README.md)
+[Español](/lang/es) |
+[English](/)
 
 The Culqi PHP library provides convenient access to the Culqi API from
 applications written in the PHP language. This library is only compatible with the version 2 of the Culqi API.
@@ -40,12 +40,12 @@ require_once('/path/to/culqi-php/lib/culqi.php');
 
 | API             | Documentation                                          |
 | --------------- | ------------------------------------------------------ |
-| `cards`         | [Cards Documentation](cards/README.md)                 |
-| `charges`       | [Charges Documentation](charges/README.md)             |
-| `customers`     | [Customers Documentation](customers/README.md)         |
-| `events`        | [Events Documentation](events/README.md)               |
-| `orders`        | [Orders Documentation](orders/README.md)               |
-| `plans`         | [Plans Documentation](plans/README.md)                 |
-| `refunds`       | [Refunds Documentation](refunds/README.md)             |
-| `subscriptions` | [Subscriptions Documentation](subscriptions/README.md) |
-| `tokens`        | [Tokens Documentation](tokens/README.md)               |
+| `cards`         | [Cards Documentation](cards/)                 |
+| `charges`       | [Charges Documentation](charges/)             |
+| `customers`     | [Customers Documentation](customers/)         |
+| `events`        | [Events Documentation](events/)               |
+| `orders`        | [Orders Documentation](orders/)               |
+| `plans`         | [Plans Documentation](plans/)                 |
+| `refunds`       | [Refunds Documentation](refunds/)             |
+| `subscriptions` | [Subscriptions Documentation](subscriptions/) |
+| `tokens`        | [Tokens Documentation](tokens/)               |
