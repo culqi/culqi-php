@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
 [Español](lang/es/) |
-[English](/)
+[English](README.md)
 
 The Culqi PHP library provides convenient access to the Culqi API from
 applications written in the PHP language. This library is only compatible with the version 2 of the Culqi API.
