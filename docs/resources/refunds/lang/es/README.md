@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../../../lang/es/README.md)
 
 # Devoluciones
 
-[Español](/docs/refunds/README.es.md) |
-[English](/docs/refunds/README.md)
+[Español](README.md) |
+[English](../../README.md)
 
 Una devolución te permite devolver un cargo que ha sido creado previamente y que aún no ha sido devuelto en su totalidad. Los fondos serán devueltos a la tarjeta de crédito o débito que se ha realizado el cargo.
 

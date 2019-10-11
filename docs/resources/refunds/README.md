@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Refunds
 
-[Español](/docs/refunds/README.es.md) |
-[English](/docs/refunds/README.md)
+[Español](lang/es/README.md) |
+[English](README.md)
 
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit quisquam labore consectetur laborum provident aperiam error non natus voluptatum minima quod, adipisci maiores pariatur alias rem, dolorum quasi placeat voluptatem.
 

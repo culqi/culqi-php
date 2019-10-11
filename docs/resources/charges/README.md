@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Charges
 
-[Español](/docs/charges/README.es.md) |
-[English](/docs/charges/README.md)
+[Español](lang/es/README.md) |
+[English](README.md)
 
 Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto cargo. Adicionalmente puedes consultar, devolver un cargo en particular o listar tu historial de cargos en base a los filtros que desees. Todos los cargos están identificados por un ID.
 

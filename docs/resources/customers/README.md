@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Customers
 
-[Español](/docs/customers/README.es.md) |
-[English](/docs/customers/README.md)
+[Español](lang/es/README.md) |
+[English](README.md)
 
 El recurso cliente te permite guardar la información de tus clientes para realizarles cargos recurrentes o posteriores. La API de Culqi permite crear, eliminar y actualizar los datos de tus clientes. Adicionalmente podrás consultar los datos de un cliente en particular o listar a todos tus clientes en base a los filtros que desees.
 

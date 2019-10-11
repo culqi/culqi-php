@@ -37,14 +37,14 @@ require_once('/ruta/a/culqi-php/lib/culqi.php');
 
 ## Documentación
 
-| API             | Documentation                                                                      |
-| --------------- | ---------------------------------------------------------------------------------- |
-| `cards`         | [Documentación de Tarjetas](../../resources/cards/lang/es/README.md)               |
-| `charges`       | [Documentación de Cargos](../../resources/charges/lang/es/README.md)               |
-| `customers`     | [Documentación de Clientes](../../resources/customers/lang/es/README.md)           |
-| `events`        | [Documentación de Eventos](../../resources/events/lang/es/README.md)               |
-| `orders`        | [Documentación de Ordenes](../../resources/orders/lang/es/README.md)               |
-| `plans`         | [Documentación de Planes](../../resources/plans/lang/es/README.md)                 |
-| `refunds`       | [Documentación de Devoluciones](../../resources/refunds/lang/es/README.md)         |
-| `subscriptions` | [Documentación de Subscripciones](../../resources/subscriptions/lang/es/README.md) |
-| `tokens`        | [Documentación de Tokens](../../resources/tokens/lang/es/README.md)                |
+| API             | Documentation                                                                         |
+| --------------- | ------------------------------------------------------------------------------------- |
+| `cards`         | 📃 [Documentación de Tarjetas](../../resources/cards/lang/es/README.md)               |
+| `charges`       | 📃 [Documentación de Cargos](../../resources/charges/lang/es/README.md)               |
+| `customers`     | 📃 [Documentación de Clientes](../../resources/customers/lang/es/README.md)           |
+| `events`        | 📃 [Documentación de Eventos](../../resources/events/lang/es/README.md)               |
+| `orders`        | 📃 [Documentación de Ordenes](../../resources/orders/lang/es/README.md)               |
+| `plans`         | 📃 [Documentación de Planes](../../resources/plans/lang/es/README.md)                 |
+| `refunds`       | 📃 [Documentación de Devoluciones](../../resources/refunds/lang/es/README.md)         |
+| `subscriptions` | 📃 [Documentación de Subscripciones](../../resources/subscriptions/lang/es/README.md) |
+| `tokens`        | 📃 [Documentación de Tokens](../../resources/tokens/lang/es/README.md)                |

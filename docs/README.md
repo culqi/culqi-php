@@ -38,14 +38,14 @@ require_once('/path/to/culqi-php/lib/culqi.php');
 
 ## Documentation
 
-| API             | Documentation                                                    |
-| --------------- | ---------------------------------------------------------------- |
-| `cards`         | [Cards Documentation](resources/cards/README.md)                 |
-| `charges`       | [Charges Documentation](resources/charges/README.md)             |
-| `customers`     | [Customers Documentation](resources/customers/README.md)         |
-| `events`        | [Events Documentation](resources/events/README.md)               |
-| `orders`        | [Orders Documentation](resources/orders/README.md)               |
-| `plans`         | [Plans Documentation](resources/plans/README.md)                 |
-| `refunds`       | [Refunds Documentation](resources/refunds/README.md)             |
-| `subscriptions` | [Subscriptions Documentation](resources/subscriptions/README.md) |
-| `tokens`        | [Tokens Documentation](resources/tokens/README.md)               |
+| API             | Documentation                                                       |
+| --------------- | ------------------------------------------------------------------- |
+| `cards`         | 📃 [Cards Documentation](resources/cards/README.md)                 |
+| `charges`       | 📃 [Charges Documentation](resources/charges/README.md)             |
+| `customers`     | 📃 [Customers Documentation](resources/customers/README.md)         |
+| `events`        | 📃 [Events Documentation](resources/events/README.md)               |
+| `orders`        | 📃 [Orders Documentation](resources/orders/README.md)               |
+| `plans`         | 📃 [Plans Documentation](resources/plans/README.md)                 |
+| `refunds`       | 📃 [Refunds Documentation](resources/refunds/README.md)             |
+| `subscriptions` | 📃 [Subscriptions Documentation](resources/subscriptions/README.md) |
+| `tokens`        | 📃 [Tokens Documentation](resources/tokens/README.md)               |

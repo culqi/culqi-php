@@ -1,6 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Orders
+
+[Español](lang/es/README.md) |
+[English](README.md)
 
 El objeto Orden contiene información de una posible venta. Es usado para el método de pago en efectivo. Una vez es pagada la orden por tu cliente via banco o agente, cambia de estado en el momento de la acción. Con este recurso podrás brindar a tus clientes la opción de pagar sus compras en efectivo.
 

@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Subscriptions
 
-[Español](/docs/subscriptions/README.es.md) |
-[English](/docs/subscriptions/README.md)
+[Español](lang/es/README.md) |
+[English](README.md)
 
 El crear suscripciones te permite realizar cargos recurrentes a la tarjeta de un cliente. Una suscripción relaciona al objeto Customer y al objeto Plan que has creado previamente.
 

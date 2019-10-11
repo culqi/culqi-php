@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Tokens
 
-[Español](/docs/tokens/README.es.md) |
-[English](/docs/tokens/README.md)
+[Español](lang/es/README.md) |
+[English](README.md)
 
 Tokenización es el proceso que utiliza Culqi para capturar de manera segura datos sensibles de tarjetas de crédito y débito directamente desde el navegador del cliente. Un token representa la información de la tarjeta y es devuelto a tus servidores para que puedas utilizarlo a través de Culqi Checkout, Culqi.JS o nuestras bibliotecas para móviles (iOS y Android). Este método nos asegura que ningún dato de tarjeta toque tus servidores y permite que la integración cumple con la normativa PCI DSS.
 

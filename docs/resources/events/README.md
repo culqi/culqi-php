@@ -1,9 +1,9 @@
-[:back:](/docs/README.md)
+[🔙](../../README.md)
 
 # Events
 
-[Español](/docs/events/README.es.md) |
-[English](/docs/events/README.md)
+[Español](lang/es/README.md) |
+[English](README.md)
 
 Los eventos son formas de hacerte saber cuando algo sucede en tu cuenta de Culqi. Cuando un evento ocurre, Culqi crea un objeto Evento. Por ejemplo, cuando un cargo es exitoso, Culqi crea el evento charge.succeeded. Adicionalmente, si realizas muchas peticiones al API podría llegar a causar multiples eventos. Por ejemplo, si creas una suscripción para un cliente, recibirás el evento customer.subscription.created y el evento charge.succeeded.
 

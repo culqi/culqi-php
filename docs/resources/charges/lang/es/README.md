@@ -1,15 +1,15 @@
-[:back:](/docs/README.md)
+[🔙](../../../../lang/es/README.md)
 
 # Cargos
 
-[Español](/docs/charges/README.es.md) |
-[English](/docs/charges/README.md)
+[Español](README.md) |
+[English](../../README.md)
 
 Para realizar un cargo a una tarjeta de débito o crédito debes crear un objeto cargo. Adicionalmente puedes consultar, devolver un cargo en particular o listar tu historial de cargos en base a los filtros que desees. Todos los cargos están identificados por un ID.
 
 #### Endpoints
 
-| Método HTTP | Endpoints                              | Documentación                                           |
+| Método HTTP | Endpoints                              | Documentación                                            |
 | ----------- | -------------------------------------- | -------------------------------------------------------- |
 | `POST`      | `https://api.culqi.com/v2/charges`     | [Ver Detalles](https://www.culqi.com/api/#cargos#create) |
 | `GET`       | `https://api.culqi.com/v2/charges/:id` | [Ver Detalles](https://www.culqi.com/api/#cargos#detail) |
