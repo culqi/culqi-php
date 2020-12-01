@@ -11,7 +11,11 @@
       "homepage": "https://github.com/culqi/culqi-php/contributors"
     }
   ],
-
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "1.2.6-dev"
+    }
+  },
   "require": {
     "php": ">=5.3.3",
     "rmccue/requests": ">=1.0"
