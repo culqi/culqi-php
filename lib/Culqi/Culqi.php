@@ -18,12 +18,12 @@ class Culqi
     /**
      * La URL Base por defecto
      */
-    const BASE_URL = "https://api.culqi.com/v2";   
+    const BASE_URL = "https://qa-api.culqi.xyz/v2";   
 
     /**
      * URL alternativa (segura)
      */ 
-    const SECURE_BASE_URL = "https://secure.culqi.com/v2"; 
+    const SECURE_BASE_URL = "https://qa-secure.culqi.xyz/v2"; 
 
     /**
      * Constructor.
