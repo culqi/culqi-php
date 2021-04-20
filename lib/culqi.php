@@ -4,7 +4,7 @@
  *
  * Init, cargamos todos los archivos necesarios
  *
- * @version 1.5.0
+ * @version 1.5.2
  * @package Culqi
  * @copyright Copyright (c) 2015-2017 Culqi
  * @license MIT
