@@ -42,6 +42,11 @@ class Client {
         if ($response->status_code == 401) {
             throw new Errors\AuthenticationError();
         }
+        /*linea añadida*/
+        if ($response->status_code == 402) { 
+            return json_decode($response->body);
+        }
+        /*linea añadida*/
         if ($response->status_code == 404) {
             throw new Errors\NotFound();
         }
