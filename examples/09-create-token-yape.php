@@ -11,10 +11,9 @@ try {
   // Codigo de Comercio
   $PUBLIC_KEY = "{PUBLIC KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
-  $futureDate = date('Y', strtotime('+1 year'));
   
-  // Creando Cargo a una tarjeta
-  $token = $culqi->Tokens->create(
+  // Creando Token Yape
+  $token = $culqi->Tokens->createYape(
       array(
         "otp" => "946627",
         "number_phone" => "951123456",
