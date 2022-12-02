@@ -40,6 +40,15 @@ class Orders extends Resource {
     }
 
     /**
+     * @param array|null $options
+     *
+     * @return confirm Order 
+     */
+    public function confirm_order_type($options = NULL) {
+        return $this->request("POST", self::URL_ORDERS . "confirm/", $api_key = $this->culqi->api_key, $options);
+    }
+
+    /**
      * @param string|null $id
      *
      * @return get a Order
