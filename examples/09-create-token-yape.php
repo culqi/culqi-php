@@ -1,7 +1,7 @@
 <?php
 /**
- * Ejemplo 1
- * Como crear un token a una tarjeta Culqi PHP.
+ * Ejemplo 9
+ * Como crear un token yape Culqi PHP.
  */
 
 try {
@@ -16,13 +16,10 @@ try {
   // Creando Cargo a una tarjeta
   $token = $culqi->Tokens->create(
       array(
-        "card_number" => "4111111111111111",
-        "cvv" => "123",
-        "email" => "culqi".uniqid()."@culqi.com", //email must not repeated
-        "expiration_month" => 7,
-        "expiration_year" => $futureDate,
-        "fingerprint" => uniqid(),
-        "metadata" => array("dni" => "71702935")
+        "otp" => "946627",
+        "number_phone" => "951123456",
+        "amount" => "500",
+        "metadata" => array("dni" => "5831543")
       )
   );
   // Respuesta
