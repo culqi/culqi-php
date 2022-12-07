@@ -7,21 +7,21 @@
 Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
 
 
-Esta biblioteca trabaja con la [v2.0](https://culqi.com/api/) de Culqi API.
+Esta biblioteca es compatible con la [v2.0](https://culqi.com/api/) del Culqi API.
 
 
-## Requisitos
+## Requisitos 
 
 * PHP 5.3 o superiores.
-* Credenciales de comercio Culqi (1).
+* [Credenciales de comercio Culqi](https://panel.culqi.com) (1).
 
-(1) Debes registrarte [aquí](https://integ-panel.culqi.com/#/registro). Luego, crear un comercio y estando en el panel, acceder a Desarrollo > [***API Keys***](https://integ-panel.culqi.com/#/panel/comercio/desarrollo/llaves).
+(1) Debes registrarte [aquí](https://integ-panel.culqi.com/#/registro). Luego, crear un comercio, logearte en tu Culqi Panel y acceder a Desarrollo > [***API Keys***](https://integ-panel.culqi.com/#/panel/comercio/desarrollo/llaves).
 
 ![alt tag](http://i.imgur.com/NhE6mS9.png)
 
 ## Instalación
 
-### Vía Composer
+### 1. Vía Composer
 ```json
 {
   "require": {
@@ -36,7 +36,7 @@ Y cargar todo usando el autoloader de Composer.
 require 'vendor/autoload.php';
 ```
 
-### Manualmente
+### 2. Manualmente
 
 Clonarse el repositorio o bajarse el código fuente
 
@@ -56,7 +56,7 @@ include_once dirname(__FILE__).'/libraries/culqi-php/lib/culqi.php';
 
 ## Modo de uso
 
-En todos ejemplos, inicialmente hay que configurar la credencial `$API_KEY `
+Como primer paso hay que configurar la credencial `$API_KEY `
 
 ```php
 // Configurar tu API Key y autenticación
@@ -64,13 +64,16 @@ $SECRET_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 ```
 
-### Crear un token (Usarlo SOLO en DESARROLLO)
+### Crear un token (Usarlo solo en Integración)
 
-Antes de crear un Cargo, Plan o un Suscriptor es necesario crear un `token` de tarjeta. Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo
-debe ser usada para **desarrollo**. Lo recomendable es generar los 'tokens' con **CULQI.JS** cuando pases a producción, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo información sensible.
+Antes de crear un Cargo, Plan o un Suscripción es necesario crear un `token` de tarjeta. 
+Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo debe ser usada para el ambiente de **Integración**.
+
+Lo recomendable es generar los 'tokens' con **Checkout v4** o **CULQI.JS v4**, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo los datos sensibles de la tarjeta de crédito/débito.
 
 
 ### Crear un cargo (Cargos)
+
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
 deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
 
@@ -88,8 +91,8 @@ $charge = $culqi->Charges->create(
           "address" => "Av. Lima 123",
           "address_city" => "LIMA",
           "country_code" => "PE",
-          "first_name" => "Will",
-          "last_name" => "Muro",
+          "first_name" => "Test_Nombre",
+          "last_name" => "Test_apellido",
           "phone_number" => "9889678986",
       ),
       "source_id" => "{token_id o card_id}"
@@ -100,6 +103,7 @@ $charge = $culqi->Charges->create(
 print_r($charge);
 ```
 ### Crear un Plan
+
 ```php
 $plan = $culqi->Plans->create(
   array(
@@ -119,6 +123,7 @@ print_r($plan);
 ```
 
 ### Crear un Customer
+
 ```php
 $customer = $culqi->Customers->create(
   array(
@@ -136,6 +141,7 @@ print_r($customer);
 ```
 
 ### Crear un Card
+
 ```php
 $card = $culqi->Cards->create(
   array(
@@ -147,6 +153,7 @@ print_r($card);
 ```
 
 ### Crear un Suscripción a un plan
+
 ```php
 // Creando Suscriptor a un plan
 $subscription = $culqi->Subscriptions->create(
@@ -160,7 +167,7 @@ $subscription = $culqi->Subscriptions->create(
 print_r($subscription);
 ```
 
-### Crear un Order 
+### Crear una Orden 
 
 [Ver ejemplo completo](/examples/08-create-order.php)
 
