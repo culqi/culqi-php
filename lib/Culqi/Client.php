@@ -2,6 +2,7 @@
 namespace Culqi;
 
 use Culqi\Error as Errors;
+use WpOrg\Requests\Requests as Requests;
 
 /**
  * Class Client
@@ -22,13 +23,13 @@ class Client {
             else $base_url = Culqi::BASE_URL;
 
             if($method == "GET") {
-                $response = \Requests::get(Culqi::BASE_URL. $url . $url_params, $headers, $options);
+                $response = Requests::get(Culqi::BASE_URL. $url . $url_params, $headers, $options);
             } else if($method == "POST") {
-                $response = \Requests::post($base_url . $url, $headers, json_encode($data), $options);
+                $response = Requests::post($base_url . $url, $headers, json_encode($data), $options);
             } else if($method == "PATCH") {
-                $response = \Requests::patch(Culqi::BASE_URL . $url, $headers, json_encode($data), $options);
+                $response = Requests::patch(Culqi::BASE_URL . $url, $headers, json_encode($data), $options);
             } else if($method == "DELETE") {
-                $response = \Requests::delete(Culqi::BASE_URL. $url . $url_params, $headers, $options);
+                $response = Requests::delete(Culqi::BASE_URL. $url . $url_params, $headers, $options);
             }
         } catch (\Exception $e) {
             throw new Errors\UnableToConnect();

@@ -1,7 +1,7 @@
 <?php
 /**
  * Ejemplo 8
- * Como crear una orden usando Culqi PHP.
+ * Como confirmar una orden usando Culqi PHP.
  */
 
 try {

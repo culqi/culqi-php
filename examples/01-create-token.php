@@ -4,6 +4,8 @@
  * Como crear un token a una tarjeta Culqi PHP.
  */
 
+date_default_timezone_set('America/Lima');
+
 try {
   // Usando Composer (o puedes incluir las dependencias manualmente)
   require '../vendor/autoload.php';
@@ -12,7 +14,7 @@ try {
   $PUBLIC_KEY = "{PUBLIC KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
   $futureDate = date('Y', strtotime('+1 year'));
-  
+    
   // Creando Cargo a una tarjeta
   $token = $culqi->Tokens->create(
       array(
