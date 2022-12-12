@@ -1,7 +1,7 @@
 <?php
 /**
- * Ejemplo 3
- * Como crear un plan usando Culqi PHP.
+ * Ejemplo 4
+ * Como crear una devolution usando Culqi PHP.
  */
 
 try {
@@ -13,19 +13,15 @@ try {
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 
   // Creando Cargo a una tarjeta
-  $plan = $culqi->Plans->create(
+  $refund = $culqi->Refunds->create(
       array(
-        "amount" => 10000,
-        "currency_code" => "PEN",
-        "interval" => "months",
-        "interval_count" => 1,
-        "limit" => 12,
-        "name" => "Plan de Prueba ".uniqid(),
-        "trial_days" => 15
+        "amount" => 500,
+        "charge_id" => "{charge_id}",
+        "reason" => "bought an incorrect product"
       )
   );
   // Respuesta
-  echo json_encode($plan);
+  echo json_encode($refund);
 
 } catch (Exception $e) {
   echo json_encode($e->getMessage());

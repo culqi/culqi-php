@@ -1,6 +1,6 @@
 <?php
 /**
- * Ejemplo 1
+ * Ejemplo 2
  * Como crear un token Yape con Culqi PHP.
  */
 

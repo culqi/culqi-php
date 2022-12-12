@@ -1,6 +1,6 @@
 <?php
 /**
- * Ejemplo 2
+ * Ejemplo 3
  * Como crear un charge a una tarjeta usando Culqi PHP.
  */
 
