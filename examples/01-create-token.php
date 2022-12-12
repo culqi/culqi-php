@@ -11,16 +11,18 @@ try {
   // Codigo de Comercio
   $PUBLIC_KEY = "{PUBLIC KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
-
+  $futureDate = date('Y', strtotime('+1 year'));
+  
   // Creando Cargo a una tarjeta
   $token = $culqi->Tokens->create(
       array(
         "card_number" => "4111111111111111",
         "cvv" => "123",
-        "email" => "wmuro".uniqid()."@me.com", //email must not repeated
-        "expiration_month" => 9,
-        "expiration_year" => 2020,
-        "fingerprint" => uniqid()
+        "email" => "culqi".uniqid()."@culqi.com", //email must not repeated
+        "expiration_month" => 7,
+        "expiration_year" => $futureDate,
+        "fingerprint" => uniqid(),
+        "metadata" => array("dni" => "71702935")
       )
   );
   // Respuesta

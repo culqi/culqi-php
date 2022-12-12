@@ -10,6 +10,7 @@ namespace Culqi;
 class Tokens extends Resource {
 
     const URL_TOKENS = "/tokens/";
+    const URL_TOKENS_YAPE = "/tokens/yape/";
 
     /**
      * @param array|string|null $options
@@ -27,6 +28,10 @@ class Tokens extends Resource {
      */
     public function create($options = NULL) {
         return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true);
+    }
+
+    public function createYape($options = NULL) {
+        return $this->request("POST", self::URL_TOKENS_YAPE, $api_key = $this->culqi->api_key, $options, true);
     }
 
     /**
