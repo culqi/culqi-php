@@ -1,7 +1,7 @@
 <?php
 /**
  * Ejemplo 1
- * Como crear un token a una tarjeta Culqi PHP.
+ * Como crear un token Yape con Culqi PHP.
  */
 
 try {
@@ -11,17 +11,13 @@ try {
   // Codigo de Comercio
   $PUBLIC_KEY = "{PUBLIC KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
-  $futureDate = date('Y', strtotime('+1 year'));
   
   // Creando Cargo a una tarjeta
-  $token = $culqi->Tokens->create(
+  $token = $culqi->Tokens->createYape(
       array(
-        "card_number" => "4111111111111111",
-        "cvv" => "123",
-        "email" => "culqi".uniqid()."@culqi.com", //email must not repeated
-        "expiration_month" => 7,
-        "expiration_year" => $futureDate,
-        "fingerprint" => uniqid(),
+        "number_phone" => "900000001",
+        "otp" => "425251",
+        "amount" => 700,
         "metadata" => array("dni" => "71702935")
       )
   );

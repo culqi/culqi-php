@@ -19,8 +19,8 @@ try {
         "address_city" => "lima",
         "country_code" => "PE",
         "email" => "www@".uniqid()."me.com",
-        "first_name" => "Will",
-        "last_name" => "Muro",
+        "first_name" => "Test name",
+        "last_name" => "Test lastname",
         "metadata" => array("test"=>"test"),
         "phone_number" => 899898999
       )
