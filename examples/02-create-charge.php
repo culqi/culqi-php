@@ -30,7 +30,7 @@ try {
     "installments" => 0,
     "email" => "test@culqi.com",
     "metadata" => array("test"=>"test"),
-    "source_id" => "tkn_test_uca3XjERRwSFkS26" // previamente generado usando create token
+    "source_id" => "{token_id}" // previamente generado usando create token
   );
 
 
