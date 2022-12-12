@@ -4,6 +4,8 @@
  * Como crear una orden usando Culqi PHP.
  */
 
+date_default_timezone_set('America/Lima');
+
 try {
   // Usando Composer (o puedes incluir las dependencias manualmente)
   require '../vendor/autoload.php';
