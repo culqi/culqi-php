@@ -1,6 +1,6 @@
 |<?php
 /**
- * Ejemplo 4
+ * Ejemplo 8
  * Como añadir un suscriptor a un plan específico usando Culqi PHP.
  */
 
