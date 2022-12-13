@@ -11,7 +11,7 @@ Nuestra Biblioteca PHP oficial de CULQI, es compatible con la [v2.0](https://cul
 
 * PHP 5.6 o superiores.
 * Afiliate [aquí](https://afiliate.culqi.com/).
-* Obtén tu llaves, si vas a realizar pruebas obtén tus llaves desde [aquí](https://integ-panel.culqi.com/#/registro), si vas a realizar transacciones reales obtén tus llaves desde [aquí](https://panel.culqi.com/#/registro) (1).
+* Si vas a realizar pruebas obtén tus llaves desde [aquí](https://integ-panel.culqi.com/#/registro), si vas a realizar transacciones reales obtén tus llaves desde [aquí](https://panel.culqi.com/#/registro) (1).
 
 > Recuerda que para obtener tus llaves debes ingresar a tu CulqiPanel > Desarrollo > ***API Keys***.
 
@@ -72,7 +72,7 @@ $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 
 > Recuerda que las llaves de integración se identifican como "test" y las de producción como "live".
 
-## Crear un token (Usarlo solo en Integración)
+## Crear un token
 
 Antes de crear un Cargo, Plan o un Suscripción es necesario crear un `token` de tarjeta. 
 Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo debe ser usada para el ambiente de **Integración**.
@@ -81,7 +81,7 @@ Lo recomendable es generar los 'tokens' con **Checkout v4** o **CULQI.JS v4**, *
 
 > Recuerda que cuando interactúas directamente con el API necesitas cumplir la normativa de PCI DSS 3.2. Por ello, te pedimos que llenes el formulario SAQ-D y lo envíes al buzón de riesgos Culqi.
 
-## Crear un cargo (Cargos)
+## Crear un cargo
 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
 deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
