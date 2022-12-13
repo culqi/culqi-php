@@ -4,20 +4,20 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-Biblioteca PHP oficial de CULQI, pagos simples en tu sitio web.
-
-
-Esta biblioteca es compatible con la [v2.0](https://culqi.com/api/) del Culqi API.
+Nuestra Biblioteca PHP oficial de CULQI, es compatible con la [v2.0](https://culqi.com/api/) del Culqi API, con el cual tendrás la posibilidad de realizar cobros con tarjetas de débito y crédito, Yape, PagoEfectivo, billeteras móviles y Cuotéalo con solo unos simples pasos de configuración.
 
 
 ## Requisitos 
 
-* PHP 5.3 o superiores.
-* [Credenciales de comercio Culqi](https://panel.culqi.com) (1).
+* PHP 5.6 o superiores.
+* Afiliate [aquí](https://afiliate.culqi.com/).
+* Obtén tu llaves, si vas a realizar pruebas obtén tus llaves desde [aquí](https://integ-panel.culqi.com/#/registro), si vas a realizar transacciones reales obtén tus llaves desde [aquí](https://panel.culqi.com/#/registro) (1).
 
-(1) Debes registrarte [aquí](https://integ-panel.culqi.com/#/registro). Luego, crear un comercio, logearte en tu Culqi Panel y acceder a Desarrollo > [***API Keys***](https://integ-panel.culqi.com/#/panel/comercio/desarrollo/llaves).
+> Recuerda que para obtener tus llaves debes ingresar a tu CulqiPanel > Desarrollo > ***API Keys***.
 
 ![alt tag](http://i.imgur.com/NhE6mS9.png)
+
+> Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
 
 ## Instalación
 
@@ -38,7 +38,7 @@ require 'vendor/autoload.php';
 
 ### 2. Manualmente
 
-Clonarse el repositorio o bajarse el código fuente
+Clonar el repositorio o descargar el código fuente
 
 ```bash
 git clone git@github.com:culqi/culqi-php.git
@@ -54,25 +54,34 @@ Requests::register_autoloader();
 include_once dirname(__FILE__).'/libraries/culqi-php/lib/culqi.php';
 ```
 
-## Modo de uso
+Luego ejecuta composer install
+
+```bash
+composer install
+```
+
+## Configuración
 
 Como primer paso hay que configurar la credencial `$API_KEY `
 
 ```php
 // Configurar tu API Key y autenticación
-$SECRET_KEY = "vk9Xjpe2YZMEOSBzEwiRcPDibnx2NlPBYsusKbDobAk";
+$SECRET_KEY = "sk_test_jasd6939ujn62g26";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 ```
 
-### Crear un token (Usarlo solo en Integración)
+> Recuerda que las llaves de integración se identifican como "test" y las de producción como "live".
+
+## Crear un token (Usarlo solo en Integración)
 
 Antes de crear un Cargo, Plan o un Suscripción es necesario crear un `token` de tarjeta. 
 Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo debe ser usada para el ambiente de **Integración**.
 
 Lo recomendable es generar los 'tokens' con **Checkout v4** o **CULQI.JS v4**, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo los datos sensibles de la tarjeta de crédito/débito.
 
+> Recuerda que cuando interactúas directamente con el API necesitas cumplir la normativa de PCI DSS 3.2. Por ello, te pedimos que llenes el formulario SAQ-D y lo envíes al buzón de riesgos Culqi.
 
-### Crear un cargo (Cargos)
+## Crear un cargo (Cargos)
 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
 deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
@@ -102,7 +111,7 @@ $charge = $culqi->Charges->create(
 //Respuesta
 print_r($charge);
 ```
-### Crear un Plan
+## Crear un Plan
 
 ```php
 $plan = $culqi->Plans->create(
@@ -122,7 +131,7 @@ $plan = $culqi->Plans->create(
 print_r($plan);
 ```
 
-### Crear un Customer
+## Crear un Customer
 
 ```php
 $customer = $culqi->Customers->create(
@@ -140,7 +149,7 @@ $customer = $culqi->Customers->create(
 print_r($customer);
 ```
 
-### Crear un Card
+## Crear un Card
 
 ```php
 $card = $culqi->Cards->create(
@@ -152,7 +161,7 @@ $card = $culqi->Cards->create(
 print_r($card);
 ```
 
-### Crear un Suscripción a un plan
+## Crear un Suscripción a un plan
 
 ```php
 // Creando Suscriptor a un plan
@@ -167,7 +176,7 @@ $subscription = $culqi->Subscriptions->create(
 print_r($subscription);
 ```
 
-### Crear una Orden 
+## Crear una Orden 
 
 [Ver ejemplo completo](/examples/08-create-order.php)
 
@@ -191,7 +200,16 @@ $order = $culqi->Orders->create(
 print_r($order);
 ```
 
-## Probar ejemplos
+## Pruebas
+
+Antes de activar tu tienda en producción, te recomendamos realizar pruebas de integración. Así garantizarás un correcto despliegue.
+
+Si vas a empezar a vender desde tu tienda virtual, deberás seleccionar el ambiente de producción e ingresar tus llaves.
+
+> Recuerda que si quieres probar tu integración, puedes utilizar nuestras [tarjetas de prueba.](https://docs.culqi.com/es/documentacion/pagos-online/tarjetas-de-prueba/)
+
+Descarga los ejemplos desde:
+
 ```bash
 git clone https://github.com/culqi/culqi-php.git
 composer install
