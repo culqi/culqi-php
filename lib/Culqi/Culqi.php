@@ -11,6 +11,18 @@ use Culqi\Error as Errors;
 class Culqi
 {
     public $api_key;
+    public $Tokens;
+    public $Charges;
+    public $Subscriptions;
+    public $Refunds;
+    public $Plans;
+    public $Transfers;
+    public $Iins;
+    public $Cards;
+    public $Events;
+    public $Customers;
+    public $Orders;
+
     /**
     * La versión de API usada
     */
@@ -18,12 +30,12 @@ class Culqi
     /**
      * La URL Base por defecto
      */
-    const BASE_URL = "https://api.culqi.com/v2";   
+    const BASE_URL = "https://qa-api.culqi.xyz/v2";   
 
     /**
      * URL alternativa (segura)
      */ 
-    const SECURE_BASE_URL = "https://secure.culqi.com/v2"; 
+    const SECURE_BASE_URL = "https://qa-secure.culqi.xyz/v2"; 
 
     /**
      * Constructor.

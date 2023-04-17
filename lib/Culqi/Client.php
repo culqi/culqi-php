@@ -3,6 +3,7 @@ namespace Culqi;
 
 use Culqi\Error as Errors;
 use WpOrg\Requests\Requests as Requests;
+use phpseclib3\Crypt\PublicKeyLoader as PublicKeyLoader;
 
 /**
  * Class Client
@@ -10,10 +11,12 @@ use WpOrg\Requests\Requests as Requests;
  * @package Culqi
  */
 class Client {
-    public function request($method, $url, $api_key, $data = NULL, $secure_url = false) {
+    public function request($method, $url, $api_key, $data = NULL, $secure_url = false, $additional_headers = false)
+    {
         try {
             $url_params = is_array($data) ? '?' . http_build_query($data) : '';
             $headers= array("Authorization" => "Bearer ".$api_key, "Content-Type" => "application/json", "Accept" => "application/json");
+            $headers = array_merge($headers, $additional_headers);
             $options = array(
                 'timeout' => 120
             ); 
@@ -53,5 +56,32 @@ class Client {
             throw new Errors\MethodNotAllowed();
         }
         throw new Errors\UnhandledError($response->body, $response->status_code);
+    }
+
+    public function encrypt($data = [], $rsa_public_key = false)
+    {
+        try {
+            $aes_key = openssl_random_pseudo_bytes(32);
+            $aes_iv = openssl_random_pseudo_bytes(16);
+
+            //encrypt json using AES
+            $ciphertext = openssl_encrypt(json_encode($data), 'AES-256-CBC', $aes_key, OPENSSL_RAW_DATA, $aes_iv);
+
+            $rsa = PublicKeyLoader::load($rsa_public_key, $password = false);
+            $hashingAlgorithm = 'sha1';
+
+            $encrypted_aes_key = $rsa->withHash($hashingAlgorithm)->withMGFHash($hashingAlgorithm)->encrypt($aes_key);
+            $encrypted_aes_iv = $rsa->withHash($hashingAlgorithm)->withMGFHash($hashingAlgorithm)->encrypt($aes_iv);
+
+            $encrypted_data = [
+                "encrypted_data" => base64_encode($ciphertext),
+                "encrypted_key" => base64_encode($encrypted_aes_key),
+                "encrypted_iv" => base64_encode($encrypted_aes_iv),
+            ];
+
+            return $encrypted_data;
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

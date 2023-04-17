@@ -26,8 +26,13 @@ class Tokens extends Resource {
      *
      * @return create Token response.
      */
-    public function create($options = NULL) {
-        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true);
+    public function create($options = NULL, $encrypted = false, $rsa_public_key = false, $rsa_id = false) {
+        $additional_headers = false;
+        if($encrypted && $rsa_public_key && $rsa_id) {
+            $options = $this->encrypt($options, $rsa_public_key);
+            $additional_headers = ['x-culqi-rsa-id' => $rsa_id];
+        }
+        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $additional_headers);
     }
 
     public function createYape($options = NULL) {
