@@ -1,19 +1,16 @@
 <?php
-/**
- * Ejemplo 1
- * Como crear un token a una tarjeta Culqi PHP.
- */
+
+require '../vendor/autoload.php';
 
 date_default_timezone_set('America/Lima');
 
 try {
-  // Usando Composer (o puedes incluir las dependencias manualmente)
-  require '../vendor/autoload.php';
-
-  // Codigo de Comercio
-  $PUBLIC_KEY = "{PUBLIC KEY}";
+  $PUBLIC_KEY = "";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
   $futureDate = date('Y', strtotime('+1 year'));
+  $encrypted = true;
+  $rsa_puclic_key = "";
+  $rsa_id = "";
     
   // Creando Cargo a una tarjeta
   $token = $culqi->Tokens->create(
@@ -25,7 +22,10 @@ try {
         "expiration_year" => $futureDate,
         "fingerprint" => uniqid(),
         "metadata" => array("dni" => "71702935")
-      )
+      ),
+      $encrypted,
+      $rsa_puclic_key,
+      $rsa_id
   );
   // Respuesta
   echo json_encode("Token: ".$token->id);

@@ -12,6 +12,8 @@ class Resource extends Client {
     /**
      * Constructor.
      */
+    public $culqi;
+    
     public function __construct($culqi)
     {
         $this->culqi = $culqi;
