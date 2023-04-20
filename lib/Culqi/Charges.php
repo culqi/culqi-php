@@ -9,7 +9,7 @@ namespace Culqi;
  */
 class Charges extends Resource {
 
-    const URL_CHARGES = "/charges/";
+    const URL_CHARGES = "/charges";
 
     /**
      * @param array|null $options
@@ -25,8 +25,8 @@ class Charges extends Resource {
      *
      * @return create Charge response.
      */
-    public function create($options = NULL) {
-        return $this->request("POST", self::URL_CHARGES, $api_key = $this->culqi->api_key, $options);
+    public function create($options = NULL, $encryption_data=[]) {
+        return $this->request("POST", self::URL_CHARGES, $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     }
 
     /**
@@ -53,8 +53,8 @@ class Charges extends Resource {
      *
      * @return update Charge response.
      */
-    public function update($id = NULL, $options = NULL) {
-        return $this->request("PATCH", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key, $options);
+    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
+        return $this->request("PATCH", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     }
 
 }

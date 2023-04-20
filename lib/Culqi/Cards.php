@@ -25,8 +25,8 @@ class Cards extends Resource {
     *
     * @return create Card response.
     */
-    public function create($options = NULL) {
-        return $this->request("POST", self::URL_CARDS, $api_key = $this->culqi->api_key, $options);
+    public function create($options = NULL, $encryption_data=[]) {
+        return $this->request("POST", self::URL_CARDS, $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     }
 
     /**
@@ -53,8 +53,8 @@ class Cards extends Resource {
     *
     * @return update Card response.
     */
-    public function update($id = NULL, $options = NULL) {
-        return $this->request("PATCH", self::URL_CARDS . $id . "/", $api_key = $this->culqi->api_key, $options);
+    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
+        return $this->request("PATCH", self::URL_CARDS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     }
 
 }

@@ -13,6 +13,11 @@ try {
   // Configurar tu API Key y autenticación
   $SECRET_KEY = "{SECRET KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
+  //Datos para encriptar
+  $encryption_data = array(
+    "rsa_public_key" => "",
+    "rsa_id" => ""
+  );
 
   // Creando Cargo a una tarjeta
   $order = $culqi->Orders->create(
@@ -29,7 +34,8 @@ try {
          ),
         "expiration_date" => time() + 24*60*60,   // Orden con un dia de validez
         "metadata" => array("dni" => "71702935")
-      )
+      ),
+      $encryption_data
   );
   // Respuesta
   echo json_encode($order);

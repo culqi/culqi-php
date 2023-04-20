@@ -9,7 +9,7 @@ namespace Culqi;
  */
 class Tokens extends Resource {
 
-    const URL_TOKENS = "/tokens/";
+    const URL_TOKENS = "/tokens";
     const URL_TOKENS_YAPE = "/tokens/yape/";
 
     /**
@@ -26,13 +26,8 @@ class Tokens extends Resource {
      *
      * @return create Token response.
      */
-    public function create($options = NULL, $encrypted = false, $rsa_public_key = false, $rsa_id = false) {
-        $additional_headers = false;
-        if($encrypted && $rsa_public_key && $rsa_id) {
-            $options = $this->encrypt($options, $rsa_public_key);
-            $additional_headers = ['x-culqi-rsa-id' => $rsa_id];
-        }
-        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $additional_headers);
+    public function create($options = NULL, $encryption_data = []) {
+        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_data);
     }
 
     public function createYape($options = NULL) {
@@ -54,8 +49,8 @@ class Tokens extends Resource {
      *
      * @return update Token response.
      */
-    public function update($id = NULL, $options = NULL) {
-        return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options);
+    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
+        return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options, $encryption_data);
     }
 
 }
