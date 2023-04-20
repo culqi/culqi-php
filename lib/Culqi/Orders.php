@@ -9,7 +9,7 @@ namespace Culqi;
  */
 class Orders extends Resource {
 
-    const URL_ORDERS = "/orders/";
+    const URL_ORDERS = "/orders";
 
     /**
      * @param array|null $options
@@ -25,8 +25,8 @@ class Orders extends Resource {
      *
      * @return create Order 
      */
-    public function create($options = NULL) {
-        return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options);
+    public function create($options = NULL, $encryption_data = []) {
+        return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     } 
 
 
@@ -44,8 +44,8 @@ class Orders extends Resource {
      *
      * @return confirm Order 
      */
-    public function confirm_order_type($options = NULL) {
-        return $this->request("POST", self::URL_ORDERS . "confirm/", $api_key = $this->culqi->api_key, $options);
+    public function confirm_order_type($options = NULL, $encryption_data=[]) {
+        return $this->request("POST", self::URL_ORDERS . "confirm/", $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     }
 
     /**
@@ -72,8 +72,8 @@ class Orders extends Resource {
      *
      * @return update Order
      */
-    public function update($id = NULL, $options = NULL) {
-        return $this->request("PATCH", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key, $options);
+    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
+        return $this->request("PATCH", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_data);
     }
 
 }
