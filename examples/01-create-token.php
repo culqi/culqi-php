@@ -13,7 +13,7 @@ try {
     "rsa_id" => ""
   );
     
-  // Creando Cargo a una tarjeta
+  // Creando token a una tarjeta sin encriptar
   $token = $culqi->Tokens->create(
       array(
         "card_number" => "4111111111111111",
@@ -24,10 +24,27 @@ try {
         "fingerprint" => uniqid(),
         "metadata" => array("dni" => "71702935")
       ),
-      $encryption_data
+      ''
   );
   // Respuesta
-  echo json_encode("Token: ".$token->id);
+  echo json_encode("Token sin encriptar payload: ".$token->id)."<br>";
+
+
+  // Creando token a una tarjeta con encriptación
+  $token = $culqi->Tokens->create(
+    array(
+      "card_number" => "4111111111111111",
+      "cvv" => "123",
+      "email" => "culqi".uniqid()."@culqi.com", //email must not repeated
+      "expiration_month" => "7",
+      "expiration_year" => $futureDate,
+      "fingerprint" => uniqid(),
+      "metadata" => array("dni" => "71702935")
+    ),
+    $encryption_data
+);
+// Respuesta
+echo json_encode("Token con encriptar payload: ".$token->id);
 
 } catch (Exception $e) {
   echo json_encode($e->getMessage());
