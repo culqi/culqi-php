@@ -69,7 +69,7 @@ class Client {
             $encrypted_message = openssl_encrypt(json_encode($data), 'AES-256-CBC', $aes_key, OPENSSL_RAW_DATA, $aes_iv);
 
             $rsa = PublicKeyLoader::load($rsa_public_key, $password = false);
-            $hashingAlgorithm = 'sha1';
+            $hashingAlgorithm = 'sha256';
 
             $encrypted_aes_key = $rsa->withHash($hashingAlgorithm)->withMGFHash($hashingAlgorithm)->encrypt($aes_key);
             $encrypted_aes_iv = $rsa->withHash($hashingAlgorithm)->withMGFHash($hashingAlgorithm)->encrypt($aes_iv);
