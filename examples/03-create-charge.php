@@ -42,10 +42,15 @@ try {
 
   $with_tds = ($req_body) + (isset($tds_xid) ? $tds : array());
 
-  // Creando Cargo a una tarjeta
-  $charge = $culqi->Charges->create($with_tds, $encryption_data=[]);
+  // Creando Cargo sin encriptar a una tarjeta
+  $charge = $culqi->Charges->create($with_tds);
   // Respuesta
-  echo json_encode($charge);
+  echo "<b>Cargo sin encriptar payload:</b> "."<br>".json_encode($charge)."<br>";
+
+  // Creando Cargo con encriptación a una tarjeta
+  $charge = $culqi->Charges->create($with_tds, $encryption_data);
+  // Respuesta
+  echo "<b>Cargo con payload encriptado:</b> "."<br>".json_encode($charge);
 
 } catch (Exception $e) {
   echo json_encode($e->getMessage());

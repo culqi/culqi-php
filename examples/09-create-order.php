@@ -19,26 +19,35 @@ try {
     "rsa_id" => ""
   );
 
-  // Creando Cargo a una tarjeta
+  $req_body = array(
+    "amount" => 1000,
+    "currency_code" => "PEN",
+    "description" => 'Venta de prueba',        
+    "order_number" => 'pedido-9999',  
+    "client_details" => array( 
+        "first_name"=> "Brayan", 
+        "last_name" => "Cruces",
+        "email" => "micorreo@gmail.com", 
+        "phone_number" => "51945145222"
+     ),
+    "expiration_date" => time() + 24*60*60,   // Orden con un dia de validez
+    "metadata" => array("dni" => "71702935")
+    );
+
+  // Creando Ordern sin encriptar
   $order = $culqi->Orders->create(
-      array(
-        "amount" => 1000,
-        "currency_code" => "PEN",
-        "description" => 'Venta de prueba',        
-        "order_number" => 'pedido-9999',  
-        "client_details" => array( 
-            "first_name"=> "Brayan", 
-            "last_name" => "Cruces",
-            "email" => "micorreo@gmail.com", 
-            "phone_number" => "51945145222"
-         ),
-        "expiration_date" => time() + 24*60*60,   // Orden con un dia de validez
-        "metadata" => array("dni" => "71702935")
-      ),
-      $encryption_data
+      $req_body
   );
   // Respuesta
-  echo json_encode($order);
+  echo "<b>Orden sin encriptar payload:</b> "."<br>".json_encode($order)."<br>";;
+
+  // Creando Ordern con encriptación
+  $order = $culqi->Orders->create(
+    $req_body,
+    $encryption_data
+);
+// Respuesta
+echo "<b>Orden con payload encriptado:</b> "."<br>".json_encode($order);
 
 } catch (Exception $e) {
   echo json_encode($e->getMessage());
