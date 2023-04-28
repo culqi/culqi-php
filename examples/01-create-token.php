@@ -8,7 +8,7 @@ try {
   $PUBLIC_KEY = "{PUBLIC KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
   $futureDate = date('Y', strtotime('+1 year'));
-  $encryption_data = array(
+  $encryption_params = array(
     "rsa_public_key" => "",
     "rsa_id" => ""
   );
@@ -34,7 +34,7 @@ try {
   // Creando token a una tarjeta con encriptación
   $token = $culqi->Tokens->create(
     $req_body,
-    $encryption_data
+    $encryption_params
   );
   // Respuesta
   echo "<b>Token con payload encriptado:</b> "."<br>".json_encode($token->id);

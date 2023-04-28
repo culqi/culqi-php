@@ -7,7 +7,7 @@ try {
   // Configurar tu API Key y autenticación
   $PUBLIC_KEY = "{SECRET KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
-  $encryption_data = array(
+  $encryption_params = array(
     "rsa_public_key" => "",
     "rsa_id" => ""
   );
@@ -28,7 +28,7 @@ try {
   // update orden
   $charge = $culqi->Charges->update(
     $req_body,
-    $encryption_data
+    $encryption_params
   );
   // Respuesta
   echo "<b>Update charge con payload encriptado:</b> "."<br>".json_encode($charge);

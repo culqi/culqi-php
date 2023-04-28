@@ -12,6 +12,9 @@
  * @link https://developers.culqi.com/ Culqi Developers
  */
 
+//utils
+include_once dirname(__FILE__).'/Culqi/utils/encryption/rsa_aes/encoder.php';
+
 // Errors
 include_once dirname(__FILE__).'/Culqi/Error/Errors.php';
 include_once dirname(__FILE__).'/Culqi/Client.php';

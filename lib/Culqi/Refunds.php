@@ -25,8 +25,8 @@ class Refunds extends Resource {
      *
      * @return create Refund response.
      */
-    public function create($options = NULL, $encryption_data=[]) {
-        return $this->request("POST", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options, false, $encryption_data);
+    public function create($options = NULL, $encryption_params=[]) {
+        return $this->request("POST", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
     /**
@@ -44,8 +44,8 @@ class Refunds extends Resource {
      *
      * @return update Refund response.
      */
-    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
-        return $this->request("PATCH", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_data);
+    public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        return $this->request("PATCH", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
 }
