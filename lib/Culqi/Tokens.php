@@ -26,8 +26,8 @@ class Tokens extends Resource {
      *
      * @return create Token response.
      */
-    public function create($options = NULL, $encryption_data = []) {
-        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_data);
+    public function create($options = NULL, $encryption_params = []) {
+        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_params);
     }
 
     public function createYape($options = NULL) {
@@ -49,8 +49,8 @@ class Tokens extends Resource {
      *
      * @return update Token response.
      */
-    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
-        return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options, $encryption_data);
+    public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options, $encryption_params);
     }
 
 }

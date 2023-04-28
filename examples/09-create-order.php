@@ -14,7 +14,7 @@ try {
   $SECRET_KEY = "{SECRET KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
   //Datos para encriptar
-  $encryption_data = array(
+  $encryption_params = array(
     "rsa_public_key" => "",
     "rsa_id" => ""
   );
@@ -44,7 +44,7 @@ try {
   // Creando Ordern con encriptación
   $order = $culqi->Orders->create(
     $req_body,
-    $encryption_data
+    $encryption_params
 );
 // Respuesta
 echo "<b>Orden con payload encriptado:</b> "."<br>".json_encode($order);

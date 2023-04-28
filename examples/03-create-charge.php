@@ -13,7 +13,7 @@ try {
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 
   //Datos para encriptar
-  $encryption_data = array(
+  $encryption_params = array(
     "rsa_public_key" => "",
     "rsa_id" => ""
   );
@@ -48,7 +48,7 @@ try {
   echo "<b>Cargo sin encriptar payload:</b> "."<br>".json_encode($charge)."<br>";
 
   // Creando Cargo con encriptación a una tarjeta
-  $charge = $culqi->Charges->create($with_tds, $encryption_data);
+  $charge = $culqi->Charges->create($with_tds, $encryption_params);
   // Respuesta
   echo "<b>Cargo con payload encriptado:</b> "."<br>".json_encode($charge);
 

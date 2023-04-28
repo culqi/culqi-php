@@ -11,7 +11,7 @@ try {
   // Configurar tu API Key y autenticación
   $SECRET_KEY = "{SECRET KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
-  $encryption_data = array(
+  $encryption_params = array(
     "rsa_public_key" => "",
     "rsa_id" => ""
   );
@@ -36,7 +36,7 @@ try {
 
   $customer = $culqi->Customers->create(
     $req_body,
-    $encryption_data
+    $encryption_params
   );
   // Respuesta
   echo "<b>Customer con payload encriptado:</b> "."<br>".json_encode($customer);

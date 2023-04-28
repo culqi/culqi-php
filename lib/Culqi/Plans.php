@@ -25,8 +25,8 @@ class Plans extends Resource {
      *
      * @return create Plan response.
      */
-    public function create($options = NULL, $encryption_data=[]) {
-        return $this->request("POST", self::URL_PLANS, $api_key = $this->culqi->api_key, $options, false, $encryption_data);
+    public function create($options = NULL, $encryption_params=[]) {
+        return $this->request("POST", self::URL_PLANS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
     /**
@@ -53,8 +53,8 @@ class Plans extends Resource {
      *
      * @return update Plan response.
      */
-    public function update($id = NULL, $options = NULL, $encryption_data=[]) {
-        return $this->request("PATCH", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_data);
+    public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        return $this->request("PATCH", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
 }

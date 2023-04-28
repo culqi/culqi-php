@@ -2,7 +2,6 @@
 namespace Culqi;
 
 use Culqi\Error as Errors;
-
 /**
  * Class Culqi
  *
