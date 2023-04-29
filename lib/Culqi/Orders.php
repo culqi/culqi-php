@@ -9,7 +9,7 @@ namespace Culqi;
  */
 class Orders extends Resource {
 
-    const URL_ORDERS = "/orders";
+    const URL_ORDERS = "/orders/";
 
     /**
      * @param array|null $options
