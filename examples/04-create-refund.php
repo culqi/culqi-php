@@ -11,17 +11,31 @@ try {
   // Configurar tu API Key y autenticación
   $SECRET_KEY = "{SECRET KEY}";
   $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
+  $encryption_params = array(
+    "rsa_public_key" => "",
+    "rsa_id" => ""
+  );
 
-  // Creando Cargo a una tarjeta
+  $req_body = array(
+    "amount" => 500,
+    "charge_id" => "{charge_id}",
+    "reason" => "bought an incorrect product"
+  );
+
+  // Creando una devolución sin encriptar
   $refund = $culqi->Refunds->create(
-      array(
-        "amount" => 500,
-        "charge_id" => "{charge_id}",
-        "reason" => "bought an incorrect product"
-      )
+    $req_body
   );
   // Respuesta
-  echo json_encode($refund);
+  echo "<b>Refund sin encriptar payload:</b> "."<br>".json_encode($refund)."<br>";
+
+  // Creando una devolución con encriptación
+  $refund = $culqi->Refunds->create(
+    $req_body,
+    $encryption_params
+);
+// Respuesta
+echo "<b>Refund con payload encriptado:</b> "."<br>".json_encode($refund);
 
 } catch (Exception $e) {
   echo json_encode($e->getMessage());

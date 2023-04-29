@@ -2,7 +2,6 @@
 namespace Culqi;
 
 use Culqi\Error as Errors;
-
 /**
  * Class Culqi
  *
@@ -11,6 +10,18 @@ use Culqi\Error as Errors;
 class Culqi
 {
     public $api_key;
+    public $Tokens;
+    public $Charges;
+    public $Subscriptions;
+    public $Refunds;
+    public $Plans;
+    public $Transfers;
+    public $Iins;
+    public $Cards;
+    public $Events;
+    public $Customers;
+    public $Orders;
+
     /**
     * La versión de API usada
     */
