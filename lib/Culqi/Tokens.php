@@ -9,7 +9,7 @@ namespace Culqi;
  */
 class Tokens extends Resource {
 
-    const URL_TOKENS = "/tokens";
+    const URL_TOKENS = "/tokens/";
     const URL_TOKENS_YAPE = "/tokens/yape/";
 
     /**
