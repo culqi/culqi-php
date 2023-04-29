@@ -25,8 +25,8 @@ class Customers extends Resource {
      *
      * @return create Customer response.
      */
-    public function create($options = NULL) {
-        return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options);
+    public function create($options = NULL, $encryption_params=[]) {
+        return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
     /**
@@ -53,8 +53,8 @@ class Customers extends Resource {
      *
      * @return update Charge response.
      */
-    public function update($id = NULL, $options = NULL) {
-        return $this->request("PATCH", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options);
+    public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        return $this->request("PATCH", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
 }
