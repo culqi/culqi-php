@@ -13,7 +13,7 @@
  */
 
 //utils
-include_once dirname(__FILE__).'/Culqi/utils/encryption/rsa_aes/encoder.php';
+include_once dirname(__FILE__).'/Culqi/utils/encryption/rsaaes/encoder.php';
 
 // Errors
 include_once dirname(__FILE__).'/Culqi/Error/Errors.php';
