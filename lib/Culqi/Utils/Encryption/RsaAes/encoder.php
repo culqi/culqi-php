@@ -17,8 +17,7 @@ class Encryption
             $aes_iv = openssl_random_pseudo_bytes(16);
 
             //encrypt json using AES
-            $encrypted_message = openssl_encrypt(json_encode($data), 'AES-256-CBC', $aes_key, OPENSSL_RAW_DATA, $aes_iv);
-
+            $encrypted_message = openssl_encrypt(json_encode($data), 'AES-256-GCM', $aes_key, OPENSSL_RAW_DATA, $aes_iv, $authentication_tag);
             $rsa = PublicKeyLoader::load($rsa_public_key, $password = false);
             $hashingAlgorithm = 'sha256';
 
@@ -33,7 +32,7 @@ class Encryption
 
             return $encrypted_data;
         } catch (\Throwable $th) {
-            //throw $th;
+            //var_dump($th);
         }
     }
 
