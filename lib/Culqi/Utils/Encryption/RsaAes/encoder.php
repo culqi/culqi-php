@@ -32,7 +32,7 @@ class Encryption
 
             return $encrypted_data;
         } catch (\Throwable $th) {
-            var_dump($th);
+            //var_dump($th);
         }
     }
 
