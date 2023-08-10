@@ -76,7 +76,7 @@ $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 
 Para encriptar el payload necesitas crear un id RSA y llave RSA, para esto debes ingresa a tu panel y hacer click en la sección “Desarrollo / RSA Keys” de la barra de navegación a la mano izquierda.
 
-Luego declara variables el id RSA y llave RSA en tu backend, y envialo en las funciones de la librería.
+Luego declara en variables el id RSA y llave RSA en tu backend, y envialo en las funciones de la librería.
 
 Ejemplo
 
