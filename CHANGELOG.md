@@ -1,21 +1,26 @@
 
+### v2.0.1 20-08-2023
+* Add HTTP status code
+* Add RSA encrypt
 
-### 1.3.5 12-04-2019
+### v2.0.0 13-12-2022
+* Add Request 3DS
+* Add Confirm type Orden
+
+### v1.3.5 12-04-2019
 * Se actualiza la URL base para creación de tokens.
 
-
-### 1.3.4 10-10-2018
+### v1.3.4 10-10-2018
 * Se agrega recurso de Orders
 
-### 1.3.3 17-03-2017
+### v1.3.3 17-03-2017
 * Actualización de composer.json
 
-
-### 1.3.2 15-03-2017
+### v1.3.2 15-03-2017
 * Se cambia el metodo getCapture de Cargo por capture
 * Corección en el composer.json. 
 
-### 1.3.1 16-02-2017
+### v1.3.1 16-02-2017
 * Se corrige el metodo DELETE
 * Se cambia el nombre del metodo "getList" por "all"
 * Se corrige Transfers
