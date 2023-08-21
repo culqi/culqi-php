@@ -139,7 +139,6 @@ Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente d
 Los cargos pueden ser creados vía [API de devolución](https://apidocs.culqi.com/#tag/Cargos/operation/crear-cargo).
 
 ```php
-// Creamos Cargo a una tarjeta
 $charge = $culqi->Charges->create(
     array(
       "amount" => 1000,
