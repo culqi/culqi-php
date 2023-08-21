@@ -187,31 +187,7 @@ $refund = $culqi->Refunds->create(
 print_r($refund);
 ```
 
-### Crear un Plan
-
-El plan es un servicio que te permite definir con qué frecuencia deseas realizar cobros a tus clientes.
-
-Un plan define el comportamiento de las suscripciones. Los planes pueden ser creados vía el [API de Plan](https://apidocs.culqi.com/#/planes#create) o desde el **CulqiPanel**.
-
-```php
-$plan = $culqi->Plans->create(
-  array(
-    "alias" => "plan-culqi".uniqid(),
-    "amount" => 10000,
-    "currency_code" => "PEN",
-    "interval" => "dias",
-    "interval_count" => 1,
-    "limit" => 12,
-    "name" => "Plan de Prueba ".uniqid(),
-    "trial_days" => 15
-  )
-);
-
-//Respuesta
-print_r($plan);
-```
-
-### Crear un Customer
+### Crear un Cliente
 
 El **cliente** es un servicio que te permite guardar la información de tus clientes. Es un paso necesario para generar una [tarjeta](/es/documentacion/pagos-online/recurrencia/one-click/tarjetas).
 
@@ -247,6 +223,30 @@ $card = $culqi->Cards->create(
   )
 );
 print_r($card);
+```
+
+### Crear un Plan
+
+El plan es un servicio que te permite definir con qué frecuencia deseas realizar cobros a tus clientes.
+
+Un plan define el comportamiento de las suscripciones. Los planes pueden ser creados vía el [API de Plan](https://apidocs.culqi.com/#/planes#create) o desde el **CulqiPanel**.
+
+```php
+$plan = $culqi->Plans->create(
+  array(
+    "alias" => "plan-culqi".uniqid(),
+    "amount" => 10000,
+    "currency_code" => "PEN",
+    "interval" => "dias",
+    "interval_count" => 1,
+    "limit" => 12,
+    "name" => "Plan de Prueba ".uniqid(),
+    "trial_days" => 15
+  )
+);
+
+//Respuesta
+print_r($plan);
 ```
 
 ### Crear un Suscripción a un plan
