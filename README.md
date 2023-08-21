@@ -105,7 +105,9 @@ $token = $culqi->Tokens->create(
   );
 ```
 
-## Crear un token
+## Servicios
+
+### Crear un token
 
 Antes de crear un Cargo o Card es necesario crear un `token` de tarjeta. 
 Lo recomendable es generar los 'tokens' con [Culqi Checkout v4](https://docs.culqi.com/es/documentacion/checkout/v4/culqi-checkout/) o [Culqi JS v4](https://docs.culqi.com/es/documentacion/culqi-js/v4/culqi-js/) **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo los datos sensibles de la tarjeta de crédito/débito.
@@ -132,7 +134,7 @@ $token = $culqi->Tokens->create(
 print_r($charge);
 ```
 
-## Crear un cargo
+### Crear un cargo
 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente deberías generar el  `token` y enviarlo en parámetro **source_id**.
 
@@ -163,7 +165,7 @@ $charge = $culqi->Charges->create(
 print_r($charge);
 ```
 
-## Crear una devolución
+### Crear una devolución
 
 Solicita la devolución de las compras de tus clientes (parcial o total) de forma gratuita a través del API y CulqiPanel. 
 
@@ -185,7 +187,7 @@ $refund = $culqi->Refunds->create(
 print_r($refund);
 ```
 
-## Crear un Plan
+### Crear un Plan
 
 El plan es un servicio que te permite definir con qué frecuencia deseas realizar cobros a tus clientes.
 
@@ -209,7 +211,7 @@ $plan = $culqi->Plans->create(
 print_r($plan);
 ```
 
-## Crear un Customer
+### Crear un Customer
 
 El **cliente** es un servicio que te permite guardar la información de tus clientes. Es un paso necesario para generar una [tarjeta](/es/documentacion/pagos-online/recurrencia/one-click/tarjetas).
 
@@ -231,7 +233,7 @@ $customer = $culqi->Customers->create(
 print_r($customer);
 ```
 
-## Crear un Card
+### Crear un Card
 
 La **tarjeta** es un servicio que te permite guardar la información de las tarjetas de crédito o débito de tus clientes para luego realizarles cargos one click o recurrentes (cargos posteriores sin que tus clientes vuelvan a ingresar los datos de su tarjeta).
 
@@ -247,7 +249,7 @@ $card = $culqi->Cards->create(
 print_r($card);
 ```
 
-## Crear un Suscripción a un plan
+### Crear un Suscripción a un plan
 
 La suscripción es un servicio que asocia la tarjeta de un cliente con un plan establecido por el comercio.
 
@@ -266,7 +268,7 @@ $subscription = $culqi->Subscriptions->create(
 print_r($subscription);
 ```
 
-## Crear una Orden 
+### Crear una Orden 
 
 Es un servicio que te permite generar una orden de pago para una compra potencial.
 La orden contiene la información necesaria para la venta y es usado por el sistema de **PagoEfectivo** para realizar los pagos diferidos.
