@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-Nuestra Biblioteca PHP oficial de CULQI, es compatible con la V2.0 del Culqi API, con el cual tendrás la posibilidad de realizar cobros con tarjetas de débito y crédito, Yape, PagoEfectivo, billeteras móviles y Cuotéalo con solo unos simples pasos de configuración.
+Nuestra Biblioteca PHP oficial, es compatible con la V2.0 del Culqi API, con el cual tendrás la posibilidad de realizar cobros con tarjetas de débito y crédito, Yape, PagoEfectivo, billeteras móviles y Cuotéalo con solo unos simples pasos de configuración.
 
 Nuestra biblioteca te da la posibilidad de capturar el status_code de la solicitud HTTP que se realiza al API de Culqi, así como el response que contiene el cuerpo de la respuesta obtenida.
 
