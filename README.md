@@ -4,12 +4,14 @@
 [![Total Downloads](https://poser.pugx.org/culqi/culqi-php/downloads)](https://packagist.org/packages/culqi/culqi-php)
 [![License](https://poser.pugx.org/culqi/culqi-php/license)](https://packagist.org/packages/culqi/culqi-php)
 
-Nuestra Biblioteca PHP oficial de CULQI, es compatible con la [v2.0](https://culqi.com/api/) del Culqi API, con el cual tendrás la posibilidad de realizar cobros con tarjetas de débito y crédito, Yape, PagoEfectivo, billeteras móviles y Cuotéalo con solo unos simples pasos de configuración.
+Nuestra Biblioteca PHP oficial de CULQI, es compatible con la V2.0 del Culqi API, con el cual tendrás la posibilidad de realizar cobros con tarjetas de débito y crédito, Yape, PagoEfectivo, billeteras móviles y Cuotéalo con solo unos simples pasos de configuración.
+
+Nuestra biblioteca te da la posibilidad de capturar el status_code de la solicitud HTTP que se realiza al API de Culqi, así como el response que contiene el cuerpo de la respuesta obtenida.
 
 
 ## Requisitos 
 
-* PHP 5.6 o superiores.
+* PHP 5.6+.
 * Afiliate [aquí](https://afiliate.culqi.com/).
 * Si vas a realizar pruebas obtén tus llaves desde [aquí](https://integ-panel.culqi.com/#/registro), si vas a realizar transacciones reales obtén tus llaves desde [aquí](https://panel.culqi.com/#/registro) (1).
 
@@ -18,6 +20,8 @@ Nuestra Biblioteca PHP oficial de CULQI, es compatible con la [v2.0](https://cul
 ![alt tag](http://i.imgur.com/NhE6mS9.png)
 
 > Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
+
+*Para encriptar el payload debes generar un id y llave RSA ingresando a CulqiPanel > Desarrollo > RSA Keys.
 
 ## Instalación
 
@@ -66,7 +70,8 @@ Como primer paso hay que configurar la credencial `$API_KEY `
 
 ```php
 // Configurar tu API Key y autenticación
-$SECRET_KEY = "sk_test_jasd6939ujn62g26";
+$PUBLIC_KEY = "{PUBLIC KEY}";
+$SECRET_KEY = "{SECRET KEY}";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 ```
 
@@ -85,7 +90,15 @@ $encryption_params = array(
   "rsa_public_key" => "la llave pública RSA",
   "rsa_id" => "el id de tu llave"
 );
-
+ $req_body = array(
+    "card_number" => "4111111111111111",
+    "cvv" => "123",
+    "email" => "culqi".uniqid()."@culqi.com", //email must not repeated
+    "expiration_month" => "7",
+    "expiration_year" => $futureDate,
+    "fingerprint" => uniqid(),
+    "metadata" => array("dni" => "71702935")
+);
 $token = $culqi->Tokens->create(
     $req_body,
     $encryption_params
@@ -94,17 +107,14 @@ $token = $culqi->Tokens->create(
 
 ## Crear un token
 
-Antes de crear un Cargo, Plan o un Suscripción es necesario crear un `token` de tarjeta. 
-Dentro de esta librería se encuentra una funcionalidad para generar 'tokens', pero solo debe ser usada para el ambiente de **Integración**.
+Antes de crear un Cargo o Card es necesario crear un `token` de tarjeta. 
+Lo recomendable es generar los 'tokens' con [Culqi Checkout v4](https://docs.culqi.com/es/documentacion/checkout/v4/culqi-checkout/) o [Culqi JS v4](https://docs.culqi.com/es/documentacion/culqi-js/v4/culqi-js/) **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo los datos sensibles de la tarjeta de crédito/débito.
 
-Lo recomendable es generar los 'tokens' con **Checkout v4** o **CULQI.JS v4**, **debido a que es muy importante que los datos de tarjeta sean enviados desde el dispositivo de tus clientes directamente a los servidores de Culqi**, para no poner en riesgo los datos sensibles de la tarjeta de crédito/débito.
-
-> Recuerda que cuando interactúas directamente con el API necesitas cumplir la normativa de PCI DSS 3.2. Por ello, te pedimos que llenes el formulario SAQ-D y lo envíes al buzón de riesgos Culqi.
+> Recuerda que cuando interactúas directamente con el [API Token](https://apidocs.culqi.com/#tag/Tokens/operation/crear-token) necesitas cumplir la normativa de PCI DSS 3.2. Por ello, te pedimos que llenes el [formulario SAQ-D](https://listings.pcisecuritystandards.org/documents/SAQ_D_v3_Merchant.pdf) y lo envíes al buzón de riesgos Culqi.
 
 ## Crear un cargo
 
-Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente
-deberías obtener el  `token` que refiera a la tarjeta de tu cliente.
+Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente deberías generar el  `token` y enviarlo en parámetro **source_id**.
 
 ```php
 // Creamos Cargo a una tarjeta
@@ -133,6 +143,10 @@ print_r($charge);
 ```
 ## Crear un Plan
 
+El plan es un servicio que te permite definir con qué frecuencia deseas realizar cobros a tus clientes.
+
+Un plan define el comportamiento de las suscripciones. Los planes pueden ser creados vía el [API de Plan](https://apidocs.culqi.com/#/planes#create) o desde el **CulqiPanel**.
+
 ```php
 $plan = $culqi->Plans->create(
   array(
@@ -153,6 +167,10 @@ print_r($plan);
 
 ## Crear un Customer
 
+El **cliente** es un servicio que te permite guardar la información de tus clientes. Es un paso necesario para generar una [tarjeta](/es/documentacion/pagos-online/recurrencia/one-click/tarjetas).
+
+Los clientes pueden ser creados vía [API de cliente](https://apidocs.culqi.com/#tag/Clientes/operation/crear-cliente).
+
 ```php
 $customer = $culqi->Customers->create(
   array(
@@ -171,6 +189,10 @@ print_r($customer);
 
 ## Crear un Card
 
+La **tarjeta** es un servicio que te permite guardar la información de las tarjetas de crédito o débito de tus clientes para luego realizarles cargos one click o recurrentes (cargos posteriores sin que tus clientes vuelvan a ingresar los datos de su tarjeta).
+
+Las tarjetas pueden ser creadas vía [API de tarjeta](https://apidocs.culqi.com/#tag/Tarjetas/operation/crear-tarjeta).
+
 ```php
 $card = $culqi->Cards->create(
   array(
@@ -182,6 +204,10 @@ print_r($card);
 ```
 
 ## Crear un Suscripción a un plan
+
+La suscripción es un servicio que asocia la tarjeta de un cliente con un plan establecido por el comercio.
+
+Las suscripciones pueden ser creadas vía [API de suscripción](https://apidocs.culqi.com/#tag/Suscripciones/operation/crear-suscripcion).
 
 ```php
 // Creando Suscriptor a un plan
@@ -197,6 +223,11 @@ print_r($subscription);
 ```
 
 ## Crear una Orden 
+
+Es un servicio que te permite generar una orden de pago para una compra potencial.
+La orden contiene la información necesaria para la venta y es usado por el sistema de **PagoEfectivo** para realizar los pagos diferidos.
+
+Las órdenes pueden ser creadas vía [API de orden](https://apidocs.culqi.com/#tag/Ordenes/operation/crear-orden).
 
 [Ver ejemplo completo](/examples/08-create-order.php)
 
@@ -220,6 +251,7 @@ $order = $culqi->Orders->create(
 print_r($order);
 ```
 
+
 ## Pruebas
 
 Antes de activar tu tienda en producción, te recomendamos realizar pruebas de integración. Así garantizarás un correcto despliegue.
@@ -237,16 +269,27 @@ cd culqi-php/examples
 php -S 0.0.0.0:8000
 ```
 
-## Documentación
-¿Necesitas más información para integrar `culqi-php`? La documentación completa se encuentra en [https://culqi.com/docs/](https://culqi.com/docs/)
-
-
 ## Tests
 
 ```bash
 composer install
 phpunit --verbose --tap tests/*
 ```
-## Licencia
 
+## Documentación
+
+- [Referencia de Documentación](https://docs.culqi.com/)
+- [Referencia de API](https://apidocs.culqi.com/)
+- [Demo Checkout V4 + Culqi 3DS](https://github.com/culqi/culqi-php-demo-checkoutv4-culqi3ds)
+- [Wiki](https://github.com/culqi/culqi-php/wiki)
+
+## Changelog
+
+Todos los cambios en las versiones de esta biblioteca están listados en
+[CHANGELOG.md](CHANGELOG.md).
+
+## Autor
+Team Culqi
+
+## Licencia
 Licencia MIT. Revisar el LICENSE.md.
