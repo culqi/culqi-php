@@ -138,7 +138,7 @@ print_r($charge);
 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente deberías generar el  `token` y enviarlo en parámetro **source_id**.
 
-Los cargos pueden ser creados vía [API de devolución](https://apidocs.culqi.com/#tag/Cargos/operation/crear-cargo).
+Los cargos pueden ser creados vía [API de cargo](https://apidocs.culqi.com/#tag/Cargos/operation/crear-cargo).
 
 ```php
 $charge = $culqi->Charges->create(
