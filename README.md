@@ -21,7 +21,7 @@ Nuestra biblioteca te da la posibilidad de capturar el status_code de la solicit
 
 > Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
 
-*Para encriptar el payload debes generar un id y llave RSA ingresando a CulqiPanel > Desarrollo > RSA Keys.
+* Para encriptar el payload debes generar un id y llave RSA ingresando a CulqiPanel > Desarrollo > RSA Keys.
 
 ## Instalación
 
@@ -112,9 +112,39 @@ Lo recomendable es generar los 'tokens' con [Culqi Checkout v4](https://docs.cul
 
 > Recuerda que cuando interactúas directamente con el [API Token](https://apidocs.culqi.com/#tag/Tokens/operation/crear-token) necesitas cumplir la normativa de PCI DSS 3.2. Por ello, te pedimos que llenes el [formulario SAQ-D](https://listings.pcisecuritystandards.org/documents/SAQ_D_v3_Merchant.pdf) y lo envíes al buzón de riesgos Culqi.
 
+```php
+$PUBLIC_KEY = "{PUBLIC KEY}";
+$culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
+$futureDate = date('Y', strtotime('+1 year'));
+$encryption_params = array(
+  "rsa_public_key" => "",
+  "rsa_id" => ""
+);
+
+$req_body = array(
+  "card_number" => "4111111111111111",
+  "cvv" => "123",
+  "email" => "culqi".uniqid()."@culqi.com", //email must not repeated
+  "expiration_month" => "7",
+  "expiration_year" => $futureDate,
+  "fingerprint" => uniqid(),
+  "metadata" => array("dni" => "71702935")
+);
+  
+// Creando token a una tarjeta sin encriptar
+$token = $culqi->Tokens->create(
+  $req_body
+);
+
+//Respuesta
+print_r($charge);
+```
+
 ## Crear un cargo
 
 Crear un cargo significa cobrar una venta a una tarjeta. Para esto previamente deberías generar el  `token` y enviarlo en parámetro **source_id**.
+
+Los cargos pueden ser creados vía [API de devolución](https://apidocs.culqi.com/#tag/Cargos/operation/crear-cargo).
 
 ```php
 // Creamos Cargo a una tarjeta
@@ -141,6 +171,36 @@ $charge = $culqi->Charges->create(
 //Respuesta
 print_r($charge);
 ```
+
+## Crear una devolución
+
+Solicita la devolución de las compras de tus clientes (parcial o total) de forma gratuita a través del API y CulqiPanel. 
+
+Las devoluciones pueden ser creados vía [API de devolución](https://apidocs.culqi.com/#tag/Devoluciones/operation/crear-devolucion).
+
+```php
+$SECRET_KEY = "{SECRET KEY}";
+$culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
+$encryption_params = array(
+  "rsa_public_key" => "",
+  "rsa_id" => ""
+);
+
+$req_body = array(
+  "amount" => 500,
+  "charge_id" => "{charge_id}",
+  "reason" => "bought an incorrect product"
+);
+
+// Creando una devolución sin encriptar
+$refund = $culqi->Refunds->create(
+  $req_body
+);
+
+//Respuesta
+print_r($refund);
+```
+
 ## Crear un Plan
 
 El plan es un servicio que te permite definir con qué frecuencia deseas realizar cobros a tus clientes.
