@@ -3,6 +3,7 @@ namespace Culqi\Utils\Encryption\RsaAes;
 
 use phpseclib3\Crypt\PublicKeyLoader as PublicKeyLoader;
 
+#[\AllowDynamicProperties]
 class Encryption
 {
     public function __construct($options=[])

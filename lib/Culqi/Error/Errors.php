@@ -8,6 +8,7 @@ namespace Culqi\Error;
 /**
  * Base Culqi Exception
  */
+#[\AllowDynamicProperties]
 class CulqiException extends \Exception {
     protected $message = "Base Culqi Exception";
 }
