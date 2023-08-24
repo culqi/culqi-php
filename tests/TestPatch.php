@@ -7,6 +7,7 @@ use Culqi\Culqi;
 /**
  *  Test Patch
  */
+#[\AllowDynamicProperties]
 class TestPatch extends PHPUnit_Framework_TestCase
 {
     protected $API_KEY;

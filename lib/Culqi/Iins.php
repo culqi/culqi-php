@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Iins extends Resource {
 
     const URL_IINS = "/iins/";

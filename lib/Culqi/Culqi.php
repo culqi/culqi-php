@@ -7,6 +7,7 @@ use Culqi\Error as Errors;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Culqi
 {
     public $api_key;

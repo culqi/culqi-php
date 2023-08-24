@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Transfers extends Resource {
 
     const URL_TRANSFERS = "/transfers/";

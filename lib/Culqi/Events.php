@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Events extends Resource {
 
   const URL_EVENTS = "/events/";

@@ -3,7 +3,7 @@
 require_once('TestAutoLoad.php');
 
 use Culqi\Culqi;
-
+#[\AllowDynamicProperties]
 class DeleteTest extends PHPUnit_Framework_TestCase
 {
 

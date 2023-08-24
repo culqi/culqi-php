@@ -3,7 +3,7 @@
 require_once('TestAutoLoad.php');
 
 use Culqi\Culqi;
-
+#[\AllowDynamicProperties]
 class ListTest extends PHPUnit_Framework_TestCase {
 
     protected $API_KEY;

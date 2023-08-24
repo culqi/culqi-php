@@ -7,6 +7,7 @@ use Culqi\Culqi;
 /**
  *  Test Create
  */
+#[\AllowDynamicProperties]
 class Test extends PHPUnit_Framework_TestCase {
 
   protected $API_KEY;

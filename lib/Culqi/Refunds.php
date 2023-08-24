@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Refunds extends Resource {
 
     const URL_REFUNDS = "/refunds/";

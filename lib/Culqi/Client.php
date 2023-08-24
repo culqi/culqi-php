@@ -9,6 +9,7 @@ use Culqi\Utils\Encryption\RsaAes\Encryption as Encryption;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Client {
     public function request($method, $url, $api_key, $data = NULL, $secure_url = false, $encryption_params = [])
     {

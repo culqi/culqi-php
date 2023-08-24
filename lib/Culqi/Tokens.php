@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Tokens extends Resource {
 
     const URL_TOKENS = "/tokens/";

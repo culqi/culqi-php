@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Subscriptions extends Resource {
 
     const URL_SUBSCRIPTIONS = "/subscriptions/";

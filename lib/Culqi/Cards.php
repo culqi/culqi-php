@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Cards extends Resource {
 
     const URL_CARDS = "/cards/";

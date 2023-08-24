@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+#[\AllowDynamicProperties]
 class Charges extends Resource {
 
     const URL_CHARGES = "/charges";
