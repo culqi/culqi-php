@@ -26,6 +26,7 @@ class Customers extends Resource {
      * @return create Customer response.
      */
     public function create($options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->customer_validation($options);
         return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -44,6 +45,7 @@ class Customers extends Resource {
      * @return get a Customer.
      */
     public function get($id = NULL) {
+        $this->culqi_validation->validateStringStart($id, "cus");
         return $this->request("GET", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

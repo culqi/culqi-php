@@ -26,6 +26,7 @@ class Cards extends Resource {
     * @return create Card response.
     */
     public function create($options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->card_validation($options);
         return $this->request("POST", self::URL_CARDS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -44,6 +45,7 @@ class Cards extends Resource {
     * @return get a Card.
     */
     public function get($id = NULL) {
+        $this->culqi_validation->validateStringStart($id, "crd");
         return $this->request("GET", self::URL_CARDS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

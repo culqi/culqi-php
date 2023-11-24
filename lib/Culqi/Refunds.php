@@ -26,6 +26,7 @@ class Refunds extends Resource {
      * @return create Refund response.
      */
     public function create($options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->refund_validation($options);
         return $this->request("POST", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -35,6 +36,7 @@ class Refunds extends Resource {
      * @return get a Refund.
      */
     public function get($id = NULL) {
+        $this->culqi_validation->validateStringStart($id, "ref");
         return $this->request("GET", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

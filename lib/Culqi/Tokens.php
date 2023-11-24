@@ -7,6 +7,7 @@ namespace Culqi;
  *
  * @package Culqi
  */
+
 class Tokens extends Resource {
 
     const URL_TOKENS = "/tokens/";
@@ -27,7 +28,9 @@ class Tokens extends Resource {
      * @return create Token response.
      */
     public function create($options = NULL, $encryption_params = []) {
+        $this->culqi_validation->create_token_validation($options);
         return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_params);
+
     }
 
     public function createYape($options = NULL) {
@@ -40,6 +43,7 @@ class Tokens extends Resource {
      * @return get a Token.
      */
     public function get($id = NULL) {
+        $this->culqi_validation->validateStringStart($id, "tkn");
         return $this->request("GET", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -50,6 +54,7 @@ class Tokens extends Resource {
      * @return update Token response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->validateStringStart($id, "tkn");
         return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options, $encryption_params);
     }
 
