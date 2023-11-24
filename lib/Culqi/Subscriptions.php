@@ -26,6 +26,7 @@ class Subscriptions extends Resource {
      * @return create Subscription response.
      */
     public function create($options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->subscription_validation($options);
         return $this->request("POST", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -44,6 +45,7 @@ class Subscriptions extends Resource {
      * @return get a Subscription.
      */
     public function get($id = NULL) {
+        $this->culqi_validation->validateStringStart($id, "sub");
         return $this->request("GET", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

@@ -1,7 +1,6 @@
 <?php
 
 namespace Culqi;
-
 /**
  * Class Charges
  *
@@ -26,6 +25,7 @@ class Charges extends Resource {
      * @return create Charge response.
      */
     public function create($options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->charge_validation($options);
         return $this->request("POST", self::URL_CHARGES, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -35,6 +35,7 @@ class Charges extends Resource {
      * @return get a Charge.
      */
     public function get($id = NULL) {
+        $this->culqi_validation->validateStringStart($id, "chr");
         return $this->request("GET", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key);
     }
 

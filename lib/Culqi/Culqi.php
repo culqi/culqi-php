@@ -49,7 +49,9 @@ class Culqi
     public function __construct($options)
     {
         $this->api_key = $options["api_key"];
-        if (!$this->api_key) {
+        $pattern = '/^(pk_test_|sk_test_|pk_live_|sk_live_)/';
+
+        if (!$this->api_key || !preg_match($pattern, $this->api_key)) {
           throw new Errors\InvalidApiKey();
         }
         $this->Tokens = new Tokens($this);

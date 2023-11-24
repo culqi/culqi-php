@@ -26,6 +26,7 @@ class Plans extends Resource {
      * @return create Plan response.
      */
     public function create($options = NULL, $encryption_params=[]) {
+        $this->culqi_validation->plan_validation($options);
         return $this->request("POST", self::URL_PLANS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -35,6 +36,7 @@ class Plans extends Resource {
      * @return get a Plan.
      */
     public function get($id) {
+        $this->culqi_validation->validateStringStart($id, "pln");
         return $this->request("GET", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
