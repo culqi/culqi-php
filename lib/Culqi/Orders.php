@@ -26,8 +26,7 @@ class Orders extends Resource {
      * @return create Order 
      */
     public function create($options = NULL, $encryption_params = []) {
-        $culqi_validation = new CulqiValidation();
-        $culqi_validation->order_validation($options);
+        $this->culqi_validation->order_validation($options);
         return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     } 
 

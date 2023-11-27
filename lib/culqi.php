@@ -14,6 +14,7 @@
 
 //utils
 include_once dirname(__FILE__).'/Culqi/utils/encryption/rsaaes/encoder.php';
+include_once dirname(__FILE__).'/Culqi/utils/validation/validation.php';
 
 // Errors
 include_once dirname(__FILE__).'/Culqi/Error/Errors.php';
