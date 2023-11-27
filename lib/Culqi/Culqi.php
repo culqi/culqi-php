@@ -37,6 +37,13 @@ class Culqi
     const SECURE_BASE_URL = "https://secure.culqi.com/v2"; 
 
     /**
+     * Library version
+     */ 
+    const CULQI_LIBRARY = "PHP"; 
+    const CULQI_LIBRARY_VERSION = "2.0.1";
+    
+
+    /**
      * Constructor.
      *
      * @param array|null $options
