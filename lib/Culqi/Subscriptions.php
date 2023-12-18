@@ -39,7 +39,8 @@ class Subscriptions extends Resource {
      * @return delete a Subscription response.
      */
     public function delete($id = NULL) {
-       return $this->request("DELETE", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
+        $this->helpers::validateStringStart($id, "sub");
+        return $this->request("DELETE", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
     /**

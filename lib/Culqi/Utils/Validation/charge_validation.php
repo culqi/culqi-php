@@ -22,6 +22,16 @@ class ChargeValidation
         }
 
         Helpers::validateCurrencyCode($data['currency_code']);
+
+        if (substr($data['source_id'], 0, 3) === "tkn") {
+            Helpers::validateStringStart($data['source_id'], "tkn");
+        } elseif (substr($data['source_id'], 0, 3) === "ype") {
+            Helpers::validateStringStart($data['source_id'], "ype");
+        } elseif (substr($data['source_id'], 0, 3) === "crd") {
+            Helpers::validateStringStart($data['source_id'], "crd");
+        } else {
+            throw new CustomException('Incorrect format. The format must start with tkn, ype or crd.');
+        }
     }
 
     public static function list($data = []) {

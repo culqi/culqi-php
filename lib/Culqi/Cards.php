@@ -39,6 +39,7 @@ class Cards extends Resource {
     * @return delete a Card response.
     */
     public function delete($id = NULL) {
+        $this->helpers::validateStringStart($id, "crd");
         return $this->request("DELETE", self::URL_CARDS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

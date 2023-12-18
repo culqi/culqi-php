@@ -69,6 +69,7 @@ class Orders extends Resource {
      * @return delete a Order
      */
     public function delete($id) {
+        $this->helpers::validateStringStart($id, "ord");
         return $this->request("DELETE", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

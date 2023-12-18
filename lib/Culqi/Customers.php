@@ -39,6 +39,7 @@ class Customers extends Resource {
      * @return delete a Customer response.
      */
     public function delete($id = NULL) {
+        $this->helpers::validateStringStart($id, "cus");
        return $this->request("DELETE", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
