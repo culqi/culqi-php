@@ -15,7 +15,13 @@ class Client {
         try {
             $encryption = new Encryption();
             $url_params = is_array($data) ? '?' . http_build_query($data) : '';
-            $headers= array("Authorization" => "Bearer ".$api_key, "Content-Type" => "application/json", "Accept" => "application/json");
+            $headers= array(
+                "Authorization" => "Bearer ".$api_key, 
+                "Content-Type" => "application/json", 
+                "Accept" => "application/json",
+                "x-culqi-library" => Culqi::CULQI_LIBRARY,
+                "x-culqi-library-version" => Culqi::CULQI_LIBRARY_VERSION
+            );
             $options = array(
                 'timeout' => 120
             ); 
