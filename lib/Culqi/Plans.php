@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\PlanValidation as PlanValidation;
+
 /**
  * Class Plans
  *
@@ -16,7 +18,8 @@ class Plans extends Resource {
      *
      * @return all Plans.
      */
-    public function all($options) {
+    public function all($options=[]) {
+        PlanValidation::list($options);
         return $this->request("GET", self::URL_PLANS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -26,7 +29,7 @@ class Plans extends Resource {
      * @return create Plan response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        $this->culqi_validation->plan_validation($options);
+        PlanValidation::create($options);
         return $this->request("POST", self::URL_PLANS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -36,7 +39,7 @@ class Plans extends Resource {
      * @return get a Plan.
      */
     public function get($id) {
-        $this->culqi_validation->validateStringStart($id, "pln");
+        $this->helpers::validateStringStart($id, "pln");
         return $this->request("GET", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -56,6 +59,7 @@ class Plans extends Resource {
      * @return update Plan response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        $this->helpers::validateStringStart($id, "pln");
         return $this->request("PATCH", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 

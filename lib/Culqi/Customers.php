@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\CustomerValidation as CustomerValidation;
+
 /**
  * Class Customers
  *
@@ -16,7 +18,8 @@ class Customers extends Resource {
      *
      * @return all Customers.
      */
-    public function all($options = NULL) {
+    public function all($options = []) {
+        CustomerValidation::list($options);
         return $this->request("GET", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -26,7 +29,7 @@ class Customers extends Resource {
      * @return create Customer response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        $this->culqi_validation->customer_validation($options);
+        CustomerValidation::create($options);
         return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -45,7 +48,7 @@ class Customers extends Resource {
      * @return get a Customer.
      */
     public function get($id = NULL) {
-        $this->culqi_validation->validateStringStart($id, "cus");
+        $this->helpers::validateStringStart($id, "cus");
         return $this->request("GET", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -56,6 +59,7 @@ class Customers extends Resource {
      * @return update Charge response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        $this->helpers::validateStringStart($id, "cus");
         return $this->request("PATCH", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 

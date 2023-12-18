@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\RefundValidation as RefundValidation;
+
 /**
  * Class Plans
  *
@@ -17,6 +19,7 @@ class Refunds extends Resource {
      * @return all Refunds.
      */
     public function all($options = NULL) {
+        RefundValidation::list($options);
         return $this->request("GET", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -26,7 +29,7 @@ class Refunds extends Resource {
      * @return create Refund response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        $this->culqi_validation->refund_validation($options);
+        RefundValidation::create($options);
         return $this->request("POST", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -36,7 +39,7 @@ class Refunds extends Resource {
      * @return get a Refund.
      */
     public function get($id = NULL) {
-        $this->culqi_validation->validateStringStart($id, "ref");
+        $this->helpers::validateStringStart($id, "ref");
         return $this->request("GET", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -47,6 +50,7 @@ class Refunds extends Resource {
      * @return update Refund response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        $this->helpers::validateStringStart($id, "ref");
         return $this->request("PATCH", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 

@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\SubscriptionValidation as SubscriptionValidation;
+
 /**
  * Class Subscriptions
  *
@@ -16,7 +18,8 @@ class Subscriptions extends Resource {
      *
      * @return all Subscriptions.
      */
-    public function all($options = NULL) {
+    public function all($options = []) {
+        SubscriptionValidation::list($options);
         return $this->request("GET", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -26,7 +29,7 @@ class Subscriptions extends Resource {
      * @return create Subscription response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        $this->culqi_validation->subscription_validation($options);
+        SubscriptionValidation::create($options);
         return $this->request("POST", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -45,7 +48,7 @@ class Subscriptions extends Resource {
      * @return get a Subscription.
      */
     public function get($id = NULL) {
-        $this->culqi_validation->validateStringStart($id, "sub");
+        $this->helpers::validateStringStart($id, "sub");
         return $this->request("GET", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -56,7 +59,8 @@ class Subscriptions extends Resource {
      * @return update Subscription response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
-        return $this->request("PATCH", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key, $option, false, $encryption_params);
+        $this->helpers::validateStringStart($id, "sub");
+        return $this->request("PATCH", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
 }
