@@ -1,6 +1,8 @@
 <?php
 
 namespace Culqi;
+
+use Culqi\Utils\Validation\ChargeValidation as ChargeValidation;
 /**
  * Class Charges
  *
@@ -15,7 +17,8 @@ class Charges extends Resource {
      *
      * @return all Charges.
      */
-    public function all($options = NULL) {
+    public function all($options = []) {
+        ChargeValidation::list($options);
         return $this->request("GET", self::URL_CHARGES, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -25,7 +28,7 @@ class Charges extends Resource {
      * @return create Charge response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        $this->culqi_validation->charge_validation($options);
+        ChargeValidation::create($options);
         return $this->request("POST", self::URL_CHARGES, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -35,7 +38,7 @@ class Charges extends Resource {
      * @return get a Charge.
      */
     public function get($id = NULL) {
-        $this->culqi_validation->validateStringStart($id, "chr");
+        $this->helpers::validateStringStart($id, "chr");
         return $this->request("GET", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -45,6 +48,7 @@ class Charges extends Resource {
      * @return get a capture of Charge.
      */
     public function capture($id = NULL) {
+        $this->helpers::validateStringStart($id, "chr");
         return $this->request("POST", self::URL_CHARGES . $id . "/capture/", $api_key = $this->culqi->api_key);
     }
 
@@ -55,6 +59,7 @@ class Charges extends Resource {
      * @return update Charge response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        $this->helpers::validateStringStart($id, "chr");
         return $this->request("PATCH", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 

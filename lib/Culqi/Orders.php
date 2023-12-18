@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\OrderValidation as OrderValidation;
+
 /**
  * Class Orders
  *
@@ -16,7 +18,8 @@ class Orders extends Resource {
      *
      * @return Get all Orders
      */
-    public function all($options) {
+    public function all($options=[]) {
+        OrderValidation::list($options);
         return $this->request("GET", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options);
     }
 
@@ -26,8 +29,7 @@ class Orders extends Resource {
      * @return create Order 
      */
     public function create($options = NULL, $encryption_params = []) {
-        $culqi_validation = new CulqiValidation();
-        $culqi_validation->order_validation($options);
+        OrderValidation::create($options);
         return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     } 
 
@@ -47,7 +49,7 @@ class Orders extends Resource {
      * @return confirm Order 
      */
     public function confirm_order_type($options = NULL, $encryption_params=[]) {
-        $this->culqi_validation->confirm_order_type_validation($options);
+        OrderValidation::confirm_order_type($options);
         return $this->request("POST", self::URL_ORDERS . "confirm/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 
@@ -57,7 +59,7 @@ class Orders extends Resource {
      * @return get a Order
      */
     public function get($id) {
-        $this->culqi_validation->validateStringStart($id, "ord");
+        $this->helpers::validateStringStart($id, "ord");
         return $this->request("GET", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key);
     }
 
@@ -77,6 +79,7 @@ class Orders extends Resource {
      * @return update Order
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+        $this->helpers::validateStringStart($id, "ord");
         return $this->request("PATCH", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
     }
 

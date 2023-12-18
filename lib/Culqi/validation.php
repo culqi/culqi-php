@@ -4,49 +4,9 @@ require 'country_codes.php';
 
 class CulqiValidation
 {
-    public $country_codes;
 
     public function __construct($options=[])
-    {
-        $this->country_codes = get_country_codes();
-    }
-
-    public function create_token_validation($data = [])
-    {
-        $message = '';
-        // Validate card number (using Luhn algorithm for simplicity)
-        if (!$this->isValidCardNumber($data['card_number'])) {
-            throw new \Exception('Invalid card number.');
-        }
-    
-        // Validate CVV
-        if (!preg_match('/^\d{3,4}$/', $data['cvv'])) {
-            throw new \Exception('Invalid CVV.');
-        }
-    
-        // Validate email
-        if (!$this->isValidEmail($data['email'])) {
-            throw new \Exception('Invalid email.');
-        }
-    
-        // Validate expiration month
-        if (!preg_match('/^(0?[1-9]|1[012])$/', $data['expiration_month'])) {
-            throw new \Exception('Invalid expiration month.');
-        }
-    
-        // Validate expiration year
-        if (!preg_match('/^\d{4}$/', $data['expiration_year']) || (int)$data['expiration_year'] < (int)date("Y")) {
-            throw new \Exception('Invalid expiration year.');
-        }
-    
-        // Check if the card is expired
-        $expDate = \DateTime::createFromFormat('Y-m', $data['expiration_year'] . '-' . $data['expiration_month']);
-        $currentDate = new \DateTime();
-        if ($expDate < $currentDate) {
-            throw new \Exception('Card has expired.');
-        }
-    }
-    
+    {}
     
     public function charge_validation($data = [])
     {
@@ -113,7 +73,7 @@ class CulqiValidation
         }
 
         //validate coountry code
-        $this->validateValue($data['country_code'], $this->country_codes);
+        $this->validateValue($data['country_code'], encryption_params());
 
         //validate email
         if (!$this->isValidEmail($data['email'])) {

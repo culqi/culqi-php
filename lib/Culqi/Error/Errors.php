@@ -65,3 +65,19 @@ class InvalidApiKey extends CulqiException {
 class UnableToConnect extends CulqiException {
     protected $message = "Imposible conectar a Culqi API";
 }
+
+class CustomException extends CulqiException {
+    private $error_data;
+
+    public function __construct($merchant_message) {
+        $this->error_data = array(
+            "object" => "error",
+            "type" => "param_error",
+            "merchant_message" => $merchant_message,
+            "user_message" => $merchant_message
+        );
+
+        // PHP's Exception class takes the message as the first argument
+        parent::__construct(json_encode($this->error_data));
+    }
+}

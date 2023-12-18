@@ -1,7 +1,7 @@
 <?php
 
 namespace Culqi;
-use Culqi\Utils\Validation\CulqiValidation as CulqiValidation;
+use Culqi\Utils\Validation\Helpers as Helpers;
 
 /**
  * Class Resource
@@ -14,12 +14,12 @@ class Resource extends Client {
      * Constructor.
      */
     public $culqi;
-    public $culqi_validation;
+    public $helpers;
     
     public function __construct($culqi)
     {
         $this->culqi = $culqi;
-        $this->culqi_validation = new CulqiValidation();
+        $this->helpers = new Helpers();
     }
 
 }
