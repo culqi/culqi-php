@@ -49,6 +49,7 @@ class Plans extends Resource {
      * @return delete a Plan.
      */
     public function delete($id) {
+        $this->helpers::validateStringStart($id, "pln");
         return $this->request("DELETE", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
     }
 

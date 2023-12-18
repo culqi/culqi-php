@@ -59,7 +59,7 @@ class Culqi
         $pattern = '/^(pk_test_|sk_test_|pk_live_|sk_live_)/';
 
         if (!$this->api_key || !preg_match($pattern, $this->api_key)) {
-          throw new Errors\InvalidApiKey();
+          throw new Errors\CustomException('API Key invalido');
         }
         $this->Tokens = new Tokens($this);
         $this->Charges = new Charges($this);
