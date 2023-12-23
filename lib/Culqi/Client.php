@@ -15,16 +15,22 @@ class Client {
         try {
             $encryption = new Encryption();
             $url_params = is_array($data) ? '?' . http_build_query($data) : '';
+            $env = (preg_match('/(test)/', $api_key)) ? 'test':'live';
             $headers= array(
                 "Authorization" => "Bearer ".$api_key, 
                 "Content-Type" => "application/json", 
                 "Accept" => "application/json",
-                "x-culqi-library" => Culqi::CULQI_LIBRARY,
-                "x-culqi-library-version" => Culqi::CULQI_LIBRARY_VERSION
+                "x-culqi-env" => $env,
+                "x-api-version" => Culqi::X_API_VERSION,
+                "x-culqi-client" => Culqi::CULQI_CLIENT,
+                "x-culqi-client-version" => Culqi::CULQI_CLIENT_VERSION,
             );
             $options = array(
                 'timeout' => 120
             ); 
+
+            var_dump($headers);
+            die();
             
             // Check URL
             if($secure_url) $base_url = Culqi::SECURE_BASE_URL;
