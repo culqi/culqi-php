@@ -77,7 +77,7 @@ class Charges extends Resource {
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
         try {
             $this->helpers::validateStringStart($id, "chr");
-            return $this->request("PATCH", self::URL_CHARGES . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+            return $this->request("PATCH", self::URL_CHARGES ."/". $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
