@@ -19,8 +19,12 @@ class Tokens extends Resource {
      * @return all Tokens.
      */
     public function all($options = []) {
-        TokenValidation::list($options);
-        return $this->request("GET", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options);
+        try {
+            TokenValidation::list($options);
+            return $this->request("GET", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -29,14 +33,22 @@ class Tokens extends Resource {
      * @return create Token response.
      */
     public function create($options = NULL, $encryption_params = []) {
-        TokenValidation::create($options);
+        try {
+            TokenValidation::create($options);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
         return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_params);
 
     }
 
     public function createYape($options = NULL) {
-        TokenValidation::createYape($options);
-        return $this->request("POST", self::URL_TOKENS_YAPE, $api_key = $this->culqi->api_key, $options, true);
+        try {
+            TokenValidation::createYape($options);
+            return $this->request("POST", self::URL_TOKENS_YAPE, $api_key = $this->culqi->api_key, $options, true);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -45,8 +57,12 @@ class Tokens extends Resource {
      * @return get a Token.
      */
     public function get($id = NULL) {
-        $this->helpers::validateStringStart($id, "tkn");
-        return $this->request("GET", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "tkn");
+            return $this->request("GET", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -56,8 +72,12 @@ class Tokens extends Resource {
      * @return update Token response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
-        $this->helpers::validateStringStart($id, "tkn");
-        return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options, $encryption_params);
+        try {
+            $this->helpers::validateStringStart($id, "tkn");
+            return $this->request("PATCH", self::URL_TOKENS . $id . "/", $api_key = $this->culqi->api_key, $options, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }

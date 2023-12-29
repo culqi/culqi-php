@@ -28,6 +28,10 @@ class CustomerValidation
             throw new CustomException('address_city is empty.');
         }
 
+        if(!is_string($data['phone_number'])) {
+            throw new CustomException('phone number must be a string.');
+        }
+
         //validate coountry code
         Helpers::validateValue($data['country_code'], get_country_codes());
 
