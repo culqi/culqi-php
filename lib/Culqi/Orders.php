@@ -19,8 +19,12 @@ class Orders extends Resource {
      * @return Get all Orders
      */
     public function all($options=[]) {
-        OrderValidation::list($options);
-        return $this->request("GET", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options);
+        try {
+            OrderValidation::list($options);
+            return $this->request("GET", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -29,8 +33,12 @@ class Orders extends Resource {
      * @return create Order 
      */
     public function create($options = NULL, $encryption_params = []) {
-        OrderValidation::create($options);
-        return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            OrderValidation::create($options);
+            return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     } 
 
 
@@ -40,7 +48,11 @@ class Orders extends Resource {
      * @return confirm Order 
      */
     public function confirm($id = NULL) {
-        return $this->request("POST", self::URL_ORDERS . $id . "/confirm/", $api_key = $this->culqi->api_key);
+        try {
+            return $this->request("POST", self::URL_ORDERS . $id . "/confirm/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -49,8 +61,12 @@ class Orders extends Resource {
      * @return confirm Order 
      */
     public function confirm_order_type($options = NULL, $encryption_params=[]) {
-        OrderValidation::confirm_order_type($options);
-        return $this->request("POST", self::URL_ORDERS . "confirm/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            OrderValidation::confirm_order_type($options);
+            return $this->request("POST", self::URL_ORDERS . "confirm/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -59,8 +75,12 @@ class Orders extends Resource {
      * @return get a Order
      */
     public function get($id) {
-        $this->helpers::validateStringStart($id, "ord");
-        return $this->request("GET", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "ord");
+            return $this->request("GET", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -69,8 +89,12 @@ class Orders extends Resource {
      * @return delete a Order
      */
     public function delete($id) {
-        $this->helpers::validateStringStart($id, "ord");
-        return $this->request("DELETE", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "ord");
+            return $this->request("DELETE", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -80,8 +104,12 @@ class Orders extends Resource {
      * @return update Order
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
-        $this->helpers::validateStringStart($id, "ord");
-        return $this->request("PATCH", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            $this->helpers::validateStringStart($id, "ord");
+            return $this->request("PATCH", self::URL_ORDERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }

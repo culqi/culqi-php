@@ -19,8 +19,12 @@ class Customers extends Resource {
      * @return all Customers.
      */
     public function all($options = []) {
-        CustomerValidation::list($options);
-        return $this->request("GET", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options);
+        try {
+            CustomerValidation::list($options);
+            return $this->request("GET", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -29,8 +33,12 @@ class Customers extends Resource {
      * @return create Customer response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        CustomerValidation::create($options);
-        return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            CustomerValidation::create($options);
+            return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -39,8 +47,12 @@ class Customers extends Resource {
      * @return delete a Customer response.
      */
     public function delete($id = NULL) {
-        $this->helpers::validateStringStart($id, "cus");
-       return $this->request("DELETE", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "cus");
+            return $this->request("DELETE", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -49,8 +61,12 @@ class Customers extends Resource {
      * @return get a Customer.
      */
     public function get($id = NULL) {
-        $this->helpers::validateStringStart($id, "cus");
-        return $this->request("GET", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "cus");
+            return $this->request("GET", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -60,8 +76,12 @@ class Customers extends Resource {
      * @return update Charge response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
-        $this->helpers::validateStringStart($id, "cus");
-        return $this->request("PATCH", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            $this->helpers::validateStringStart($id, "cus");
+            return $this->request("PATCH", self::URL_CUSTOMERS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }

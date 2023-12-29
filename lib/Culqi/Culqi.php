@@ -58,11 +58,6 @@ class Culqi
     public function __construct($options)
     {
         $this->api_key = $options["api_key"];
-        $pattern = '/^(pk_test_|sk_test_|pk_live_|sk_live_)/';
-
-        if (!$this->api_key || !preg_match($pattern, $this->api_key)) {
-          throw new Errors\CustomException('API Key invalido');
-        }
         $this->Tokens = new Tokens($this);
         $this->Charges = new Charges($this);
         $this->Subscriptions = new Subscriptions($this);
