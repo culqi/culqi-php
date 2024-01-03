@@ -13,9 +13,22 @@ class Client {
     public function request($method, $url, $api_key, $data = NULL, $secure_url = false, $encryption_params = [])
     {
         try {
+            $pattern = '/^(pk_test_|sk_test_|pk_live_|sk_live_)/';
+            if (!$api_key|| !preg_match($pattern, $api_key)) {
+                throw new Errors\CustomException('API Key invalido');
+            }
             $encryption = new Encryption();
             $url_params = is_array($data) ? '?' . http_build_query($data) : '';
-            $headers= array("Authorization" => "Bearer ".$api_key, "Content-Type" => "application/json", "Accept" => "application/json");
+            $env = (preg_match('/(test)/', $api_key)) ? 'test':'live';
+            $headers= array(
+                "Authorization" => "Bearer ".$api_key, 
+                "Content-Type" => "application/json", 
+                "Accept" => "application/json",
+                "x-culqi-env" => $env,
+                "x-api-version" => Culqi::X_API_VERSION,
+                "x-culqi-client" => Culqi::CULQI_CLIENT,
+                "x-culqi-client-version" => Culqi::CULQI_CLIENT_VERSION,
+            );
             $options = array(
                 'timeout' => 120
             ); 
@@ -35,9 +48,12 @@ class Client {
             } else if($method == "DELETE") {
                 $response = Requests::delete(Culqi::BASE_URL. $url . $url_params, $headers, $options);
             }
+        } catch (Errors\CustomException $e) {
+            return $e->getMessage();
         } catch (\Exception $e) {
             throw new Errors\UnableToConnect();
         }
+
         http_response_code($response->status_code);
         if ($response->status_code >= 200 && $response->status_code <= 206) {
             return json_decode($response->body);
