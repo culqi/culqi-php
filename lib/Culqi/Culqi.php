@@ -37,6 +37,15 @@ class Culqi
     const SECURE_BASE_URL = "https://secure.culqi.com/v2"; 
 
     /**
+     * Library version
+     */ 
+    const CULQI_CLIENT = "PHP"; 
+    const CULQI_CLIENT_VERSION = "2.0.1";
+
+    const X_API_VERSION = "2";
+    
+
+    /**
      * Constructor.
      *
      * @param array|null $options
@@ -49,9 +58,6 @@ class Culqi
     public function __construct($options)
     {
         $this->api_key = $options["api_key"];
-        if (!$this->api_key) {
-          throw new Errors\InvalidApiKey();
-        }
         $this->Tokens = new Tokens($this);
         $this->Charges = new Charges($this);
         $this->Subscriptions = new Subscriptions($this);

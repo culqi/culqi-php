@@ -27,6 +27,7 @@ try {
   $token = $culqi->Tokens->create(
     $req_body
   );
+
   // Respuesta
   echo "<b>Token sin encriptar payload:</b> "."<br>".json_encode($token->id)."<br>";
 

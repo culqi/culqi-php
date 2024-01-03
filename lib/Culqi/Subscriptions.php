@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\SubscriptionValidation as SubscriptionValidation;
+
 /**
  * Class Subscriptions
  *
@@ -16,8 +18,13 @@ class Subscriptions extends Resource {
      *
      * @return all Subscriptions.
      */
-    public function all($options = NULL) {
-        return $this->request("GET", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options);
+    public function all($options = []) {
+        try {
+            SubscriptionValidation::list($options);
+            return $this->request("GET", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -26,7 +33,12 @@ class Subscriptions extends Resource {
      * @return create Subscription response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        return $this->request("POST", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            SubscriptionValidation::create($options);
+            return $this->request("POST", self::URL_SUBSCRIPTIONS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -35,7 +47,12 @@ class Subscriptions extends Resource {
      * @return delete a Subscription response.
      */
     public function delete($id = NULL) {
-       return $this->request("DELETE", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "sub");
+            return $this->request("DELETE", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -44,7 +61,12 @@ class Subscriptions extends Resource {
      * @return get a Subscription.
      */
     public function get($id = NULL) {
-        return $this->request("GET", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "sub");
+            return $this->request("GET", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -54,7 +76,12 @@ class Subscriptions extends Resource {
      * @return update Subscription response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
-        return $this->request("PATCH", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key, $option, false, $encryption_params);
+        try {
+            $this->helpers::validateStringStart($id, "sub");
+            return $this->request("PATCH", self::URL_SUBSCRIPTIONS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }

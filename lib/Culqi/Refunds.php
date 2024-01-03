@@ -2,6 +2,8 @@
 
 namespace Culqi;
 
+use Culqi\Utils\Validation\RefundValidation as RefundValidation;
+
 /**
  * Class Plans
  *
@@ -17,7 +19,12 @@ class Refunds extends Resource {
      * @return all Refunds.
      */
     public function all($options = NULL) {
-        return $this->request("GET", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options);
+        try {
+            RefundValidation::list($options);
+            return $this->request("GET", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -26,7 +33,12 @@ class Refunds extends Resource {
      * @return create Refund response.
      */
     public function create($options = NULL, $encryption_params=[]) {
-        return $this->request("POST", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            RefundValidation::create($options);
+            return $this->request("POST", self::URL_REFUNDS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -35,7 +47,12 @@ class Refunds extends Resource {
      * @return get a Refund.
      */
     public function get($id = NULL) {
-        return $this->request("GET", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key);
+        try {
+            $this->helpers::validateStringStart($id, "ref");
+            return $this->request("GET", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -45,7 +62,12 @@ class Refunds extends Resource {
      * @return update Refund response.
      */
     public function update($id = NULL, $options = NULL, $encryption_params=[]) {
-        return $this->request("PATCH", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        try {
+            $this->helpers::validateStringStart($id, "ref");
+            return $this->request("PATCH", self::URL_REFUNDS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
 }
