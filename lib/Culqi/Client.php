@@ -13,6 +13,7 @@ class Client {
     public function request($method, $url, $api_key, $data = NULL, $secure_url = false, $encryption_params = [])
     {
         try {
+            error_log($url);
             $pattern = '/^(pk_test_|sk_test_|pk_live_|sk_live_)/';
             if (!$api_key|| !preg_match($pattern, $api_key)) {
                 throw new Errors\CustomException('API Key invalido');
