@@ -53,7 +53,7 @@ class PlanValidation
         }
 
         //Validate parameter: amount
-        if (!isset($interval_count) || !is_numeric($interval_count)) {
+        if (!isset($amount) || !is_numeric($amount)) {
             throw new CustomException(ERROR_PARAMETER_AMOUNT);
         }
 
