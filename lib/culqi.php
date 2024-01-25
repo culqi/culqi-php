@@ -13,8 +13,8 @@
  */
 
 //utils
-include_once dirname(__FILE__).'/Culqi/utils/encryption/rsaaes/encoder.php';
-include_once dirname(__FILE__).'/Culqi/utils/validation/validation.php';
+include_once dirname(__FILE__).'/Culqi/Utils/Encryption/RsaAes/encoder.php';
+include_once dirname(__FILE__).'/Culqi/Utils/Validation/validation.php';
 
 // Errors
 include_once dirname(__FILE__).'/Culqi/Error/Errors.php';
