@@ -143,6 +143,7 @@ class Helpers
             'currency',
             'metadata',
             'initial_cycles',
+            'image'
         ];
 
         // Verifica si hay parámetros adicionales

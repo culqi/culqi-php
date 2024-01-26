@@ -93,6 +93,17 @@ class PlanValidation
 
         //Validate parameter: initial_cycles
         Helpers::validateInitialCycles($initial_cycles, $currency, $amount);
+
+
+        //Validate image: optional
+        $image = isset($data['image']) ? $data['image'] : null;
+        if (
+            $image &&
+            Helpers::validateRangeParameters(strlen($image), MIN_IMAGE_LENGTH, MAX_IMAGE_LENGTH) ||
+            !preg_match(REGEX_IMAGE, $image)
+        ) {
+            throw new CustomException(INVALID_IMAGE);
+        }
     }
 
 

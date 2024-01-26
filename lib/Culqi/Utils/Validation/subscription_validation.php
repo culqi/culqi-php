@@ -49,8 +49,8 @@ class SubscriptionValidation
             throw new CustomException(INVALID_PLAN_ID_RANGE);
         }
 
-        if (!isset($data) || !is_bool($tyc) || empty($tyc)) {
-            throw new CustomException(INVALID_CARD_RANGE);
+        if (!isset($tyc) || !is_bool($tyc) || empty($tyc)) {
+            throw new CustomException(SUBSCRIPTION_INVALID_TYC);
         }
 
         //Validate parameter: metadata
