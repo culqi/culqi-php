@@ -17,14 +17,14 @@ try {
     #$plan = $culqi->Plans->all();
 
     //Obtener planes por filtro
-    $plan = $culqi->Plans->get(
+    $plan = $culqi->Plans->all(
         array(
-            "id" => "pln_***************",
             "before" => "pln_live_qnJOtJiuGT88dAa5",
-            "after" => "pln_***************",
+            "after" => "pln_live_c6cm1JuefM0WVkli",
             "limit" => 100,
             "min_amount" => 300,
             "max_amount" => 500000,
+            "status" => 1,
             #"creation_date_from" => "2023-12-20T00:00:00.000Z",
             #"creation_date_to" => "2023-12-20T00:00:00.000Z",
         )
