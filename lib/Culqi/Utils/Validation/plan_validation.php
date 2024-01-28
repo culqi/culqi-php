@@ -193,7 +193,6 @@ class PlanValidation
         $name = isset($data['name']) ? $data['name'] : null;
         $description = isset($data['description']) ? $data['description'] : null;
         $short_name = isset($data['short_name']) ? $data['short_name'] : null;
-        $short_name = isset($data['short_name']) ? $data['short_name'] : null;
         $status = isset($data['status']) ? $data['status'] : null;
         $image = isset($data['image']) ? $data['image'] : null;
         $metadata = isset($data['metadata']) ? $data['metadata'] : null;
