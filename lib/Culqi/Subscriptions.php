@@ -54,7 +54,7 @@ class Subscriptions extends Resource
     {
         try {
             SubscriptionValidation::validId($id);
-            $this->helpers::validateStringStart($id, "sub");
+            $this->helpers::validateStringStart($id, "sxn");
             return $this->request("DELETE", self::URL_SUBSCRIPTIONS . "/" . $id, $api_key = $this->culqi->api_key);
         } catch (\Exception $e) {
             return $e->getMessage();
