@@ -110,6 +110,7 @@ class PlanValidation
             'interval_unit_time'
         ];
         Helpers::additionalValidation($initial_cycles, $expectedParametersIitialCycles, "initial_cycles");
+        Helpers::validateInitialCyclesParameters($initial_cycles);
         Helpers::validateInitialCycles($initial_cycles, $currency, $amount);
 
 
