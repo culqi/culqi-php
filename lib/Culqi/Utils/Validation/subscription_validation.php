@@ -25,7 +25,12 @@ class SubscriptionValidation
 
     public static function create($data = [])
     {
-
+        $expectedParameters = [
+            'card_id',
+            'plan_id',
+            'tyc'
+        ];
+        Helpers::additionalValidation($data, $expectedParameters);
         $card_id = $data['card_id'];
         $plan_id = $data['plan_id'];
         $tyc = $data['tyc'];

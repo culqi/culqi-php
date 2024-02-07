@@ -23,6 +23,19 @@ class PlanValidation
     public static function create($data = [])
     {
         //Validar payload
+        $expectedParameters = [
+            'interval_unit_time',
+            'interval_count',
+            'amount',
+            'name',
+            'description',
+            'short_name',
+            'currency',
+            'metadata',
+            'initial_cycles',
+            'image'
+        ];
+        Helpers::additionalValidation($data, $expectedParameters);
         Helpers::validatePayloadCreatePlan($data);
 
         // Instanciar Valores para su validacion
