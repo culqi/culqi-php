@@ -218,9 +218,9 @@ class PlanValidation
 
         //Validate parameter: name
         if (
-            $name &&
-            Helpers::validateParametersString($name) ||
-            Helpers::validateRangeParameters(strlen($name), MIN_LENGTH_PLAN_NAME, MAX_LENGTH_PLAN_NAME)
+            $name && 
+            (Helpers::validateParametersString($name) ||
+            Helpers::validateRangeParameters(strlen($name), MIN_LENGTH_PLAN_NAME, MAX_LENGTH_PLAN_NAME))
         ) {
             throw new CustomException(ERROR_PARAMETER_NAME);
         }
@@ -228,8 +228,8 @@ class PlanValidation
         //Validate parameter: description
         if (
             $description &&
-            Helpers::validateParametersString($description) ||
-            Helpers::validateRangeParameters(strlen($description), MIN_LENGTH_DESCRIPTION, MAX_LENGTH_DESCRIPTION)
+            (Helpers::validateParametersString($description) ||
+            Helpers::validateRangeParameters(strlen($description), MIN_LENGTH_DESCRIPTION, MAX_LENGTH_DESCRIPTION))
         ) {
             throw new CustomException(ERROR_PARAMETER_DESCRIPTION);
         }
@@ -237,8 +237,8 @@ class PlanValidation
         //Validate parameter: short_name
         if (
             $short_name &&
-            Helpers::validateParametersString($short_name) ||
-            Helpers::validateRangeParameters(strlen($short_name), MIN_LENGTH_PLAN_NAME, MAX_LENGTH_PLAN_NAME)
+            (Helpers::validateParametersString($short_name) ||
+            Helpers::validateRangeParameters(strlen($short_name), MIN_LENGTH_PLAN_NAME, MAX_LENGTH_PLAN_NAME))
         ) {
             throw new CustomException(ERROR_PARAMETER_SHORT_NAME);
         }
@@ -252,8 +252,8 @@ class PlanValidation
 
         if (
             $image &&
-            Helpers::validateRangeParameters(strlen($image), MIN_IMAGE_LENGTH, MAX_IMAGE_LENGTH) ||
-            !preg_match(REGEX_IMAGE, $image)
+            (Helpers::validateRangeParameters(strlen($image), MIN_IMAGE_LENGTH, MAX_IMAGE_LENGTH) ||
+            !preg_match(REGEX_IMAGE, $image))
         ) {
             throw new CustomException(INVALID_IMAGE);
         }
