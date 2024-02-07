@@ -81,10 +81,18 @@ class Helpers
         return !isset($data) || !is_numeric($data) || empty($data);
     }
 
-    public static function additionalValidation($data, $requiredFields) {
+    public static function additionalValidation($data, $requiredFields, $message = "") {
         foreach ($requiredFields as $field) {
+            $errorMessage = "El campo '";
+
+            if ($message !== null && $message !== "") {
+                $errorMessage .= "{$message}.";
+            }
+    
+            $errorMessage .= "{$field}' es requerido";
+    
             if (!isset($data[$field]) || $data[$field] === null || $data[$field] === "" || $data[$field] === "undefined") {
-                throw new CustomException("El campo '{$field}' es requerido y no está presente");
+                throw new CustomException($errorMessage);
             }
         }
     
