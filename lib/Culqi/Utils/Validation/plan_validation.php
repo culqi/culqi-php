@@ -31,9 +31,7 @@ class PlanValidation
             'description',
             'short_name',
             'currency',
-            'metadata',
-            'initial_cycles',
-            'image'
+            'initial_cycles'
         ];
         Helpers::additionalValidation($data, $expectedParameters);
         Helpers::validatePayloadCreatePlan($data);
@@ -105,6 +103,13 @@ class PlanValidation
         }
 
         //Validate parameter: initial_cycles
+        $expectedParametersIitialCycles = [
+            'count',
+            'amount',
+            'has_initial_charge',
+            'interval_unit_time'
+        ];
+        Helpers::additionalValidation($initial_cycles, $expectedParametersIitialCycles, "initial_cycles");
         Helpers::validateInitialCycles($initial_cycles, $currency, $amount);
 
 
