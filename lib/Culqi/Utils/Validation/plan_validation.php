@@ -117,8 +117,8 @@ class PlanValidation
         $image = isset($data['image']) ? $data['image'] : null;
         if (
             $image &&
-            Helpers::validateRangeParameters(strlen($image), MIN_IMAGE_LENGTH, MAX_IMAGE_LENGTH) ||
-            !preg_match(REGEX_IMAGE, $image)
+            (Helpers::validateRangeParameters(strlen($image), MIN_IMAGE_LENGTH, MAX_IMAGE_LENGTH) ||
+            !preg_match(REGEX_IMAGE, $image))
         ) {
             throw new CustomException(INVALID_IMAGE);
         }
