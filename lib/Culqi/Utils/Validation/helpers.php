@@ -254,6 +254,25 @@ class Helpers
         }
     }
 
+    public static function validateInitialCyclesParameters($initialCycles) {
+    
+        if (!is_int($initialCycles['count'])) {
+            throw new CustomException("El campo 'initial_cycles.count' es inválido o está vacío, debe tener un valor numérico.");
+        }
+    
+        if (!is_bool($initialCycles['has_initial_charge'])) {
+            throw new CustomException("El campo 'initial_cycles.has_initial_charge' es inválido o está vacío. El valor debe ser un booleano (true o false).");
+        }
+    
+        if (!is_int($initialCycles['amount'])) {
+            throw new CustomException("El campo 'initial_cycles.amount' es inválido o está vacío, debe tener un valor numérico.");
+        }
+    
+        $valuesIntervalUnitTime = [1, 2, 3, 4, 5, 6];
+        if (!is_int($initialCycles['interval_unit_time']) || !in_array($initialCycles['interval_unit_time'], $valuesIntervalUnitTime)) {
+            throw new CustomException("El campo 'initial_cycles.interval_unit_time' tiene un valor inválido o está vacío. Estos son los únicos valores permitidos: [1,2,3,4,5,6]");
+        }
+    }
     public static function validateMetadataSchema($objMetadata)
     {
         if (!is_array($objMetadata) && !is_object($objMetadata)) {
