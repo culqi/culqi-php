@@ -135,6 +135,12 @@ class SubscriptionValidation
 
     public static function update($data = [])
     {
+        //Validar payload
+        $expectedParameters = [
+            'card_id'
+        ];
+        Helpers::additionalValidation($data, $expectedParameters);
+
         $card_id = isset($data['card_id']) ? $data['card_id'] : null;
         $metadata = isset($data['metadata']) ? $data['metadata'] : null;
 

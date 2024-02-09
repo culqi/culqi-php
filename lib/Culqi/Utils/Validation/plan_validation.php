@@ -34,7 +34,7 @@ class PlanValidation
             'initial_cycles'
         ];
         Helpers::additionalValidation($data, $expectedParameters);
-        Helpers::validatePayloadCreatePlan($data);
+        //Helpers::validatePayloadCreatePlan($data);
 
         // Instanciar Valores para su validacion
         $interval_unit_time = $data['interval_unit_time'];
