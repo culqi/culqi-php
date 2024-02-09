@@ -15,6 +15,14 @@ class PlanValidation
     }
 
     public static function validId($id){
+        $expectedParameters = [
+            'id'
+        ];
+        
+        $data = [
+            'id'=> $id,
+        ];
+        Helpers::additionalValidation($data, $expectedParameters);
         if (empty($id) || strlen($id) != 25) {
             throw new CustomException("El campo 'id' es inválido. La longitud debe ser de 25 caracteres.");
         }
