@@ -45,22 +45,22 @@ class SubscriptionValidation
         $metadata = isset($data['metadata']) ? $data['metadata'] : null;
 
         // Validate card_id format
-        Helpers::validateStringStart($card_id, "crd");
         if (
             Helpers::validateParametersString($card_id) ||
             strlen($card_id) != GENERATED_ID_SUBSCRIPTION
         ) {
             throw new CustomException(INVALID_CARD_RANGE);
         }
+        Helpers::validateStringStart($card_id, "crd");
 
         // Validate plan_id format
-        Helpers::validateStringStart($plan_id, "pln");
         if (
             Helpers::validateParametersString($plan_id) ||
             strlen($plan_id) != GENERATED_ID_SUBSCRIPTION
         ) {
             throw new CustomException(INVALID_PLAN_ID_RANGE);
         }
+        Helpers::validateStringStart($plan_id, "pln");
 
         if (!isset($tyc) || !is_bool($tyc) || empty($tyc)) {
             throw new CustomException(SUBSCRIPTION_INVALID_TYC);
