@@ -234,14 +234,20 @@ Un plan define el comportamiento de las suscripciones. Los planes pueden ser cre
 ```php
 $plan = $culqi->Plans->create(
   array(
-    "alias" => "plan-culqi".uniqid(),
-    "amount" => 10000,
-    "currency_code" => "PEN",
-    "interval" => "dias",
+    "interval_unit_time" => 1,
     "interval_count" => 1,
-    "limit" => 12,
-    "name" => "Plan de Prueba ".uniqid(),
-    "trial_days" => 15
+    "amount" => 300,
+    "name" => "Plan mensual" . uniqid(),
+    "description" => "Plan-mock" . uniqid(),
+    "short_name" => "pln-" . uniqid(),
+    "currency" => "PEN",
+    "metadata" => json_decode('{}'),
+    "initial_cycles" => array(
+      "count" => 0,
+      "amount" => 0,
+      "has_initial_charge" => false,
+      "interval_unit_time" => 1
+    ),
   )
 );
 
@@ -259,8 +265,10 @@ Las suscripciones pueden ser creadas vía [API de suscripción](https://apidocs.
 // Creando Suscriptor a un plan
 $subscription = $culqi->Subscriptions->create(
   array(
-    "card_id" => "{card_id}",
-    "plan_id" => "{plan_id}"
+    "card_id" => "crd_live_tjHaW6x5Dj2oKhrS",
+    "plan_id" => "pln_live_0HzG8Edqy0aUIusL",
+    "tyc" => true,
+    "metadata" => array("envtest" => "SDK-JAVA"),
   )
 );
 

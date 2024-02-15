@@ -19,7 +19,7 @@ try {
     array(
       "interval_unit_time" => 1,
       "interval_count" => 1,
-      "amount" => 4,
+      "amount" => 300,
       "name" => "Plan mensual" . uniqid(),
       "description" => "Plan-mock" . uniqid(),
       "short_name" => "pln-" . uniqid(),
