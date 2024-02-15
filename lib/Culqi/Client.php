@@ -55,6 +55,7 @@ class Client {
         }
 
         http_response_code($response->status_code);
+
         if ($response->status_code >= 200 && $response->status_code <= 206) {
             return json_decode($response->body);
         }

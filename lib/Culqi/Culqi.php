@@ -29,7 +29,7 @@ class Culqi
     /**
      * La URL Base por defecto
      */
-    const BASE_URL = "https://api.culqi.com/v2";   
+    const BASE_URL = "https://api.culqi.com/v2";
 
     /**
      * URL alternativa (segura)

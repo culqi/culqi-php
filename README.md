@@ -234,14 +234,20 @@ Un plan define el comportamiento de las suscripciones. Los planes pueden ser cre
 ```php
 $plan = $culqi->Plans->create(
   array(
-    "alias" => "plan-culqi".uniqid(),
-    "amount" => 10000,
-    "currency_code" => "PEN",
-    "interval" => "dias",
+    "interval_unit_time" => 1,
     "interval_count" => 1,
-    "limit" => 12,
-    "name" => "Plan de Prueba ".uniqid(),
-    "trial_days" => 15
+    "amount" => 300,
+    "name" => "Plan mensual" . uniqid(),
+    "description" => "Plan-mock" . uniqid(),
+    "short_name" => "pln-" . uniqid(),
+    "currency" => "PEN",
+    "metadata" => json_decode('{}'),
+    "initial_cycles" => array(
+      "count" => 0,
+      "amount" => 0,
+      "has_initial_charge" => false,
+      "interval_unit_time" => 1
+    ),
   )
 );
 
@@ -259,8 +265,10 @@ Las suscripciones pueden ser creadas vía [API de suscripción](https://apidocs.
 // Creando Suscriptor a un plan
 $subscription = $culqi->Subscriptions->create(
   array(
-    "card_id" => "{card_id}",
-    "plan_id" => "{plan_id}"
+    "card_id" => "crd_live_tjHaW6x5Dj2oKhrS",
+    "plan_id" => "pln_live_0HzG8Edqy0aUIusL",
+    "tyc" => true,
+    "metadata" => array("envtest" => "SDK-JAVA"),
   )
 );
 
@@ -394,6 +402,24 @@ $charge = $culqi->Charges->create($with_tds, $encryption_params);
 composer install
 phpunit --verbose --tap tests/*
 ```
+
+## Ejecución de Ejemplos
+
+Para ejecutar los ejemplos disponibles en nuestro SDK, sigue estos pasos:
+
+1. Abre tu terminal y navega a la carpeta "examples" del proyecto.
+
+2. Ejecuta el comando correspondiente para la operación que deseas probar:
+
+```bash
+   # Ejecutar el ejemplo de creación de planes
+   php examples/plan/02-create-plan.php
+
+   # Ejecutar el ejemplo de creación de suscripciones
+   php examples/subscription/01-create-subscription.php
+```
+Asegúrate de tener todos los requisitos previos y configuraciones necesarias antes de ejecutar los ejemplos. 
+Ten en cuenta que el nombre del archivo a ejecutar puede variar según la operación que estés probando.
 
 ## Documentación
 

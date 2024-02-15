@@ -1,6 +1,5 @@
 <?php
 namespace Culqi\Utils\Validation;
-require 'country_codes.php';
 
 class CulqiValidation
 {
