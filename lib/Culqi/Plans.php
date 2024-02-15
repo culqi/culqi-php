@@ -9,16 +9,18 @@ use Culqi\Utils\Validation\PlanValidation as PlanValidation;
  *
  * @package Culqi
  */
-class Plans extends Resource {
+class Plans extends Resource
+{
 
-    const URL_PLANS = "/plans/";
+    const URL_PLANS = "/recurrent/plans";
 
     /**
      * @param array|null $options
      *
      * @return all Plans.
      */
-    public function all($options=[]) {
+    public function all($options = [])
+    {
         try {
             PlanValidation::list($options);
             return $this->request("GET", self::URL_PLANS, $api_key = $this->culqi->api_key, $options);
@@ -32,10 +34,12 @@ class Plans extends Resource {
      *
      * @return create Plan response.
      */
-    public function create($options = NULL, $encryption_params=[]) {
+    public function create($options = NULL, $encryption_params = [])
+    {
         try {
             PlanValidation::create($options);
-            return $this->request("POST", self::URL_PLANS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+            define('URL_PLAN_CREATE', "/create");
+            return $this->request("POST", self::URL_PLANS . URL_PLAN_CREATE, $this->culqi->api_key, $options, false, $encryption_params);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -46,10 +50,12 @@ class Plans extends Resource {
      *
      * @return get a Plan.
      */
-    public function get($id) {
+    public function get($id = NULL)
+    {
         try {
+            PlanValidation::validId($id);
             $this->helpers::validateStringStart($id, "pln");
-            return $this->request("GET", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
+            return $this->request("GET", self::URL_PLANS . "/" . $id, $api_key = $this->culqi->api_key);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -60,10 +66,12 @@ class Plans extends Resource {
      *
      * @return delete a Plan.
      */
-    public function delete($id) {
+    public function delete($id = NULL)
+    {
         try {
+            PlanValidation::validId($id);
             $this->helpers::validateStringStart($id, "pln");
-            return $this->request("DELETE", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key);
+            return $this->request("DELETE", self::URL_PLANS . "/" . $id, $api_key = $this->culqi->api_key);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -75,10 +83,13 @@ class Plans extends Resource {
      *
      * @return update Plan response.
      */
-    public function update($id = NULL, $options = NULL, $encryption_params=[]) {
+    public function update($id = NULL, $options = NULL, $encryption_params = [])
+    {
         try {
+            PlanValidation::validId($id);
             $this->helpers::validateStringStart($id, "pln");
-            return $this->request("PATCH", self::URL_PLANS . $id . "/", $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+            PlanValidation::update($options);
+            return $this->request("PATCH", self::URL_PLANS . "/" . $id, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
         } catch (\Exception $e) {
             return $e->getMessage();
         }

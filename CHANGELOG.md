@@ -1,3 +1,5 @@
+### v2.0.2 15-02-2024
+* Add new Api plans y suscriptions
 
 ### v2.0.1 20-08-2023
 * Add HTTP status code
