@@ -33,14 +33,6 @@ Una vez que Composer esté instalado, utiliza el siguiente comando para instalar
 composer install
 ```
 
-### Ejecutar Tests
-Asegúrate de que las pruebas del SDK pasen sin problemas.
-
-```bash
-# Ejecutar pruebas
-vendor/bin/phpunit
-```
-
 ### Ejecutar Ejemplos para Pruebas
 Finalmente, puedes ejecutar un ejemplo proporcionado para probar el SDK. Asegúrate de haber configurado correctamente tus credenciales de Culqi.
  Sigue los siguientes pasos

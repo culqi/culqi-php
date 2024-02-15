@@ -29,4 +29,5 @@ const GENERATED_ID = 25;
 const MIN_IMAGE_LENGTH = 5;
 const MAX_IMAGE_LENGTH = 250;
 const REGEX_IMAGE = '/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/';
-
+const RANGE_DATE_MIN = 10;
+const RANGE_DATE_MAX = 13;
