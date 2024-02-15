@@ -403,6 +403,24 @@ composer install
 phpunit --verbose --tap tests/*
 ```
 
+## Ejecución de Ejemplos
+
+Para ejecutar los ejemplos disponibles en nuestro SDK, sigue estos pasos:
+
+1. Abre tu terminal y navega a la carpeta "examples" del proyecto.
+
+2. Ejecuta el comando correspondiente para la operación que deseas probar:
+
+```bash
+   # Ejecutar el ejemplo de creación de planes
+   php examples/plan/02-create-plan.php
+
+   # Ejecutar el ejemplo de creación de suscripciones
+   php examples/subscription/01-create-subscription.php
+```
+Asegúrate de tener todos los requisitos previos y configuraciones necesarias antes de ejecutar los ejemplos. 
+Ten en cuenta que el nombre del archivo a ejecutar puede variar según la operación que estés probando.
+
 ## Documentación
 
 - [Referencia de Documentación](https://docs.culqi.com/)
