@@ -6,7 +6,7 @@ require_once __DIR__ . '/../Constant/Response/Plan.php';
 use Culqi\Error\CustomException as CustomException;
 use Culqi\Utils\Validation\Helpers as Helpers;
 
-require 'country_codes.php';
+require_once 'country_codes.php';
 
 class PlanValidation
 {
