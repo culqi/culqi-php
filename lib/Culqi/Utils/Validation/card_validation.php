@@ -1,7 +1,7 @@
 <?php
 namespace Culqi\Utils\Validation;
 use Culqi\Utils\Validation\Helpers as Helpers;
-require 'country_codes.php';
+require_once 'country_codes.php';
 
 class CardValidation
 {

@@ -8,7 +8,7 @@ use Culqi\Utils\Validation\Helpers as Helpers;
 require_once __DIR__ . '/../Constant/Request/Subscription.php';
 require_once __DIR__ . '/../Constant/Response/Subscription.php';
 
-require 'country_codes.php';
+require_once 'country_codes.php';
 
 class SubscriptionValidation
 {
