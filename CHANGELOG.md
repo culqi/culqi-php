@@ -1,3 +1,6 @@
+### v2.0.3 20-03-2024
+* Change require by require_once
+
 ### v2.0.2 15-02-2024
 * Add new Api plans y suscriptions
 
