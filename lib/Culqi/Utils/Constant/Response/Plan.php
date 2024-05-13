@@ -11,8 +11,6 @@ const ERROR_PARAMETER_AMOUNT = "El campo 'amount' es inválido o está vacío, d
 const ERROR_PARAMETER_NAME = "El campo 'name' es inválido o está vacío. El valor debe tener un rango de " . MIN_LENGTH_PLAN_NAME . " a " . MAX_LENGTH_PLAN_NAME . " caracteres.";
 const ERROR_PARAMETER_DESCRIPTION = "El campo 'description' es inválido o está vacío. El valor debe tener un rango de " . MIN_LENGTH_DESCRIPTION . " a " . MAX_LENGTH_DESCRIPTION . " caracteres.";
 const ERROR_PARAMETER_SHORT_NAME = "El campo 'short_name' es inválido o está vacío. El valor debe tener un rango de " . MIN_LENGTH_PLAN_NAME . " a " . MAX_LENGTH_PLAN_NAME . " caracteres.";
-const INVALID_AMOUNT_RANGE_PEN = "El campo 'amount' admite valores en el rango " . MIN_AMOUNT_PEN * 100 . " a " . INITIAL_CYCLE_MAX_AMOUNT * 100 . ".";
-const INVALID_AMOUNT_RANGE_USD = "El campo 'amount' admite valores en el rango " . MIN_AMOUNT_USD * 100 . " a " . MAX_AMOUNT_USD * 100 . ".";
 
 $enumCurrencyAsString = implode(', ', ENUM_CURRENCY);
 define('INVALID_CURRENCY_ENUM_STRING', "El campo 'currency' es inválido o está vacío, el código de la moneda en tres letras (Formato ISO 4217). Culqi actualmente soporta las siguientes monedas: [{$enumCurrencyAsString}].");
@@ -33,9 +31,9 @@ $enumPlanStutsAsString = implode(', ', PLAN_STATUS);
 define('INVALID_STATUS_FILTER_ENUM_STRING', "El filtro 'status' tiene un valor inválido o está vacío. Estos son los únicos valores permitidos: [{$enumPlanStutsAsString}].");
 const INVALID_STATUS_FILTER_ENUM = INVALID_STATUS_FILTER_ENUM_STRING;
 
-const MIN_AMOUNT_FILTER = "El filtro 'min_amount' admite valores en el rango " . MIN_AMOUNT_RANGE_PEN * 100 . " a " . MAX_AMOUNT_RANGE_PEN * 100 . ".";
+const MIN_AMOUNT_FILTER = "El filtro 'min_amount' es invalido, debe tener un valor numérico entero.";
 
-const MAX_AMOUNT_FILTER = "El filtro 'max_amount' admite valores en el rango " . MIN_AMOUNT_RANGE_PEN * 100 . " a " . MAX_AMOUNT_RANGE_PEN * 100 . ".";
+const MAX_AMOUNT_FILTER = "El filtro 'max_amount' es invalido, debe tener un valor numérico entero.";
 
 const LIMIT_FILTER = "El filtro 'limit' admite valores en el rango " . MIN_LIMIT_FILTER . " a " . MAX_LIMIT_FILTER . ".";
 const INVALID_AFTER_FILTER = "El campo 'after' es inválido. La longitud debe ser de " . GENERATED_ID . " caracteres.";
