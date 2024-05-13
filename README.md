@@ -29,7 +29,7 @@ Nuestra biblioteca te da la posibilidad de capturar el status_code de la solicit
 ```json
 {
   "require": {
-    "culqi/culqi-php": "1.5.2"
+    "culqi/culqi-php": "2.0.3"
   }
 }
 ```
