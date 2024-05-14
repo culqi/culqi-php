@@ -164,7 +164,7 @@ class Helpers
     }
 
 
-    public static function validateInitialCycles($initial_cycles, $currency)
+    public static function validateInitialCycles($initial_cycles)
     {
         $hasInitialCharge = $initial_cycles['has_initial_charge'];
         $payAmount = $initial_cycles['amount'];
@@ -175,8 +175,6 @@ class Helpers
         }
 
         if ($hasInitialCharge) {
-            self::validateEnumCurrency($currency);
-
             if ($count < COUNT_MIN || $count > INTERVAL_COUNT_MAX) {
                 throw new CustomException(INVALID_INITIAL_CYCLES_COUNT);
             }
