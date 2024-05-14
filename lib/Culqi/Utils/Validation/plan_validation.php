@@ -118,7 +118,7 @@ class PlanValidation
         ];
         Helpers::additionalValidation($initial_cycles, $expectedParametersIitialCycles, "initial_cycles");
         Helpers::validateInitialCyclesParameters($initial_cycles);
-        Helpers::validateInitialCycles($initial_cycles, $currency);
+        Helpers::validateInitialCycles($initial_cycles);
 
 
         //Validate image: optional
