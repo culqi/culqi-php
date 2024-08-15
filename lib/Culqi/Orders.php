@@ -32,10 +32,10 @@ class Orders extends Resource {
      *
      * @return create Order 
      */
-    public function create($options = NULL, $encryption_params = []) {
+    public function create($options = NULL, $encryption_params = [], $custom_headers = NULL) {
         try {
             OrderValidation::create($options);
-            return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+            return $this->request("POST", self::URL_ORDERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params, $custom_headers);
         } catch (\Exception $e) {
             return $e->getMessage();
         }

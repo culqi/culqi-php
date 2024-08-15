@@ -34,12 +34,12 @@ class Plans extends Resource
      *
      * @return create Plan response.
      */
-    public function create($options = NULL, $encryption_params = [])
+    public function create($options = NULL, $encryption_params = [], $custom_headers = NULL)
     {
         try {
             PlanValidation::create($options);
             define('URL_PLAN_CREATE', "/create");
-            return $this->request("POST", self::URL_PLANS . URL_PLAN_CREATE, $this->culqi->api_key, $options, false, $encryption_params);
+            return $this->request("POST", self::URL_PLANS . URL_PLAN_CREATE, $this->culqi->api_key, $options, false, $encryption_params, $custom_headers);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
