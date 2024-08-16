@@ -31,9 +31,9 @@ try {
   );
 
   // Creando Cargo a una tarjeta
-  $cahrge = $culqi->Charges->create($req_body, [], $custom_headers);
+  $charge = $culqi->Charges->create($req_body, [], $custom_headers);
   // Respuesta
-  echo json_encode($cahrge);
+  echo json_encode($charge);
 
 } catch (Exception $e) {
   echo json_encode($e->getMessage());
