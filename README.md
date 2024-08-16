@@ -165,6 +165,49 @@ $charge = $culqi->Charges->create(
 print_r($charge);
 ```
 
+### Crear Cargo con Configuración Adicional
+
+**¿Cómo funciona la configuración adicional?**
+
+Puedes agregar campos configurables en la sección **custom_headers** para personalizar las solicitudes de cobro. Es importante tener en cuenta que no se permiten campos con valores **false**, **null**, o cadenas vacías (**''**).
+
+**Explicación:**
+- **params**: Contiene la información necesaria para crear el cargo, como el monto, la moneda, y el correo del cliente.
+- **custom_headers**: Define los encabezados personalizados para la solicitud. Recuerda que solo se permiten valores válidos.
+- **Filtrado de encabezados**: Antes de realizar la solicitud, se eliminan los encabezados con valores no permitidos (**false, null, o vacíos**) para garantizar que la solicitud sea aceptada por la API.
+
+**¿Quieres realizar cobros a una lista de comercios en un tiempo y monto determinado?**
+
+Para realizar un cobro recurrente, puedes utilizar el siguiente código (**Configuración Adicional -> custom_headers**):
+
+```php
+$req_body =  array(
+  "amount" => 1000,
+  "capture" => true,
+  "currency_code" => "PEN",
+  "description" => "Venta de prueba",
+  "email" => "test@culqi.com",
+  "installments" => 0,
+  "antifraud_details" => array(
+      "address" => "Av. Lima 123",
+      "address_city" => "LIMA",
+      "country_code" => "PE",
+      "first_name" => "Test_Nombre",
+      "last_name" => "Test_apellido",
+      "phone_number" => "9889678986",
+  ),
+  "source_id" => "{token_id o card_id}"
+);
+
+$custom_headers = array(
+  "X-Charge-Channel" => 'recurrent'
+);
+
+$charge = $culqi->Charges->create($req_body, [], $custom_headers);
+//Respuesta
+print_r($charge);
+```
+**Solo habilitado para metodos POST**
 ### Crear una devolución
 
 Solicita la devolución de las compras de tus clientes (parcial o total) de forma gratuita a través del API y CulqiPanel. 
