@@ -32,14 +32,13 @@ class Tokens extends Resource {
      *
      * @return create Token response.
      */
-    public function create($options = NULL, $encryption_params = []) {
+    public function create($options = NULL, $encryption_params = [], $custom_headers = NULL) {
         try {
             TokenValidation::create($options);
+            return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_params, $custom_headers);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        return $this->request("POST", self::URL_TOKENS, $api_key = $this->culqi->api_key, $options, true, $encryption_params);
-
     }
 
     public function createYape($options = NULL) {

@@ -121,58 +121,6 @@ class Helpers
         }
     }
 
-    public static function validateCurrency($currency, $amount)
-    {
-
-        self::validateEnumCurrency($currency);
-
-        $minAmountPublicApi = MIN_AMOUNT_PEN * 100;
-        $maxAmountPublicApi = MAX_AMOUNT_PEN * 100;
-        ;
-
-
-        if ($currency == USD) {
-            $minAmountPublicApi = MIN_AMOUNT_USD * 100;
-            $maxAmountPublicApi = MAX_AMOUNT_USD * 100;
-            ;
-        }
-
-
-        $validAmount = $amount >= $minAmountPublicApi && $amount <= $maxAmountPublicApi;
-
-        if (!$validAmount) {
-            if ($currency == USD) {
-                throw new CustomException(INVALID_AMOUNT_RANGE_USD);
-            }
-
-            throw new CustomException(INVALID_AMOUNT_RANGE_PEN);
-        }
-    }
-
-    public static function validatePayloadCreatePlan($data = [])
-    {
-        // Define la lista de parámetros esperados
-        $expectedParameters = [
-            'interval_unit_time',
-            'interval_count',
-            'amount',
-            'name',
-            'description',
-            'short_name',
-            'currency',
-            'metadata',
-            'initial_cycles',
-            'image'
-        ];
-
-        // Verifica si hay parámetros adicionales
-        $extraParameters = array_diff(array_keys($data), $expectedParameters);
-
-        if (!empty($extraParameters)) {
-            throw new CustomException('Parámetros adicionales no permitidos: ' . implode(', ', $extraParameters));
-        }
-    }
-
     public static function validatePayloadUpdatePlan($data = [])
     {
         // Define la lista de parámetros esperados
@@ -216,7 +164,7 @@ class Helpers
     }
 
 
-    public static function validateInitialCycles($initial_cycles, $currency, $amount)
+    public static function validateInitialCycles($initial_cycles)
     {
         $hasInitialCharge = $initial_cycles['has_initial_charge'];
         $payAmount = $initial_cycles['amount'];
@@ -227,29 +175,12 @@ class Helpers
         }
 
         if ($hasInitialCharge) {
-            self::validateCurrency($currency, $amount);
-
-            if ($amount === $payAmount) {
-                throw new CustomException(AMOUNT_PAY_AMOUNT_EQUAL);
-            }
-
             if ($count < COUNT_MIN || $count > INTERVAL_COUNT_MAX) {
                 throw new CustomException(INVALID_INITIAL_CYCLES_COUNT);
-            }
-
-            if (
-                $payAmount < INITIAL_CYCLE_MIN_AMOUNT ||
-                $payAmount > INITIAL_CYCLE_MAX_AMOUNT
-            ) {
-                throw new CustomException(INVALID_INITIAL_CYCLES_AMOUNT_RANGE);
             }
         } else {
             if ($count < 0 || $count > INTERVAL_COUNT_MAX) {
                 throw new CustomException(INITIAL_CYCLES_COUNT_NON_ZERO);
-            }
-
-            if ($payAmount !== 0) {
-                throw new CustomException(INITIAL_CYCLES_AMOUNT_NON_ZERO);
             }
         }
     }

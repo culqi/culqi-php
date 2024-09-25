@@ -10,7 +10,7 @@ use Culqi\Utils\Encryption\RsaAes\Encryption as Encryption;
  * @package Culqi
  */
 class Client {
-    public function request($method, $url, $api_key, $data = NULL, $secure_url = false, $encryption_params = [])
+    public function request($method, $url, $api_key, $data = NULL, $secure_url = false, $encryption_params = [], $custom_headers = NULL)
     {
         try {
             $pattern = '/^(pk_test_|sk_test_|pk_live_|sk_live_)/';
@@ -29,6 +29,18 @@ class Client {
                 "x-culqi-client" => Culqi::CULQI_CLIENT,
                 "x-culqi-client-version" => Culqi::CULQI_CLIENT_VERSION,
             );
+
+            if ($custom_headers) {
+                echo "\nCustom_headers:\n";
+                print_r($custom_headers);
+            
+                foreach ($custom_headers as $header_key => $header_value) {
+                    if ($header_value) {
+                        $headers[$header_key] = $header_value;
+                    }
+                }
+            }
+
             $options = array(
                 'timeout' => 120
             ); 
@@ -55,7 +67,6 @@ class Client {
         }
 
         http_response_code($response->status_code);
-
         if ($response->status_code >= 200 && $response->status_code <= 206) {
             return json_decode($response->body);
         }

@@ -34,12 +34,12 @@ class Subscriptions extends Resource
      *
      * @return create Subscription response.
      */
-    public function create($options = NULL, $encryption_params = [])
+    public function create($options = NULL, $encryption_params = [], $custom_headers = NULL)
     {
         try {
             SubscriptionValidation::create($options);
             define('URL_SUBSCRIPTIONS_CREATE', "/create");
-            return $this->request("POST", self::URL_SUBSCRIPTIONS . URL_SUBSCRIPTIONS_CREATE, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+            return $this->request("POST", self::URL_SUBSCRIPTIONS . URL_SUBSCRIPTIONS_CREATE, $api_key = $this->culqi->api_key, $options, false, $encryption_params, $custom_headers);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
