@@ -42,7 +42,6 @@ class PlanValidation
             'initial_cycles'
         ];
         Helpers::additionalValidation($data, $expectedParameters);
-        //Helpers::validatePayloadCreatePlan($data);
 
         // Instanciar Valores para su validacion
         $interval_unit_time = $data['interval_unit_time'];
@@ -71,12 +70,12 @@ class PlanValidation
             throw new CustomException(ERROR_PARAMETER_INTERVAL_COUNT);
         }
 
-        //Validate parameter: amount
         if (!isset($amount) || !is_numeric($amount)) {
             throw new CustomException(ERROR_PARAMETER_AMOUNT);
         }
 
-        Helpers::validateCurrency($currency, $amount);
+
+        Helpers::validateEnumCurrency($currency);
 
         //Validate parameter: name
         if (
@@ -119,7 +118,7 @@ class PlanValidation
         ];
         Helpers::additionalValidation($initial_cycles, $expectedParametersIitialCycles, "initial_cycles");
         Helpers::validateInitialCyclesParameters($initial_cycles);
-        Helpers::validateInitialCycles($initial_cycles, $currency, $amount);
+        Helpers::validateInitialCycles($initial_cycles);
 
 
         //Validate image: optional
@@ -157,14 +156,14 @@ class PlanValidation
 
         if (
             $min_amount &&
-            Helpers::validateRangeParameters($min_amount, MIN_AMOUNT_RANGE_PEN * 100, MAX_AMOUNT_RANGE_PEN * 100)
+            !is_numeric($min_amount)
         ) {
             throw new CustomException(MIN_AMOUNT_FILTER);
         }
 
         if (
             $max_amount &&
-            Helpers::validateRangeParameters($max_amount, MIN_AMOUNT_RANGE_PEN * 100, MAX_AMOUNT_RANGE_PEN * 100)
+            !is_numeric($max_amount)
         ) {
             throw new CustomException(MAX_AMOUNT_FILTER);
         }

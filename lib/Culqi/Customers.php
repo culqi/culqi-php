@@ -32,10 +32,10 @@ class Customers extends Resource {
      *
      * @return create Customer response.
      */
-    public function create($options = NULL, $encryption_params=[]) {
+    public function create($options = NULL, $encryption_params=[], $custom_headers = NULL) {
         try {
             CustomerValidation::create($options);
-            return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params);
+            return $this->request("POST", self::URL_CUSTOMERS, $api_key = $this->culqi->api_key, $options, false, $encryption_params, $custom_headers);
         } catch (\Exception $e) {
             return $e->getMessage();
         }
