@@ -70,6 +70,7 @@ class CustomException extends CulqiException {
     private $error_data;
 
     public function __construct($merchant_message) {
+        http_response_code(400);
         $this->error_data = array(
             "object" => "error",
             "type" => "param_error",
