@@ -40,7 +40,7 @@ class Culqi
      * Library version
      */ 
     const CULQI_CLIENT = "culqi-php"; 
-    const CULQI_CLIENT_VERSION = "2.0.3";
+    const CULQI_CLIENT_VERSION = "2.0.4";
 
     const X_API_VERSION = "2";
     
