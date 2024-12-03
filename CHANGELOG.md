@@ -1,3 +1,7 @@
+### v2.0.4 03-12-2024
+* Control bad request
+* Add validations recurrent
+
 ### v2.0.3 20-03-2024
 * Change require by require_once
 
