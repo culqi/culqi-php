@@ -37,7 +37,7 @@ class CustomerValidation
 
         //validate email
         if (!Helpers::isValidEmail($data['email'])) {
-            throw new \Exception('Invalid email.');
+            throw new CustomException('Invalid email.');
         }
         
     }

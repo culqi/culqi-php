@@ -11,12 +11,12 @@ class CulqiValidation
     {
         // Validate email
         if (!$this->isValidEmail($data['email'])) {
-            throw new \Exception('Invalid email.');
+            throw new CustomException('Invalid email.');
         }
 
         //validate amount
         if (!is_numeric($data['amount']) || intval($data['amount']) != $data['amount']) {
-            throw new \Exception('Invalid amount.');
+            throw new CustomException('Invalid amount.');
         }
 
         $this->validateCurrencyCode($data['currency_code']);
@@ -33,7 +33,7 @@ class CulqiValidation
 
         //validate amount
         if (!is_numeric($data['amount']) || intval($data['amount']) != $data['amount']) {
-            throw new \Exception('Invalid amount.');
+            throw new CustomException('Invalid amount.');
         }
     }
     
@@ -41,7 +41,7 @@ class CulqiValidation
     {
         //validate amount
         if (!is_numeric($data['amount']) || intval($data['amount']) != $data['amount']) {
-            throw new \Exception('Invalid amount.');
+            throw new CustomException('Invalid amount.');
         }
 
         //validate interval
@@ -56,19 +56,19 @@ class CulqiValidation
     {
         //validate address, firstname and lastname
         if (empty($data['first_name'])) {
-            throw new \Exception('first name is empty.');
+            throw new CustomException('first name is empty.');
         }
         
         if (empty($data['last_name'])) {
-            throw new \Exception('last name is empty.');
+            throw new CustomException('last name is empty.');
         }
         
         if (empty($data['address'])) {
-            throw new \Exception('address is empty.');
+            throw new CustomException('address is empty.');
         }
         
         if (empty($data['address_city'])) {
-            throw new \Exception('address_city is empty.');
+            throw new CustomException('address_city is empty.');
         }
 
         //validate coountry code
@@ -76,7 +76,7 @@ class CulqiValidation
 
         //validate email
         if (!$this->isValidEmail($data['email'])) {
-            throw new \Exception('Invalid email.');
+            throw new CustomException('Invalid email.');
         }
         
     }
@@ -100,7 +100,7 @@ class CulqiValidation
     public function order_validation($data = []) {
         //validate amount
         if (!is_numeric($data['amount']) || intval($data['amount']) != $data['amount']) {
-            throw new \Exception('Invalid amount.');
+            throw new CustomException('Invalid amount.');
         }
 
         //validate currency
@@ -108,26 +108,26 @@ class CulqiValidation
 
         //validate firstname, lastname and phone
         if (empty($data['client_details']['first_name'])) {
-            throw new \Exception('first name is empty.');
+            throw new CustomException('first name is empty.');
         }
         
         if (empty($data['client_details']['last_name'])) {
-            throw new \Exception('last name is empty.');
+            throw new CustomException('last name is empty.');
         }
         
         if (empty($data['client_details']['phone_number'])) {
-            throw new \Exception('phone_number is empty.');
+            throw new CustomException('phone_number is empty.');
         }
 
         //validate email
         if (!$this->isValidEmail($data['client_details']['email'])) {
-            throw new \Exception('Invalid email.');
+            throw new CustomException('Invalid email.');
         }
 
         //validate expiration date
 
         if(!$this->isFutureDate($data['expiration_date'])) {
-            throw new \Exception('expiration_date must be a future date.');
+            throw new CustomException('expiration_date must be a future date.');
         }
 
     }
@@ -148,28 +148,28 @@ class CulqiValidation
 
     private function validateCurrencyCode($currency_code) {
         if (empty($currency_code)) {
-            throw new \Exception('Currency code is empty.');
+            throw new CustomException('Currency code is empty.');
         }
         
         if (!is_string($currency_code)) {
-            throw new \Exception('Currency code must be a string.');
+            throw new CustomException('Currency code must be a string.');
         }
         
         $allowedValues = ['PEN', 'USD'];
         if (!in_array($currency_code, $allowedValues)) {
-            throw new \Exception('Currency code must be either "PEN" or "USD".');
+            throw new CustomException('Currency code must be either "PEN" or "USD".');
         }
     }
     
     public function validateStringStart($string, $start) {
         if (strpos($string, $start."_test_") !== 0 && strpos($string, $start."_live_") !== 0) {
-            throw new \Exception('Incorrect format. The format must be start with '. $start . '_test_ or '. $start . '_live_');
+            throw new CustomException('Incorrect format. The format must be start with '. $start . '_test_ or '. $start . '_live_');
         }
     }
     
     private function validateValue($value, $allowedValues) {
         if (!in_array($value, $allowedValues)) {
-            throw new \Exception('Invalid value. It must be '.json_encode($allowedValues).' .');
+            throw new CustomException('Invalid value. It must be '.json_encode($allowedValues).' .');
         }
     }
 
