@@ -70,12 +70,16 @@ Como primer paso hay que configurar la credencial `$API_KEY `
 
 ```php
 // Configurar tu API Key y autenticación
-$PUBLIC_KEY = "{PUBLIC KEY}";
-$SECRET_KEY = "{SECRET KEY}";
+$PUBLIC_KEY = "INSERTE_SU_LLAVE_PUBLICA";
+$SECRET_KEY = "INSERTE_SU_LLAVE_PRIVADA";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 ```
 
 > Recuerda que las llaves de integración se identifican como "test" y las de producción como "live".
+
+### Configurar pruebas y ejemplos
+
+Para probar la integración, usa tus propias llaves de prueba `pk_test_` y `sk_test_`, obtenidas desde CulqiPanel. Reemplaza los placeholders localmente y no hagas commit de llaves. Los tests y ejemplos realizan llamadas a la API de Culqi; ejecútalos con credenciales de prueba.
 
 ## Encriptar payload
 
@@ -87,8 +91,8 @@ Ejemplo
 
 ```php
 $encryption_params = array(
-  "rsa_public_key" => "la llave pública RSA",
-  "rsa_id" => "el id de tu llave"
+  "rsa_public_key" => "INSERTE_SU_LLAVE_RSA",
+  "rsa_id" => "INSERTE_SU_RSA_ID"
 );
  $req_body = array(
     "card_number" => "4111111111111111",
@@ -369,12 +373,12 @@ php -S 0.0.0.0:8000
 ### Ejemplo Prueba Token
 
 ```php
-$PUBLIC_KEY = "{PUBLIC KEY}";
+$PUBLIC_KEY = "INSERTE_SU_LLAVE_PUBLICA";
 $culqi = new Culqi\Culqi(array('api_key' => $PUBLIC_KEY));
 $futureDate = date('Y', strtotime('+1 year'));
 $encryption_params = array(
-  "rsa_public_key" => "",
-  "rsa_id" => ""
+  "rsa_public_key" => "INSERTE_SU_LLAVE_RSA",
+  "rsa_id" => "INSERTE_SU_RSA_ID"
 );
 
 $req_body = array(
@@ -397,13 +401,13 @@ $token = $culqi->Tokens->create(
 ### Ejemplo Prueba Cargo
 
 ```php
-$SECRET_KEY = "{SECRET KEY}";
+$SECRET_KEY = "INSERTE_SU_LLAVE_PRIVADA";
 $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
 
 //Datos para encriptar
 $encryption_params = array(
-  "rsa_public_key" => "",
-  "rsa_id" => ""
+  "rsa_public_key" => "INSERTE_SU_LLAVE_RSA",
+  "rsa_id" => "INSERTE_SU_RSA_ID"
 );
 
 //3ds object, la primera vez que se consume el servicio no se debe enviar los parámetros 3ds
